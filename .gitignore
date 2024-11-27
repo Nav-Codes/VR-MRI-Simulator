@@ -32,3 +32,5 @@ sysinfo.txt
 
 # Packed files
 *.unitypackage
+
+*.log
