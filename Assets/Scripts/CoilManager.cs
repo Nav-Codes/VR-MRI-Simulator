@@ -1,39 +1,73 @@
 using UnityEngine;
-using TMPro;
+using TMPro; // Required for TextMeshPro UI
+using System.Collections.Generic;
 
 public class CoilManager : MonoBehaviour
 {
-    public TMP_Dropdown coilDropdown; // Configure in Inspector
+    public TMP_Dropdown CoilDropdown; // Configure in Inspector
 
     [System.Serializable]
     public class CoilData
     {
-        public string coilName;
-        public GameObject coilPrefab; // The coil prefab
+        public string CoilName;
+        public GameObject CoilPrefab; // Prefab for the Coil
     }
 
-    public CoilData[] coils; // Configure in Inspector
-    private CoilData currentCoil;
-    
-    public void SpawnCoil()
+    // public GameObject[] Coils; 
+
+    public CoilData[] Coils; // Configure in Inspector
+    private Dictionary<string, GameObject> CoilMap; // For efficient lookup
+    private GameObject activeCoil; // Reference to currently active Coil
+
+    private void Awake()
     {
-        if (currentCoil != null)
+        // Initialize the dictionary
+        CoilMap = new Dictionary<string, GameObject>();
+        foreach (var Coil in Coils)
         {
-            currentCoil.coilPrefab.SetActive(false);
+            if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
+            {
+                CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
+                Coil.CoilPrefab.SetActive(false); // Ensure all Coils are inactive at start
+            }
         }
 
-        CoilData selectedCoil = coils[coilDropdown.value];
+        // Populate the dropdown with Coil names
+        PopulateDropdown();
+    }
 
-        // Spawn bottom part on table
-        if (selectedCoil.coilPrefab != null)
+    private void PopulateDropdown()
+    {
+        CoilDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        foreach (var Coil in Coils)
         {
-            Debug.Log("Spawning " + selectedCoil.coilName);
-            currentCoil = selectedCoil;
-            selectedCoil.coilPrefab.SetActive(true);
+            options.Add(Coil.CoilName);
+        }
+        CoilDropdown.AddOptions(options);
+    }
 
-            // GameObject coildata = Instantiate(selectedCoil.coilPrefab);
-            // coildata.transform.SetActive(true);
-     
+    public void SpawnCoil()
+    {
+        // Disable the currently active Coil
+        if (activeCoil != null)
+        {
+            activeCoil.SetActive(false);
+        }
+
+        // Get selected Coil name from dropdown
+        string selectedCoilName = CoilDropdown.options[CoilDropdown.value].text;
+
+        // Spawn and activate the selected Coil
+        if (CoilMap.TryGetValue(selectedCoilName, out GameObject selectedCoilPrefab))
+        {
+            activeCoil = selectedCoilPrefab;
+            activeCoil.SetActive(true);
+            Debug.Log($"Activated Coil: {selectedCoilName}");
+        }
+        else
+        {
+            Debug.LogWarning($"Coil '{selectedCoilName}' not found in CoilMap.");
         }
     }
 }

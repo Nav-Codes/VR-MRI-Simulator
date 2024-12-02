@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Room4.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/VIVE OpenXR Plugin/2.2.0/VIVE OpenXR Samples/Samples/HandTracking/HandInteractionSample.unity
     guid: 197033d17ca734640b4ca8225d6c3ece
   m_configObjects:
