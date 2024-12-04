@@ -37,7 +37,7 @@ public class TableController : MonoBehaviour
     {
         return Mathf.Approximately(transform.localPosition.y, minY);
     }
-    
+
     void Update()
     {
         if (!Mathf.Approximately(transform.localPosition.y, targetY))

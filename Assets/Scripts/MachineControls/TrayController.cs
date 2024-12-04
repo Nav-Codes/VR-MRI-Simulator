@@ -4,7 +4,7 @@ public class TrayController : MonoBehaviour
 {
     public float minY = 0.0f; // Minimum Y position
     public float maxY = 1.0f; // Maximum Y position
-    public float speed = 100.0f; // Movement speed
+    public float speed = 1.0f; // Movement speed
 
     private float targetY;
 
@@ -23,6 +23,11 @@ public class TrayController : MonoBehaviour
         targetY = Mathf.Max(targetY - speed * Time.deltaTime, minY);
     }
 
+    public void MoveByAmount(float amount)
+    {
+        targetY = Mathf.Clamp(transform.localPosition.y + amount, minY, maxY);
+    }
+
     public void MoveToMin()
     {
         targetY = minY;
@@ -38,6 +43,11 @@ public class TrayController : MonoBehaviour
         return Mathf.Approximately(transform.localPosition.y, minY);
     }
 
+    public float DistanceFromMax()
+    {
+        return maxY - transform.localPosition.y;
+    }
+
     void Update()
     {
         if (!Mathf.Approximately(transform.localPosition.y, targetY))
@@ -46,19 +56,4 @@ public class TrayController : MonoBehaviour
             transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
         }
     }
-
-    public void AdjustTarget()
-    {
-        // Move the tray in by 11 units, ensuring it doesn't exceed maxY
-        float newY = transform.localPosition.y + 11f;
-        newY = Mathf.Min(newY, maxY);
-        MoveToPosition(newY);
-    }
-
-    public void MoveToPosition(float newY)
-    {
-        // Smoothly move the tray to newY
-        targetY = newY;
-    }
-
 }
