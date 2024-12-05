@@ -6,12 +6,11 @@ public class TouchscreenMenuScript : MonoBehaviour
     [SerializeField] private GameObject physioMenuPanel;   // Panel for the Physio menu
     [SerializeField] private GameObject settingsMenuPanel; // Panel for the Settings menu
     [SerializeField] private GameObject patientPanel;
-    [SerializeField] private GameObject sidePanel;
+    [SerializeField] private GameObject sidePanel; // Side panel beside patient panel
 
     void Start()
     {
-        patientPanel.SetActive(true);
-        sidePanel.SetActive(true);
+        TogglePatientPanel();
     }
 
     // Show the Comfort menu and hide others
@@ -20,7 +19,7 @@ public class TouchscreenMenuScript : MonoBehaviour
         comfortMenuPanel.SetActive(true);
         physioMenuPanel.SetActive(false);
         settingsMenuPanel.SetActive(false);
-        patientPanel.SetActive(false);
+        TogglePatientPanel();
     }
 
     // Show the Physio menu and hide others
@@ -29,7 +28,7 @@ public class TouchscreenMenuScript : MonoBehaviour
         comfortMenuPanel.SetActive(false);
         physioMenuPanel.SetActive(true);
         settingsMenuPanel.SetActive(false);
-        patientPanel.SetActive(false);
+        TogglePatientPanel();
     }
 
     // Show the Settings menu and hide others
@@ -38,7 +37,7 @@ public class TouchscreenMenuScript : MonoBehaviour
         comfortMenuPanel.SetActive(false);
         physioMenuPanel.SetActive(false);
         settingsMenuPanel.SetActive(true);
-        patientPanel.SetActive(false);
+        TogglePatientPanel();
     }
 
     public void TogglePatientPanel()
