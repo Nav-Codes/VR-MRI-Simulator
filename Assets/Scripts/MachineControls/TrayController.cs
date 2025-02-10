@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class TrayController : MonoBehaviour
 {
+    public float minX = 0.0f; // Minimum X position
+    public float maxX = 1.0f; // Maximum X position    
     public float minY = 0.0f; // Minimum Y position
     public float maxY = 1.0f; // Maximum Y position
     public float speed = 1.0f; // Movement speed
 
     private float targetY;
+    private float targetX;
 
     void Start()
     {
         targetY = transform.localPosition.y;
+        targetX = transform.localPosition.x;
     }
 
     public void MoveUp()
@@ -23,24 +27,30 @@ public class TrayController : MonoBehaviour
         targetY = Mathf.Max(targetY - speed * Time.deltaTime, minY);
     }
 
-    public void MoveByAmount(float amount)
+    public void MoveIn()
     {
-        targetY = Mathf.Clamp(transform.localPosition.y + amount, minY, maxY);
+        targetX = Mathf.Max(targetX - speed * Time.deltaTime, maxX);
     }
 
-    public void MoveToMin()
+    public void MoveOut()
     {
-        targetY = minY;
+        targetX = Mathf.Min(targetX + speed * Time.deltaTime, minX);
     }
 
-    public bool IsAtMax()
+    public void MoveToHome()
+    {
+        targetX = minX;
+        targetY = maxY;
+    }
+
+    public bool IsAtMaxY()
     {
         return Mathf.Approximately(transform.localPosition.y, maxY);
     }
 
-    public bool IsAtMin()
+    public bool IsAtMinX()
     {
-        return Mathf.Approximately(transform.localPosition.y, minY);
+        return Mathf.Approximately(transform.localPosition.x, minX);
     }
 
     public float DistanceFromMax()
@@ -54,6 +64,10 @@ public class TrayController : MonoBehaviour
         {
             float newY = Mathf.MoveTowards(transform.localPosition.y, targetY, speed * Time.deltaTime);
             transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
+        } else if (!Mathf.Approximately(transform.localPosition.x, targetX))
+        {
+            float newX = Mathf.MoveTowards(transform.localPosition.x, targetX, speed * Time.deltaTime);
+            transform.localPosition = new Vector3(newX, transform.localPosition.y, transform.localPosition.z);
         }
     }
 }

@@ -247,8 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
 --- !u!1 &58249258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a2acc880a3771e4cb777037cc1ea827, type: 3}
@@ -341,8 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
   moveUp: 0
 --- !u!114 &65284398
 MonoBehaviour:
@@ -511,8 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 0}
   moveUp: 1
 --- !u!114 &85050640
 MonoBehaviour:
@@ -899,8 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 0}
   moveUp: 0
 --- !u!114 &165585588
 MonoBehaviour:
@@ -2119,8 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
   moveUp: 1
 --- !u!114 &463930443
 MonoBehaviour:
@@ -3025,9 +3020,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3a359106071c34c9cfec29db704233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 0.686051
-  maxY: 24.24
-  speed: 1
+  minX: 1.06097
+  maxX: -1.277
+  minY: 0.7427679
+  maxY: 0.8715657
+  speed: 0.1
 --- !u!114 &782628381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,8 +3037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6c993ff97b01743b72b7cc892fb224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 0.349
-  maxY: 0.7197131
+  minY: 0.5192208
+  maxY: 0.648
   speed: 0.1
 --- !u!1001 &782984390
 PrefabInstance:
@@ -3623,8 +3620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
 --- !u!114 &854905467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5434,8 +5430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
   moveUp: 1
 --- !u!114 &1114040585
 MonoBehaviour:
@@ -5951,8 +5946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84921b34e41adc4d9e45ea1d5d2d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 1934547097}
   moveUp: 0
 --- !u!114 &1189762172
 MonoBehaviour:
@@ -8476,6 +8470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1934547096}
+  - component: {fileID: 1934547097}
   m_Layer: 0
   m_Name: DetachableTable
   m_TagString: Untagged
@@ -8508,6 +8503,20 @@ Transform:
   m_Father: {fileID: 543450652917404156}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934547097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934547095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55852a97ece8a345bd5d9ac8c7be363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableController: {fileID: 782628381}
+  trayController: {fileID: 782628380}
 --- !u!1001 &1946978366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8996,8 +9005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
+  bedController: {fileID: 0}
 --- !u!114 &2089110263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10351,8 +10359,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.9598007, y: 2.30364, z: 0.2371878}
-  m_Center: {x: -0.006586462, y: -13.500006, z: -0.8}
+  m_Size: {x: 5.9598007, y: 5.535112, z: 0.2371878}
+  m_Center: {x: -0.006586313, y: -11.97616, z: -0.8000026}
 --- !u!65 &6290459220451491347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10364,8 +10372,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.578095, y: 0.13479705, z: 0.68786633}
-  m_Center: {x: -0.047456022, y: -14.195797, z: -0.46220163}
+  m_Size: {x: 5.578095, y: 0.5599091, z: 0.6878663}
+  m_Center: {x: -0.047456022, y: -14.408365, z: -0.46220163}
 --- !u!1 &6361372468135736370
 GameObject:
   m_ObjectHideFlags: 0
