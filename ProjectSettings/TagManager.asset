@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CallBell
+  - HeadPhone
   layers:
   - Default
   - TransparentFX

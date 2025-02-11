@@ -46,5 +46,18 @@ public class SnapPoint : MonoBehaviour
 
         // Optional: Make it a child of the SnapPoint
         obj.SetParent(transform);
+
+        // Check if the object implements ISnappable and call OnSnapped()
+        ISnappable snappable = obj.GetComponent<ISnappable>();
+        if (snappable != null)
+        {
+            snappable.OnSnapped(transform.parent);
+        }
     }
+}
+
+// Interface for custom snap behavior
+public interface ISnappable
+{
+    void OnSnapped(Transform snapPointParent);
 }
