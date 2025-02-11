@@ -1082,6 +1082,11 @@ Light:
   m_CorrespondingSourceObject: {fileID: 4538529295233425711, guid: ee7f7d55ae314bd4ea1b5ed82bef32ae, type: 3}
   m_PrefabInstance: {fileID: 223974226}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &238347270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8787995050913052480, guid: ca6e9d788dfc8a24b9d917afbf010fa9, type: 3}
+  m_PrefabInstance: {fileID: 891145125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &248194065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,6 +1364,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7084242655871419508, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
   m_PrefabInstance: {fileID: 409646625}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &285747130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285747131}
+  - component: {fileID: 285747133}
+  - component: {fileID: 285747132}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &285747131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285747130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 835606578}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &285747132
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285747130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &285747133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285747130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1001 &300418602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1432,6 +1499,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0966114fdee1c414ba1da1d6a48f850a, type: 3}
+--- !u!1 &313072173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313072174}
+  - component: {fileID: 313072176}
+  - component: {fileID: 313072175}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313072174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313072173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 766568331}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &313072175
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313072173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &313072176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313072173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1001 &315288529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,6 +1760,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315442890}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &342239341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342239342}
+  - component: {fileID: 342239344}
+  - component: {fileID: 342239343}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342239342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342239341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1728787459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &342239343
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342239341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &342239344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342239341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
+--- !u!4 &352849219 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5779639005857824713, guid: 84584e7b628f1a94398e9aee65f678db, type: 3}
+  m_PrefabInstance: {fileID: 961805628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &361103814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8737867711498637484, guid: 5bb4a31ebdfb99e43b4a7a66b545dc37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb4a31ebdfb99e43b4a7a66b545dc37, type: 3}
 --- !u!4 &403192387 stripped
@@ -1984,7 +2184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
@@ -2515,6 +2715,68 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!1 &581576448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581576449}
+  - component: {fileID: 581576451}
+  - component: {fileID: 581576450}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581576449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581576448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1829830592}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &581576450
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581576448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &581576451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581576448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1001 &584998254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2737,6 +2999,68 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7686529774580282347, guid: 5c58d9a45392d6a43bc276fde8c0d885, type: 3}
   m_PrefabInstance: {fileID: 633987594}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &637719976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637719977}
+  - component: {fileID: 637719979}
+  - component: {fileID: 637719978}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &637719977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637719976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578990922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &637719978
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637719976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &637719979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637719976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1 &638853744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,6 +3230,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 778d6521b50d44a4c90244d1c28f6c5d, type: 3}
   m_PrefabInstance: {fileID: 733250525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &766568331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2010483138892394621, guid: c221873c3f8b4fb4f8669d58e15fe779, type: 3}
+  m_PrefabInstance: {fileID: 808646859}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &773054530 stripped
 GameObject:
@@ -3139,6 +3468,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3530016d19528ea43bb2fb3d7bf713a3, type: 3}
   m_PrefabInstance: {fileID: 782984390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &786624128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786624129}
+  - component: {fileID: 786624131}
+  - component: {fileID: 786624130}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786624129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786624128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 894834161}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &786624130
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786624128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &786624131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786624128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1 &794257390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6967319815801176918, guid: 3530016d19528ea43bb2fb3d7bf713a3, type: 3}
@@ -3413,6 +3804,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &835606578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5779639005857824713, guid: 46385abc474011945ac8314c59f04911, type: 3}
+  m_PrefabInstance: {fileID: 1624244558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &843267127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c70cca7ae4e2d5a48b3eaeb661abb386, type: 3}
@@ -3827,6 +4223,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a275d8f3c6d3144f88082363a5554d0, type: 3}
   m_PrefabInstance: {fileID: 860577925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &861053468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 861053469}
+  - component: {fileID: 861053471}
+  - component: {fileID: 861053470}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861053469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861053468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1751470959}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &861053470
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861053468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 1.5, y: 1.0913179, z: 0.36311096}
+--- !u!114 &861053471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861053468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 1.5, y: 1.0073, z: 0.3589}
+  snapRotation: {x: 16.242935, y: 281.50586, z: 101.38476}
+  snappableTag: CallBell
 --- !u!1 &864570326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,6 +4342,68 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &868390217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868390218}
+  - component: {fileID: 868390220}
+  - component: {fileID: 868390219}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868390218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868390217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 352849219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &868390219
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868390217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &868390220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868390217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1 &885523104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,6 +4664,11 @@ Transform:
   m_Father: {fileID: 673892989}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!4 &894834161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6601132510149071054, guid: c4e65fce091379d42934602e08979146, type: 3}
+  m_PrefabInstance: {fileID: 1125355878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &900563343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4433,20 +4958,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!64 &900684982
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900684980}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3155116464966309572, guid: 0aa1bea015b6edf43827906d2945eabf, type: 3}
 --- !u!54 &900684983
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4477,6 +4988,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3155116464966309572, guid: 0aa1bea015b6edf43827906d2945eabf, type: 3}
+--- !u!135 &900684987
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900684980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0050305272
+  m_Center: {x: -0.0000695159, y: 0.00031770451, z: -0.00034024724}
 --- !u!114 &913488525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5371,6 +5895,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1079275449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8218230539956822650, guid: 69f3bc8a760bc914c8f02bc38fe02f4c, type: 3}
+  m_PrefabInstance: {fileID: 2018516499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114040580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5624,6 +6153,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c4e65fce091379d42934602e08979146, type: 3}
   m_PrefabInstance: {fileID: 1125355878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1128536940 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2810187772696254054, guid: 5bb4a31ebdfb99e43b4a7a66b545dc37, type: 3}
+  m_PrefabInstance: {fileID: 403192386}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1144615875 stripped
 GameObject:
@@ -6775,6 +7309,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a2acc880a3771e4cb777037cc1ea827, type: 3}
   m_PrefabInstance: {fileID: 1288473563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1292827905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292827906}
+  - component: {fileID: 1292827908}
+  - component: {fileID: 1292827907}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1292827906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292827905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1079275449}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1292827907
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292827905}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &1292827908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292827905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1 &1337751791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1566306940765573041, guid: de4dff31263afea49b42a88087ea57a1, type: 3}
@@ -7460,6 +8056,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1578990922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3427955349450730428, guid: 78f1f246751679241b2337ed78b0d40e, type: 3}
+  m_PrefabInstance: {fileID: 511749757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1582081592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7526,6 +8127,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b48bf386432c0a4ba3a8c2ce17e66d8, type: 3}
   m_PrefabInstance: {fileID: 1582081592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589953837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589953838}
+  - component: {fileID: 1589953840}
+  - component: {fileID: 1589953839}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589953838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589953837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1983304435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1589953839
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589953837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &1589953840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589953837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1 &1600812346
 GameObject:
   m_ObjectHideFlags: 0
@@ -7981,11 +8644,78 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!4 &1728787459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5345252368981068134, guid: 778d6521b50d44a4c90244d1c28f6c5d, type: 3}
+  m_PrefabInstance: {fileID: 733250525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742484785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
   m_PrefabInstance: {fileID: 1270000337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1745750286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745750287}
+  - component: {fileID: 1745750289}
+  - component: {fileID: 1745750288}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745750287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745750286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 238347270}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1745750288
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745750286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: 0.36311096}
+--- !u!114 &1745750289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745750286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snappableTag: CallBell
 --- !u!1001 &1748880804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8051,6 +8781,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: df39838c88438b14f994578bd029313a, type: 3}
   m_PrefabInstance: {fileID: 1748880804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1751470959 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6915287507534499073, guid: 1a2acc880a3771e4cb777037cc1ea827, type: 3}
+  m_PrefabInstance: {fileID: 1288473563}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783298707 stripped
 GameObject:
@@ -8287,6 +9022,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828601335}
   m_CullTransparentMesh: 1
+--- !u!4 &1829830592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3529675675559085494, guid: 73646285b052c00489310ca16e39b9f6, type: 3}
+  m_PrefabInstance: {fileID: 1168382154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877174004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f217c4d08b79d2d469c5962eb5f8157a, type: 3}
@@ -8426,12 +9166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosX: 0.8218
-  snapPosY: 1.0073
-  snapPosZ: 0.3589
-  snapAngleX: -176.004
-  snapAngleY: 42.18201
-  snapAngleZ: 381.071
+  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!135 &1894326728
 SphereCollider:
@@ -8735,6 +9471,11 @@ PrefabInstance:
 Camera:
   m_CorrespondingSourceObject: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
   m_PrefabInstance: {fileID: 1946978366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1983304435 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5779639005857824713, guid: f217c4d08b79d2d469c5962eb5f8157a, type: 3}
+  m_PrefabInstance: {fileID: 1066872699}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985308836
 GameObject:
@@ -9133,6 +9874,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089110258}
   m_CullTransparentMesh: 1
+--- !u!1 &2089216212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089216213}
+  - component: {fileID: 2089216215}
+  - component: {fileID: 2089216214}
+  m_Layer: 0
+  m_Name: SnapPointCallBell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2089216213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089216212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128536940}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2089216214
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089216212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11229833
+  m_Center: {x: 0.8, y: 1.0913179, z: -0.163111}
+--- !u!114 &2089216215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089216212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 2
+  snapPosition: {x: 0.8342002, y: 1.0708003, z: -0.14420013}
+  snapRotation: {x: 320.00943, y: 328.93973, z: 144.27281}
+  snappableTag: CallBell
 --- !u!1 &2101691975 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
