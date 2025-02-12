@@ -12,6 +12,10 @@ public class DialRotation : MonoBehaviour
     public float dialZRotation = 90.0f; // Lock Z rotation to 90 degrees
     public float rotationSpeed = 100.0f; // Speed of easing rotation when released
 
+    public float minRotationX = -120.0f; // Min limit for X rotation
+    public float maxRotationX = -60.0f;  // Max limit for X rotation
+
+
     private Quaternion targetRotation; // The target rotation when released
     private bool isReleased = false; // Flag to indicate when the object has been released
 
@@ -50,6 +54,12 @@ public class DialRotation : MonoBehaviour
                 // Apply the rotation only on the X-axis
                 float newXRotation = initialGrabRotation.eulerAngles.x + eulerRotation.x;
 
+                // Normalize the angle before clamping
+                newXRotation = NormalizeAngle(newXRotation);
+
+                // Clamp the new X rotation to be within the min and max values
+                newXRotation = Mathf.Clamp(newXRotation, minRotationX, maxRotationX);
+
                 // Lock Y and Z rotations to their initial values, but apply new X rotation
                 transform.rotation = Quaternion.Euler(
                     newXRotation,  // Apply X-axis rotation
@@ -66,18 +76,29 @@ public class DialRotation : MonoBehaviour
         {
             // Smoothly rotate the dial back to the target rotation
             transform.rotation = Quaternion.RotateTowards(
-                transform.rotation, 
-                targetRotation, 
+                transform.rotation,
+                targetRotation,
                 rotationSpeed * Time.deltaTime
             );
         }
     }
 
+    // Function to normalize the angle within -180 to 180 range
+    float NormalizeAngle(float angle)
+    {
+        // Normalize to [0, 360)
+        angle = Mathf.Repeat(angle, 360f);
+        // Convert to [-180, 180]
+        if (angle > 180f) angle -= 360f;
+        return angle;
+    }
+
+
     private void OnRelease(SelectExitEventArgs args)
     {
         // Set the target rotation to the locked final values when released
         targetRotation = Quaternion.Euler(dialXRotation, dialYRotation, dialZRotation);
-        
+
         // Indicate that the object has been released
         isReleased = true;
     }
