@@ -15,6 +15,9 @@ public class DialRotation : MonoBehaviour
     public float minRotationX = -120.0f; // Min limit for X rotation
     public float maxRotationX = -60.0f;  // Max limit for X rotation
 
+    public BedController bedController; // Reference to the bed controller
+
+    public float minimumAngleDifference = 3.0f; // Minimum angle difference to trigger movement
 
     private Quaternion targetRotation; // The target rotation when released
     private bool isReleased = false; // Flag to indicate when the object has been released
@@ -66,6 +69,16 @@ public class DialRotation : MonoBehaviour
                     dialYRotation, // Lock Y-axis
                     dialZRotation  // Lock Z-axis
                 );
+                if ((newXRotation - dialXRotation) > minimumAngleDifference)
+                {
+                    bedController.MoveDown();
+
+                }
+                else if ((dialXRotation - newXRotation) > minimumAngleDifference)
+                {
+                    bedController.MoveUp();
+
+                }
             }
             else
             {

@@ -9707,6 +9707,8 @@ MonoBehaviour:
   rotationSpeed: 100
   minRotationX: -120
   maxRotationX: -60
+  bedController: {fileID: 1934547097}
+  minimumAngleDifference: 3
 --- !u!1 &1603595126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
