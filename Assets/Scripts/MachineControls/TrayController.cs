@@ -8,6 +8,7 @@ public class TrayController : MonoBehaviour
     public float maxY = 1.0f; // Maximum Y position
     public float speed = 1.0f; // Movement speed
 
+    public float FixedDistance = 0;
     private float targetY;
     private float targetX;
 
@@ -56,6 +57,11 @@ public class TrayController : MonoBehaviour
     public float DistanceFromMax()
     {
         return maxY - transform.localPosition.y;
+    }
+
+    public void MoveToFixedDistance()
+    {
+        targetX = Mathf.Max(targetX + FixedDistance, maxX);
     }
 
     void Update()

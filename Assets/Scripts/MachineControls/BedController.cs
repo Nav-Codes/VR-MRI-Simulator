@@ -38,4 +38,10 @@ public class BedController : MonoBehaviour
         tableController.MoveToMax();
         trayController.MoveToHome();
     }
+
+    public void MoveFixedDistance() {
+        Debug.Log("Moving to fixed distance");  
+        tableController.MoveToMax();
+        trayController.MoveToFixedDistance();
+    }
 }
