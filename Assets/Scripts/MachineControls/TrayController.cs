@@ -38,10 +38,14 @@ public class TrayController : MonoBehaviour
         targetX = Mathf.Min(targetX + speed * Time.deltaTime, minX);
     }
 
+    public void MoveToMax()
+    {
+        targetY = maxY;
+    }
     public void MoveToHome()
     {
         targetX = minX;
-        targetY = maxY;
+        MoveToMax();
     }
 
     public bool IsAtMaxY()

@@ -4013,6 +4013,7 @@ MonoBehaviour:
   minY: 0.7427679
   maxY: 0.8715657
   speed: 0.1
+  FixedDistance: -1.6
 --- !u!114 &782628381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9380,8 +9381,8 @@ RectTransform:
   - {fileID: 1114040581}
   - {fileID: 65284394}
   - {fileID: 40919615}
-  - {fileID: 1602955817}
   - {fileID: 1828601336}
+  - {fileID: 1602955817}
   - {fileID: 1985308837}
   m_Father: {fileID: 543450652917404156}
   m_RootOrder: 9
@@ -9486,7 +9487,7 @@ GameObject:
   - component: {fileID: 1602955822}
   - component: {fileID: 1602955821}
   m_Layer: 0
-  m_Name: Knob02RotationCenter
+  m_Name: DialRotationCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9506,7 +9507,7 @@ Transform:
   m_Children:
   - {fileID: 8616910927964810843}
   m_Father: {fileID: 1600812347}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!135 &1602955818
 SphereCollider:
@@ -9520,7 +9521,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3745462
-  m_Center: {x: 0, y: -0.5, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!54 &1602955820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10374,12 +10375,12 @@ GameObject:
   - component: {fileID: 1828601338}
   - component: {fileID: 1828601337}
   m_Layer: 5
-  m_Name: Knob
+  m_Name: DialButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1828601336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10393,7 +10394,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1600812347}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10409,12 +10410,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828601335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a90f715121d38f4f97d772948307021, type: 3}
+  m_Script: {fileID: 11500000, guid: cc78cbd799c725c4f9e0827140831611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tableController: {fileID: 782628381}
-  trayController: {fileID: 782628380}
-  moveAmount: 11
+  bedController: {fileID: 1934547097}
 --- !u!54 &1828601338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10442,8 +10441,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 15, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 34.331223, y: 35.136818, z: 20.837595}
+  m_Center: {x: -0.030199995, y: 0.3906488, z: -7.918801}
 --- !u!114 &1828601340
 MonoBehaviour:
   m_ObjectHideFlags: 0
