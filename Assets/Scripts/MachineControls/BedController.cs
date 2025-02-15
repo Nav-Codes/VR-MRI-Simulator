@@ -44,4 +44,9 @@ public class BedController : MonoBehaviour
         trayController.MoveToMax();
         trayController.MoveToFixedDistance();
     }
+
+    public bool IsAtMinX()
+    {
+        return trayController.IsAtMinX();
+    }
 }
