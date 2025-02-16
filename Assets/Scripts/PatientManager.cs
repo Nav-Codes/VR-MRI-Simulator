@@ -4,12 +4,37 @@ using System.Collections.Generic;
 
 public class PatientManager : MonoBehaviour
 {
-    public GameObject patient = null;
+    public GameObject walkingPatient = null;
+    public GameObject seatedPatient = null;
     public Animator patientAnimator = null;
     public GameObject callInMenu = null;
+    public GameObject patientPositionMenu = null;
+    private bool walkFinished = false;
+
+    void Update()
+    {
+        if (!walkFinished && patientAnimator.GetCurrentAnimatorStateInfo(0).IsName("PatientWalk")
+            && patientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            //objectToDisable.SetActive(false);
+            //objectToEnable.SetActive(true);
+            //animationPlayed = true; // Prevents re-triggering
+            Debug.Log("WALK FINIHSED");
+            walkFinished = true;
+            SeatPatient();
+        }
+    }
+
     public void CallPatientIn()
     {
         patientAnimator.Play("PatientWalk", 0, 0.0f);
         callInMenu.SetActive(false);
+    }
+
+    public void SeatPatient()
+    {
+        walkingPatient.SetActive(false);
+        //seatedPatient.SetActive(true);
+        patientPositionMenu.SetActive(true);
     }
 }

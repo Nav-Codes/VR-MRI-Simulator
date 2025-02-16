@@ -14,8 +14,10 @@ public class PatientPositionManager : MonoBehaviour
     }
 
     public PatientPositionData[] PatientPositions; // Configure in Inspector
+    public GameObject DefaultPatientPosition;
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
+    private bool defaultEnabled = false;
 
     private void Awake()
     {
@@ -34,6 +36,16 @@ public class PatientPositionManager : MonoBehaviour
         PopulateDropdown();
     }
 
+    private void Update()
+    {
+        if (!defaultEnabled && PatientPositionDropdown.IsActive())
+        {
+            Debug.Log("ENABLE");
+            DefaultPatientPosition.SetActive(true);
+            defaultEnabled = true;
+        }
+    }
+
     private void PopulateDropdown()
     {
         PatientPositionDropdown.ClearOptions();
@@ -47,6 +59,12 @@ public class PatientPositionManager : MonoBehaviour
 
     public void SpawnPatientPosition()
     {
+        // Disable the default patient position
+        if (DefaultPatientPosition != null)
+        {
+            DefaultPatientPosition.SetActive(false);
+        }
+
         // Disable the currently active patient position
         if (activePatientPosition != null)
         {
