@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class DialRotation : MonoBehaviour
+public class DialController : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
     private Quaternion initialGrabRotation;
     private Quaternion initialControllerRotation;
+    public float buttonPressDistance = 0.3f; // Distance to move the dial when pressed
+    public Vector3 homePosition;
 
     public float dialXRotation = -90.0f; // Lock X rotation to 0 degrees
     public float dialYRotation = 0.0f;  // Lock Y rotation to 0 degrees
     public float dialZRotation = 90.0f; // Lock Z rotation to 90 degrees
     public float rotationSpeed = 100.0f; // Speed of easing rotation when released
+    public float reboundSpeed = 5.0f; // Speed of dial button rebound
 
     public float minRotationX = -120.0f; // Min limit for X rotation
     public float maxRotationX = -60.0f;  // Max limit for X rotation
@@ -21,6 +24,7 @@ public class DialRotation : MonoBehaviour
 
     private Quaternion targetRotation; // The target rotation when released
     private bool isReleased = false; // Flag to indicate when the object has been released
+    private bool dialDown = false; // Flag to indicate when the dial is moving down
 
     void Start()
     {
@@ -32,6 +36,7 @@ public class DialRotation : MonoBehaviour
         // Disable position and rotation tracking
         grabInteractable.trackPosition = false;
         grabInteractable.trackRotation = false; // Disable rotation tracking
+
     }
 
     private void OnGrab(SelectEnterEventArgs args)
@@ -94,6 +99,15 @@ public class DialRotation : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
+        if (!dialDown)
+        {
+            // Smoothly move the dial back to the home position
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                homePosition,
+                reboundSpeed * Time.deltaTime
+            );
+        }
     }
 
     // Function to normalize the angle within -180 to 180 range
@@ -115,4 +129,24 @@ public class DialRotation : MonoBehaviour
         // Indicate that the object has been released
         isReleased = true;
     }
+
+    public void DialDown()
+    {
+        dialDown = true;
+        if (!grabInteractable.isSelected)
+        {
+            // Move the dial forward by modifying the Z position
+            transform.position = new Vector3(
+                homePosition.x - buttonPressDistance,
+                transform.position.y,
+                transform.position.z
+            );
+        }
+    }
+
+    public void DialUp()
+    {
+        dialDown = false;
+    }
+
 }

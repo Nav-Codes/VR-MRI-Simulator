@@ -9702,10 +9702,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f931ad077461448aa6423e488f74af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonPressDistance: 0.01
+  homePosition: {x: -0.225, y: 1.472, z: 1.118}
   dialXRotation: -90
   dialYRotation: 0
   dialZRotation: 90
   rotationSpeed: 100
+  reboundSpeed: 50
   minRotationX: -120
   maxRotationX: -60
   bedController: {fileID: 1934547097}
@@ -10414,6 +10417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bedController: {fileID: 1934547097}
+  dial: {fileID: 1602955816}
 --- !u!54 &1828601338
 Rigidbody:
   m_ObjectHideFlags: 0
