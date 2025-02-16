@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PatientPositionManager : MonoBehaviour
 {
     public TMP_Dropdown PatientPositionDropdown; // Configure in Inspector
+    public GameObject PatientPositionMenu;
 
     [System.Serializable]
     public class PatientPositionData
@@ -15,6 +16,7 @@ public class PatientPositionManager : MonoBehaviour
 
     public PatientPositionData[] PatientPositions; // Configure in Inspector
     public GameObject DefaultPatientPosition;
+    public GameObject OpenPositionMenuButton;
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
     private bool defaultEnabled = false;
@@ -40,7 +42,6 @@ public class PatientPositionManager : MonoBehaviour
     {
         if (!defaultEnabled && PatientPositionDropdown.IsActive())
         {
-            Debug.Log("ENABLE");
             DefaultPatientPosition.SetActive(true);
             defaultEnabled = true;
         }
@@ -80,10 +81,20 @@ public class PatientPositionManager : MonoBehaviour
             activePatientPosition = selectedPositionPrefab;
             activePatientPosition.SetActive(true);
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
+            OpenPositionMenuButton.SetActive(true);
+            PatientPositionMenu.SetActive(false);
         }
         else
         {
             Debug.LogWarning($"Patient Position '{selectedPositionName}' not found in PatientPositionMap.");
         }
+    }
+
+    public void ResetPositionMenu()
+    {
+        activePatientPosition?.SetActive(false);
+        PatientPositionMenu.SetActive(true);
+        OpenPositionMenuButton.SetActive(false);
+        defaultEnabled = false;
     }
 }

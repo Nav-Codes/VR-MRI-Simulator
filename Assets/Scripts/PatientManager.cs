@@ -16,10 +16,6 @@ public class PatientManager : MonoBehaviour
         if (!walkFinished && patientAnimator.GetCurrentAnimatorStateInfo(0).IsName("PatientWalk")
             && patientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            //objectToDisable.SetActive(false);
-            //objectToEnable.SetActive(true);
-            //animationPlayed = true; // Prevents re-triggering
-            Debug.Log("WALK FINIHSED");
             walkFinished = true;
             SeatPatient();
         }
@@ -34,7 +30,6 @@ public class PatientManager : MonoBehaviour
     public void SeatPatient()
     {
         walkingPatient.SetActive(false);
-        //seatedPatient.SetActive(true);
         patientPositionMenu.SetActive(true);
     }
 }
