@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1001 &300418602
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1001 &315288529
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!4 &352849219 stripped
@@ -2386,7 +2386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5636fac618d38f84db8199bccf2a32af, type: 3}
@@ -2452,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: df39838c88438b14f994578bd029313a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df39838c88438b14f994578bd029313a, type: 3}
@@ -3294,8 +3294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
-  snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
+  snapPosition: {x: 0.835, y: 1.18, z: 0.364}
+  snapRotation: {x: 69.66703, y: 272.01382, z: 350.74625}
   snappableTag: CallBell
 --- !u!1001 &584998254
 PrefabInstance:
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1 &638853744
@@ -3876,7 +3876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 778d6521b50d44a4c90244d1c28f6c5d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 778d6521b50d44a4c90244d1c28f6c5d, type: 3}
@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1 &794257390 stripped
@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 1.5, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 1.475, y: 1.085, z: 0.35}
   snapRotation: {x: 16.242935, y: 281.50586, z: 101.38476}
   snappableTag: CallBell
 --- !u!1 &864570326
@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1 &885523104
@@ -8501,7 +8501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.83, y: 1.089, z: 0.344}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1 &1337751791 stripped
@@ -8915,7 +8915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: df39838c88438b14f994578bd029313a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df39838c88438b14f994578bd029313a, type: 3}
@@ -9343,7 +9343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!1 &1600812346
@@ -10243,7 +10243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  snapPosition: {x: 0.8218, y: 1.0073, z: 0.3589}
+  snapPosition: {x: 0.8264003, y: 1.0779003, z: 0.36140004}
   snapRotation: {x: -176.004, y: 42.18201, z: 381.071}
   snappableTag: CallBell
 --- !u!4 &1751470959 stripped
