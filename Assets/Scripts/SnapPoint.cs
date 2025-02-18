@@ -23,29 +23,29 @@ public class SnapPoint : MonoBehaviour
         {
             SnapObject(obj);
         }
+
     }
 
     private void SnapObject(Transform obj)
     {
-
         // Disable gravity if the object has a Rigidbody
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.useGravity = false;
-            rb.velocity = Vector3.zero; // Stop any movement
-            rb.angularVelocity = Vector3.zero; // Stop any rotation
-            rb.isKinematic = true; // Optional: Prevents physics interactions
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
         }
 
+        // Attempt to set the parent
+        obj.SetParent(transform);
+
         // Set position using custom snap position values
-        obj.position = snapPosition;
+        obj.localPosition = snapPosition;
 
         // Set rotation using custom snap rotation values
         obj.rotation = Quaternion.Euler(snapRotation);
-
-        // Optional: Make it a child of the SnapPoint
-        obj.SetParent(transform);
 
         // Check if the object implements ISnappable and call OnSnapped()
         ISnappable snappable = obj.GetComponent<ISnappable>();
@@ -53,6 +53,7 @@ public class SnapPoint : MonoBehaviour
         {
             snappable.OnSnapped(transform.parent);
         }
+
     }
 }
 

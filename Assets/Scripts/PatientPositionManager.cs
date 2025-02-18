@@ -62,10 +62,30 @@ public class PatientPositionManager : MonoBehaviour
             activePatientPosition = selectedPositionPrefab;
             activePatientPosition.SetActive(true);
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
+            GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
+            if (grandchild != null)
+            {
+                grandchild.gameObject.SetActive(false);
+            }
         }
         else
         {
             Debug.LogWarning($"Patient Position '{selectedPositionName}' not found in PatientPositionMap.");
         }
     }
+
+    private Transform FindChildByName(Transform parent, string name)
+{
+    foreach (Transform child in parent)
+    {
+        if (child.name == name)
+            return child; // Found the child
+
+        Transform found = FindChildByName(child, name); // Recursive search
+        if (found != null)
+            return found; // Return if found in deeper levels
+    }
+    return null; // Not found
+}
+
 }
