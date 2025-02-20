@@ -12316,6 +12316,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upButtonLight: {fileID: 685106821}
   downButtonLight: {fileID: 1174953902}
+  ParkButtonLight: {fileID: 342763790}
+  DockButtonLight: {fileID: 307977221}
+  powerButtonLight: {fileID: 1330736419}
+  rightHandButtonLight: {fileID: 2027066209}
+  leftHandButtonLight: {fileID: 1426401095}
 --- !u!114 &2126378729 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3127728407087826080, guid: 895f6f3c2d334633b5800312285058d2, type: 3}

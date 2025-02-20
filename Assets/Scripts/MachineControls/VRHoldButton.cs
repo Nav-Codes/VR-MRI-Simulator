@@ -13,37 +13,64 @@ public class VRHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         if (isHeld)
         {
-            if (moveUp)
-            {
-                bedController.MoveUp();
-                if (buttonLightController != null)
-                {
-                    buttonLightController.UpButtonTurnOn();
-                }
-            }
-            else
-            {
-                bedController.MoveDown();
-                if (buttonLightController != null)
-                {
-                    buttonLightController.DownButtonTurnOn();
-                }
-            }
-        } else {
-            if (moveUp)
-            {
-                if (buttonLightController != null)
-                {
-                    buttonLightController.UpButtonTurnOff();
-                }
-            }
-            else
-            {
-                if (buttonLightController != null)
-                {
-                    buttonLightController.DownButtonTurnOff();
-                }
-            }
+            Move();
+            LightOn();
+        }
+        else
+        {
+            LightOff();
+        }
+    }
+
+    private void Move()
+    {
+        if (moveUp)
+        {
+            bedController.MoveUp();
+        }
+        else
+        {
+            bedController.MoveDown();
+        }
+    }
+
+    private void LightOn()
+    {
+        if (buttonLightController == null)
+        {
+            return;
+        }
+        if (moveUp)
+        {
+
+            buttonLightController.TurnButtonOn("Up");
+
+        }
+        else
+        {
+
+            buttonLightController.TurnButtonOn("Down");
+
+        }
+    }
+
+    private void LightOff()
+    {
+        if (buttonLightController == null)
+        {
+            return;
+        }
+        if (moveUp)
+        {
+
+            buttonLightController.TurnButtonOff("Up");
+
+        }
+        else
+        {
+
+            buttonLightController.TurnButtonOff("Down");
+
         }
     }
 
