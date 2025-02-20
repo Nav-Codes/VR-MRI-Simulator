@@ -12,12 +12,8 @@ public class ButtonLightController : MonoBehaviour
     public GameObject rightHandButtonLight;
     public GameObject leftHandButtonLight;
 
-    private bool isParkButtonOn = false;
-    private bool isDockButtonOn = false;
-    private bool isPowerButtonOn = false;
-    private bool isRightHandButtonOn = false;
-    private bool isLeftHandButtonOn = false;
     private Dictionary<string, GameObject> buttonLights;
+    private Dictionary<string, bool> buttonStates;
 
     private void Start()
     {
@@ -31,6 +27,17 @@ public class ButtonLightController : MonoBehaviour
             { "RightHand", rightHandButtonLight },
             { "LeftHand", leftHandButtonLight }
         };
+
+        buttonStates = new Dictionary<string, bool>
+        {
+            { "Up", false },
+            { "Down", false },
+            { "Park", false },
+            { "Dock", false },
+            { "Power", false },
+            { "RightHand", false },
+            { "LeftHand", false }
+        };
     }
 
 
@@ -39,6 +46,7 @@ public class ButtonLightController : MonoBehaviour
         if (buttonLights.ContainsKey(buttonName))
         {
             buttonLights[buttonName].SetActive(true);
+            buttonStates[buttonName] = true;
         }
         else
         {
@@ -51,6 +59,7 @@ public class ButtonLightController : MonoBehaviour
         if (buttonLights.ContainsKey(buttonName))
         {
             buttonLights[buttonName].SetActive(false);
+            buttonStates[buttonName] = false;
         }
         else
         {

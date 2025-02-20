@@ -1682,14 +1682,14 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307977221}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
   m_Range: 1.01
-  m_SpotAngle: 67
+  m_SpotAngle: 71
   m_InnerSpotAngle: 1
   m_CookieSize: 0.1
   m_Shadows:
@@ -2073,14 +2073,14 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342763790}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
   m_Range: 1.01
-  m_SpotAngle: 67
+  m_SpotAngle: 71
   m_InnerSpotAngle: 1
   m_CookieSize: 0.1
   m_Shadows:
@@ -2225,6 +2225,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 369116938}
+  - component: {fileID: 369116939}
+  - component: {fileID: 369116940}
   m_Layer: 5
   m_Name: RightHandLight
   m_TagString: Untagged
@@ -2253,6 +2255,34 @@ RectTransform:
   m_AnchoredPosition: {x: 55.5, y: -11}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &369116939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369116937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db2290c23a802743a26f90819455870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLightController: {fileID: 2123584751}
+  lightObject: {fileID: 2027066209}
+  buttonName: RightHand
+--- !u!65 &369116940
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369116937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 195.44498, y: 12.665848, z: 13.627578}
+  m_Center: {x: 41.961834, y: -18.190248, z: 6.3137903}
 --- !u!1001 &379832696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3031,9 +3061,9 @@ GameObject:
   - component: {fileID: 511319167}
   - component: {fileID: 511319172}
   - component: {fileID: 511319171}
-  - component: {fileID: 511319170}
   - component: {fileID: 511319169}
   - component: {fileID: 511319168}
+  - component: {fileID: 511319173}
   m_Layer: 5
   m_Name: Button_Power
   m_TagString: Untagged
@@ -3091,19 +3121,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &511319170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511319166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bedController: {fileID: 1934547097}
 --- !u!114 &511319171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,6 +3159,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511319166}
   m_CullTransparentMesh: 1
+--- !u!114 &511319173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511319166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db2290c23a802743a26f90819455870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLightController: {fileID: 2123584751}
+  lightObject: {fileID: 1330736419}
+  buttonName: Power
 --- !u!1001 &511749757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3964,7 +3996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &685106822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5082,19 +5114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &854905466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864570326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bedController: {fileID: 1934547097}
 --- !u!114 &854905467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5272,9 +5291,9 @@ GameObject:
   - component: {fileID: 864570327}
   - component: {fileID: 854905468}
   - component: {fileID: 854905467}
-  - component: {fileID: 854905466}
   - component: {fileID: 854905465}
   - component: {fileID: 864570328}
+  - component: {fileID: 864570329}
   m_Layer: 5
   m_Name: Button_Park
   m_TagString: Untagged
@@ -5319,6 +5338,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &864570329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864570326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db2290c23a802743a26f90819455870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLightController: {fileID: 2123584751}
+  lightObject: {fileID: 342763790}
+  buttonName: Park
 --- !u!1 &868390217
 GameObject:
   m_ObjectHideFlags: 0
@@ -7304,7 +7338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1174953903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8654,9 +8688,9 @@ GameObject:
   - component: {fileID: 1294726444}
   - component: {fileID: 1294726449}
   - component: {fileID: 1294726448}
-  - component: {fileID: 1294726447}
   - component: {fileID: 1294726446}
   - component: {fileID: 1294726445}
+  - component: {fileID: 1294726450}
   m_Layer: 5
   m_Name: Button_Dock
   m_TagString: Untagged
@@ -8714,19 +8748,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1294726447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294726443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253d6d146fb23794a9f7feeb1574f1b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bedController: {fileID: 1934547097}
 --- !u!114 &1294726448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8765,6 +8786,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294726443}
   m_CullTransparentMesh: 1
+--- !u!114 &1294726450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294726443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db2290c23a802743a26f90819455870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLightController: {fileID: 2123584751}
+  lightObject: {fileID: 307977221}
+  buttonName: Dock
 --- !u!1 &1330736419
 GameObject:
   m_ObjectHideFlags: 0
@@ -8781,7 +8817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1330736420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8809,7 +8845,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330736419}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -9077,7 +9113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1426401096
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9105,7 +9141,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426401095}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -10564,6 +10600,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1658472387}
+  - component: {fileID: 1658472388}
+  - component: {fileID: 1658472389}
   m_Layer: 5
   m_Name: LeftHandLight
   m_TagString: Untagged
@@ -10592,6 +10630,34 @@ RectTransform:
   m_AnchoredPosition: {x: -56.8, y: -11}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1658472388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658472386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db2290c23a802743a26f90819455870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonLightController: {fileID: 2123584751}
+  lightObject: {fileID: 1426401095}
+  buttonName: LeftHand
+--- !u!65 &1658472389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658472386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 197.25859, y: 12.665848, z: 13.627578}
+  m_Center: {x: -46.920815, y: -18.190243, z: 6.313785}
 --- !u!1 &1660391492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 69f3bc8a760bc914c8f02bc38fe02f4c, type: 3}
@@ -11761,7 +11827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2027066210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11789,7 +11855,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027066209}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
