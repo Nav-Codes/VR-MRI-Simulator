@@ -5,7 +5,7 @@ public class HandleXRGrabInteraction : XRGrabInteractable
 {
     public ButtonLightController buttonLightController;
     public string buttonName; // The name of the button light to control
-
+    private bool isGrabbed = false;
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
@@ -13,6 +13,7 @@ public class HandleXRGrabInteraction : XRGrabInteractable
         if (buttonLightController != null)
         {
             buttonLightController.TurnButtonOn(buttonName);
+            isGrabbed = true;
         }
     }
 
@@ -23,6 +24,13 @@ public class HandleXRGrabInteraction : XRGrabInteractable
         if (buttonLightController != null)
         {
             buttonLightController.TurnButtonOff(buttonName);
+            isGrabbed = false;
         }
+    }
+
+
+    public bool isHandleGrabbed()
+    {
+        return isGrabbed;
     }
 }
