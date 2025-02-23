@@ -12616,6 +12616,7 @@ MonoBehaviour:
   powerButtonLight: {fileID: 1330736419}
   rightHandButtonLight: {fileID: 2027066209}
   leftHandButtonLight: {fileID: 1426401095}
+  NonPowerButtons: {fileID: 647938999}
 --- !u!1 &2126841664
 GameObject:
   m_ObjectHideFlags: 0

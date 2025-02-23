@@ -11,6 +11,7 @@ public class ButtonLightController : MonoBehaviour
     public GameObject powerButtonLight;
     public GameObject rightHandButtonLight;
     public GameObject leftHandButtonLight;
+    public GameObject NonPowerButtons;
 
     private Dictionary<string, GameObject> buttonLights;
     private Dictionary<string, bool> buttonStates;
@@ -47,6 +48,10 @@ public class ButtonLightController : MonoBehaviour
         {
             buttonLights[buttonName].SetActive(true);
             buttonStates[buttonName] = true;
+            if (buttonName == "Power")
+            {
+                NonPowerButtons.SetActive(true);
+            }
         }
         else
         {
@@ -60,6 +65,10 @@ public class ButtonLightController : MonoBehaviour
         {
             buttonLights[buttonName].SetActive(false);
             buttonStates[buttonName] = false;
+            if (buttonName == "Power")
+            {
+                NonPowerButtons.SetActive(false);
+            }
         }
         else
         {
