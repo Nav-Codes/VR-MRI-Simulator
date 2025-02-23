@@ -14,14 +14,6 @@ public class CartMovementController : MonoBehaviour
     private Vector3 lastLeftPos;
     private Vector3 lastRightPos;
     private bool initialized = false; // Tracks if positions have been initialized
-
-    private void Start()
-    {
-        // Ensure Rigidbody settings
-        cartRigidbody.freezeRotation = true; // Prevent unwanted rotation
-        cartRigidbody.interpolation = RigidbodyInterpolation.Interpolate; // Smooth physics movement
-    }
-
     private void FixedUpdate()
     {
         bool leftGrabbed = leftHandle.isHandleGrabbed();

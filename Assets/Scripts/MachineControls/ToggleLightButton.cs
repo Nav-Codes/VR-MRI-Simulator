@@ -6,6 +6,11 @@ public class ToggleLightButton : MonoBehaviour, IPointerClickHandler
     public GameObject lightObject;
     public string buttonName;
     private bool isOn = false;
+
+    public void Start()
+    {
+        isOn = lightObject.activeSelf;
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isOn)
