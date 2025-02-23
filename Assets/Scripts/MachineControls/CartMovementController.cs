@@ -19,7 +19,7 @@ public class CartMovementController : MonoBehaviour
         bool leftGrabbed = leftHandle.isHandleGrabbed();
         bool rightGrabbed = rightHandle.isHandleGrabbed();
 
-        if (leftGrabbed && rightGrabbed && checkPreconditions())
+        if (leftGrabbed && rightGrabbed && checkMovePreconditions())
         {
             MoveCart();
         }
@@ -62,8 +62,13 @@ public class CartMovementController : MonoBehaviour
         lastRightPos = rightCurrentPos;
     }
 
-    private bool checkPreconditions()
+    private bool checkMovePreconditions()
     {
         return powerButton.getState() && !parkButton.getState() && !dockButton.getState();
+    }
+
+    public bool isDocked()
+    {
+        return dockButton.getState();
     }
 }

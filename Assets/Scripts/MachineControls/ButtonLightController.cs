@@ -34,7 +34,7 @@ public class ButtonLightController : MonoBehaviour
             { "Down", false },
             { "Park", true },
             { "Dock", true },
-            { "Power", false },
+            { "Power", true },
             { "RightHand", false },
             { "LeftHand", false }
         };

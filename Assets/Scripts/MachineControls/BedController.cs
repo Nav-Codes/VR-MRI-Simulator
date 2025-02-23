@@ -6,7 +6,7 @@ public class BedController : MonoBehaviour
 {
     public TableController tableController;
     public TrayController trayController;
-
+    public CartMovementController cartMovementController;
     public void MoveUp()
     {
         // for moving up, if the table/tray is not at max height, move both tray and table up
@@ -14,6 +14,9 @@ public class BedController : MonoBehaviour
         {
             trayController.MoveUp();
             tableController.MoveUp();
+        }
+        else if (!cartMovementController.isDocked()) {
+            // if the tray is at max height and the cart is not docked, do nothing
         }
         else // if the tray is at max height, move the tray into mri
         {
@@ -23,13 +26,15 @@ public class BedController : MonoBehaviour
 
     public void MoveDown()
     {
-        // for moving down, if the tray is inside the mri, move tray out
-        if (!trayController.IsAtMinX())
+        //if the tray is outside the mri, move tray and table down
+        if (trayController.IsAtMinX())
         {
-            trayController.MoveOut();
-        } else { // if the tray is not inside the mri, move both tray and table down
             tableController.MoveDown();
             trayController.MoveDown();
+        }
+        else
+        { // if the tray is inside the mri, move both tray out
+            trayController.MoveOut();
         }
     }
 
@@ -39,7 +44,8 @@ public class BedController : MonoBehaviour
         trayController.MoveToHome();
     }
 
-    public void MoveFixedDistance() {
+    public void MoveFixedDistance()
+    {
         tableController.MoveToMax();
         trayController.MoveToMax();
         trayController.MoveToFixedDistance();
