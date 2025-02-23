@@ -8,7 +8,9 @@ public class CartMovementController : MonoBehaviour
     public HandleXRGrabInteraction leftHandle;
     public HandleXRGrabInteraction rightHandle;
     public Rigidbody cartRigidbody; // Rigidbody of the cart
-
+    public ToggleLightButton powerButton;
+    public ToggleLightButton parkButton;
+    public ToggleLightButton dockButton;
     private Vector3 lastLeftPos;
     private Vector3 lastRightPos;
     private bool initialized = false; // Tracks if positions have been initialized
@@ -25,7 +27,7 @@ public class CartMovementController : MonoBehaviour
         bool leftGrabbed = leftHandle.isHandleGrabbed();
         bool rightGrabbed = rightHandle.isHandleGrabbed();
 
-        if (leftGrabbed && rightGrabbed)
+        if (leftGrabbed && rightGrabbed && checkPreconditions())
         {
             MoveCart();
         }
@@ -57,8 +59,8 @@ public class CartMovementController : MonoBehaviour
 
         // Convert movement to cart's local space (so it moves forward/backward)
         Vector3 localMovement = transform.InverseTransformDirection(averageMovement);
-        localMovement.y = 0f; 
-        localMovement.z = 0f; 
+        localMovement.y = 0f;
+        localMovement.z = 0f;
 
         // Apply force instead of setting velocity directly
         cartRigidbody.AddForce(transform.TransformDirection(localMovement) * 4000f, ForceMode.Acceleration);
@@ -66,5 +68,10 @@ public class CartMovementController : MonoBehaviour
         // Store last positions for next frame
         lastLeftPos = leftCurrentPos;
         lastRightPos = rightCurrentPos;
+    }
+
+    private bool checkPreconditions()
+    {
+        return powerButton.getState() && !parkButton.getState() && !dockButton.getState();
     }
 }

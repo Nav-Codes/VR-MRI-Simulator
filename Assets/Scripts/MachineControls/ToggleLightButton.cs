@@ -19,4 +19,9 @@ public class ToggleLightButton : MonoBehaviour, IPointerClickHandler
             isOn = true;
         }
     }
+
+    public bool getState()
+    {
+        return isOn;
+    }
 }

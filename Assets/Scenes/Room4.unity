@@ -11612,6 +11612,9 @@ MonoBehaviour:
   leftHandle: {fileID: 186751746}
   rightHandle: {fileID: 372915469}
   cartRigidbody: {fileID: 1934547098}
+  powerButton: {fileID: 511319173}
+  parkButton: {fileID: 864570329}
+  dockButton: {fileID: 1294726450}
 --- !u!1001 &1946978366
 PrefabInstance:
   m_ObjectHideFlags: 0
