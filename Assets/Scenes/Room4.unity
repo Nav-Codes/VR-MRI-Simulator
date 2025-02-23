@@ -11532,7 +11532,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1934547096}
   - component: {fileID: 1934547097}
-  - component: {fileID: 1934547100}
   - component: {fileID: 1934547098}
   - component: {fileID: 1934547099}
   m_Layer: 0
@@ -11613,19 +11612,6 @@ MonoBehaviour:
   leftHandle: {fileID: 186751746}
   rightHandle: {fileID: 372915469}
   cartRigidbody: {fileID: 1934547098}
---- !u!65 &1934547100
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934547095}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7449374, y: 0.054085284, z: 0.6984451}
-  m_Center: {x: 1.214778, y: 0.07273699, z: 0.09380162}
 --- !u!1001 &1946978366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17455,6 +17441,7 @@ GameObject:
   - component: {fileID: 8698359957594558434}
   - component: {fileID: 5141354860704027035}
   - component: {fileID: 7837440085730350309}
+  - component: {fileID: 8698359957594558435}
   m_Layer: 0
   m_Name: MRI_Body
   m_TagString: Untagged
@@ -17520,6 +17507,19 @@ Transform:
   m_Father: {fileID: 543450652917404156}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8698359957594558435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650374073501592276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.194546, y: 25.190239, z: 4.3688602}
+  m_Center: {x: 0.0000011920944, y: 11.840034, z: -10.557466}
 --- !u!33 &8859781399829030737
 MeshFilter:
   m_ObjectHideFlags: 0
