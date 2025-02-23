@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CallBell
   - HeadPhone
+  - MriBody
   layers:
   - Default
   - TransparentFX

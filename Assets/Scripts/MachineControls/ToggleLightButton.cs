@@ -1,32 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ToggleLightButton : MonoBehaviour, IPointerClickHandler
+public class ToggleLightButton : BasicLightButton, IPointerClickHandler
 {
-    public ButtonLightController buttonLightController;
-    public GameObject lightObject;
-    public string buttonName;
-    private bool isOn = false;
-
-    public void Start()
-    {
-        isOn = lightObject.activeSelf;
-    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isOn)
         {
-            buttonLightController.TurnButtonOff(buttonName);
-            isOn = false;
+            TurnOff();
         }
         else
         {
-            buttonLightController.TurnButtonOn(buttonName);
-            isOn = true;
+            TurnOn();
         }
-    }
-
-    public bool getState()
-    {
-        return isOn;
     }
 }

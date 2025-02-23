@@ -10,7 +10,7 @@ public class CartMovementController : MonoBehaviour
     public Rigidbody cartRigidbody; // Rigidbody of the cart
     public ToggleLightButton powerButton;
     public ToggleLightButton parkButton;
-    public ToggleLightButton dockButton;
+    public BasicLightButton dockButton;
     private Vector3 lastLeftPos;
     private Vector3 lastRightPos;
     private bool initialized = false; // Tracks if positions have been initialized
@@ -64,11 +64,29 @@ public class CartMovementController : MonoBehaviour
 
     private bool checkMovePreconditions()
     {
-        return powerButton.getState() && !parkButton.getState() && !dockButton.getState();
+        return powerButton.getState() && !parkButton.getState();
     }
 
     public bool isDocked()
     {
         return dockButton.getState();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the cart reaches a specific target
+        if (other.CompareTag("MriBody")) 
+        {
+            dockButton.TurnOn();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Detect when the cart leaves the target area
+        if (other.CompareTag("MriBody")) 
+        {
+            dockButton.TurnOff();
+        }
     }
 }
