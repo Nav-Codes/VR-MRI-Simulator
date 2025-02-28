@@ -1,5 +1,10 @@
 using UnityEngine;
-
+/// <summary>
+/// The SnapPoint class allows objects with a specific tag to snap to a defined position and rotation when they enter a trigger area.
+/// When an object with the appropriate tag (e.g., "Snappable") enters the snap point's trigger zone, it will be snapped to the defined position and rotation.
+/// The object will also have its Rigidbody physics disabled (if present) to prevent unintended movement.
+/// Additionally, if the object implements the ISnappable interface, it will call the OnSnapped method to notify it of the snap action.
+/// </summary>
 public class SnapPoint : MonoBehaviour
 {
     public float snapDistance = 0.2f; // Maximum distance for snapping

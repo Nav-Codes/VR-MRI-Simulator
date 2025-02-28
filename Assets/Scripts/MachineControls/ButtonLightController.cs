@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This class controls the button light indicators for various buttons, such as up, down, park, dock, power, and hand buttons.
+/// It manages the state of each button light, turning them on or off based on the button's state.
+/// Additionally, the class handles the activation of non-power button lights when the power button is turned on.
+/// The class uses dictionaries to map button names to their corresponding light objects and their states.
+/// </summary>
 public class ButtonLightController : MonoBehaviour
 {
     public GameObject upButtonLight;
