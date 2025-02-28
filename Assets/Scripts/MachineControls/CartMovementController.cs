@@ -75,9 +75,10 @@ public class CartMovementController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the cart reaches a specific target
-        if (other.CompareTag("MriBody")) 
+        if (other.CompareTag("MriBody")&&!parkButton.getState()) 
         {
             dockButton.TurnOn();
+            parkButton.TurnOn();
         }
     }
 
