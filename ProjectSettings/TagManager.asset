@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CallBell
+  - HeadPhone
+  - MriBody
   layers:
   - Default
   - TransparentFX
@@ -11,8 +14,8 @@ TagManager:
   - Coils
   - Water
   - UI
-  - 
-  - 
+  - TableButtonReflection1
+  - TableButtonReflection2
   - 
   - 
   - 

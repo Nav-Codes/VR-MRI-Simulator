@@ -1,3 +1,7 @@
 G:/4800/Room4/Assets/Models filter=lfs diff=lfs merge=lfs -text
 Assets/Models/* filter=lfs diff=lfs merge=lfs -text
 Assets/Models/** filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs
+*.fbm/*.png filter=lfs diff=lfs merge=lfs
+*.fbm/*.jpg filter=lfs diff=lfs merge=lfs
+*.fbm/*.tga filter=lfs diff=lfs merge=lfs
