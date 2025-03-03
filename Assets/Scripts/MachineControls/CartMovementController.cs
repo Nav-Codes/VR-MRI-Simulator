@@ -11,14 +11,15 @@ public class CartMovementController : MonoBehaviour
     public Transform rightControllerTransform;
     public HandleXRGrabInteraction leftHandle;
     public HandleXRGrabInteraction rightHandle;
-    public Rigidbody cartRigidbody; 
+    public Rigidbody cartRigidbody;
     public ToggleLightButton powerButton;
     public ToggleLightButton parkButton;
     public BasicLightButton dockButton;
     private Vector3 lastLeftPos;
     private Vector3 lastRightPos;
     private bool initialized = false; // Tracks if positions have been initialized
-    private void FixedUpdate()
+    public float forceMultiplier = 4000f;
+    private void Update()
     {
         bool leftGrabbed = leftHandle.isHandleGrabbed();
         bool rightGrabbed = rightHandle.isHandleGrabbed();
@@ -55,16 +56,18 @@ public class CartMovementController : MonoBehaviour
 
         // Convert movement to cart's local space (so it moves forward/backward)
         Vector3 localMovement = transform.InverseTransformDirection(averageMovement);
-        localMovement.y = 0f;
-        localMovement.z = 0f;
+        localMovement.y = 0f;  // Prevent vertical movement
+        localMovement.z = 0f;  // Only move forward/backward
 
-        // Apply force instead of setting velocity directly
-        cartRigidbody.AddForce(transform.TransformDirection(localMovement) * 4000f, ForceMode.Acceleration);
+        // Apply direct position movement (instead of force)
+        Vector3 newPosition = cartRigidbody.position + transform.TransformDirection(localMovement) * forceMultiplier * Time.fixedDeltaTime;
+        cartRigidbody.MovePosition(newPosition);
 
         // Store last positions for next frame
         lastLeftPos = leftCurrentPos;
         lastRightPos = rightCurrentPos;
     }
+
 
     private bool checkMovePreconditions()
     {
@@ -79,7 +82,7 @@ public class CartMovementController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the cart reaches a the mri
-        if (other.CompareTag("MriBody")&&!parkButton.getState()) 
+        if (other.CompareTag("MriBody") && !parkButton.getState())
         {
             dockButton.TurnOn();
             parkButton.TurnOn();
@@ -89,7 +92,7 @@ public class CartMovementController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Detect when the cart leaves the target area
-        if (other.CompareTag("MriBody")) 
+        if (other.CompareTag("MriBody"))
         {
             dockButton.TurnOff();
         }

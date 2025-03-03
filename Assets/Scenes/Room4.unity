@@ -5473,7 +5473,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843267127}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -6288,7 +6288,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900684980}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -6323,6 +6323,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0050305272
   m_Center: {x: -0.0000695159, y: 0.00031770451, z: -0.00034024724}
+--- !u!114 &900684988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900684980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e70d2db13951c4197f53a100f32693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectA: {fileID: 900684980}
+  objectB: {fileID: 6290459220451491345}
+  springStrength: 50
+  damper: 5
+  maxDistance: 5
 --- !u!114 &913488525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11597,7 +11614,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934547095}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -11625,6 +11642,7 @@ MonoBehaviour:
   powerButton: {fileID: 511319173}
   parkButton: {fileID: 864570329}
   dockButton: {fileID: 1294726450}
+  forceMultiplier: 100
 --- !u!65 &1934547100
 BoxCollider:
   m_ObjectHideFlags: 0
