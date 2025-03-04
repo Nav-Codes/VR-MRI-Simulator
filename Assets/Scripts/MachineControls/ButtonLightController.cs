@@ -7,6 +7,7 @@ using UnityEngine;
 /// It manages the activation and deactivation of lights based on button states.
 /// Additionally, it ensures that non-power buttons only activate when the power button is turned on.
 /// </summary>
+/// 
 public class ButtonLightController : ButtonLightBase
 {
     public GameObject upButtonLight;
@@ -17,19 +18,22 @@ public class ButtonLightController : ButtonLightBase
     public GameObject rightHandButtonLight;
     public GameObject leftHandButtonLight;
     public GameObject NonPowerButtons;
-
+    public string[] buttonNames = { "Up", "Down", "Park", "Dock", "Power", "RightHand", "LeftHand" };
+    private GameObject[] buttonLightObjects;
     private void Awake()
     {
-        buttonLights = new Dictionary<string, GameObject>
+        buttonLightObjects = new GameObject[] { upButtonLight, downButtonLight, parkButtonLight, dockButtonLight, powerButtonLight, rightHandButtonLight, leftHandButtonLight };
+        if (buttonNames.Length != buttonLightObjects.Length)
         {
-            { "Up", upButtonLight },
-            { "Down", downButtonLight },
-            { "Park", parkButtonLight },
-            { "Dock", dockButtonLight },
-            { "Power", powerButtonLight },
-            { "RightHand", rightHandButtonLight },
-            { "LeftHand", leftHandButtonLight }
-        };
+            Debug.LogError("Button names and button light objects arrays do not match in length!");
+            return;
+        }
+        
+        buttonLights = new Dictionary<string, GameObject>();
+        for (int i = 0; i < buttonNames.Length; i++)
+        {
+            buttonLights.Add(buttonNames[i], buttonLightObjects[i]);
+        }
 
         InitializeLights();
     }

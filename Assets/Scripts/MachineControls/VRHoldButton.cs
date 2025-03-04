@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class VRHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public BedController bedController;
-    public ButtonLightBase buttonLightController = null;
+    public ButtonLightBase buttonLightController;
     public string type;
     protected bool isHeld = false;
     protected void Update()
