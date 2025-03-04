@@ -1,19 +1,21 @@
 using UnityEngine;
-
+/// <summary>
+/// Simulates a cable connection between two objects using a LineRenderer.
+/// The cable dynamically updates its shape each frame, applying a sagging effect 
+/// based on a sine function. The number of segments determines the smoothness of the curve.
+/// </summary>
 public class CableConnection : MonoBehaviour
 {
-    public Transform grabObject; // Smaller object to be grabbed
-    public Transform largeObject; // Larger object
+    public Transform grabObject;
+    public Transform largeObject;
     public int numSegments = 10;
-    public float sagAmount = 0.5f;
+    public float sagAmount = 0.15f;
     private LineRenderer lineRenderer;
 
     void Start()
     {
-        // Get the LineRenderer component attached to this GameObject
         lineRenderer = GetComponent<LineRenderer>();
         
-        // Ensure the LineRenderer component exists
         if (lineRenderer == null)
         {
             Debug.LogError("No LineRenderer component found on the GameObject.");
@@ -25,7 +27,6 @@ public class CableConnection : MonoBehaviour
 
     void Update()
     {
-        // Ensure we have a valid LineRenderer
         if (lineRenderer == null) return;
 
         Vector3 grabPos = grabObject.position;
@@ -34,9 +35,7 @@ public class CableConnection : MonoBehaviour
         for (int i = 0; i <= numSegments; i++)
         {
             float t = i / (float)numSegments;
-            // Lerp between grab and large object positions
             Vector3 position = Vector3.Lerp(grabPos, largePos, t);
-            // Apply the sag effect using a sine function
             position.y -= Mathf.Sin(t * Mathf.PI) * sagAmount;
             lineRenderer.SetPosition(i, position);
         }
