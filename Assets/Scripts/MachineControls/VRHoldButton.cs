@@ -1,82 +1,55 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 /// <summary>
-/// The VRHoldButton class manages a button's behavior in a VR environment, specifically for controlling the movement of a bed object.
-/// When the button is held down, it triggers either the MoveUp or MoveDown action in the BedController based on the moveUp boolean.
-/// The class also controls the lighting of the button, turning it on or off using the ButtonLightController based on whether the button is being held.
-/// This interaction is handled through IPointerDownHandler and IPointerUpHandler, which detect when the button is pressed or released.
+/// Handles VR button interactions that require holding down the button.
+/// Implements <see cref="IPointerDownHandler"/> and <see cref="IPointerUpHandler"/> to detect pointer events.
+/// When the button is held, it continuously triggers an action, and when released, it stops.
+/// Manages button light states via a <see cref="ButtonLightBase"/> controller.
 /// </summary>
 public class VRHoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public BedController bedController;
-    public ButtonLightController buttonLightController = null;
-    public bool moveUp; // True for Button_Up, False for Button_Down
-
-    private bool isHeld = false;
-
-    void Update()
+    public ButtonLightBase buttonLightController = null;
+    public string type;
+    protected bool isHeld = false;
+    protected void Update()
     {
         if (isHeld)
         {
-            Move();
-            LightOn();
+            ifHeld();
         }
         else
         {
-            LightOff();
+            ifNotHeld();
         }
     }
 
-    private void Move()
+    protected virtual void ifHeld()
     {
-        if (moveUp)
-        {
-            bedController.MoveUp();
-        }
-        else
-        {
-            bedController.MoveDown();
-        }
+        LightOn();
     }
 
-    private void LightOn()
+    protected virtual void ifNotHeld()
+    {
+        LightOff();
+    }
+
+    protected void LightOn()
     {
         if (buttonLightController == null)
         {
             return;
         }
-        if (moveUp)
-        {
-
-            buttonLightController.TurnButtonOn("Up");
-
-        }
-        else
-        {
-
-            buttonLightController.TurnButtonOn("Down");
-
-        }
+        buttonLightController.TurnButtonOn(type);
     }
 
-    private void LightOff()
+    protected void LightOff()
     {
         if (buttonLightController == null)
         {
             return;
         }
-        if (moveUp)
-        {
-
-            buttonLightController.TurnButtonOff("Up");
-
-        }
-        else
-        {
-
-            buttonLightController.TurnButtonOff("Down");
-
-        }
+        buttonLightController.TurnButtonOff(type);
     }
 
     public void OnPointerDown(PointerEventData eventData)

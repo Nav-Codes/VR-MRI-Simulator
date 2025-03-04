@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-public class VRHomeButton : MonoBehaviour, IPointerClickHandler
+/// <summary>
+/// Extends <see cref="VRHoldButton"/> to handle the VR home button functionality.
+/// When held, it moves the bed to the home position and turns on the corresponding button light.
+/// </summary>
+public class VRHomeButton : VRHoldButton
 {
-    public BedController bedController;
-
-    public void OnPointerClick(PointerEventData eventData)
+    protected override void ifHeld()
     {
         bedController.HomePosition();
+        LightOn();
     }
 }

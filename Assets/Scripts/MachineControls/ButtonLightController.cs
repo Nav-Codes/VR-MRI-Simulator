@@ -2,52 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// This class controls the button light indicators for various buttons, such as up, down, park, dock, power, and hand buttons.
-/// It manages the state of each button light, turning them on or off based on the button's state.
-/// Additionally, the class handles the activation of non-power button lights when the power button is turned on.
-/// The class uses dictionaries to map button names to their corresponding light objects and their states.
+/// Controls the button light indicators for various buttons, including up, down, park, dock, power, and hand buttons.
+/// This class inherits from <see cref="ButtonLightBase"/> and initializes button lights using a dictionary.
+/// It manages the activation and deactivation of lights based on button states.
+/// Additionally, it ensures that non-power buttons only activate when the power button is turned on.
 /// </summary>
-public class ButtonLightController : MonoBehaviour
+public class ButtonLightController : ButtonLightBase
 {
     public GameObject upButtonLight;
     public GameObject downButtonLight;
-    public GameObject ParkButtonLight;
-    public GameObject DockButtonLight;
+    public GameObject parkButtonLight;
+    public GameObject dockButtonLight;
     public GameObject powerButtonLight;
     public GameObject rightHandButtonLight;
     public GameObject leftHandButtonLight;
     public GameObject NonPowerButtons;
 
-    private Dictionary<string, GameObject> buttonLights;
-    private Dictionary<string, bool> buttonStates;
-
-    private void Start()
+    private void Awake()
     {
         buttonLights = new Dictionary<string, GameObject>
         {
             { "Up", upButtonLight },
             { "Down", downButtonLight },
-            { "Park", ParkButtonLight },
-            { "Dock", DockButtonLight },
+            { "Park", parkButtonLight },
+            { "Dock", dockButtonLight },
             { "Power", powerButtonLight },
             { "RightHand", rightHandButtonLight },
             { "LeftHand", leftHandButtonLight }
         };
 
-        buttonStates = new Dictionary<string, bool>
-        {
-            { "Up", false },
-            { "Down", false },
-            { "Park", true },
-            { "Dock", true },
-            { "Power", true },
-            { "RightHand", false },
-            { "LeftHand", false }
-        };
+        InitializeLights();
     }
 
 
-    public void TurnButtonOn(string buttonName)
+    public override void TurnButtonOn(string buttonName)
     {
         if (buttonLights.ContainsKey(buttonName))
         {
@@ -64,7 +52,7 @@ public class ButtonLightController : MonoBehaviour
         }
     }
 
-    public void TurnButtonOff(string buttonName)
+    public override void TurnButtonOff(string buttonName)
     {
         if (buttonLights.ContainsKey(buttonName))
         {
