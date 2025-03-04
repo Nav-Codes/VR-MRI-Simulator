@@ -8,11 +8,23 @@ using UnityEngine;
 /// </summary>
 public abstract class ButtonLightBase : MonoBehaviour
 {
+    protected GameObject[] buttonLightObjects;
     protected Dictionary<string, GameObject> buttonLights;
     protected Dictionary<string, bool> buttonStates;
 
-    protected virtual void InitializeLights()
+    protected virtual void InitializeLights(string[] buttonNames)
     {
+        if (buttonNames.Length != buttonLightObjects.Length)
+        {
+            Debug.LogError("Button names and button light objects arrays do not match in length!");
+            return;
+        }
+        
+        buttonLights = new Dictionary<string, GameObject>();
+        for (int i = 0; i < buttonNames.Length; i++)
+        {
+            buttonLights.Add(buttonNames[i], buttonLightObjects[i]);
+        }
         buttonStates = new Dictionary<string, bool>();
         foreach (var button in buttonLights)
         {

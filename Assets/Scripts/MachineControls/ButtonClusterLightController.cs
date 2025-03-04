@@ -13,23 +13,9 @@ public class ButtonClusterLightController : ButtonLightBase
     public GameObject homeButtonLight;
     public GameObject crosshairButtonLight;
     public string[] buttonNames = { "Up", "Down", "Home", "Crosshair" };
-    private GameObject[] buttonLightObjects;
-
     private void Awake()
     {
         buttonLightObjects = new GameObject[] { upButtonLight, downButtonLight, homeButtonLight, crosshairButtonLight };
-        if (buttonNames.Length != buttonLightObjects.Length)
-        {
-            Debug.LogError("Button names and button light objects arrays do not match in length!");
-            return;
-        }
-        
-        buttonLights = new Dictionary<string, GameObject>();
-        for (int i = 0; i < buttonNames.Length; i++)
-        {
-            buttonLights.Add(buttonNames[i], buttonLightObjects[i]);
-        }
-
-        InitializeLights();
+        InitializeLights(buttonNames);
     }
 }

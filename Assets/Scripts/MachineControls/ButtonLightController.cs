@@ -19,23 +19,10 @@ public class ButtonLightController : ButtonLightBase
     public GameObject leftHandButtonLight;
     public GameObject NonPowerButtons;
     public string[] buttonNames = { "Up", "Down", "Park", "Dock", "Power", "RightHand", "LeftHand" };
-    private GameObject[] buttonLightObjects;
     private void Awake()
     {
         buttonLightObjects = new GameObject[] { upButtonLight, downButtonLight, parkButtonLight, dockButtonLight, powerButtonLight, rightHandButtonLight, leftHandButtonLight };
-        if (buttonNames.Length != buttonLightObjects.Length)
-        {
-            Debug.LogError("Button names and button light objects arrays do not match in length!");
-            return;
-        }
-        
-        buttonLights = new Dictionary<string, GameObject>();
-        for (int i = 0; i < buttonNames.Length; i++)
-        {
-            buttonLights.Add(buttonNames[i], buttonLightObjects[i]);
-        }
-
-        InitializeLights();
+        InitializeLights(buttonNames);
     }
 
 
