@@ -1336,7 +1336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198723767}
   m_Layer: 0
-  m_Name: WireConnection
+  m_Name: WireConnectionForBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11433,7 +11433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538801235}
   m_Layer: 0
-  m_Name: WireConnection (1)
+  m_Name: WireConnectionForHeadphones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
