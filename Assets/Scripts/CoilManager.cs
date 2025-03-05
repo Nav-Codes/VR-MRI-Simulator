@@ -24,11 +24,23 @@ public class CoilManager : MonoBehaviour
         // Initialize the dictionary
         CoilMap = new Dictionary<string, GameObject>();
         foreach (var Coil in Coils)
-        {
+        {   
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
                 Coil.CoilPrefab.SetActive(false); // Ensure all Coils are inactive at start
+                
+                //Ensures that all the top parts of the coils are visisble
+                if (Coil.CoilPrefab.transform.childCount == 3) {
+                    Coil.CoilPrefab.SetActive(true);
+                    foreach (Transform child in Coil.CoilPrefab.transform)
+                    {
+                        if (child.name.ToLower().Contains("base") || child.name.ToLower().Contains("attachpoint")) 
+                        {
+                            child.gameObject.SetActive(false);
+                        }
+                    }
+                }
             }
         }
 
@@ -49,6 +61,7 @@ public class CoilManager : MonoBehaviour
 
     public void SpawnCoil()
     {
+        
         // Disable the currently active Coil
         if (activeCoil != null)
         {
@@ -61,6 +74,10 @@ public class CoilManager : MonoBehaviour
         // Spawn and activate the selected Coil
         if (CoilMap.TryGetValue(selectedCoilName, out GameObject selectedCoilPrefab))
         {
+            if (selectedCoilPrefab.transform.childCount == 3) {
+                // SpawnFromParent(selectedCoilName);
+                return;
+            }
             activeCoil = selectedCoilPrefab;
             activeCoil.SetActive(true);
             Debug.Log($"Activated Coil: {selectedCoilName}");
@@ -69,5 +86,34 @@ public class CoilManager : MonoBehaviour
         {
             Debug.LogWarning($"Coil '{selectedCoilName}' not found in CoilMap.");
         }
+    }
+
+    public void SpawnFromParent() {
+        Debug.Log("coilName: " + CoilDropdown.options[CoilDropdown.value].text);
+
+        string coilName = CoilDropdown.options[CoilDropdown.value].text;
+
+        if (CoilMap.TryGetValue(coilName, out GameObject selectedCoilPrefab) && selectedCoilPrefab.transform.childCount == 3)
+        {
+            foreach (Transform child in selectedCoilPrefab.transform)
+                {
+                    if (child.name.ToLower().Contains("base") || child.name.ToLower().Contains("attachpoint")) 
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+        }
+
+        // foreach (var Coil in Coils)
+        // {
+            // Debug.Log("Coil... === " + Coil.CoilName);
+            // if (Coil.CoilPrefab.transform.childCount == 3 && coilName == Coil.CoilName)
+            // {
+
+            // }
+        // }
+        //check if the coil has 3 children
+        // setActive(true) for children containing base or attatchpoint
+        // test wrist name
     }
 }
