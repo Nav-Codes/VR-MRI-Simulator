@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-
+/// <summary>
+/// This class controls the behavior of a dial button in a VR environment using the <see cref="XRGrabInteractable"/> component.
+/// It allows the dial to be grabbed and rotated to interact with the <see cref="BedController"/> to move the bed based on the dial's rotation.
+/// The dial's rotation is constrained within a specified range, and the dial smoothly returns to its home position when released.
+/// Additionally, the dial triggers movement of the bed when rotated past a certain angle threshold, moving it up or down.
+/// </summary>
 public class DialController : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;

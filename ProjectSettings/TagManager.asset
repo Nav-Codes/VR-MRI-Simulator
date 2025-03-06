@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CallBell
   - HeadPhone
+  - MriBody
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - Coils
   - Water
   - UI
-  - 
-  - 
+  - TableButtonReflection1
+  - TableButtonReflection2
   - 
   - 
   - 
