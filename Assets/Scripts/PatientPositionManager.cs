@@ -83,6 +83,11 @@ public class PatientPositionManager : MonoBehaviour
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
             OpenPositionMenuButton.SetActive(true);
             PatientPositionMenu.SetActive(false);
+            GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
+            if (grandchild != null)
+            {
+                grandchild.gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -97,4 +102,18 @@ public class PatientPositionManager : MonoBehaviour
         OpenPositionMenuButton.SetActive(false);
         defaultEnabled = false;
     }
+    private Transform FindChildByName(Transform parent, string name)
+{
+    foreach (Transform child in parent)
+    {
+        if (child.name == name)
+            return child; // Found the child
+
+        Transform found = FindChildByName(child, name); // Recursive search
+        if (found != null)
+            return found; // Return if found in deeper levels
+    }
+    return null; // Not found
+}
+
 }
