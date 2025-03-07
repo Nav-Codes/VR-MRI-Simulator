@@ -4,7 +4,7 @@ public class DataBanker : MonoBehaviour
     public static DataBanker Instance { get; private set; }
 
     private string EXAM;
-    private bool MALE;
+    private string SEX;
 
     private void Awake()
     {
@@ -24,9 +24,9 @@ public class DataBanker : MonoBehaviour
         EXAM = ex;
     }
 
-    public void SetMale(bool a)
+    public void SetSex(string a)
     {
-        MALE = a;
+       SEX = a;
     }
 
     public string GetExamType()
@@ -34,8 +34,8 @@ public class DataBanker : MonoBehaviour
         return EXAM;
     }
 
-    public bool IsMale()
+    public string whatSEX()
     {
-        return MALE;
+        return SEX;
     }
 }
