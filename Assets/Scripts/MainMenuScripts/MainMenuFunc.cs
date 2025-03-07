@@ -77,8 +77,10 @@ public class MainMenuFunc : MonoBehaviour
         if (currentXROrigin != null)
         {
             // Teleport the XR Origin to (0, 0, 0)
-            currentXROrigin.transform.position = Vector3.zero;
+            currentXROrigin.transform.position = new Vector3(5, 0, 0);
             Debug.Log("XR Rig teleported to (0, 0, 0)");
+
+			currentXROrigin.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
         else
         {
