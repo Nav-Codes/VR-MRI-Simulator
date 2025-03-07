@@ -95,10 +95,12 @@ public class CoilManager : MonoBehaviour
         {
             foreach (Transform child in selectedCoilPrefab.transform)
             {
+                
                 if (child.name.ToLower().Contains("base") || child.name.ToLower().Contains("attachpoint"))
                 {
                     child.gameObject.SetActive(true);
                 }
+                Debug.Log("child: " + child.name + " isActive: " + child.gameObject.activeSelf);
             }
         }
     }
