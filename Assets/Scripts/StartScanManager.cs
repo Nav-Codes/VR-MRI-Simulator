@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class StartScanManager : MonoBehaviour
 {
-    //public GameObject walkingPatient = null;
     [SerializeField] private AudioSource scannerAudioSource;
 
     private void Start()
