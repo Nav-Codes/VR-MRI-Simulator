@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TriggerDoorController : MonoBehaviour
 {
@@ -9,21 +11,24 @@ public class TriggerDoorController : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool closeTrigger = false;
 
-    private void OnTriggerEnter(Collider other)
+    private bool isOpen = false;
+
+    public void OpenDoor()
     {
-        if (other.CompareTag("Player"))
+        if (myDoor.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            if (openTrigger)
+            if (!isOpen)
             {
                 myDoor.Play("DoorOpen", 0, 0.0f);
-                gameObject.SetActive(false);
+                isOpen = true;
             }
 
-            else if (closeTrigger)
+            else if (isOpen)
             {
                 myDoor.Play("DoorClose", 0, 0.0f);
-                gameObject.SetActive(false);
+                isOpen = false;
             }
         }
+        
     }
 }
