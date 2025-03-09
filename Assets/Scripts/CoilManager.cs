@@ -25,18 +25,20 @@ public class CoilManager : MonoBehaviour
         CoilMap = new Dictionary<string, GameObject>();
         foreach (var Coil in Coils)
         {
+            Debug.Log(Coil.CoilPrefab.name);
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
                 Coil.CoilPrefab.SetActive(false); // Ensure all Coils are inactive at start
 
-                //Ensures that all the top parts of the coils are visisble
+                //Ensures that all the top and bottom parts of the coils are visisble
                 if (Coil.CoilPrefab.transform.childCount >= 3)
                 {
                     Coil.CoilPrefab.SetActive(true);
                     foreach (Transform child in Coil.CoilPrefab.transform)
                     {
-                        if (child.name.ToLower().Contains("_base") || child.name.ToLower().Contains("attachpoint"))
+                        //Ensures that when the player is loaded in, all the snap on points are disabled until the user selects a scan type
+                        if (child.name.ToLower().Contains("attach"))
                         {
                             child.gameObject.SetActive(false);
                         }
@@ -96,7 +98,7 @@ public class CoilManager : MonoBehaviour
             foreach (Transform child in selectedCoilPrefab.transform)
             {
                 
-                if (child.name.ToLower().Contains("base") || child.name.ToLower().Contains("attachpoint"))
+                if (child.name.ToLower().Contains("attach"))
                 {
                     child.gameObject.SetActive(true);
                 }
