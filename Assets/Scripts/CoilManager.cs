@@ -29,19 +29,14 @@ public class CoilManager : MonoBehaviour
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
-                Coil.CoilPrefab.SetActive(false); // Ensure all Coils are inactive at start
-
+                Coil.CoilPrefab.SetActive(true);
                 //Ensures that all the top and bottom parts of the coils are visisble
-                if (Coil.CoilPrefab.transform.childCount >= 3)
+                foreach (Transform child in Coil.CoilPrefab.transform)
                 {
-                    Coil.CoilPrefab.SetActive(true);
-                    foreach (Transform child in Coil.CoilPrefab.transform)
+                    //Ensures that when the player is loaded in, all the snap on points are disabled until the user selects a scan type
+                    if (child.name.ToLower().Contains("attach"))
                     {
-                        //Ensures that when the player is loaded in, all the snap on points are disabled until the user selects a scan type
-                        if (child.name.ToLower().Contains("attach"))
-                        {
-                            child.gameObject.SetActive(false);
-                        }
+                        child.gameObject.SetActive(false);
                     }
                 }
             }
@@ -89,6 +84,7 @@ public class CoilManager : MonoBehaviour
 
     public void SpawnFromParent()
     {
+        ResetCoils();
         Debug.Log("coilName: " + CoilDropdown.options[CoilDropdown.value].text);
 
         string coilName = CoilDropdown.options[CoilDropdown.value].text;
@@ -97,12 +93,26 @@ public class CoilManager : MonoBehaviour
         {
             foreach (Transform child in selectedCoilPrefab.transform)
             {
-                
+
                 if (child.name.ToLower().Contains("attach"))
                 {
                     child.gameObject.SetActive(true);
                 }
                 Debug.Log("child: " + child.name + " isActive: " + child.gameObject.activeSelf);
+            }
+        }
+    }
+
+    private void ResetCoils()
+    {
+        foreach (var Coil in Coils)
+        {
+            foreach (Transform child in Coil.CoilPrefab.transform)
+            {
+                if (child.name.ToLower().Contains("attach"))
+                {
+                    child.gameObject.SetActive(false);
+                }
             }
         }
     }
