@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class CoilManager : MonoBehaviour
 {
     public TMP_Dropdown CoilDropdown; // Configure in Inspector
+    public GameObject PatientBed;
+    public GameObject CoilObject;
 
     [System.Serializable]
     public class CoilData
@@ -57,32 +59,7 @@ public class CoilManager : MonoBehaviour
         CoilDropdown.AddOptions(options);
     }
 
-    public void SpawnCoil()
-    {
-
-        // Disable the currently active Coil
-        if (activeCoil != null)
-        {
-            activeCoil.SetActive(false);
-        }
-
-        // Get selected Coil name from dropdown
-        string selectedCoilName = CoilDropdown.options[CoilDropdown.value].text;
-
-        // Spawn and activate the selected Coil
-        if (CoilMap.TryGetValue(selectedCoilName, out GameObject selectedCoilPrefab))
-        {
-            activeCoil = selectedCoilPrefab;
-            activeCoil.SetActive(true);
-            Debug.Log($"Activated Coil: {selectedCoilName}");
-        }
-        else
-        {
-            Debug.LogWarning($"Coil '{selectedCoilName}' not found in CoilMap.");
-        }
-    }
-
-    public void SpawnFromParent()
+    public void SpawnCoilAttachPoint()
     {
         ResetCoils();
         Debug.Log("coilName: " + CoilDropdown.options[CoilDropdown.value].text);
@@ -91,9 +68,9 @@ public class CoilManager : MonoBehaviour
 
         if (CoilMap.TryGetValue(coilName, out GameObject selectedCoilPrefab) && selectedCoilPrefab.transform.childCount >= 3)
         {
+            selectedCoilPrefab.transform.SetParent(PatientBed.transform);
             foreach (Transform child in selectedCoilPrefab.transform)
             {
-
                 if (child.name.ToLower().Contains("attach"))
                 {
                     child.gameObject.SetActive(true);
@@ -107,6 +84,7 @@ public class CoilManager : MonoBehaviour
     {
         foreach (var Coil in Coils)
         {
+            Coil.CoilPrefab.transform.SetParent(CoilObject.transform);
             foreach (Transform child in Coil.CoilPrefab.transform)
             {
                 if (child.name.ToLower().Contains("attach"))

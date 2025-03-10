@@ -651,9 +651,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69570748}
-  m_LocalRotation: {x: 0.50000024, y: -0.49999982, z: -0.49999982, w: 0.50000024}
-  m_LocalPosition: {x: 1.1099927, y: 10.609701, z: -9.432792}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.0042797327, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270000338}
@@ -672,7 +672,7 @@ Transform:
   - {fileID: 1269581618}
   - {fileID: 1894404723}
   - {fileID: 137524706}
-  m_Father: {fileID: 728090428983355276}
+  m_Father: {fileID: 172920375}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &77589696
@@ -1887,6 +1887,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 69570749}
   - {fileID: 1509881921}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -6048,7 +6049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7080553757893481807, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SpawnFromParent
+      value: SpawnCoilAttachPoint
       objectReference: {fileID: 0}
     - target: {fileID: 7080553757893481807, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -14422,6 +14423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoilDropdown: {fileID: 1071003746}
+  PatientBed: {fileID: 6361372468135736370}
+  CoilObject: {fileID: 69570748}
   Coils:
   - CoilName: Head
     CoilPrefab: {fileID: 1742484785}
@@ -14888,7 +14891,7 @@ Transform:
   m_Children:
   - {fileID: 543450652917404156}
   m_Father: {fileID: 172920375}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516511470 stripped
 GameObject:
@@ -17436,7 +17439,7 @@ Transform:
   - {fileID: 1188497151}
   - {fileID: 259293512}
   m_Father: {fileID: 728090428983355276}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916877982
 GameObject:
@@ -18448,7 +18451,7 @@ Transform:
   - {fileID: 511749758}
   - {fileID: 733250526}
   m_Father: {fileID: 728090428983355276}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2061799146
 MonoBehaviour:
@@ -18482,6 +18485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoilDropdown: {fileID: 0}
+  PatientBed: {fileID: 0}
+  CoilObject: {fileID: 0}
   Coils:
   - CoilName: 
     CoilPrefab: {fileID: 0}
@@ -19511,7 +19516,6 @@ Transform:
   m_LocalScale: {x: 0.10000002, y: 0.10000002, z: 0.10000002}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 69570749}
   - {fileID: 2061799145}
   - {fileID: 1909633927}
   m_Father: {fileID: 1934547096}
