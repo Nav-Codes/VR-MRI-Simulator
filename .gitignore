@@ -73,4 +73,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Simulation of XR device in Editor
-/[Aa]ssets/Samples/XR Interaction Toolkit/*
+/[Aa]ssets/Samples/XR\ Interaction\ Toolkit/2.5.4/XR\ Device\ Simulator/
+/[Aa]ssets/Samples/XR\ Interaction\ Toolkit/2.5.4/XR\ Device\ Simulator.meta
