@@ -15995,7 +15995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPressDistance: 0.01
-  homePosition: {x: -0.225, y: 1.472, z: 1.118}
+  homePosition: {x: -0.54997027, y: 0.69999695, z: 12.499997}
   dialXRotation: -90
   dialYRotation: 0
   dialZRotation: 90
