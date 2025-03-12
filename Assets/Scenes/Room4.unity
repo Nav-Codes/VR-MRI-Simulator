@@ -1942,7 +1942,6 @@ MonoBehaviour:
   uiPanel: {fileID: 1229887434}
   closeOnOpen:
   - {fileID: 217610315}
-  - {fileID: 870041846}
   - {fileID: 1602955816}
   closeOnClose:
   - {fileID: 1729161740}
@@ -8110,7 +8109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870041847
 Transform:
   m_ObjectHideFlags: 0
@@ -16285,6 +16284,8 @@ MonoBehaviour:
   - {fileID: 40919614}
   - {fileID: 1828601335}
   - {fileID: 1602955816}
+  dummyButtons:
+  - {fileID: 870041846}
   trigger: {fileID: 307977221}
 --- !u!1 &1602955816
 GameObject:
@@ -16516,7 +16517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPressDistance: 0.01
-  homePosition: {x: -0.54997027, y: 0.69999695, z: 12.499997}
+  homePosition: {x: -0.225, y: 1.474, z: 1.118}
   dialXRotation: -90
   dialYRotation: 0
   dialZRotation: 90
@@ -17333,7 +17334,6 @@ MonoBehaviour:
   uiPanel: {fileID: 1229887434}
   closeOnOpen:
   - {fileID: 217610315}
-  - {fileID: 870041846}
   - {fileID: 1602955816}
   closeOnClose:
   - {fileID: 1729161740}
@@ -17763,8 +17763,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 34.331223, y: 35.136818, z: 20.837595}
-  m_Center: {x: -0.030199995, y: 0.3906488, z: -7.918801}
+  m_Size: {x: 29.157206, y: 26.222519, z: 13.045341}
+  m_Center: {x: -0.6224205, y: 0.4841387, z: -5.2694306}
 --- !u!114 &1828601340
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public class DisableButtons : MonoBehaviour
 {
     public GameObject[] buttons;
+    // if needed, use dummyButtons to replace the buttons when they are disabled
+    public GameObject[] dummyButtons;
     public GameObject trigger;
 
     void Start()
@@ -22,6 +24,10 @@ public class DisableButtons : MonoBehaviour
         foreach (GameObject button in buttons)
         {
             button.SetActive(isActive);
+        }
+        foreach (GameObject dummyButton in dummyButtons)
+        {
+            dummyButton.SetActive(!isActive);
         }
     }
 }
