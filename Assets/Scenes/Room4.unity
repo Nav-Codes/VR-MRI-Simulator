@@ -1942,7 +1942,7 @@ MonoBehaviour:
   uiPanel: {fileID: 1229887434}
   closeOnOpen:
   - {fileID: 217610315}
-  - {fileID: 1602955816}
+  - {fileID: 4701274634101015435}
   closeOnClose:
   - {fileID: 1729161740}
 --- !u!1 &219338809
@@ -17334,7 +17334,7 @@ MonoBehaviour:
   uiPanel: {fileID: 1229887434}
   closeOnOpen:
   - {fileID: 217610315}
-  - {fileID: 1602955816}
+  - {fileID: 4701274634101015435}
   closeOnClose:
   - {fileID: 1729161740}
 --- !u!114 &1729161743
