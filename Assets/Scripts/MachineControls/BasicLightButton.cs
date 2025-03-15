@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class BasicLightButton : MonoBehaviour
 {
-    public ButtonLightController buttonLightController;
+    public ButtonLightBase buttonLightController;
     public GameObject lightObject;
     public string buttonName;
     protected bool isOn = false;
