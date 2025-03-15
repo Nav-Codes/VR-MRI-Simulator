@@ -5,31 +5,56 @@ using System.Collections.Generic;
 
 public class CoilManager : MonoBehaviour
 {
-    public TMP_Dropdown CoilDropdown; // Configure in Inspector
-    public GameObject PatientBed;
-    public GameObject CoilObject;
+    // public TMP_Dropdown CoilDropdown; // Configure in Inspector
+    public GameObject PatientBed; // Assign in Inspector
+    public GameObject CoilObject; // Assign in Inspector
     public GameObject CurrCoil = null;
+    public GameObject ExamCanvas; // Assign in Inspector. 
 
     [System.Serializable]
     public class CoilData
     {
-        public string CoilName;
-        public GameObject CoilPrefab; // Prefab for the Coil
+        public string CoilName; // Should be from the canvas ExamCanvas
+        public GameObject CoilPrefab; // Prefab for the Coil. Names of prefabs should match the names of the ExamCanvas names.
     }
 
     // public GameObject[] Coils; 
 
     public CoilData[] Coils; // Configure in Inspector
     private Dictionary<string, GameObject> CoilMap; // For efficient lookup
+    private Dictionary<string, GameObject> TempCoilMap; // Contains only the essential coils
     private GameObject activeCoil; // Reference to currently active Coil
 
     private void Awake()
     {
+        // Iterate through each item inside the ExamCanvas gameObject (starting from index 1)
+        // For each child, get the gameObject.TextObj.text and use that as key for dict
+        // for the prefab, see which prefab name is similar to the prefab part and use that prefab
+        TempCoilMap = new Dictionary<string, GameObject>();
+        for (int i = 1; i < ExamCanvas.transform.childCount; i++) 
+        {
+            GameObject child = ExamCanvas.transform.GetChild(i).gameObject;
+            string coilName = child.GetComponentInChildren<TextMeshProUGUI>().text;
+            // Debug.Log("COILNAME: " + coilName);
+            // Debug.Log("");
+            //get the coil game object whose name matches the coilName
+            
+            foreach (var Coil in Coils)
+            {
+                if (Coil.CoilPrefab.name.ToLower().Contains(coilName.ToLower()))
+                {
+                    Debug.Log("COIL IN TEMOCOILMAP: " + coilName + " -- " +  Coil.CoilPrefab.name);
+                    TempCoilMap.Add(coilName, Coil.CoilPrefab);
+                    break;
+                }
+            }
+        }
+        // ExamCanvas.SetActive(false);
         // Initialize the dictionary
         CoilMap = new Dictionary<string, GameObject>();
         foreach (var Coil in Coils)
         {
-            // Debug.Log(Coil.CoilPrefab.name);
+            Debug.Log(Coil.CoilPrefab.name);
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
@@ -45,29 +70,26 @@ public class CoilManager : MonoBehaviour
                 }
             }
         }
-
-        // Populate the dropdown with Coil names
-        PopulateDropdown();
-        StartCoroutine(CheckChange());
+        // Listens for when exam type changes
+        StartCoroutine(OnDataBankerChange());
     }
 
-    private void PopulateDropdown()
-    {
-        CoilDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        foreach (var Coil in Coils)
-        {
-            options.Add(Coil.CoilName);
-        }
-        CoilDropdown.AddOptions(options);
-    }
+    // private void PopulateDropdown()
+    // {
+    //     CoilDropdown.ClearOptions();
+    //     List<string> options = new List<string>();
+    //     foreach (var Coil in Coils)
+    //     {
+    //         options.Add(Coil.CoilName);
+    //     }
+    //     CoilDropdown.AddOptions(options);
+    // }
 
     public void SpawnCoilAttachPoint()
     {
         ResetCoils();
-        // Debug.Log("coilName: " + CoilDropdown.options[CoilDropdown.value].text);
-
-        string coilName = CoilDropdown.options[CoilDropdown.value].text;
+        string coilName = "";
+        //  CoilDropdown.options[CoilDropdown.value].text;
 
         if (CoilMap.TryGetValue(coilName, out GameObject selectedCoilPrefab) && selectedCoilPrefab.transform.childCount >= 3)
         {
@@ -79,7 +101,26 @@ public class CoilManager : MonoBehaviour
                 {
                     child.gameObject.SetActive(true);
                 }
-                // Debug.Log("child: " + child.name + " isActive: " + child.gameObject.activeSelf);
+            }
+        }
+    }
+
+    public void SpawnCoilWithNewBtns(string examType) 
+    {
+        // Liatens for when top and bottom coil get placed
+        StartCoroutine(CheckTopAndBottomPlacement());
+
+        ResetCoils();
+        if (TempCoilMap.TryGetValue(examType, out GameObject selectedCoilPrefab) && selectedCoilPrefab.transform.childCount >= 3)
+        {
+            CurrCoil = selectedCoilPrefab;
+            selectedCoilPrefab.transform.SetParent(PatientBed.transform);
+            foreach (Transform child in selectedCoilPrefab.transform)
+            {
+                if (child.name.ToLower().Contains("attach"))
+                {
+                    child.gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -100,12 +141,29 @@ public class CoilManager : MonoBehaviour
         }
     }
 
+    IEnumerator<object> OnDataBankerChange() 
+    {
+        string exam = DataBanker.Instance.GetExamType();
+        Debug.Log("CURR EXAM: [" + exam + "]");
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (DataBanker.Instance.GetExamType() != exam)
+            {
+                Debug.Log("EXAM TYPE: [" + exam + "]");
+                SpawnCoilWithNewBtns(DataBanker.Instance.GetExamType());
+                break;
+            }
+        }
+    }
+
     /** This is to fix bug where red outline of coil still appears even though both coils are attached properly
     Only applies to coils with top and base parts (head, ankle, etc.) and assumes bottom coil is placed first */
-    IEnumerator<object> CheckChange() 
+    IEnumerator<object> CheckTopAndBottomPlacement() 
     {
         bool coilsInRoot = false;
-        while (true) 
+        while (true)
         {
             yield return new WaitForSeconds(0.5f); // Adjust frequency as needed
             

@@ -3676,7 +3676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f434afd3f5ab1a74fb045a1400cad0ff, type: 3}
       propertyPath: m_Name
-      value: Coil_HandWrist16_Stand
+      value: Coil_Hand/Wrist16_Stand
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f434afd3f5ab1a74fb045a1400cad0ff, type: 3}
       propertyPath: m_IsActive
@@ -6329,7 +6329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Brain
+  m_text: Head
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7478,6 +7478,10 @@ PrefabInstance:
     - target: {fileID: 3541503104812113967, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
       propertyPath: m_Name
       value: Patient Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541503104812113967, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4887973757385127987, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
       propertyPath: m_text
@@ -9112,7 +9116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Abdomen
+  m_text: Abdomino
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14494,6 +14498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coil Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 3541503104812113967, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4887973757385127987, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
       propertyPath: m_text
       value: Select the necessary coil using the dropdown below. Press "Confirm"
@@ -17967,7 +17975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ankle/Foot
+  m_text: Ankle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19178,10 +19186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5cdad39c5f0454daeff0881c84ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoilDropdown: {fileID: 1071003746}
   PatientBed: {fileID: 6361372468135736370}
   CoilObject: {fileID: 69570748}
   CurrCoil: {fileID: 0}
+  ExamCanvas: {fileID: 1425526469}
   Coils:
   - CoilName: Head
     CoilPrefab: {fileID: 1742484785}
@@ -20349,9 +20357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cervical
-
-    Spine'
+  m_text: Spine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24990,10 +24996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5cdad39c5f0454daeff0881c84ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoilDropdown: {fileID: 0}
   PatientBed: {fileID: 0}
   CoilObject: {fileID: 0}
   CurrCoil: {fileID: 0}
+  ExamCanvas: {fileID: 0}
   Coils:
   - CoilName: 
     CoilPrefab: {fileID: 0}
