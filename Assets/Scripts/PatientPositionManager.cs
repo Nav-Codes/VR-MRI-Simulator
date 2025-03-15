@@ -16,6 +16,7 @@ public class PatientPositionManager : MonoBehaviour
     public PatientPositionData[] PatientPositions; // Configure in Inspector
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
+    public CoilManager coilManager;
 
     private void Awake()
     {
