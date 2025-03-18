@@ -20,6 +20,7 @@ public class PatientPositionManager : MonoBehaviour
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
     private bool defaultEnabled = false;
+    public CoilManager coilManager;
 
     private void Awake()
     {

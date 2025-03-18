@@ -7,6 +7,8 @@ TagManager:
   - CallBell
   - HeadPhone
   - MriBody
+  - BodyCoil
+  - HandWristCoil
   layers:
   - Default
   - TransparentFX

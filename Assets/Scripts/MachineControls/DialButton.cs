@@ -14,17 +14,15 @@ public class DialButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject dial;
     private bool isHolding = false; // Flag to indicate when the button is being held
 
-    public void OnPointerDown(PointerEventData eventData)
+public void OnPointerDown(PointerEventData eventData)
+{
+    if (canBePressed || (canBePressed = bedController.IsAtMinX()))
     {
-        canBePressed = bedController.IsAtMinX();
-        if (canBePressed)
-        {
-            canBePressed = true;
-            bedController.MoveFixedDistance();
-        }
-        isHolding = true; // Start tracking hold
+        canBePressed = false;
+        bedController.MoveFixedDistance();
     }
-
+    isHolding = true; // Start tracking hold
+}
     public void OnPointerUp(PointerEventData eventData)
     {
         isHolding = false; // Stop tracking hold
