@@ -28,11 +28,11 @@ public class CoilManager : MonoBehaviour
     private void Awake()
     {
         TempCoilMap = new Dictionary<string, GameObject>();
-        for (int i = 1; i < ExamCanvas.transform.childCount; i++) 
+        for (int i = 1; i < ExamCanvas.transform.childCount; i++)
         {
             GameObject child = ExamCanvas.transform.GetChild(i).gameObject;
             string coilName = child.GetComponentInChildren<TextMeshProUGUI>().text;
-            
+
             foreach (var Coil in Coils)
             {
                 if (Coil.CoilPrefab.name.ToLower().Contains(coilName.ToLower()))
@@ -47,7 +47,6 @@ public class CoilManager : MonoBehaviour
         CoilMap = new Dictionary<string, GameObject>();
         foreach (var Coil in Coils)
         {
-            // Debug.Log(Coil.CoilPrefab.name);
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
@@ -88,7 +87,7 @@ public class CoilManager : MonoBehaviour
         }
     }
 
-    public void SpawnCoilWithNewBtns(string examType) 
+    public void SpawnCoilWithNewBtns(string examType)
     {
         // Liatens for when top and bottom coil get placed
         StartCoroutine(CheckTopAndBottomPlacement());
@@ -106,6 +105,30 @@ public class CoilManager : MonoBehaviour
                 }
             }
         }
+        CheckForBodyTag();
+    }
+
+    /** Checks if the selected coil is a body coil to manage which one is visible on the shelf */
+    private void CheckForBodyTag()
+    {
+        GameObject [] BodyCoils = GameObject.FindGameObjectsWithTag("BodyCoil");
+        bool foundBodyCoil = false; // To ensure only one body coil is visible (the one selected or the first one if body coil not selected)
+        foreach (var BodyCoil in BodyCoils)
+        {
+            foreach (Transform child in BodyCoil.transform)
+            {
+                if (child.name.ToLower().Contains("attach") && child.gameObject.activeSelf)
+                {
+                    foundBodyCoil = true;
+                    BodyCoil.SetActive(true);
+                }
+                else 
+                {
+                    BodyCoil.SetActive(false);
+                }
+            }
+        }
+        if (!foundBodyCoil) BodyCoils[0].SetActive(true); // If no body coil is selected, just display the first one
     }
 
     private void ResetCoils()
@@ -124,7 +147,7 @@ public class CoilManager : MonoBehaviour
         }
     }
 
-    IEnumerator<object> OnDataBankerChange() 
+    IEnumerator<object> OnDataBankerChange()
     {
         string exam = DataBanker.Instance.GetExamType();
         Debug.Log("exam type recieved: " + exam == "");
@@ -142,13 +165,13 @@ public class CoilManager : MonoBehaviour
 
     /** This is to fix bug where red outline of coil still appears even though both coils are attached properly
     Only applies to coils with top and base parts (head, ankle, etc.) and assumes bottom coil is placed first */
-    IEnumerator<object> CheckTopAndBottomPlacement() 
+    IEnumerator<object> CheckTopAndBottomPlacement()
     {
         bool coilsInRoot = false;
         while (true)
         {
             yield return new WaitForSeconds(0.5f); // Adjust frequency as needed
-            
+
             GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
 
             for (int i = 0; i < rootObjects.Length; i++)
@@ -185,8 +208,8 @@ public class CoilManager : MonoBehaviour
             if (CurrCoil.transform.childCount == 3 && coilsInRoot)
             {
                 baseAttach.GetComponent<BoxCollider>().enabled = false;
-            } 
-            else 
+            }
+            else
             {
                 baseAttach.GetComponent<BoxCollider>().enabled = true;
             }
