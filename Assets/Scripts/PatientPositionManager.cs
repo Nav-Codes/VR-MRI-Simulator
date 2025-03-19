@@ -36,6 +36,7 @@ public class PatientPositionManager : MonoBehaviour
         StartCoroutine(OnDataBankerExamChange());
     }
 
+    // Unused
     public void SpawnPatientPosition()
     {
         // Disable the currently active patient position
@@ -79,7 +80,8 @@ public class PatientPositionManager : MonoBehaviour
 
         foreach (var Position in PatientPositions)
         {
-            if (position.ToLower().Contains(Position.PatientPositionName.ToLower()))
+            Debug.Log("Patient position === " + Position.PatientPositionName);
+            if (Position.PatientPositionName.ToLower().Contains(position.ToLower()))
             {
                 activePatientPosition = Position.PatientPositionPrefab;
                 activePatientPosition.SetActive(true);
