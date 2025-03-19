@@ -27,34 +27,27 @@ public class CoilManager : MonoBehaviour
 
     private void Awake()
     {
-        // Iterate through each item inside the ExamCanvas gameObject (starting from index 1)
-        // For each child, get the gameObject.TextObj.text and use that as key for dict
-        // for the prefab, see which prefab name is similar to the prefab part and use that prefab
         TempCoilMap = new Dictionary<string, GameObject>();
         for (int i = 1; i < ExamCanvas.transform.childCount; i++) 
         {
             GameObject child = ExamCanvas.transform.GetChild(i).gameObject;
             string coilName = child.GetComponentInChildren<TextMeshProUGUI>().text;
-            // Debug.Log("COILNAME: " + coilName);
-            // Debug.Log("");
-            //get the coil game object whose name matches the coilName
             
             foreach (var Coil in Coils)
             {
                 if (Coil.CoilPrefab.name.ToLower().Contains(coilName.ToLower()))
                 {
-                    Debug.Log("COIL IN TEMOCOILMAP: " + coilName + " -- " +  Coil.CoilPrefab.name);
                     TempCoilMap.Add(coilName, Coil.CoilPrefab);
                     break;
                 }
             }
         }
-        // ExamCanvas.SetActive(false);
+
         // Initialize the dictionary
         CoilMap = new Dictionary<string, GameObject>();
         foreach (var Coil in Coils)
         {
-            Debug.Log(Coil.CoilPrefab.name);
+            // Debug.Log(Coil.CoilPrefab.name);
             if (Coil.CoilPrefab != null && !CoilMap.ContainsKey(Coil.CoilName))
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
@@ -74,17 +67,7 @@ public class CoilManager : MonoBehaviour
         StartCoroutine(OnDataBankerChange());
     }
 
-    // private void PopulateDropdown()
-    // {
-    //     CoilDropdown.ClearOptions();
-    //     List<string> options = new List<string>();
-    //     foreach (var Coil in Coils)
-    //     {
-    //         options.Add(Coil.CoilName);
-    //     }
-    //     CoilDropdown.AddOptions(options);
-    // }
-
+    // Unused
     public void SpawnCoilAttachPoint()
     {
         ResetCoils();
@@ -144,14 +127,13 @@ public class CoilManager : MonoBehaviour
     IEnumerator<object> OnDataBankerChange() 
     {
         string exam = DataBanker.Instance.GetExamType();
-        Debug.Log("CURR EXAM: [" + exam + "]");
+        Debug.Log("exam type recieved: " + exam == "");
         while (true)
         {
             yield return new WaitForSeconds(1f);
 
             if (DataBanker.Instance.GetExamType() != exam)
             {
-                Debug.Log("EXAM TYPE: [" + exam + "]");
                 SpawnCoilWithNewBtns(DataBanker.Instance.GetExamType());
                 break;
             }

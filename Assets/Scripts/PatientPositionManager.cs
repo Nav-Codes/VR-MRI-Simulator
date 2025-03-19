@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro UI
 using System.Collections.Generic;
+using System;
 
 public class PatientPositionManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PatientPositionManager : MonoBehaviour
     public PatientPositionData[] PatientPositions; // Configure in Inspector
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
-    public CoilManager coilManager;
+    // public CoilManager coilManager;
 
     private void Awake()
     {
@@ -31,19 +32,8 @@ public class PatientPositionManager : MonoBehaviour
             }
         }
 
-        // Populate the dropdown with patient position names
-        PopulateDropdown();
-    }
-
-    private void PopulateDropdown()
-    {
-        PatientPositionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        foreach (var position in PatientPositions)
-        {
-            options.Add(position.PatientPositionName);
-        }
-        PatientPositionDropdown.AddOptions(options);
+        // Listens for exam type to change
+        StartCoroutine(OnDataBankerExamChange());
     }
 
     public void SpawnPatientPosition()
@@ -75,18 +65,67 @@ public class PatientPositionManager : MonoBehaviour
         }
     }
 
-    private Transform FindChildByName(Transform parent, string name)
-{
-    foreach (Transform child in parent)
+    public void SpawnPatientPositionNEW(string position)
     {
-        if (child.name == name)
-            return child; // Found the child
+        Debug.Log("POSITION: " + position);
+        // Disable the currently active patient position
+        if (activePatientPosition != null)
+        {
+            activePatientPosition.SetActive(false);
+        }
 
-        Transform found = FindChildByName(child, name); // Recursive search
-        if (found != null)
-            return found; // Return if found in deeper levels
+        // if something contains position...
+        GameObject selectedPositionPrefab = null;
+
+        foreach (var Position in PatientPositions)
+        {
+            if (position.ToLower().Contains(Position.PatientPositionName.ToLower()))
+            {
+                activePatientPosition = Position.PatientPositionPrefab;
+                activePatientPosition.SetActive(true);
+                Debug.Log($"NEW Activated Patient Position: {Position.PatientPositionName}");
+                GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
+                if (grandchild != null)
+                {
+                    grandchild.gameObject.SetActive(false);
+                }
+                break;
+            }
+            else
+            {
+                Debug.LogWarning($"NEW Patient Position '{Position.PatientPositionName}' not found in PatientPositionMap.");
+            }
+        }
     }
-    return null; // Not found
-}
 
+    private Transform FindChildByName(Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == name)
+                return child; // Found the child
+
+            Transform found = FindChildByName(child, name); // Recursive search
+            if (found != null)
+                return found; // Return if found in deeper levels
+        }
+        return null; // Not found
+    }
+
+    IEnumerator<object> OnDataBankerExamChange()
+    {
+        yield return new WaitForSeconds(1f);
+
+        string exam = DataBanker.Instance.GetExamType();
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (DataBanker.Instance.GetExamType() != exam)
+            {
+                SpawnPatientPositionNEW(DataBanker.Instance.GetExamType());
+                break;
+            }
+        }
+    }
 }
