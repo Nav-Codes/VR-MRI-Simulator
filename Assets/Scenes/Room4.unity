@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &31223690
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,8 +3408,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4280241081675976842, guid: 0966114fdee1c414ba1da1d6a48f850a, type: 3}
+      propertyPath: m_Name
+      value: Coil_Hand/Wrist16_Flat_Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280241081675976842, guid: 0966114fdee1c414ba1da1d6a48f850a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559532722142748266, guid: 0966114fdee1c414ba1da1d6a48f850a, type: 3}
+      propertyPath: m_Name
+      value: Coil_HandWrist16_Flat_Base
       objectReference: {fileID: 0}
     - target: {fileID: 6559532722142748266, guid: 0966114fdee1c414ba1da1d6a48f850a, type: 3}
       propertyPath: m_IsActive
@@ -5428,7 +5436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &437735677
 Transform:
   m_ObjectHideFlags: 0
@@ -8062,7 +8070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &609100703
 Transform:
   m_ObjectHideFlags: 0
@@ -9148,7 +9156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &747713173
 Transform:
   m_ObjectHideFlags: 0
@@ -12836,7 +12844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &992958562
 Transform:
   m_ObjectHideFlags: 0
@@ -15142,7 +15150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1175073892
 Transform:
   m_ObjectHideFlags: 0
@@ -16856,7 +16864,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8683593288750092913, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
       propertyPath: m_Name
-      value: Coil_Head/Neck Base
+      value: Coil_HeadNeck Base
       objectReference: {fileID: 0}
     - target: {fileID: -8683593288750092913, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
       propertyPath: m_IsActive
@@ -16954,6 +16962,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2302372846054203054, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
+      propertyPath: m_Name
+      value: Coil_HeadNeck Top
+      objectReference: {fileID: 0}
     - target: {fileID: 5581325556577500207, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.332
@@ -17016,7 +17028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1280886077
 Transform:
   m_ObjectHideFlags: 0
@@ -17398,7 +17410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1324026242
 Transform:
   m_ObjectHideFlags: 0
@@ -19411,7 +19423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatientBed: {fileID: 6361372468135736370}
   CoilObject: {fileID: 69570748}
-  CurrCoil: {fileID: 0}
   ExamCanvas: {fileID: 1425526469}
   Coils:
   - CoilName: Head
@@ -20125,7 +20136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1504099210
 Transform:
   m_ObjectHideFlags: 0
@@ -20420,7 +20431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1540988984
 Transform:
   m_ObjectHideFlags: 0
@@ -25418,7 +25429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatientBed: {fileID: 0}
   CoilObject: {fileID: 0}
-  CurrCoil: {fileID: 0}
   ExamCanvas: {fileID: 0}
   Coils:
   - CoilName: 

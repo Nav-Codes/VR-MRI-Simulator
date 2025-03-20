@@ -8,7 +8,19 @@ public class CoilManager : MonoBehaviour
     // public TMP_Dropdown CoilDropdown; // Configure in Inspector
     public GameObject PatientBed; // Assign in Inspector
     public GameObject CoilObject; // Assign in Inspector
-    public GameObject CurrCoil = null;
+    private GameObject _currCoil = null;
+    public GameObject CurrCoil
+    {
+        get { return _currCoil; }
+        set
+        {
+            _currCoil = value;
+            if (_currCoil != null)
+            {
+                EnableAttachChildren(_currCoil);
+            }
+        }
+    }
     public GameObject ExamCanvas; // Assign in Inspector. 
 
     [System.Serializable]
@@ -51,7 +63,7 @@ public class CoilManager : MonoBehaviour
             {
                 CoilMap.Add(Coil.CoilName, Coil.CoilPrefab);
                 Coil.CoilPrefab.SetActive(true);
-                //Ensures that all the top and bottom parts of the coils are visisble
+                // Ensures that all the top and bottom parts of the coils are visisble
                 foreach (Transform child in Coil.CoilPrefab.transform)
                 {
                     //Ensures that when the player is loaded in, all the snap on points are disabled until the user selects a scan type
@@ -63,7 +75,8 @@ public class CoilManager : MonoBehaviour
             }
         }
         // Listens for when exam type changes
-        StartCoroutine(OnDataBankerChange());
+        StartCoroutine(OnCoilGrabbedChange());
+        StartCoroutine(CheckTopAndBottomPlacement());
     }
 
     // Unused
@@ -111,7 +124,7 @@ public class CoilManager : MonoBehaviour
     /** Checks if the selected coil is a body coil to manage which one is visible on the shelf */
     private void CheckForBodyTag()
     {
-        GameObject [] BodyCoils = GameObject.FindGameObjectsWithTag("BodyCoil");
+        GameObject[] BodyCoils = GameObject.FindGameObjectsWithTag("BodyCoil");
         bool foundBodyCoil = false; // To ensure only one body coil is visible (the one selected or the first one if body coil not selected)
         foreach (var BodyCoil in BodyCoils)
         {
@@ -122,7 +135,7 @@ public class CoilManager : MonoBehaviour
                     foundBodyCoil = true;
                     BodyCoil.SetActive(true);
                 }
-                else 
+                else
                 {
                     BodyCoil.SetActive(false);
                 }
@@ -147,19 +160,49 @@ public class CoilManager : MonoBehaviour
         }
     }
 
-    IEnumerator<object> OnDataBankerChange()
+    private void EnableAttachChildren(GameObject parent)
     {
-        string exam = DataBanker.Instance.GetExamType();
-        Debug.Log("exam type recieved: " + exam == "");
+        foreach (Transform child in parent.transform)
+        {
+            if (child.name.ToLower().Contains("attach"))
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    IEnumerator<object> OnCoilGrabbedChange()
+    {
+        bool grabbedCoil = false;
         while (true)
         {
+            GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
             yield return new WaitForSeconds(1f);
 
-            if (DataBanker.Instance.GetExamType() != exam)
+            foreach (var rootObj in rootObjects)
             {
-                SpawnCoilWithNewBtns(DataBanker.Instance.GetExamType());
-                break;
+                if (rootObj.name.ToLower().Contains("coil")) // Checks if a coil has been grabbed
+                {
+                    grabbedCoil = true;
+                    foreach (var Coil in Coils) // Checks which coil has been grabbed
+                    {
+                        if (rootObj.name.ToLower().Contains(Coil.CoilPrefab.name.ToLower()))
+                        {
+                            CurrCoil = Coil.CoilPrefab;
+                            // grabbedCoil = true;
+                            yield return new WaitForSeconds(0f);
+                        } 
+                        // else
+                        // {
+                        //    grabbedCoil = false;
+                        // }
+                    }
+                   
+                }
+                // if (grabbedCoil) break;
+                // else ResetCoils();
             }
+            // ResetCoils();
         }
     }
 

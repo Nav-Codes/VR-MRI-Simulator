@@ -33,7 +33,7 @@ public class PatientPositionManager : MonoBehaviour
         }
 
         // Listens for exam type to change
-        StartCoroutine(OnDataBankerExamChange());
+        // StartCoroutine(OnDataBankerExamChange());
     }
 
     // Unused
