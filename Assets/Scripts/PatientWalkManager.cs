@@ -77,8 +77,7 @@ public class PatientWalkManager : MonoBehaviour
             frameCount++;
             if (walkProgress > 1)
             {
-                isTurning1 = false;
-                isWalking2 = true;
+                isTurning2 = false;
                 SeatPatient();
             }
         }

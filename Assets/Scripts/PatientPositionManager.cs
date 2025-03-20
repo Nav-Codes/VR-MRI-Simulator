@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro UI
 using System.Collections.Generic;
+using System.Collections;
 
 public class PatientPositionManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PatientPositionManager : MonoBehaviour
     private GameObject activePatientPosition; // Currently active position
     private bool defaultEnabled = false;
     public CoilManager coilManager;
+    public GameObject transitionModel;
+    public Animator transitionAnimator;
 
     private void Awake()
     {
@@ -61,6 +64,11 @@ public class PatientPositionManager : MonoBehaviour
 
     public void SpawnPatientPosition()
     {
+        StartCoroutine(SpawnPatientPositionCoroutine());
+    }
+
+    private IEnumerator SpawnPatientPositionCoroutine()
+    {
         // Disable the default patient position
         if (DefaultPatientPosition != null)
         {
@@ -80,20 +88,72 @@ public class PatientPositionManager : MonoBehaviour
         if (PatientPositionMap.TryGetValue(selectedPositionName, out GameObject selectedPositionPrefab))
         {
             activePatientPosition = selectedPositionPrefab;
+            PatientPositionMenu.SetActive(false);
+            if (selectedPositionName == "Knee")
+            {
+                AnimateTransition();
+                yield return new WaitForSeconds(3);
+            }
+                
+            transitionModel.SetActive(false);
             activePatientPosition.SetActive(true);
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
             OpenPositionMenuButton.SetActive(true);
-            PatientPositionMenu.SetActive(false);
+            
             GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
             if (grandchild != null)
             {
                 grandchild.gameObject.SetActive(false);
             }
+
+            if (selectedPositionName == "Knee")
+            {
+                yield return new WaitForSeconds(2);
+                AnimateCoilAccomodation();
+                yield return new WaitForSeconds(18.0f / 24.0f);
+                transitionAnimator.speed = 0;
+            }
+                
         }
         else
         {
             Debug.LogWarning($"Patient Position '{selectedPositionName}' not found in PatientPositionMap.");
         }
+    }
+
+    public void AnimateTransition()
+    {
+        string selectedPositionName = PatientPositionDropdown.options[PatientPositionDropdown.value].text;
+        if (selectedPositionName != "Knee")
+        {
+            return;
+        }
+        if (transitionModel != null)
+        {
+            transitionModel.SetActive(true);
+        }
+        transitionAnimator.Play("90-0_Transition", 0, 0f);
+        //while (transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("90-0_Transition")
+        //    && transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
+        //if (transitionModel != null)
+        //{
+        //    transitionModel.SetActive(false);
+        //}
+    }
+
+    public void AnimateCoilAccomodation()
+    {
+        string selectedPositionName = PatientPositionDropdown.options[PatientPositionDropdown.value].text;
+        if (selectedPositionName != "Knee")
+        {
+            return;
+        }
+        activePatientPosition.SetActive(false);
+        if (transitionModel != null)
+        {
+            transitionModel.SetActive(true);
+        }
+        transitionAnimator.Play("0-KneeRaise_Transition", 0, 0f);
     }
 
     public void ResetPositionMenu()
