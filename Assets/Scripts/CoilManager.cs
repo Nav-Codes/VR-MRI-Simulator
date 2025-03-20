@@ -189,20 +189,13 @@ public class CoilManager : MonoBehaviour
                         if (rootObj.name.ToLower().Contains(Coil.CoilPrefab.name.ToLower()))
                         {
                             CurrCoil = Coil.CoilPrefab;
-                            // grabbedCoil = true;
-                            yield return new WaitForSeconds(0f);
                         } 
-                        // else
-                        // {
-                        //    grabbedCoil = false;
-                        // }
                     }
-                   
+                   break;
                 }
-                // if (grabbedCoil) break;
-                // else ResetCoils();
             }
-            // ResetCoils();
+            if (!grabbedCoil) ResetCoils();
+            grabbedCoil = false;
         }
     }
 
