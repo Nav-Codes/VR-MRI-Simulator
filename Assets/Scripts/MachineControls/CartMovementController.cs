@@ -130,7 +130,7 @@ public class CartMovementController : MonoBehaviour
         // Detect when the cart leaves the target area
         if (other.CompareTag("MriBody"))
         {
-            dockButton.TurnOff(); // Deactivate dock indicator
+            dockButton.TurnOff(); // Deactivate dock indicator 
         }
     }
 }

@@ -8,29 +8,26 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// </summary>
 public class DialController : MonoBehaviour
 {
-    private XRGrabInteractable grabInteractable;
-    private Quaternion initialGrabRotation;
-    private Quaternion initialControllerRotation;
+    private XRGrabInteractable grabInteractable; // Reference to the XR Grab Interactable component
+    private Quaternion initialGrabRotation; // Stores the initial rotation of the dial when grabbed
+    private Quaternion initialControllerRotation; // Stores the initial rotation of the controller when grabbing
     public float buttonPressDistance = 0.3f; // Distance to move the dial when pressed
-    public Vector3 homePosition;
-
+    public Vector3 homePosition; // The default position of the dial when not in use
     public float dialXRotation = -90.0f; // Lock X rotation to 0 degrees
     public float dialYRotation = 0.0f;  // Lock Y rotation to 0 degrees
     public float dialZRotation = 90.0f; // Lock Z rotation to 90 degrees
     public float rotationSpeed = 100.0f; // Speed of easing rotation when released
     public float reboundSpeed = 5.0f; // Speed of dial button rebound
-
     public float minRotationX = -120.0f; // Min limit for X rotation
     public float maxRotationX = -60.0f;  // Max limit for X rotation
-
     public BedController bedController; // Reference to the bed controller
-
     public float minimumAngleDifference = 3.0f; // Minimum angle difference to trigger movement
-
     private Quaternion targetRotation; // The target rotation when released
     private bool isReleased = false; // Flag to indicate when the object has been released
     private bool dialDown = false; // Flag to indicate when the dial is moving down
-
+    /// <summary>
+    /// Initializes the dial and sets up event listeners for grabbing and releasing.
+    /// </summary>
     void Start()
     {
         // Get XRGrabInteractable from the parent object (pivot)
@@ -43,14 +40,19 @@ public class DialController : MonoBehaviour
         grabInteractable.trackRotation = false; // Disable rotation tracking
 
     }
-
+    /// <summary>
+    /// Called when the dial is grabbed. Stores the initial rotation of the dial and controller.
+    /// </summary>
+    /// <param name="args">The event arguments containing interaction data.</param>
     private void OnGrab(SelectEnterEventArgs args)
     {
         // Save the initial rotation of the parent (pivot) and controller
         initialGrabRotation = transform.rotation;
         initialControllerRotation = args.interactorObject.transform.rotation;
     }
-
+    /// <summary>
+    /// Updates the dial's rotation while grabbed and smoothly resets its position when released.
+    /// </summary>
     private void Update()
     {
         if (grabInteractable.isSelected)
@@ -79,6 +81,7 @@ public class DialController : MonoBehaviour
                     dialYRotation, // Lock Y-axis
                     dialZRotation  // Lock Z-axis
                 );
+                // Check if the rotation exceeds the threshold for bed movement
                 if ((newXRotation - dialXRotation) > minimumAngleDifference)
                 {
                     bedController.MoveDown();
@@ -104,6 +107,7 @@ public class DialController : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
+        // Reset the dial to home position when not pressed
         if (!dialDown)
         {
             // Smoothly move the dial back to the home position
@@ -115,7 +119,11 @@ public class DialController : MonoBehaviour
         }
     }
 
-    // Function to normalize the angle within -180 to 180 range
+    /// <summary>
+    // /// Normalizes an angle to be within the -180 to 180 degree range.
+    // /// </summary>
+    // /// <param name="angle">The angle to normalize.</param>
+    // /// <returns>The normalized angle within the range of -180 to 180 degrees.</returns>
     float NormalizeAngle(float angle)
     {
         // Normalize to [0, 360)
@@ -125,7 +133,11 @@ public class DialController : MonoBehaviour
         return angle;
     }
 
-
+    /// <summary>
+    /// Called when the dial is released. Resets its rotation and marks it as released.
+    /// </summary>
+    /// <param name="args">The event arguments containing interaction data.</param>
+    private void OnRelease(SelectExitEventArgs args)
     private void OnRelease(SelectExitEventArgs args)
     {
         // Set the target rotation to the locked final values when released
@@ -134,10 +146,13 @@ public class DialController : MonoBehaviour
         // Indicate that the object has been released
         isReleased = true;
     }
-
+    /// <summary>
+    /// Moves the dial down when pressed.
+    /// </summary>
     public void DialDown()
     {
         dialDown = true;
+        // Move the dial forward if it's not being grabbed
         if (!grabInteractable.isSelected)
         {
             // Move the dial forward by modifying the Z position
@@ -148,10 +163,11 @@ public class DialController : MonoBehaviour
             );
         }
     }
-
+    /// <summary>
+    /// Moves the dial back up when released.
+    /// </summary>
     public void DialUp()
     {
         dialDown = false;
     }
-
 }
