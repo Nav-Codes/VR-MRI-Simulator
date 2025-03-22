@@ -138,7 +138,6 @@ public class DialController : MonoBehaviour
     /// </summary>
     /// <param name="args">The event arguments containing interaction data.</param>
     private void OnRelease(SelectExitEventArgs args)
-    private void OnRelease(SelectExitEventArgs args)
     {
         // Set the target rotation to the locked final values when released
         targetRotation = Quaternion.Euler(dialXRotation, dialYRotation, dialZRotation);
