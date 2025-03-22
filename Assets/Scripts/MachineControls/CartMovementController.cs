@@ -7,23 +7,36 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// </summary>
 public class CartMovementController : MonoBehaviour
 {
+    // References to the left and right hand controllers' transforms
     public Transform leftControllerTransform;
     public Transform rightControllerTransform;
+    
+    // References to the grab interactions on the cart's handles
     public HandleXRGrabInteraction leftHandle;
     public HandleXRGrabInteraction rightHandle;
+    // The Rigidbody component of the cart, used for physics-based movement
     public Rigidbody cartRigidbody;
-    public ToggleLightButton powerButton;
-    public ToggleLightButton parkButton;
-    public BasicLightButton dockButton;
+    // References to control buttons
+    public ToggleLightButton powerButton; // Power must be ON for movement
+    public ToggleLightButton parkButton; // Park must be OFF for movement
+    public BasicLightButton dockButton;  // Indicates when the cart is docked
+    // Stores the last recorded positions of the controllers
     private Vector3 lastLeftPos;
     private Vector3 lastRightPos;
     private bool initialized = false; // Tracks if positions have been initialized
+    // Force multiplier for movement speed
     public float forceMultiplier = 4000f;
+    /// <summary>
+    /// Called once per frame.
+    /// - Checks if both handles are grabbed and if movement conditions are met.
+    /// - Calls MoveCart() if conditions allow movement.
+    /// - Resets initialization when handles are released.
+    /// </summary>
     private void Update()
     {
         bool leftGrabbed = leftHandle.isHandleGrabbed();
         bool rightGrabbed = rightHandle.isHandleGrabbed();
-
+        // Ensure both handles are grabbed and movement conditions are met
         if (leftGrabbed && rightGrabbed && checkMovePreconditions())
         {
             MoveCart();
@@ -33,7 +46,12 @@ public class CartMovementController : MonoBehaviour
             initialized = false; // Reset when handles are released
         }
     }
-
+    /// <summary>
+    /// Moves the cart based on the difference in position between the current and previous frames.
+    /// - Calculates movement based on the average controller movement.
+    /// - Moves the cart using Rigidbody for smooth physics-based motion.
+    /// - Prevents unwanted vertical and sideways motion.
+    /// </summary>
     private void MoveCart()
     {
         // Get the current positions of the controllers
@@ -68,17 +86,31 @@ public class CartMovementController : MonoBehaviour
         lastRightPos = rightCurrentPos;
     }
 
-
+    /// <summary>
+    /// Checks whether movement conditions are met.
+    /// - The power button must be ON.
+    /// - The park button must be OFF.
+    /// </summary>
+    /// <returns>True if movement conditions are met, false otherwise.</returns>
     private bool checkMovePreconditions()
     {
         return powerButton.getState() && !parkButton.getState();
     }
 
+    /// <summary>
+    /// Checks whether the cart is currently docked.
+    /// </summary>
+    /// <returns>True if the cart is docked, false otherwise.</returns>
     public bool isDocked()
     {
         return dockButton.getState();
     }
-
+    /// <summary>
+    /// Handles the event when the cart enters a trigger zone.
+    /// - If the cart reaches the MRI area and the park button is OFF, it docks automatically.
+    /// - Turns on the dock button and activates the park button to prevent further movement.
+    /// </summary>
+    /// <param name="other">The collider that the cart has entered.</param>
     private void OnTriggerEnter(Collider other)
     {
         // Check if the cart reaches a the mri
@@ -88,13 +120,17 @@ public class CartMovementController : MonoBehaviour
             parkButton.TurnOn();
         }
     }
-
+    /// <summary>
+    /// Handles the event when the cart exits a trigger zone.
+    /// - If the cart leaves the MRI area, the dock indicator is turned off.
+    /// </summary>
+    /// <param name="other">The collider that the cart has exited.</param>
     private void OnTriggerExit(Collider other)
     {
         // Detect when the cart leaves the target area
         if (other.CompareTag("MriBody"))
         {
-            dockButton.TurnOff();
+            dockButton.TurnOff(); // Deactivate dock indicator
         }
     }
 }
