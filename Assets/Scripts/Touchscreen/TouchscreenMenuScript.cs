@@ -48,5 +48,4 @@ public class TouchscreenMenuScript : MonoBehaviour
             sidePanel.SetActive(!sidePanel.activeSelf);
         }
     }
-
 }
