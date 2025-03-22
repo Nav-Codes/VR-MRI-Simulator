@@ -6,9 +6,14 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class VRHomeButton : VRHoldButton
 {
+    /// <summary>
+    /// Overrides the base `ifHeld()` method.
+    /// - Calls `HomePosition()` on the `bedController` to move the bed.
+    /// - Activates the button's light with `LightOn()`.
+    /// </summary>
     protected override void ifHeld()
     {
-        bedController.HomePosition();
-        LightOn();
+        bedController.HomePosition(); // Move the bed to the home position
+        LightOn(); // Turn on the button light
     }
 }
