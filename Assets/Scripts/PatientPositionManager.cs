@@ -49,7 +49,8 @@ public class PatientPositionManager : MonoBehaviour
     {
         if (!defaultEnabled && PatientPositionDropdown.IsActive())
         {
-            DefaultPatientPosition.SetActive(true);
+            //DefaultPatientPosition.SetActive(true);
+            StartCoroutine(SetInitialTransitionModelPosition());
             defaultEnabled = true;
         }
     }
@@ -94,6 +95,9 @@ public class PatientPositionManager : MonoBehaviour
             PatientPositionMenu.SetActive(false);
             if (!noAnimationPositions.Contains(selectedPositionName))
             {
+                //FlipModel();
+                yield return StartCoroutine(PlayAnimation("Bedside-90", 2.6f));
+                FlipModel();
                 yield return StartCoroutine(PlayAnimation("90-0_Transition"));
             }
             
@@ -109,9 +113,8 @@ public class PatientPositionManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(2);
                 yield return StartCoroutine(PlayAnimation("0-KneeRaise_Transition", 18.0f / 24.0f));
-                transitionAnimator.speed = 0;
+                
             }
-
             OpenPositionMenuButton.SetActive(true);
         }
         else
@@ -136,7 +139,7 @@ public class PatientPositionManager : MonoBehaviour
         {
             yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
-        
+        transitionAnimator.speed = 0;
     }
 
     public void ResetPositionMenu()
@@ -148,10 +151,37 @@ public class PatientPositionManager : MonoBehaviour
     {
         OpenPositionMenuButton.SetActive(false);
         yield return StartCoroutine(PlayAnimation("0-90_Transition"));
-        transitionModel.SetActive(false);
+        FlipModel();
+        yield return StartCoroutine(PlayAnimation("90-Bedside", 2.6f));
+        FlipModel();
         PatientPositionMenu.SetActive(true);
         defaultEnabled = false;
     }
+
+    public IEnumerator SetInitialTransitionModelPosition()
+    {
+        FlipModel();
+        yield return StartCoroutine(PlayAnimation("Bedside-90", 0));
+    }
+
+    public void FlipModel()
+    {
+        transitionModel.transform.localScale = new Vector3
+                (
+                    transitionModel.transform.localScale.x,
+                    transitionModel.transform.localScale.y,
+                    -transitionModel.transform.localScale.z
+                );
+        if (transitionModel.transform.localScale.z < 0)
+        {
+            transitionModel.transform.position = new Vector3(0, 0, 0.23f);
+        }
+        else
+        {
+            transitionModel.transform.position = new Vector3(0, 0, 0);
+        }
+    }
+
 
     private Transform FindChildByName(Transform parent, string name)
 {
