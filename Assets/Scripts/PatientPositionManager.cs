@@ -94,12 +94,9 @@ public class PatientPositionManager : MonoBehaviour
             PatientPositionMenu.SetActive(false);
             if (!noAnimationPositions.Contains(selectedPositionName))
             {
-                AnimateLieDown();
-                yield return new WaitForSeconds(3.292f); // Length of lie down animation
+                yield return StartCoroutine(PlayAnimation("90-0_Transition"));
             }
-                
-            transitionModel.SetActive(false);
-            activePatientPosition.SetActive(true);
+            
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
             
             GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
@@ -111,8 +108,7 @@ public class PatientPositionManager : MonoBehaviour
             if (!noAnimationPositions.Contains(selectedPositionName))
             {
                 yield return new WaitForSeconds(2);
-                AnimateCoilAccomodation();
-                yield return new WaitForSeconds(18.0f / 24.0f);
+                yield return StartCoroutine(PlayAnimation("0-KneeRaise_Transition", 18.0f / 24.0f));
                 transitionAnimator.speed = 0;
             }
 
@@ -124,34 +120,23 @@ public class PatientPositionManager : MonoBehaviour
         }
     }
 
-    public void AnimateLieDown()
+    public IEnumerator PlayAnimation(string animationName, float? animTime = null)
     {
         if (transitionModel != null)
         {
             transitionModel.SetActive(true);
         }
-        transitionAnimator.Play("90-0_Transition", 0, 0f);
+        transitionAnimator.Play(animationName, 0, 0f);
         transitionAnimator.speed = 1;
-    }
-
-    public void AnimateSitUp()
-    {
-        if (transitionModel != null)
+        yield return new WaitUntil(() => transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
+        if (animTime != null) 
         {
-            transitionModel.SetActive(true);
-        }
-        transitionAnimator.Play("0-90_Transition", 0, 0f);
-        transitionAnimator.speed = 1;
-    }
-
-    public void AnimateCoilAccomodation()
-    {
-        activePatientPosition.SetActive(false);
-        if (transitionModel != null)
+            yield return new WaitForSeconds((float)animTime);
+        } else
         {
-            transitionModel.SetActive(true);
+            yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
-        transitionAnimator.Play("0-KneeRaise_Transition", 0, 0f);
+        
     }
 
     public void ResetPositionMenu()
@@ -161,13 +146,10 @@ public class PatientPositionManager : MonoBehaviour
 
     public IEnumerator ResetPositionMenuCoroutine()
     {
-        activePatientPosition?.SetActive(false);
-        AnimateSitUp();
-        yield return new WaitUntil(() => transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
-        yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
+        OpenPositionMenuButton.SetActive(false);
+        yield return StartCoroutine(PlayAnimation("0-90_Transition"));
         transitionModel.SetActive(false);
         PatientPositionMenu.SetActive(true);
-        OpenPositionMenuButton.SetActive(false);
         defaultEnabled = false;
     }
 
