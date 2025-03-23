@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro; // Required for TextMeshPro UI
 using System.Collections.Generic;
 using System.Collections;
+using System;
+using System.Linq;
 
 public class PatientPositionManager : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class PatientPositionManager : MonoBehaviour
     public CoilManager coilManager;
     public GameObject transitionModel;
     public Animator transitionAnimator;
+    private string[] noAnimationPositions = {"Ankle", "Breast", "Hand (Flat)"};
 
     private void Awake()
     {
@@ -89,16 +92,15 @@ public class PatientPositionManager : MonoBehaviour
         {
             activePatientPosition = selectedPositionPrefab;
             PatientPositionMenu.SetActive(false);
-            if (selectedPositionName == "Knee")
+            if (!noAnimationPositions.Contains(selectedPositionName))
             {
-                AnimateTransition();
-                yield return new WaitForSeconds(3);
+                AnimateLieDown();
+                yield return new WaitForSeconds(3.292f); // Length of lie down animation
             }
                 
             transitionModel.SetActive(false);
             activePatientPosition.SetActive(true);
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
-            OpenPositionMenuButton.SetActive(true);
             
             GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
             if (grandchild != null)
@@ -106,14 +108,15 @@ public class PatientPositionManager : MonoBehaviour
                 grandchild.gameObject.SetActive(false);
             }
 
-            if (selectedPositionName == "Knee")
+            if (!noAnimationPositions.Contains(selectedPositionName))
             {
                 yield return new WaitForSeconds(2);
                 AnimateCoilAccomodation();
                 yield return new WaitForSeconds(18.0f / 24.0f);
                 transitionAnimator.speed = 0;
             }
-                
+
+            OpenPositionMenuButton.SetActive(true);
         }
         else
         {
@@ -121,33 +124,28 @@ public class PatientPositionManager : MonoBehaviour
         }
     }
 
-    public void AnimateTransition()
+    public void AnimateLieDown()
     {
-        string selectedPositionName = PatientPositionDropdown.options[PatientPositionDropdown.value].text;
-        if (selectedPositionName != "Knee")
-        {
-            return;
-        }
         if (transitionModel != null)
         {
             transitionModel.SetActive(true);
         }
         transitionAnimator.Play("90-0_Transition", 0, 0f);
-        //while (transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("90-0_Transition")
-        //    && transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
-        //if (transitionModel != null)
-        //{
-        //    transitionModel.SetActive(false);
-        //}
+        transitionAnimator.speed = 1;
+    }
+
+    public void AnimateSitUp()
+    {
+        if (transitionModel != null)
+        {
+            transitionModel.SetActive(true);
+        }
+        transitionAnimator.Play("0-90_Transition", 0, 0f);
+        transitionAnimator.speed = 1;
     }
 
     public void AnimateCoilAccomodation()
     {
-        string selectedPositionName = PatientPositionDropdown.options[PatientPositionDropdown.value].text;
-        if (selectedPositionName != "Knee")
-        {
-            return;
-        }
         activePatientPosition.SetActive(false);
         if (transitionModel != null)
         {
@@ -158,11 +156,21 @@ public class PatientPositionManager : MonoBehaviour
 
     public void ResetPositionMenu()
     {
+        StartCoroutine(ResetPositionMenuCoroutine());
+    }
+
+    public IEnumerator ResetPositionMenuCoroutine()
+    {
         activePatientPosition?.SetActive(false);
+        AnimateSitUp();
+        yield return new WaitUntil(() => transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
+        yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
+        transitionModel.SetActive(false);
         PatientPositionMenu.SetActive(true);
         OpenPositionMenuButton.SetActive(false);
         defaultEnabled = false;
     }
+
     private Transform FindChildByName(Transform parent, string name)
 {
     foreach (Transform child in parent)
