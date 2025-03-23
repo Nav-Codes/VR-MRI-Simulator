@@ -10,74 +10,56 @@ public class PatientWalkManager : MonoBehaviour
     public Animator patientAnimator = null;
     public GameObject callInMenu = null;
     public GameObject patientPositionMenu = null;
-    private bool isWalking1 = false;
-    private bool isWalking2 = false;
-    private bool isTurning1= false;
-    private bool isTurning2 = false;
-    private bool walkFinished = false;
+    public float speed = 0.75f;
+    private bool isWalking = false;
+    private bool isTurning = false;
     private Vector3 startPos = new Vector3(7.5f, 0f, -1.9f);
-    private Vector3 turnPos = new Vector3(5f, 0f, -1.9f);
-    private Vector3 endPos = new Vector3(0.95f, 0f, -0.65f);
-    private float frameCount = 0;
-    private float nWalkFrames1 = 800;
-    private float nWalkFrames2 = 1600;
-    private float nTurnFrames1 = 30;
-    private float nTurnFrames2 = 180;
-    private float walkProgress = 0;
+    private Vector3 currPos = new Vector3(7.5f, 0f, -1.9f);
+    private Vector3 nextPos = new Vector3(7.5f, 0f, -1.9f);
 
     void Update()
     {
-        if (isWalking1)
+        if (isWalking)
         {
-            walkProgress = frameCount / nWalkFrames1;
+            // Current x val on curve z = 0.00075x^4, reversed because x moves in negative direction
+            float absX = startPos.x - currPos.x; // 
+
+            // Using derivative of curve to find change in z
+            float deltaZ = 0.003f * Mathf.Pow(absX, 3);
+
+            // Get hypotenuse of triangle of rise / run
+            float hyp = Mathf.Sqrt(Mathf.Pow(deltaZ, 2) + 1);
+            // Scale triangle to hypotenuse of 1
+            nextPos.x = currPos.x - 1.0f / hyp; // x movement negative
+            nextPos.z = currPos.z + deltaZ / hyp;
+
+            // Set patient rotation along curve
+            float angle = Mathf.Atan(deltaZ) * Mathf.Rad2Deg;
+            walkingPatient.transform.eulerAngles = new Vector3
+            (
+                walkingPatient.transform.eulerAngles.x,
+                angle,
+                walkingPatient.transform.eulerAngles.z
+            );
             
-            walkingPatient.transform.position = Vector3.Lerp(startPos, turnPos, walkProgress);
-            frameCount++;
-            if (walkProgress > 1)
+            // Move to next position
+            walkingPatient.transform.position = Vector3.Lerp(currPos, nextPos, speed * Time.deltaTime);
+
+            currPos = walkingPatient.transform.position;
+
+            if (currPos.x <= 1.08f)
             {
-                isWalking1 = false;
-                isTurning1 = true;
-                frameCount = 0;
+                isWalking = false;
+                isTurning = true;
             }
         }
 
-        if (isTurning1)
+        if (isTurning)
         {
-            walkProgress = frameCount / nTurnFrames1;
-            Debug.Log(walkProgress);
-            walkingPatient.transform.Rotate(0f, 10f / nTurnFrames1, 0f, Space.Self);
-            frameCount++;
-            if (walkProgress > 1)
+            walkingPatient.transform.Rotate(0f, -100f * speed * Time.deltaTime, 0f, Space.Self);
+            if (walkingPatient.transform.eulerAngles.y % 360 >= 180 && walkingPatient.transform.eulerAngles.y % 360 <= 270)
             {
-                isTurning1 = false;
-                isWalking2 = true;
-                frameCount = 0;
-            }
-        }
-
-        if (isWalking2)
-        {
-            walkProgress = frameCount / nWalkFrames2;
-            Debug.Log("walking");
-            walkingPatient.transform.position = Vector3.Lerp(turnPos, endPos, walkProgress);
-            frameCount++;
-            if (walkProgress > 1)
-            {
-                isWalking2 = false;
-                isTurning2 = true;
-                frameCount = 0;
-            }
-        }
-
-        if (isTurning2)
-        {
-            walkProgress = frameCount / nTurnFrames2;
-            Debug.Log(walkProgress);
-            walkingPatient.transform.Rotate(0f, -100f / nTurnFrames2, 0f, Space.Self);
-            frameCount++;
-            if (walkProgress > 1)
-            {
-                isTurning2 = false;
+                isTurning = false;
                 SeatPatient();
             }
         }
@@ -86,7 +68,7 @@ public class PatientWalkManager : MonoBehaviour
     public void CallPatientIn()
     {
         patientAnimator.Play("WalkCycle", 0, 0.0f);
-        isWalking1 = true;
+        isWalking = true;
         callInMenu.SetActive(false);
     }
 
