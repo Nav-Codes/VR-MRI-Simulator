@@ -6,6 +6,7 @@ using System;
 public class PatientPositionManager : MonoBehaviour
 {
     public TMP_Dropdown PatientPositionDropdown; // Configure in Inspector
+    public GameObject PatientPositionMenu;
 
     [System.Serializable]
     public class PatientPositionData
@@ -15,9 +16,12 @@ public class PatientPositionManager : MonoBehaviour
     }
 
     public PatientPositionData[] PatientPositions; // Configure in Inspector
+    public GameObject DefaultPatientPosition;
+    public GameObject OpenPositionMenuButton;
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
-    // public CoilManager coilManager;
+    private bool defaultEnabled = false;
+    public CoilManager coilManager;
 
     private void Awake()
     {
@@ -32,13 +36,38 @@ public class PatientPositionManager : MonoBehaviour
             }
         }
 
-        // Listens for exam type to change
-        // StartCoroutine(OnDataBankerExamChange());
+        // Populate the dropdown with patient position names
+        PopulateDropdown();
     }
 
-    // Unused
+    private void Update()
+    {
+        if (!defaultEnabled && PatientPositionDropdown.IsActive())
+        {
+            DefaultPatientPosition.SetActive(true);
+            defaultEnabled = true;
+        }
+    }
+
+    private void PopulateDropdown()
+    {
+        PatientPositionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        foreach (var position in PatientPositions)
+        {
+            options.Add(position.PatientPositionName);
+        }
+        PatientPositionDropdown.AddOptions(options);
+    }
+
     public void SpawnPatientPosition()
     {
+        // Disable the default patient position
+        if (DefaultPatientPosition != null)
+        {
+            DefaultPatientPosition.SetActive(false);
+        }
+
         // Disable the currently active patient position
         if (activePatientPosition != null)
         {
@@ -54,6 +83,8 @@ public class PatientPositionManager : MonoBehaviour
             activePatientPosition = selectedPositionPrefab;
             activePatientPosition.SetActive(true);
             Debug.Log($"Activated Patient Position: {selectedPositionName}");
+            OpenPositionMenuButton.SetActive(true);
+            PatientPositionMenu.SetActive(false);
             GameObject grandchild = FindChildByName(activePatientPosition.transform, "Headphone_Open")?.gameObject;
             if (grandchild != null)
             {
@@ -98,6 +129,13 @@ public class PatientPositionManager : MonoBehaviour
         }
     }
 
+    public void ResetPositionMenu()
+    {
+        activePatientPosition?.SetActive(false);
+        PatientPositionMenu.SetActive(true);
+        OpenPositionMenuButton.SetActive(false);
+        defaultEnabled = false;
+    }
     private Transform FindChildByName(Transform parent, string name)
     {
         foreach (Transform child in parent)

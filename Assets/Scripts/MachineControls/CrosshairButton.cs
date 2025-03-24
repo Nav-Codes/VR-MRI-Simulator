@@ -7,10 +7,24 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class CrosshairButton : MonoBehaviour, IPointerClickHandler
 {
+    // Reference to the SpotlightController that manages the spotlight's behavior
     public SpotlightController spotlightController;
+    /// <summary>
+    /// This method is triggered when the button is clicked.
+    /// It calls the ToggleSpotlight method to turn the spotlight on or off.
+    /// </summary>
+    /// <param name="eventData">Contains information about the click event.</param>
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        spotlightController.ToggleSpotlight();
+        // Check if the spotlight controller is assigned before attempting to toggle the spotlight
+        if (spotlightController != null)
+        {
+            spotlightController.ToggleSpotlight();
+        }
+        else
+        {
+            Debug.LogWarning("SpotlightController reference is missing on CrosshairButton!");
+        }
     }
 }

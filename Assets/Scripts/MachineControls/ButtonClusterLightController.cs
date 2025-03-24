@@ -8,11 +8,18 @@ using UnityEngine;
 /// </summary>
 public class ButtonClusterLightController : ButtonLightBase
 {
+    // Variables that indiate light for the up, down, home, and crosshair buttons
     public GameObject upButtonLight;
     public GameObject downButtonLight;
     public GameObject homeButtonLight;
     public GameObject crosshairButtonLight;
+    // Button names corresponding to the assigned lights
     public string[] buttonNames = { "Up", "Down", "Home", "Crosshair" };
+    /// <summary>
+    /// Initializes the button light system upon awakening.
+    /// - Assigns button lights to an array.
+    /// - Calls InitializeLights to set up the lights in the dictionary.
+    /// </summary>
     private void Awake()
     {
         buttonLightObjects = new GameObject[] { upButtonLight, downButtonLight, homeButtonLight, crosshairButtonLight };
