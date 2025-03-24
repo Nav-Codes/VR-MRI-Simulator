@@ -189,6 +189,7 @@ public class CoilManager : MonoBehaviour
                         if (rootObj.name.ToLower().Contains(Coil.CoilPrefab.name.ToLower()))
                         {
                             CurrCoil = Coil.CoilPrefab;
+                            CurrCoil.transform.SetParent(PatientBed.transform);
                         } 
                     }
                    break;
