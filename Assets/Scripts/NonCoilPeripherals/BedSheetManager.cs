@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 /// <summary>
 /// Manages the interaction and visibility of a bed sheet object in an XR environment.
-/// Enables a child object when grabbed.
+/// Enables an object when grabbed and disables another object when grabbed.
 /// Disables itself and enables the target object's MeshRenderer when entering a trigger collider.
 /// </summary>
 public class BedSheetManager : MonoBehaviour
 {
-    public GameObject childObject;
+    public GameObject enableObject;
+    public GameObject disableObject;
 
     private XRGrabInteractable grabInteractable;
     public GameObject targetObject; 
@@ -22,9 +23,13 @@ public class BedSheetManager : MonoBehaviour
 
     private void OnGrab(XRBaseInteractor interactor)
     {
-        if (childObject != null)
+        if (enableObject != null)
         {
-            childObject.SetActive(true); 
+            enableObject.SetActive(true); 
+        }
+        if (disableObject != null)
+        {
+            disableObject.SetActive(false); 
         }
     }
 
