@@ -7,11 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// if the user's controller is within a specified grab radius.
 /// This script also maintains positional and rotational offsets 
 /// while ensuring certain axes remain frozen if needed.
+/// It also preserves the initial rotation when grabbed.
 /// </summary>
 public class SnapGrabInteractable : XRGrabInteractable
 {
     [Header("Snap Settings")]
-    public Vector3 positionOffset = new Vector3(0, 0, 0.5f);
+    public float positionOffset = 0.5f;
 
     [Header("Grab Settings")]
     public float grabRadius = 1.25f; // The radius within which the controller must be to grab
@@ -21,6 +22,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     private Collider[] colliders;
     private RigidbodyConstraints originalConstraints;
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
+    private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
 
     protected override void Awake()
     {
@@ -58,6 +60,12 @@ public class SnapGrabInteractable : XRGrabInteractable
             rb.isKinematic = true; // Disable physics during grab
         }
 
+        // Store the initial rotation offset when grabbed
+        if (controllerTransform != null)
+        {
+            initialRotationOffset = Quaternion.Inverse(controllerTransform.rotation) * transform.rotation;
+        }
+
         foreach (var col in colliders) col.enabled = false;
     }
 
@@ -79,12 +87,14 @@ public class SnapGrabInteractable : XRGrabInteractable
     {
         if (controllerTransform == null) return;
 
-        Vector3 targetPosition = controllerTransform.position + controllerTransform.TransformDirection(positionOffset);
+        // Maintain positional offset
+        Vector3 targetPosition = controllerTransform.position + controllerTransform.TransformDirection(new Vector3(0, 0, positionOffset));
         transform.position = targetPosition;
 
         if (rb == null) return;
 
-        Quaternion targetRotation = controllerTransform.rotation;
+        // Apply preserved rotation
+        Quaternion targetRotation = controllerTransform.rotation * initialRotationOffset;
         Vector3 euler = targetRotation.eulerAngles;
 
         if (freezeRotationX) euler.x = transform.rotation.eulerAngles.x;
