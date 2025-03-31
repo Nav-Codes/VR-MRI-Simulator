@@ -11167,6 +11167,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   positionOffset: {x: 0, y: 0, z: 0.5}
+  grabRadius: 1.5
 --- !u!1 &798760081
 GameObject:
   m_ObjectHideFlags: 0
