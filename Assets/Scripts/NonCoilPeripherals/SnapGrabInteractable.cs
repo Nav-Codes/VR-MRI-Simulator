@@ -2,13 +2,19 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [DefaultExecutionOrder(100)]
+/// <summary>
+/// A custom XRGrabInteractable that allows objects to be grabbed only 
+/// if the user's controller is within a specified grab radius.
+/// This script also maintains positional and rotational offsets 
+/// while ensuring certain axes remain frozen if needed.
+/// </summary>
 public class SnapGrabInteractable : XRGrabInteractable
 {
     [Header("Snap Settings")]
     public Vector3 positionOffset = new Vector3(0, 0, 0.5f);
 
     [Header("Grab Settings")]
-    public float grabRadius = 1.5f; // The radius within which the controller must be to grab
+    public float grabRadius = 1.25f; // The radius within which the controller must be to grab
 
     private Rigidbody rb;
     private Transform controllerTransform;
