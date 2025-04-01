@@ -10827,7 +10827,7 @@ GameObject:
   - component: {fileID: 1489482454}
   - component: {fileID: 1489482455}
   m_Layer: 0
-  m_Name: Spotlight
+  m_Name: CrosshairSpotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16910,6 +16910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bedController: {fileID: 1934547097}
   dial: {fileID: 1659732539}
+  Crosshair: {fileID: 779833893}
 --- !u!54 &1114475278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28897,6 +28898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bedController: {fileID: 1934547097}
   dial: {fileID: 1602955816}
+  Crosshair: {fileID: 779833893}
 --- !u!54 &1828601338
 Rigidbody:
   m_ObjectHideFlags: 0
