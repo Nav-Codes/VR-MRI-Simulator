@@ -9,9 +9,19 @@ using UnityEngine;
 /// </summary>
 public class BedController : MonoBehaviour
 {
+    // Controls table movement
     public TableController tableController;
+    // Controls tray movement
     public TrayController trayController;
+    // Manages Cart movement
     public CartMovementController cartMovementController;
+    
+    /// <summary>
+    // Moves the bed upwards
+    // If the tray is not at the max height, it moves the tray and table up
+    // If the tray is at the max height and the cart is docked, it moves the tray into the MRI
+    // Otherwise, leave it
+    // /// </summary>
     public void MoveUp()
     {
         // for moving up, if the table/tray is not at max height, move both tray and table up
@@ -29,6 +39,11 @@ public class BedController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the bed downwards.
+    /// - If the tray is outside the MRI, both the tray and table move down.
+    /// - If the tray is inside the MRI, the tray moves out instead.
+    /// </summary>
     public void MoveDown()
     {
         //if the tray is outside the mri, move tray and table down
@@ -43,12 +58,23 @@ public class BedController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves the bed to its home position:
+    /// - The table moves to max height.
+    /// - The tray moves outside the MRI.
+    /// </summary>
     public void HomePosition() // home position is max height for table and tray outside mri
     {
         tableController.MoveToMax();
         trayController.MoveToHome();
     }
 
+    /// <summary>
+    /// Moves the bed components to a fixed intermediate position.
+    /// - Moves the table to max height.
+    /// - Moves the tray to max height.
+    /// - Moves the tray halfway into the MRI.
+    /// </summary>
     public void MoveFixedDistance() // Approximately half way into the MRI
     {
         tableController.MoveToMax();
@@ -56,6 +82,7 @@ public class BedController : MonoBehaviour
         trayController.MoveToFixedDistance();
     }
 
+    // Check if the tray is outside the MRI
     public bool IsAtMinX() // x is the horizontal axis into the MRI
     {
         return trayController.IsAtMinX();

@@ -7,14 +7,18 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class ToggleLightButton : BasicLightButton, IPointerClickHandler
 {
+    /// Handles pointer click events to toggle the button state.
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log($"ToggleLightButton clicked: {buttonName}");
         if (isOn)
         {
+            Debug.Log($"Turning OFF the light: {buttonName}");
             TurnOff();
         }
         else
         {
+            Debug.Log($"Turning ON the light: {buttonName}");
             TurnOn();
         }
     }
