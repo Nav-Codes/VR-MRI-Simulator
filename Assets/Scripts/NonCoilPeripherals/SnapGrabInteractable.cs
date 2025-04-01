@@ -23,6 +23,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     private RigidbodyConstraints originalConstraints;
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
+    private bool isGrabbed = false; 
 
     protected override void Awake()
     {
@@ -49,6 +50,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     {
         base.OnSelectEntered(args);
         controllerTransform = args.interactorObject.transform;
+        isGrabbed = true; // Enable LateUpdate when grabbed
 
         if (rb != null)
         {
@@ -72,6 +74,9 @@ public class SnapGrabInteractable : XRGrabInteractable
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
+        isGrabbed = false; // Disable LateUpdate when released
+        trackPosition = true;
+        trackRotation = true;
 
         if (rb != null)
         {
@@ -85,7 +90,8 @@ public class SnapGrabInteractable : XRGrabInteractable
 
     private void LateUpdate()
     {
-        if (controllerTransform == null) return;
+        if (!isGrabbed || controllerTransform == null) return;
+
 
         // Maintain positional offset
         Vector3 targetPosition = controllerTransform.position + controllerTransform.TransformDirection(new Vector3(0, 0, positionOffset));
