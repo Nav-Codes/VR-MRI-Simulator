@@ -11,6 +11,7 @@ public class BasicLightButton : MonoBehaviour
     public ButtonLightBase buttonLightController;
     // The light object being controlled
     public GameObject lightObject;
+    public GameObject externalLightObject = null;
     // The name of the button
     public string buttonName;
     // Tracks the light status
@@ -22,6 +23,27 @@ public class BasicLightButton : MonoBehaviour
     {
         // Set initial state to match the light object's active state
         isOn = lightObject.activeSelf;
+    }
+
+    public void Update()
+    {
+        // Check if the external light object is assigned and update its state based on the button's state
+        if (externalLightObject == null)
+        {
+            return;
+        }
+        bool externalState = externalLightObject.GetComponent<Light>().enabled;
+        if (externalState != isOn)
+        {
+            if (isOn)
+            {
+                TurnOff();
+            }
+            else
+            {
+                TurnOn();
+            }
+        }
     }
 
     // Returns the state of the light
