@@ -16,14 +16,16 @@ public class ErrorCheck : MonoBehaviour
         Debug.Log("ErrorCheck script initialized.");
     }
 
-    public void Check()
+    public bool Check()
     {
+		bool all_Correct = true;
+
         Debug.Log("Starting error check...");
 
         if (Errors == null || Errors.Length == 0)
         {
             Debug.LogWarning("No objects in Errors array!");
-            return;
+            return false;
         }
 
         foreach (GameObject obj in Errors)
@@ -52,13 +54,15 @@ public class ErrorCheck : MonoBehaviour
             if (errorText == null)
             {
                 Debug.LogError("ErrorTextPrefab must have a TMP_Text component!");
-                return;
+                return false;
             }
 
             // Update text and color
 			
             errorText.text = checker.getLabel() + (isCorrect ? " is correct" : " is not correct");
             errorText.color = isCorrect ? Color.green : Color.red;
+
+			all_Correct = all_Correct && isCorrect;
 			
 
 
@@ -66,5 +70,6 @@ public class ErrorCheck : MonoBehaviour
         }
 
         Debug.Log("Error check complete.");
+		return all_Correct;
     }
 }
