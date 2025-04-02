@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class ErrorCheck : MonoBehaviour
 {
@@ -42,6 +44,7 @@ public class ErrorCheck : MonoBehaviour
 
             // Instantiate the error text
             GameObject errorTextObj = Instantiate(ErrorTextPrefab, ErrorPanel);
+			LayoutRebuilder.ForceRebuildLayoutImmediate(ErrorPanel.GetComponent<RectTransform>());
             Debug.Log($"Instantiated error text for {obj.name}");
 
             // Get the TextMeshPro component
@@ -53,8 +56,11 @@ public class ErrorCheck : MonoBehaviour
             }
 
             // Update text and color
+			
             errorText.text = checker.getLabel() + (isCorrect ? " is correct" : " is not correct");
             errorText.color = isCorrect ? Color.green : Color.red;
+			
+
 
             Debug.Log($"Set text: {errorText.text}, Color: {(isCorrect ? "Green" : "Red")}");
         }
