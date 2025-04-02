@@ -8,9 +8,6 @@ public class TriggerDoorController : MonoBehaviour
 {
     [SerializeField] private Animator myDoor = null;
 
-    [SerializeField] private bool openTrigger = false;
-    [SerializeField] private bool closeTrigger = false;
-
     private bool isOpen = false;
 
     public void OpenDoor()

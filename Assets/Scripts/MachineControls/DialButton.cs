@@ -14,6 +14,7 @@ public class DialButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public BedController bedController;
     // The dial object that will be manipulated
     public GameObject dial;
+    public GameObject Crosshair;
     // Flag to indicate when the button is being held down
     private bool isHolding = false; // Flag to indicate when the button is being held
 
@@ -32,6 +33,7 @@ public void OnPointerDown(PointerEventData eventData)
         canBePressed = false;
         // Move the bed a fixed distance
         bedController.MoveFixedDistance();
+        Crosshair.GetComponent<Light>().enabled = false; // Disable the crosshair light
     }
     isHolding = true; // Start tracking hold
 }
