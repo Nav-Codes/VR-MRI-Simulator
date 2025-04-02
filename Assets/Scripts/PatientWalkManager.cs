@@ -10,6 +10,8 @@ public class PatientWalkManager : MonoBehaviour
     public Animator patientAnimator = null;
     public GameObject callInMenu = null;
     public GameObject patientPositionMenu = null;
+
+    public ErrorCheck FirstErrorCheckHolder = null;
     public float speed = 0.75f;
     private bool isWalking = false;
     private bool isTurning = false;
@@ -67,6 +69,7 @@ public class PatientWalkManager : MonoBehaviour
 
     public void CallPatientIn()
     {
+        FirstErrorCheckHolder.Check();
         patientAnimator.Play("WalkCycle", 0, 0.0f);
         isWalking = true;
         callInMenu.SetActive(false);
