@@ -10,9 +10,12 @@ public class HeadPhoneSwitcher : MonoBehaviour, ISnappable
     public GameObject headphoneOpen;
     public void OnSnapped(Transform snapPointParent)
     {
+        Debug.Log("snapPointParent: " + snapPointParent);
         if (snapPointParent != null)
         {
             headphoneOpen = snapPointParent.Find("SnapPointHeadphone").Find("Headphone_Open")?.gameObject;
+            //Transform headphoneOpen = snapPointParent.Find("SnapPointHeadphone");
+            //Debug.Log("headpohneOpen: " +  headphoneOpen);
 
             if (headphoneOpen != null)
             {
