@@ -51,7 +51,7 @@ public abstract class ButtonLightBase : MonoBehaviour
             buttonLights[buttonName].SetActive(true);
             // Update the state
             buttonStates[buttonName] = true;
-            Debug.Log($"Button light turned ON: {buttonName}");
+            // Debug.Log($"Button light turned ON: {buttonName}");
         }
         else
         {
@@ -69,7 +69,7 @@ public abstract class ButtonLightBase : MonoBehaviour
             buttonLights[buttonName].SetActive(false);
             // Update the state
             buttonStates[buttonName] = false;
-            Debug.Log($"Button light turned OFF: {buttonName}");
+            // Debug.Log($"Button light turned OFF: {buttonName}");
         }
         else
         {

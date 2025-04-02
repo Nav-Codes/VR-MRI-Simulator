@@ -15,7 +15,7 @@ public class TableController : MonoBehaviour
     void Start()
     {
         targetY = transform.localPosition.y;
-        Debug.Log($"Table initialized at Y position: {targetY}");
+        // Debug.Log($"Table initialized at Y position: {targetY}");
     }
     /// <summary>
     /// Moves the table up by increasing the target Y position.
@@ -25,7 +25,7 @@ public class TableController : MonoBehaviour
     {
         float previousY = targetY;
         targetY = Mathf.Min(targetY + speed * Time.deltaTime, maxY);
-        Debug.Log($"MoveUp called. Y position changed from {previousY} to {targetY}");
+        // Debug.Log($"MoveUp called. Y position changed from {previousY} to {targetY}");
     }
     /// <summary>
     /// Moves the table down by decreasing the target Y position.
@@ -35,14 +35,14 @@ public class TableController : MonoBehaviour
     {
         float previousY = targetY;
         targetY = Mathf.Max(targetY - speed * Time.deltaTime, minY);
-        Debug.Log($"MoveDown called. Y position changed from {previousY} to {targetY}");
+        // Debug.Log($"MoveDown called. Y position changed from {previousY} to {targetY}");
     }
 
     // Instantly sets the target position to the maximum height.
     public void MoveToMax()
     {
         targetY = maxY;
-        Debug.Log("MoveToMax called. Table moving to max Y position.");
+        // Debug.Log("MoveToMax called. Table moving to max Y position.");
     }
 
     // Checks if the table is at its maximum height.
@@ -63,7 +63,7 @@ public class TableController : MonoBehaviour
         if (!Mathf.Approximately(transform.localPosition.y, targetY))
         {
             float newY = Mathf.MoveTowards(transform.localPosition.y, targetY, speed * Time.deltaTime);
-            Debug.Log($"Updating table Y position: {transform.localPosition.y} → {newY}");
+            // Debug.Log($"Updating table Y position: {transform.localPosition.y} → {newY}");
             transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
         }
     }
