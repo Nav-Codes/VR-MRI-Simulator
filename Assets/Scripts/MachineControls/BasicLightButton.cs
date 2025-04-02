@@ -16,8 +16,6 @@ public class BasicLightButton : MonoBehaviour
     public string buttonName;
     // Tracks the light status
     protected bool isOn = false;
-    
-    
     // Initializes the button state based on the active status of the light object
     public void Start()
     {
@@ -27,7 +25,6 @@ public class BasicLightButton : MonoBehaviour
 
     public void Update()
     {
-        // Check if the external light object is assigned and update its state based on the button's state
         if (externalLightObject == null)
         {
             return;
@@ -53,7 +50,8 @@ public class BasicLightButton : MonoBehaviour
     }
 
     // Turns the light on by calling the ButtonLightController
-    public void TurnOn() {
+    public void TurnOn()
+    {
         // Turns on the light
         buttonLightController.TurnButtonOn(buttonName);
         // Sets light status
@@ -61,7 +59,8 @@ public class BasicLightButton : MonoBehaviour
     }
 
     // Turns the light off by calling the ButtonLightController
-    public void TurnOff() {
+    public void TurnOff()
+    {
         // Turns off the light
         buttonLightController.TurnButtonOff(buttonName);
         // Sets light status

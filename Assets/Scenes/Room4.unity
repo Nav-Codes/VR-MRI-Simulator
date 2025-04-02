@@ -30494,7 +30494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonLightController: {fileID: 1600812352}
   lightObject: {fileID: 2051468286}
-  externalLightObject: {fileID: 0}
+  externalLightObject: {fileID: 779833893}
   buttonName: Crosshair
 --- !u!1 &1994794672
 GameObject:
@@ -31421,7 +31421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonLightController: {fileID: 2052301441}
   lightObject: {fileID: 2007900931}
-  externalLightObject: {fileID: 0}
+  externalLightObject: {fileID: 779833893}
   buttonName: Crosshair
 --- !u!114 &2036112282
 MonoBehaviour:
