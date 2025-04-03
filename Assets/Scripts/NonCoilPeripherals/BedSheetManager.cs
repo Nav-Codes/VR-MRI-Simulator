@@ -7,31 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 /// </summary>
 public class BedSheetManager : MonoBehaviour
 {
-    public GameObject enableObject;
-    public GameObject disableObject;
-
-    private XRGrabInteractable grabInteractable;
     public GameObject targetObject; 
-
-
-    private void Start()
-    {
-        grabInteractable = GetComponent<XRGrabInteractable>();
-
-        grabInteractable.onSelectEntered.AddListener(OnGrab);
-    }
-
-    private void OnGrab(XRBaseInteractor interactor)
-    {
-        if (enableObject != null)
-        {
-            enableObject.SetActive(true); 
-        }
-        if (disableObject != null)
-        {
-            disableObject.SetActive(false); 
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
