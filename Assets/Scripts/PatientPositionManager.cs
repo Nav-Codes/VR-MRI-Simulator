@@ -129,6 +129,10 @@ public class PatientPositionManager : MonoBehaviour, CheckerInterface
         if (transitionModel != null)
         {
             transitionModel.SetActive(true);
+            Vector3 localPos = transform.localPosition;
+            localPos.y = 0f;
+            transitionModel.transform.localPosition = localPos;
+            SetFlipOffset();
         }
         transitionAnimator.Play(animationName, 0, 0f);
         transitionAnimator.speed = 1;
@@ -206,13 +210,28 @@ public class PatientPositionManager : MonoBehaviour, CheckerInterface
                     transitionModel.transform.localScale.y,
                     -transitionModel.transform.localScale.z
                 );
+        SetFlipOffset();
+    }
+
+    public void SetFlipOffset()
+    {
         if (transitionModel.transform.localScale.z < 0)
         {
-            transitionModel.transform.position = new Vector3(0, 0, 0.23f);
+            Debug.Log("flipping...");
+            
+            transitionModel.transform.position = new Vector3(
+                transitionModel.transform.position.x,
+                transitionModel.transform.position.y, 
+                0.23f
+            );
         }
         else
         {
-            transitionModel.transform.position = new Vector3(0, 0, 0);
+            transitionModel.transform.position = new Vector3(
+                transitionModel.transform.position.x,
+                transitionModel.transform.position.y,
+                0
+            );
         }
     }
 
