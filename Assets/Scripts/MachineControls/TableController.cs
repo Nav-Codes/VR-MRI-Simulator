@@ -5,11 +5,11 @@ using UnityEngine;
 /// The table can be moved up, down, or directly to its maximum position, and it will smoothly transition between positions when moved.
 /// The class also provides methods to check if the table is at its minimum or maximum position.
 /// </summary>
-public class TableController : MonoBehaviour
+public class TableController : MonoBehaviour, CheckerInterface
 {
-    public float minY = 0.0f; // Minimum Y position
-    public float maxY = 2.0f; // Maximum Y position
-    public float speed = 1.0f; // Movement speed
+    public float minY; // Minimum Y position
+    public float maxY; // Maximum Y position
+    public float speed; // Movement speed
     private float targetY; // The Y position the table is moving toward
 
     void Start()
@@ -66,5 +66,14 @@ public class TableController : MonoBehaviour
             // Debug.Log($"Updating table Y position: {transform.localPosition.y} → {newY}");
             transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
         }
+    }
+
+    public bool isCorrect()
+    {
+        return IsAtMin();
+    }
+    public string getLabel()
+    {
+        return "Table Height";
     }
 }
