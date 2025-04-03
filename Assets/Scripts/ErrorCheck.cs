@@ -28,6 +28,8 @@ public class ErrorCheck : MonoBehaviour
             return false;
         }
 
+        ClearText();
+
         foreach (GameObject obj in Errors)
         {
             Debug.Log($"Checking object: {obj.name}");
@@ -73,5 +75,13 @@ public class ErrorCheck : MonoBehaviour
 
         Debug.Log("Error check complete.");
 		return all_Correct;
+    }
+
+    public void ClearText()
+    {
+        foreach (Transform child in ErrorPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
