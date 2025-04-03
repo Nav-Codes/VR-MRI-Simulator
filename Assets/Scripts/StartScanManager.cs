@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class StartScanManager : MonoBehaviour
 {
     [SerializeField] private AudioSource scannerAudioSource;
+    public ErrorCheck ErrorChecker;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class StartScanManager : MonoBehaviour
     }
     public void StartScan()
     {
+        ErrorChecker.Check();
         scannerAudioSource.Play();
     }
 }

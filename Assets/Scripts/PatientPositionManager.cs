@@ -5,7 +5,7 @@ using System.Collections;
 using System;
 using System.Linq;
 
-public class PatientPositionManager : MonoBehaviour
+public class PatientPositionManager : MonoBehaviour, CheckerInterface
 {
     public TMP_Dropdown PatientPositionDropdown; // Configure in Inspector
     public GameObject PatientPositionMenu;
@@ -26,6 +26,7 @@ public class PatientPositionManager : MonoBehaviour
     public CoilManager coilManager;
     public GameObject transitionModel;
     public Animator transitionAnimator;
+    public CallBell callBell;
     private string[] noAnimationPositions = {"Ankle", "Breast", "Hand (Flat)"};
 
     private void Awake()
@@ -181,6 +182,7 @@ public class PatientPositionManager : MonoBehaviour
 
     public IEnumerator ResetPositionMenuCoroutine()
     {
+        callBell.ResetPosition();
         OpenPositionMenuButton.SetActive(false);
         yield return StartCoroutine(PlayAnimation("0-90_Transition"));
         FlipModel();
@@ -227,6 +229,19 @@ public class PatientPositionManager : MonoBehaviour
                 return found; // Return if found in deeper levels
         }
         return null; // Not found
+    }
+
+    public bool isCorrect()
+    {
+        string selectedPositionName = PatientPositionDropdown.options[PatientPositionDropdown.value].text;
+        string exam = DataBanker.Instance.GetExamType();
+
+        return selectedPositionName == exam;
+    }
+
+    public string getLabel()
+    {
+        return "Patient position";
     }
 
     IEnumerator<object> OnDataBankerExamChange()

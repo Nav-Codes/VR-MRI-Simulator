@@ -23,11 +23,11 @@ public class PatientWalkManager : MonoBehaviour
     {
         if (isWalking)
         {
-            // Current x val on curve z = 0.00075x^4, reversed because x moves in negative direction
+            // Current x val on curve z = 0.0006x^4, reversed because x moves in negative direction
             float absX = startPos.x - currPos.x; // 
 
             // Using derivative of curve to find change in z
-            float deltaZ = 0.003f * Mathf.Pow(absX, 3);
+            float deltaZ = 0.0024f * Mathf.Pow(absX, 3);
 
             // Get hypotenuse of triangle of rise / run
             float hyp = Mathf.Sqrt(Mathf.Pow(deltaZ, 2) + 1);
@@ -49,7 +49,7 @@ public class PatientWalkManager : MonoBehaviour
 
             currPos = walkingPatient.transform.position;
 
-            if (currPos.x <= 1.08f)
+            if (currPos.x <= 0.8f)
             {
                 isWalking = false;
                 isTurning = true;
