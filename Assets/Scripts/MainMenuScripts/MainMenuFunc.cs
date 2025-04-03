@@ -67,7 +67,7 @@ public class MainMenuFunc : MonoBehaviour
         if (buttonText == "Male" || buttonText == "Female")
         {
             // Store selected gender
-            DataBanker.Instance.SetSex(buttonText);
+            DataBanker.Instance.SetGender(buttonText);
             // Switch UI after selection
             SwitchCanvas();
         }
