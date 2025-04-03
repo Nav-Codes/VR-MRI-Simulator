@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SantizieHands : MonoBehaviour , CheckerInterface
+public class SanitizeHands : MonoBehaviour , CheckerInterface
 {
     private DataBanker dataBanker;
 
@@ -53,6 +53,6 @@ public class SantizieHands : MonoBehaviour , CheckerInterface
 
     public string getLabel()
     {
-        return "Hands Santized";
+        return "Hand Hygiene";
     }
 }
