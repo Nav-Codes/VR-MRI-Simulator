@@ -7,8 +7,8 @@ public class DataBanker : MonoBehaviour
     public static DataBanker Instance { get; private set; }
 
     // Private variables to store exam type and gender
-    private string EXAM;
-    private string SEX;
+    private string exam;
+    private string gender;
     
     // Call awake when script instance is being loaded
     private void Awake()
@@ -29,26 +29,26 @@ public class DataBanker : MonoBehaviour
     }
 
     // Set the exam type
-    public void SetExamType(string ex)
+    public void SetExamType(string examType)
     {
-        EXAM = ex;
+        exam = examType;
     }
 
     // Set the gender
-    public void SetSex(string a)
+    public void SetGender(string genderType)
     {
-       SEX = a;
+       gender = genderType;
     }
 
     // get the exam type
     public string GetExamType()
     {
-        return EXAM;
+        return exam;
     }
 
     // get the gender
-    public string whatSEX()
+    public string GetGender()
     {
-        return SEX;
+        return gender;
     }
 }
