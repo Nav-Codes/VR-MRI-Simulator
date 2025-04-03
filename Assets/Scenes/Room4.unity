@@ -11548,7 +11548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: 1.06097
   maxX: -1.524
-  minY: 0.7427679
+  minY: 0.6090001
   maxY: 0.939
   speed: 0.1
   FixedDistance: -1.6
@@ -11564,7 +11564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6c993ff97b01743b72b7cc892fb224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 0.5192208
+  minY: 0.388
   maxY: 0.718
   speed: 0.1
 --- !u!114 &782682016 stripped
@@ -36805,7 +36805,6 @@ GameObject:
   - component: {fileID: 6290459220451491346}
   - component: {fileID: 6290459220451491347}
   - component: {fileID: 6290459220451491350}
-  - component: {fileID: 6290459220451491349}
   m_Layer: 0
   m_Name: Bed01
   m_TagString: Untagged
@@ -36839,19 +36838,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.578095, y: 0.5599091, z: 0.6878663}
   m_Center: {x: -0.047456022, y: -14.408365, z: -0.46220163}
---- !u!65 &6290459220451491349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6290459220451491345}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.144994, y: 25.19991, z: 1.0089301}
-  m_Center: {x: 0.0000011920929, y: 0.95092887, z: 0.0011022574}
 --- !u!65 &6290459220451491350
 BoxCollider:
   m_ObjectHideFlags: 0
