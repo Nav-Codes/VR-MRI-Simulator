@@ -10,7 +10,7 @@ public class CartMovementController : MonoBehaviour
     // References to the left and right hand controllers' transforms
     public Transform leftControllerTransform;
     public Transform rightControllerTransform;
-    
+
     // References to the grab interactions on the cart's handles
     public HandleXRGrabInteraction leftHandle;
     public HandleXRGrabInteraction rightHandle;
@@ -26,12 +26,17 @@ public class CartMovementController : MonoBehaviour
     private bool initialized = false; // Tracks if positions have been initialized
     // Force multiplier for movement speed
     public float forceMultiplier = 4000f;
+    public Collider self;
+    public Collider mriArea; // Reference to the MRI area collider
+    private bool hasEnteredMriArea = false; // Tracks if the cart has entered the MRI area
+
     /// <summary>
     /// Called once per frame.
     /// - Checks if both handles are grabbed and if movement conditions are met.
     /// - Calls MoveCart() if conditions allow movement.
     /// - Resets initialization when handles are released.
     /// </summary>
+    /// 
     private void Update()
     {
         bool leftGrabbed = leftHandle.isHandleGrabbed();
@@ -113,13 +118,15 @@ public class CartMovementController : MonoBehaviour
     /// <param name="other">The collider that the cart has entered.</param>
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the cart reaches a the mri
-        if (other.CompareTag("MriBody") && !parkButton.getState())
+        // Check if the cart's collider enters the MRI area and hasn't already entered
+        if (!hasEnteredMriArea && self.bounds.Intersects(mriArea.bounds) && !parkButton.getState())
         {
             dockButton.TurnOn();
             parkButton.TurnOn();
+            hasEnteredMriArea = true; // Mark that the cart has entered the MRI area
         }
     }
+
     /// <summary>
     /// Handles the event when the cart exits a trigger zone.
     /// - If the cart leaves the MRI area, the dock indicator is turned off.
@@ -127,10 +134,12 @@ public class CartMovementController : MonoBehaviour
     /// <param name="other">The collider that the cart has exited.</param>
     private void OnTriggerExit(Collider other)
     {
-        // Detect when the cart leaves the target area
-        if (other.CompareTag("MriBody"))
+        // Only trigger exit if the cart has already entered the MRI area and now leaves it
+        if (hasEnteredMriArea && !self.bounds.Intersects(mriArea.bounds))
         {
-            dockButton.TurnOff(); // Deactivate dock indicator 
+            dockButton.TurnOff();
+            hasEnteredMriArea = false; // Mark that the cart has exited the MRI area
         }
     }
+
 }

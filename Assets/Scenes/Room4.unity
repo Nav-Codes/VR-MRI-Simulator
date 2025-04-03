@@ -11610,7 +11610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: 1.06097
   maxX: -1.524
-  minY: 0.6090001
+  minY: 0.61
   maxY: 0.939
   speed: 0.1
   FixedDistance: -1.6
@@ -11626,7 +11626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6c993ff97b01743b72b7cc892fb224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 0.388
+  minY: 0.389
   maxY: 0.718
   speed: 0.1
 --- !u!114 &782682016 stripped
@@ -30456,6 +30456,8 @@ MonoBehaviour:
   parkButton: {fileID: 864570329}
   dockButton: {fileID: 1294726450}
   forceMultiplier: 100
+  self: {fileID: 1934547100}
+  mriArea: {fileID: 8698359957594558435}
 --- !u!65 &1934547100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30467,8 +30469,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.014259994, y: 0.42039347, z: 0.8167072}
-  m_Center: {x: 0.087907106, y: 0.22230941, z: 0.109975725}
+  m_Size: {x: 0.014259994, y: 0.12629011, z: 0.8167072}
+  m_Center: {x: 0.087907106, y: 0.122352526, z: 0.109975725}
 --- !u!1001 &1946978366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38451,11 +38453,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650374073501592276}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 28.194546, y: 25.190239, z: 4.3688602}
-  m_Center: {x: 0.0000011920944, y: 11.840034, z: -10.557466}
+  m_Size: {x: 10.892982, y: 0.3856686, z: 2.59059}
+  m_Center: {x: -1.1432796, y: -0.7808441, z: -11.338946}
 --- !u!4 &8819782046899131358
 Transform:
   m_ObjectHideFlags: 0
