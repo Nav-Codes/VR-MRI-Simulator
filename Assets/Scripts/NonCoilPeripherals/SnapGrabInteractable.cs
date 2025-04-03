@@ -88,7 +88,7 @@ public class SnapGrabInteractable : XRGrabInteractable
         controllerTransform = null;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (!isGrabbed || controllerTransform == null) return;
 
