@@ -44,13 +44,13 @@ public class SnapPoint : MonoBehaviour
         // Attempt to set the parent
         obj.SetParent(transform);
 
+        obj.gameObject.layer = LayerMask.NameToLayer("SnappedObjects");
+
         // Set position using custom snap position values
         obj.localPosition = snapPosition;
 
         // Set rotation using custom snap rotation values
         obj.rotation = Quaternion.Euler(snapRotation);
-
-        obj.gameObject.layer = LayerMask.NameToLayer("SnappedObjects");
 
         // Check if the object implements ISnappable and call OnSnapped()
         ISnappable snappable = obj.GetComponent<ISnappable>();
