@@ -50,6 +50,8 @@ public class SnapPoint : MonoBehaviour
         // Set rotation using custom snap rotation values
         obj.rotation = Quaternion.Euler(snapRotation);
 
+        obj.gameObject.layer = LayerMask.NameToLayer("SnappedObjects");
+
         // Check if the object implements ISnappable and call OnSnapped()
         ISnappable snappable = obj.GetComponent<ISnappable>();
         if (snappable != null)
