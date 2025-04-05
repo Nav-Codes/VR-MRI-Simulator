@@ -3318,7 +3318,6 @@ MonoBehaviour:
   - {fileID: 1343359138}
   - {fileID: 6290459220451491345}
   - {fileID: 1023372101}
-  - {fileID: 1676033757}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 749532806}
 --- !u!4 &236542780
@@ -31496,7 +31495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errors:
   - {fileID: 361103814}
+  - {fileID: 1676033757}
   - {fileID: 919132148846453219}
+  - {fileID: 843267127}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
 --- !u!4 &2042245842
