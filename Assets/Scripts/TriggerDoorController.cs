@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class TriggerDoorController : MonoBehaviour
+public class TriggerDoorController : MonoBehaviour, CheckerInterface
 {
     [SerializeField] private Animator myDoor = null;
 
@@ -27,5 +27,15 @@ public class TriggerDoorController : MonoBehaviour
             }
         }
         
+    }
+
+    public string getLabel()
+    {
+        return "Door closed";
+    }
+
+    public bool isCorrect()
+    {
+        return !isOpen;
     }
 }

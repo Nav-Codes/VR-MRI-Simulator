@@ -31529,6 +31529,7 @@ MonoBehaviour:
   - {fileID: 1676033757}
   - {fileID: 919132148846453219}
   - {fileID: 843267127}
+  - {fileID: 1707600148}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
 --- !u!4 &2042245842
