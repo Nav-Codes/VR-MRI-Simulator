@@ -6151,6 +6151,7 @@ GameObject:
   - component: {fileID: 413639789}
   - component: {fileID: 413639791}
   - component: {fileID: 413639790}
+  - component: {fileID: 413639792}
   m_Layer: 0
   m_Name: Coil_BioMatrixBody18_Abdomino_Base
   m_TagString: Untagged
@@ -6166,7 +6167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413639780}
   m_LocalRotation: {x: -0.50000006, y: -0.50000006, z: -0.49999997, w: 0.49999997}
-  m_LocalPosition: {x: 0.54366, y: 1.3559175, z: 0.24914311}
+  m_LocalPosition: {x: 0.544, y: 0.852, z: 0.185}
   m_LocalScale: {x: 0.6715457, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6434,6 +6435,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.016135156, y: 0.4461975, z: 0.09514153}
   m_Center: {x: 0.22138011, y: 0.0031191779, z: -0.0047845747}
+--- !u!65 &413639792
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413639780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11, y: 1.18, z: 0.15}
+  m_Center: {x: -0.26, y: -1.04, z: -0.14}
 --- !u!1 &434325469
 GameObject:
   m_ObjectHideFlags: 0
@@ -19626,7 +19640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223365502}
   m_LocalRotation: {x: -0.49999988, y: -0.50000024, z: -0.5000001, w: 0.49999982}
-  m_LocalPosition: {x: 0.21662836, y: 0.6341186, z: 0.22764651}
+  m_LocalPosition: {x: 0.217, y: 1.154, z: 0.228}
   m_LocalScale: {x: 0.67154586, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
