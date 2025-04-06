@@ -64,6 +64,9 @@ public class ErrorCheck : MonoBehaviour
         ErrorPanel.gameObject.SetActive( true );
 
         Debug.Log("Error check complete.");
+
+		StartCoroutine(DisablePanelAfterDelay(10f));
+
 		return all_Correct;
     }
 
@@ -94,4 +97,11 @@ public class ErrorCheck : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+
+	private IEnumerator DisablePanelAfterDelay(float delay)
+	{
+   	 yield return new WaitForSeconds(delay);
+    	ErrorPanel.gameObject.SetActive(false);
+	}
+
 }
