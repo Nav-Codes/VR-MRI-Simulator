@@ -44,6 +44,8 @@ public class SnapPoint : MonoBehaviour
         // Attempt to set the parent
         obj.SetParent(transform);
 
+        obj.gameObject.layer = LayerMask.NameToLayer("SnappedObjects");
+
         // Set position using custom snap position values
         obj.localPosition = snapPosition;
 

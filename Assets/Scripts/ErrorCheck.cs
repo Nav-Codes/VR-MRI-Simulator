@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 
 public class ErrorCheck : MonoBehaviour
@@ -29,6 +30,7 @@ public class ErrorCheck : MonoBehaviour
         }
 
         ClearText();
+        AddText("Procedure Feedback", Color.black, true);
 
         foreach (GameObject obj in Errors)
         {
@@ -46,42 +48,60 @@ public class ErrorCheck : MonoBehaviour
             bool isCorrect = checker.isCorrect();
             Debug.Log($"{obj.name} check result: {(isCorrect ? "Correct ✅" : "Not Correct ❌")}");
 
-            // Instantiate the error text
-            GameObject errorTextObj = Instantiate(ErrorTextPrefab, ErrorPanel);
-			LayoutRebuilder.ForceRebuildLayoutImmediate(ErrorPanel.GetComponent<RectTransform>());
-            Debug.Log($"Instantiated error text for {obj.name}");
-
-            // Get the TextMeshPro component
-            TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
-            if (errorText == null)
+            try
             {
-                Debug.LogError("ErrorTextPrefab must have a TMP_Text component!");
+                AddText((checker.getLabel() + (isCorrect ? " is correct" : " is not correct")), (isCorrect ? Color.green : Color.red));
+            }
+            catch (Exception e) 
+            {
+                Debug.Log(e.ToString());
                 return false;
             }
 
-            // Update text and color
-			
-            errorText.text = checker.getLabel() + (isCorrect ? " is correct" : " is not correct");
-            errorText.color = isCorrect ? Color.green : Color.red;
-
 			all_Correct = all_Correct && isCorrect;
-			
-
-
-            Debug.Log($"Set text: {errorText.text}, Color: {(isCorrect ? "Green" : "Red")}");
         }
 
         ErrorPanel.gameObject.SetActive( true );
 
         Debug.Log("Error check complete.");
+
+		StartCoroutine(DisablePanelAfterDelay(10f));
+
 		return all_Correct;
     }
 
-    public void ClearText()
+    private void AddText(string text, Color color, bool isTitle = false)
+    {
+        // Instantiate the error text
+        GameObject errorTextObj = Instantiate(ErrorTextPrefab, ErrorPanel);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(ErrorPanel.GetComponent<RectTransform>());
+
+        // Get the TextMeshPro component
+        TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
+        if (errorText == null)
+        {
+            throw new Exception("ErrorTextPrefab missing TMP_Text component");
+        }
+
+        // Update text and color
+        errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
+        errorText.color = color;
+
+        Debug.Log($"Set text: {errorText.text}, Color: {errorText.color.ToString()}");
+    }
+
+    private void ClearText()
     {
         foreach (Transform child in ErrorPanel.transform)
         {
             Destroy(child.gameObject);
         }
     }
+
+	private IEnumerator DisablePanelAfterDelay(float delay)
+	{
+   	 yield return new WaitForSeconds(delay);
+    	ErrorPanel.gameObject.SetActive(false);
+	}
+
 }
