@@ -25,6 +25,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
     private bool isGrabbed = false; 
     private Vector3 originalLocalScale;
+    public bool needScaling = false; // Flag to indicate if scaling is needed
 
     protected override void Awake()
     {
@@ -56,7 +57,8 @@ public class SnapGrabInteractable : XRGrabInteractable
         if (transform.parent != null)
             transform.SetParent(null, true); // Keep world position when unparenting
 
-        // transform.localScale = Vector3.one;
+        if (!needScaling)
+            transform.localScale = Vector3.one;
 
         controllerTransform = args.interactorObject.transform;
         isGrabbed = true; // Enable LateUpdate when grabbed
@@ -95,7 +97,10 @@ public class SnapGrabInteractable : XRGrabInteractable
 
         base.OnSelectExited(args);
         transform.SetParent(null, true);
-        transform.localScale = originalLocalScale;
+        if (needScaling)
+            transform.localScale = originalLocalScale; // Reset scale to original if needed
+        else
+            transform.localScale = Vector3.one;
     }
 
     private void FixedUpdate()

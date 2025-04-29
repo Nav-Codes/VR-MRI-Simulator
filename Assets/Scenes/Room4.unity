@@ -1552,6 +1552,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &131530986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2197,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &172920374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +3592,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!4 &238347270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8787995050913052480, guid: ca6e9d788dfc8a24b9d917afbf010fa9, type: 3}
@@ -6401,6 +6404,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!65 &413639789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7136,6 +7140,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &487401934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8018,6 +8023,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &551241577
 GameObject:
   m_ObjectHideFlags: 0
@@ -8417,6 +8423,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &574149244
 GameObject:
   m_ObjectHideFlags: 0
@@ -9110,6 +9117,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &608717810
 GameObject:
   m_ObjectHideFlags: 0
@@ -10152,6 +10160,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &690083842
 GameObject:
   m_ObjectHideFlags: 0
@@ -11709,6 +11718,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &795377835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11928,6 +11938,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!65 &795377842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12276,6 +12287,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1001 &808646859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12915,6 +12927,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!65 &854905465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13838,8 +13851,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885523104}
-  m_LocalRotation: {x: -0, y: -0, z: -0.000000059604616, w: 1}
-  m_LocalPosition: {x: 1.109, y: 1.239, z: 0.04}
+  m_LocalRotation: {x: 0.49999994, y: -0.50000006, z: -0.4999998, w: 0.5000002}
+  m_LocalPosition: {x: 0.07099798, y: -0.04802895, z: 0.29572162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14701,6 +14714,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &948305497
 GameObject:
   m_ObjectHideFlags: 0
@@ -15993,6 +16007,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &1015465985
 GameObject:
   m_ObjectHideFlags: 0
@@ -16297,6 +16312,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &1023372101
 GameObject:
   m_ObjectHideFlags: 0
@@ -17968,6 +17984,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1001 &1168382154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19492,6 +19509,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &1215352783
 GameObject:
   m_ObjectHideFlags: 0
@@ -19914,6 +19932,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!65 &1223365510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20471,6 +20490,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 1
 --- !u!1001 &1250028352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22069,6 +22089,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &1343359138
 GameObject:
   m_ObjectHideFlags: 0
@@ -23974,6 +23995,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!54 &1448561753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24304,7 +24326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462486739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00002752244, y: -0.04467605, z: -0.1}
+  m_LocalPosition: {x: -0.0007, y: 0.1068, z: 0.0139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24650,8 +24672,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480802919}
-  m_LocalRotation: {x: -0.7071068, y: -0.0000000029953067, z: 0.0000000029953067, w: 0.7071068}
-  m_LocalPosition: {x: 0.000027678878, y: -0.044675827, z: 0.028999925}
+  m_LocalRotation: {x: -0.70710677, y: -0.000000032797594, z: 0.000000032797594, w: 0.70710677}
+  m_LocalPosition: {x: -0.0007, y: 0.1068, z: 0.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24977,8 +24999,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525072947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.109, y: 1.049, z: 0.04}
+  m_LocalRotation: {x: 0.5, y: -0.50000006, z: -0.49999973, w: 0.5000002}
+  m_LocalPosition: {x: 0.07099792, y: -0.048029058, z: 0.105721846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27551,8 +27573,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676033757}
-  m_LocalRotation: {x: 0.5000002, y: -0.49999976, z: -0.49999976, w: 0.5000002}
-  m_LocalPosition: {x: 1.1099684, y: 10.609701, z: -9.432789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28143,6 +28165,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 1
 --- !u!1 &1707600148
 GameObject:
   m_ObjectHideFlags: 0
@@ -29141,6 +29164,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!114 &1807186004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30663,6 +30687,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &1980847480
 GameObject:
   m_ObjectHideFlags: 0
@@ -32236,6 +32261,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &2059489809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84584e7b628f1a94398e9aee65f678db, type: 3}
@@ -33233,6 +33259,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!1 &2143743696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df39838c88438b14f994578bd029313a, type: 3}
@@ -33736,7 +33763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148516021790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000090897076, y: 2.7807624, z: 0.97921246}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33752,7 +33779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148277942144}
   m_LocalRotation: {x: -0, y: -0, z: 0.00000041723243, w: 1}
-  m_LocalPosition: {x: -0.0000950694, y: 10.593362, z: 2.47}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33785,7 +33812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148836791037}
   m_LocalRotation: {x: -0, y: -0, z: 0.0000002980232, w: 1}
-  m_LocalPosition: {x: -0.05000293, y: 4.251093, z: 4.347203}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33884,7 +33911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149454814075}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710653, w: 0.7071071}
-  m_LocalPosition: {x: 0.96102214, y: 9.767752, z: 1.5602827}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33901,7 +33928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149268224320}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071071, w: 0.70710653}
-  m_LocalPosition: {x: -1.4000009, y: 5.0196924, z: 2.59}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35559,6 +35586,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
+  needScaling: 0
 --- !u!114 &3469287836750787839
 MonoBehaviour:
   m_ObjectHideFlags: 0
