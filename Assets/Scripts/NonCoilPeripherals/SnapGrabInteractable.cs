@@ -24,6 +24,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
     private bool isGrabbed = false; 
+    private Vector3 originalLocalScale;
 
     protected override void Awake()
     {
@@ -34,6 +35,8 @@ public class SnapGrabInteractable : XRGrabInteractable
         attachEaseInTime = 0f;
         trackPosition = false;
         trackRotation = false;
+        originalLocalScale = transform.localScale;
+
     }
 
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
@@ -49,6 +52,12 @@ public class SnapGrabInteractable : XRGrabInteractable
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
+
+        if (transform.parent != null)
+            transform.SetParent(null, true); // Keep world position when unparenting
+
+        // transform.localScale = Vector3.one;
+
         controllerTransform = args.interactorObject.transform;
         isGrabbed = true; // Enable LateUpdate when grabbed
 
@@ -73,10 +82,7 @@ public class SnapGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        base.OnSelectExited(args);
         isGrabbed = false; // Disable LateUpdate when released
-        trackPosition = true;
-        trackRotation = true;
 
         if (rb != null)
         {
@@ -86,6 +92,10 @@ public class SnapGrabInteractable : XRGrabInteractable
 
         foreach (var col in colliders) col.enabled = true;
         controllerTransform = null;
+
+        base.OnSelectExited(args);
+        transform.SetParent(null, true);
+        transform.localScale = originalLocalScale;
     }
 
     private void FixedUpdate()
