@@ -5,21 +5,26 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-
 public class ErrorCheck : MonoBehaviour
 {
     public GameObject[] Errors;           // Array of objects implementing CheckerInterface
     public GameObject ErrorTextPrefab;    // Prefab with TMP for error message
     public Transform ErrorPanel;          // Panel to display error messages
-
+    public GameObject ContinueButton;     // Button to continue the next steps of the simulation with the errors
+    private UnityEngine.Events.UnityAction ContinueClickAction; // Unity delegate that defines what to do when continue button is clicked
+    public GameObject FixErrorsButton;    // Button to allow user to fix their mistakes before moving on to the next steps
+    private UnityEngine.Events.UnityAction FixErrorsClickAction; // Unity delegate that defines what to do when fix errors button is clicked
+    
     void Start()
     {
         Debug.Log("ErrorCheck script initialized.");
     }
 
-    public bool Check()
+    public bool Check(UnityEngine.Events.UnityAction ContinueClick = null, UnityEngine.Events.UnityAction FixErrorsClick = null)
     {
 		bool all_Correct = true;
+        ContinueClickAction = ContinueClick;
+        FixErrorsClickAction = FixErrorsClick;
 
         Debug.Log("Starting error check...");
 
@@ -63,11 +68,30 @@ public class ErrorCheck : MonoBehaviour
 
         ErrorPanel.gameObject.SetActive( true );
 
+        //set active the buttons on the canvas
+        if (!all_Correct) ShowButtons();
+
         Debug.Log("Error check complete.");
 
 		StartCoroutine(DisablePanelAfterDelay(10f));
 
 		return all_Correct;
+    }
+
+    public void ClickContinue()
+    {
+        ContinueClickAction();
+    }
+
+    public void ClickFixErrors()
+    {
+        FixErrorsClickAction();
+    }
+
+    private void ShowButtons() 
+    {
+        ContinueButton.SetActive(true);
+        FixErrorsButton.SetActive(true);
     }
 
     private void AddText(string text, Color color, bool isTitle = false)
@@ -102,6 +126,8 @@ public class ErrorCheck : MonoBehaviour
 	{
    	 yield return new WaitForSeconds(delay);
     	ErrorPanel.gameObject.SetActive(false);
+        ContinueButton.SetActive(false);
+        FixErrorsButton.SetActive(false);
 	}
 
 }

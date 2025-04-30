@@ -69,11 +69,28 @@ public class PatientWalkManager : MonoBehaviour
 
     public void CallPatientIn()
     {
-        FirstErrorCheckHolder.Check();
+        if (FirstErrorCheckHolder.Check(OnContinueClick, OnFixErrorsClick))
+        {
+            //display button that says "fix errors" and another that says "continue"
+            patientAnimator.Play("WalkCycle", 0, 0.0f);
+            isWalking = true;
+            callInMenu.SetActive(false);
+        }
+    }
+
+    // create function in error check that takes in a function that tells error check what to do when continuing
+    public void OnContinueClick()
+    {
         patientAnimator.Play("WalkCycle", 0, 0.0f);
         isWalking = true;
         callInMenu.SetActive(false);
     }
+
+    public void OnFixErrorsClick()
+    {
+        CallPatientIn();
+    }
+
 
     public void SeatPatient()
     {
