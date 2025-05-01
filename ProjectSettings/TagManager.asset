@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BedSheet
+  - BodyCoil
+  - MriBody
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - TableButtonReflection1
   - TableButtonReflection2
   - SnappedObjects
-  - 
+  - Curtain
   - 
   - 
   - 

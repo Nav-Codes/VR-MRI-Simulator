@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
 /// The SnapPoint class allows a specific object to snap to a defined position and rotation when it enters a trigger area.
@@ -11,7 +12,7 @@ public class SnapPoint : MonoBehaviour
     public Vector3 snapRotation; // Rotation to snap to
     public GameObject expectedObject; // The specific object that can snap
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == expectedObject) // Compare by reference
         {
@@ -51,6 +52,13 @@ public class SnapPoint : MonoBehaviour
 
         // Set rotation using custom snap rotation values
         obj.rotation = Quaternion.Euler(snapRotation);
+
+        XRGrabInteractable grab = obj.GetComponent<XRGrabInteractable>();
+        if (grab != null)
+        {
+            // Make sure "SnappedObjects" is defined in Project Settings > XR Interaction Toolkit
+            grab.interactionLayers = InteractionLayerMask.GetMask("SnappedObjects");
+        }
 
         // Check if the object implements ISnappable and call OnSnapped()
         ISnappable snappable = obj.GetComponent<ISnappable>();

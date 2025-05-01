@@ -52,6 +52,7 @@ public class SnapGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        gameObject.layer = LayerMask.NameToLayer("Default");
         base.OnSelectEntered(args);
 
         if (transform.parent != null)
@@ -89,7 +90,9 @@ public class SnapGrabInteractable : XRGrabInteractable
         if (rb != null)
         {
             rb.isKinematic = false;
+            rb.useGravity = true;             // Make it fall again
             rb.constraints = originalConstraints; // Restore original constraints
+            rb.WakeUp(); 
         }
 
         foreach (var col in colliders) col.enabled = true;

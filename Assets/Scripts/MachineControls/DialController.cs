@@ -12,7 +12,7 @@ public class DialController : MonoBehaviour
     private Quaternion initialGrabRotation; // Stores the initial rotation of the dial when grabbed
     private Quaternion initialControllerRotation; // Stores the initial rotation of the controller when grabbing
     public float buttonPressDistance = 0.3f; // Distance to move the dial when pressed
-    public Vector3 homePosition; // The default position of the dial when not in use
+    private Vector3 homePosition; // The default position of the dial when not in use
     public float dialXRotation = -90.0f; // Lock X rotation to 0 degrees
     public float dialYRotation = 0.0f;  // Lock Y rotation to 0 degrees
     public float dialZRotation = 90.0f; // Lock Z rotation to 90 degrees
@@ -25,6 +25,11 @@ public class DialController : MonoBehaviour
     private Quaternion targetRotation; // The target rotation when released
     private bool isReleased = false; // Flag to indicate when the object has been released
     private bool dialDown = false; // Flag to indicate when the dial is moving down
+    private void Awake()
+    {
+        homePosition = transform.position;
+    }
+
     /// <summary>
     /// Initializes the dial and sets up event listeners for grabbing and releasing.
     /// </summary>
