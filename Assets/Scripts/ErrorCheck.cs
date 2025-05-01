@@ -12,19 +12,19 @@ public class ErrorCheck : MonoBehaviour
     public Transform ErrorPanel;          // Panel to display error messages
     public GameObject ContinueButton;     // Button to continue the next steps of the simulation with the errors
     private UnityEngine.Events.UnityAction ContinueClickAction;    // Unity delegate that defines what to do when continue button is clicked
-    public GameObject CheckErrorsButton;  // Button to allow user to check their mistakes before moving on to the next steps
-    private UnityEngine.Events.UnityAction CheckErrorsClickAction; // Unity delegate that defines what to do when check errors button is clicked
-    
+    public GameObject GoBackButton;  // Button to allow user to check their mistakes before moving on to the next steps
+    private UnityEngine.Events.UnityAction GoBackClickAction; // Unity delegate that defines what to do when check errors button is clicked
+
     void Start()
     {
         Debug.Log("ErrorCheck script initialized.");
     }
 
-    public bool Check(UnityEngine.Events.UnityAction ContinueClick = null, UnityEngine.Events.UnityAction CheckErrorsClick = null)
+    public bool Check(UnityEngine.Events.UnityAction ContinueClick = null, UnityEngine.Events.UnityAction GoBackClick = null)
     {
-		bool all_Correct = true;
+        bool all_Correct = true;
         ContinueClickAction = ContinueClick;
-        CheckErrorsClickAction = CheckErrorsClick;
+        GoBackClickAction = GoBackClick;
 
         Debug.Log("Starting error check...");
 
@@ -59,32 +59,23 @@ public class ErrorCheck : MonoBehaviour
             {
                 AddText((checker.getLabel() + (isCorrect ? " is correct" : " is not correct")), (isCorrect ? Color.green : Color.red));
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Debug.Log(e.ToString());
                 return false;
             }
 
-			all_Correct = all_Correct && isCorrect;
+            all_Correct = all_Correct && isCorrect;
         }
 
-        ErrorPanel.gameObject.SetActive( true );
+        ErrorPanel.gameObject.SetActive(true);
 
         //set active the buttons on the canvas
-        if (!all_Correct)
-        {
-            ShowButtons(true);
-            errorText.SetActive(true);
-        } 
-        else
-        {
-            ShowButtons(false);
-            errorText.SetActive(false);
-            StartCoroutine(DisablePanelAfterDelay(8f));
-        }
+        ShowButtons(all_Correct, errorText);
+
         Debug.Log("Error check complete.");
 
-		return all_Correct;
+        return all_Correct;
     }
 
     public void ClickContinue()
@@ -93,15 +84,32 @@ public class ErrorCheck : MonoBehaviour
         DisablePanel();
     }
 
-    public void ClickCheckErrors()
+    public void ClickGoBack()
     {
-        CheckErrorsClickAction();
+        GoBackClickAction();
+        DisablePanel();
     }
 
-    private void ShowButtons(bool show) 
+    private void ShowButtons(bool allCorrect, GameObject errorText)
     {
-        ContinueButton.SetActive(show);
-        CheckErrorsButton.SetActive(show);
+        if (!allCorrect)
+        {
+            ContinueButton.SetActive(true);
+            GoBackButton.SetActive(true);
+            errorText.SetActive(true);
+        }
+        else
+        {
+            GoBackButton.SetActive(false);
+            errorText.SetActive(false);
+            ContinueButton.SetActive(true);
+            
+            Color newColor;
+            if (ColorUtility.TryParseHtmlString("#69EA70", out newColor))
+                ContinueButton.GetComponent<Image>().color = newColor;
+            else
+                Debug.LogWarning("Invalid color format!");
+        }
     }
 
     private GameObject AddText(string text, Color color, bool isTitle = false)
@@ -134,25 +142,18 @@ public class ErrorCheck : MonoBehaviour
         }
     }
 
-	private IEnumerator DisablePanelAfterDelay(float delay)
-	{
-   	 yield return new WaitForSeconds(delay);
-    	ErrorPanel.gameObject.SetActive(false);
+    private IEnumerator DisablePanelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ErrorPanel.gameObject.SetActive(false);
         ContinueButton.SetActive(false);
-        CheckErrorsButton.SetActive(false);
-	}
+        GoBackButton.SetActive(false);
+    }
 
     private void DisablePanel()
     {
         ErrorPanel.gameObject.SetActive(false);
         ContinueButton.SetActive(false);
-        CheckErrorsButton.SetActive(false);   
+        GoBackButton.SetActive(false);
     }
-
-    private IEnumerator CheckForCorrectSteps(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Check();
-    }
-
 }

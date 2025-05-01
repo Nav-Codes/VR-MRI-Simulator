@@ -69,11 +69,11 @@ public class PatientWalkManager : MonoBehaviour
 
     public void CallPatientIn()
     {
-        if (FirstErrorCheckHolder.Check(OnContinueClick, OnCheckErrorsClick))
+        if (FirstErrorCheckHolder.Check(OnContinueClick, OnGoBackClick))
         {
-            patientAnimator.Play("WalkCycle", 0, 0.0f);
-            isWalking = true;
-            callInMenu.SetActive(false);
+            // patientAnimator.Play("WalkCycle", 0, 0.0f);
+            // isWalking = true;
+            // callInMenu.SetActive(false);
         }
     }
 
@@ -85,7 +85,7 @@ public class PatientWalkManager : MonoBehaviour
         callInMenu.SetActive(false);
     }
 
-    public void OnCheckErrorsClick()
+    public void OnGoBackClick()
     {
         CallPatientIn();
     }
