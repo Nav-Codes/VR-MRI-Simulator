@@ -3759,7 +3759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9169811, g: 0.41777787, b: 0.40658593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3792,8 +3792,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268122124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000003799796}
-  m_LocalScale: {x: 0.0025545182, y: 0.003629019, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000044703484}
+  m_LocalScale: {x: 0.002898867, y: 0.003629019, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1995179098}
@@ -3802,7 +3802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.22999929, y: -0.427}
+  m_AnchoredPosition: {x: 0.24999985, y: -0.794}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &272061315
@@ -5452,7 +5452,7 @@ RectTransform:
   m_GameObject: {fileID: 363166177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0025545182, y: 0.003629019, z: 1}
+  m_LocalScale: {x: 0.0031032288, y: 0.003629019, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2106682920}
@@ -5461,7 +5461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.25, y: -0.427}
+  m_AnchoredPosition: {x: -0.266, y: -0.794}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &364825474 stripped
@@ -9112,8 +9112,6 @@ MonoBehaviour:
   patientAnimator: {fileID: 96885876}
   callInMenu: {fileID: 1187568209}
   patientPositionMenu: {fileID: 46733664}
-  ContinueButton: {fileID: 0}
-  FixErrorsButton: {fileID: 0}
   FirstErrorCheckHolder: {fileID: 236542779}
   speed: 0.78
 --- !u!1 &598291889
