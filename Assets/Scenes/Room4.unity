@@ -5106,7 +5106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Check For Errors
+  m_text: Go Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8456,7 +8456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue With Errors
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24261,7 +24261,7 @@ GameObject:
   - component: {fileID: 1433546255}
   - component: {fileID: 1433546254}
   m_Layer: 5
-  m_Name: FixErrorsButton
+  m_Name: GoBackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24285,8 +24285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.031499863, y: -1.0899999}
-  m_SizeDelta: {x: 240.7622, y: 30}
+  m_AnchoredPosition: {x: -0.225, y: -1.157}
+  m_SizeDelta: {x: 134.4184, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433546254
 MonoBehaviour:
@@ -24332,9 +24332,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 236542779}
+      - m_Target: {fileID: 2042245841}
         m_TargetAssemblyTypeName: ErrorCheck, Assembly-CSharp
-        m_MethodName: ClickCheckErrors
+        m_MethodName: ClickGoBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26978,8 +26978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.03, y: -1.232}
-  m_SizeDelta: {x: 298.5339, y: 30}
+  m_AnchoredPosition: {x: 0.258, y: -1.159}
+  m_SizeDelta: {x: 143.52, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591670237
 MonoBehaviour:
@@ -27025,7 +27025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 236542779}
+      - m_Target: {fileID: 2042245841}
         m_TargetAssemblyTypeName: ErrorCheck, Assembly-CSharp
         m_MethodName: ClickContinue
         m_Mode: 1
@@ -32948,7 +32948,7 @@ MonoBehaviour:
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
   ContinueButton: {fileID: 1591670235}
-  GoBackButton: {fileID: 0}
+  GoBackButton: {fileID: 1433546252}
 --- !u!4 &2042245842
 Transform:
   m_ObjectHideFlags: 0

@@ -69,27 +69,15 @@ public class PatientWalkManager : MonoBehaviour
 
     public void CallPatientIn()
     {
-        if (FirstErrorCheckHolder.Check(OnContinueClick, OnGoBackClick))
-        {
-            // patientAnimator.Play("WalkCycle", 0, 0.0f);
-            // isWalking = true;
-            // callInMenu.SetActive(false);
-        }
+        FirstErrorCheckHolder.Check(OnContinueClick, () => {});
     }
 
-    // create function in error check that takes in a function that tells error check what to do when continuing
     public void OnContinueClick()
     {
         patientAnimator.Play("WalkCycle", 0, 0.0f);
         isWalking = true;
         callInMenu.SetActive(false);
     }
-
-    public void OnGoBackClick()
-    {
-        CallPatientIn();
-    }
-
 
     public void SeatPatient()
     {
