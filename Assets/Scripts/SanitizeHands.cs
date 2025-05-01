@@ -2,57 +2,98 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SanitizeHands : MonoBehaviour , CheckerInterface
+public class SanitizeHands : MonoBehaviour, CheckerInterface
 {
     private DataBanker dataBanker;
-
     private bool CORRECT = false;
+    
+    // Effect settings
+    [Header("Effect Settings")]
+    [SerializeField] private float spawnOffsetY = 0.0f;
+    [SerializeField] private float effectDuration = 0.5f; // Increased for slower fall
+    [SerializeField] private float bubbleSize = 0.03125f;
+    [SerializeField] private int bubbleCount = 10;
+    [SerializeField] private Color effectColor = new Color(0.8f, 0.9f, 1f, 0.7f);
+
+    // Physics settings for slower fall
+    [Header("Physics Settings")]
+    [SerializeField] private float minFallSpeed = 0.1f; // Reduced from 0.3f
+    [SerializeField] private float maxFallSpeed = 0.3f; // Reduced from 0.8f
+    [SerializeField] private float bubbleMass = 0.02f; // Lighter bubbles
+    [SerializeField] private float bubbleDrag = 3f; // Increased drag for slower movement
+    [SerializeField] private float torqueAmount = 2f; // Reduced rotation
+
+    // Parent containers
+    [Header("Button References")]
+    [SerializeField] private Transform sanitizerContainer;
+    [SerializeField] private Transform soapContainer;
 
     void Start()
     {
         dataBanker = FindObjectOfType<DataBanker>();
-
-        if (dataBanker == null)
-        {
-            Debug.LogError("DataBanker not found in the scene!");
-        }
-
+        if (sanitizerContainer == null)
+            sanitizerContainer = GameObject.Find("SanitizerInter")?.transform;
+        if (soapContainer == null)
+            soapContainer = GameObject.Find("SoapInter")?.transform;
     }
 
-    public void OnMouseDown()
+    public void HandleButtonClick(Transform buttonTransform)
     {
-        Debug.Log("Clicked on: " + gameObject.name);
-
-        if (gameObject.name.Contains("Soap"))
-        {
-            CORRECT = true;
-            Debug.Log("Soap interaction registered.");
-        }
-        else if (gameObject.name.Contains("Sanitizer"))
-        {
-            CORRECT = true;
-            Debug.Log("Sanitizer interaction registered.");
-        }
-        else
-        {
-            Debug.Log("Object is not a Soap or Sanitizer.");
-        }
+        CORRECT = true;
+        CreateBubbleEffect(buttonTransform);
     }
 
-    public bool isCorrect()
+    private void CreateBubbleEffect(Transform buttonTransform)
     {
-        if (CORRECT)
+        GameObject bubbleContainer = new GameObject("BubbleEffect");
+        bubbleContainer.transform.position = buttonTransform.position + Vector3.up * spawnOffsetY;
+        
+        for (int i = 0; i < bubbleCount; i++)
         {
-            return CORRECT;
+            StartCoroutine(CreateBubble(bubbleContainer.transform));
         }
-        else
-        {
-            return false;
-        }
+        
+        Destroy(bubbleContainer, effectDuration);
     }
 
-    public string getLabel()
+    private IEnumerator CreateBubble(Transform parent)
     {
-        return "Hand Hygiene";
+        Vector3 randomOffset = new Vector3(
+            Random.Range(-0.1f, 0.1f), // Tighter spread
+            Random.Range(-0.02f, 0.02f),
+            Random.Range(-0.1f, 0.1f)
+        );
+        
+        GameObject bubble = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        bubble.transform.SetParent(parent);
+        bubble.transform.localPosition = randomOffset;
+        bubble.transform.localScale = Vector3.one * bubbleSize;
+        
+        Renderer renderer = bubble.GetComponent<Renderer>();
+        renderer.material = new Material(Shader.Find("Standard"));
+        renderer.material.color = effectColor;
+        renderer.material.SetFloat("_Metallic", 0.3f);
+        renderer.material.SetFloat("_Glossiness", 0.8f);
+        
+        Rigidbody rb = bubble.AddComponent<Rigidbody>();
+        rb.useGravity = false; // Disable gravity for more control
+        rb.mass = bubbleMass;
+        rb.drag = bubbleDrag;
+        
+        // Apply gentle downward force
+        rb.AddForce(Vector3.down * Random.Range(minFallSpeed, maxFallSpeed), ForceMode.Impulse);
+        
+        // Gentle rotation
+        rb.AddTorque(new Vector3(
+            Random.Range(-torqueAmount, torqueAmount),
+            Random.Range(-torqueAmount, torqueAmount),
+            Random.Range(-torqueAmount, torqueAmount)
+        ));
+        
+        Destroy(bubble, effectDuration);
+        yield return null;
     }
+
+    public bool isCorrect() => CORRECT;
+    public string getLabel() => "Hand Hygiene";
 }
