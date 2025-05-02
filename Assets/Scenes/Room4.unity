@@ -2882,11 +2882,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1343359140}
         m_TargetAssemblyTypeName: SanitizeHands, Assembly-CSharp
-        m_MethodName: OnMouseDown
-        m_Mode: 1
+        m_MethodName: HandleButtonClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 214746122}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -27969,11 +27969,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1343359140}
         m_TargetAssemblyTypeName: SanitizeHands, Assembly-CSharp
-        m_MethodName: OnMouseDown
-        m_Mode: 1
+        m_MethodName: HandleButtonClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1623983307}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
