@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatientMenu : MonoBehaviour
@@ -32,7 +33,7 @@ public class PatientMenu : MonoBehaviour
         isEnabled = true;
     }
 
-    public void SetItems(List<string> items)
+    public void SetItems(List<string> items, PatientMenuItem.callback stateCallback)
     {
         if (items != null)
         {
@@ -40,7 +41,7 @@ public class PatientMenu : MonoBehaviour
             {
                 try
                 {
-                    AddItem(item);
+                    AddItem(item, stateCallback);
                 }
                 catch(System.Exception e)
                 {
@@ -51,12 +52,13 @@ public class PatientMenu : MonoBehaviour
         }
     }
 
-    private void AddItem(string itemName)
+    private void AddItem(string itemName, PatientMenuItem.callback stateCallback)
     {
         foreach (PatientMenuItem item in allMenuItems) 
         {
             if (item.label.Equals(itemName))
             {
+                item.onclickCallback = stateCallback;
                 currentMenuItems.Add(item);
                 return;
             }
@@ -70,6 +72,8 @@ public class PatientMenu : MonoBehaviour
         foreach (PatientMenuItem item in currentMenuItems)
         {
             GameObject itemButton = Instantiate(buttonPrefab, menuObject.transform);
+            itemButton.GetComponent<UnityEngine.UI.Button>()
+                .onClick.AddListener(delegate { item.onclickCallback(item.targetStateLabel); });
             if (item.icon != null)
             {
                 itemButton.GetComponent<UnityEngine.UI.Image>().sprite = item.icon;
@@ -87,4 +91,6 @@ public class PatientMenuItem
     public string targetStateLabel;
     public string hintText;
     public Sprite icon;
+    [HideInInspector] public delegate void callback(string label);
+    [HideInInspector] public callback onclickCallback;
 }

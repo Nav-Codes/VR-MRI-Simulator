@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PatientStateManager : MonoBehaviour
 {
@@ -83,7 +84,8 @@ public class PatientStateManager : MonoBehaviour
         // TODO: UPDATE PARENT
         // TODO: UPDATE POSITION
 
-        patientMenu.SetItems(newState.menuItems);
+        //SetMenuItems(newState);
+        patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.ShowMenu();
         patientMenu.Enable();
     }
@@ -98,6 +100,15 @@ public class PatientStateManager : MonoBehaviour
         yield return new WaitForSeconds(patientAnimator.GetCurrentAnimatorStateInfo(0).length);
         //patientAnimator.speed = 0;
     }
+
+    //private void SetMenuItems(PatientState state)
+    //{
+    //    patientMenu.SetItems(state.menuItems);
+    //    List<PatientMenuItem> menuItems = patientMenu.GetCurrentMenu();
+        
+    //}
+
+    //private void 
 }
 
 [System.Serializable]

@@ -30787,11 +30787,11 @@ MonoBehaviour:
   menuObject: {fileID: 1214328959}
   allMenuItems:
   - label: standFromChair
-    targetStateLabel: standInFrontOfChair
+    targetStateLabel: standingByChair
     hintText: Stand up
     icon: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
-  - label: test
-    targetStateLabel: standInFrontOfChair
+  - label: walkToTable
+    targetStateLabel: walkingToTable
     hintText: Test
     icon: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
 --- !u!114 &1484409867
@@ -30812,16 +30812,21 @@ MonoBehaviour:
   - label: initialStateInChair
     menuItems:
     - standFromChair
-    - test
-    - test2
     transition:
       animationName: m35a@Standup-SitOnChair
       parent: {fileID: 0}
       movementLabel: 
-  - label: standInFrontOfChair
-    menuItems: []
+  - label: standingByChair
+    menuItems:
+    - walkToTable
     transition:
       animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+  - label: walkingToTable
+    menuItems: []
+    transition:
+      animationName: m35a@WalkCycle
       parent: {fileID: 0}
       movementLabel: 
   initialState: 0
