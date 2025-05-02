@@ -20065,7 +20065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015465985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.71, y: 0, z: 5.15}
+  m_LocalPosition: {x: 16.67, y: 0, z: 0.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21571,7 +21571,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 6709f3999ddb16e4c8c1d4b82b62836d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ad600ce8f97afcb4bb5e446c7d09531d, type: 2}
+      objectReference: {fileID: 9100000, guid: dbddbd58008e226499f70ddf117b6740, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6709f3999ddb16e4c8c1d4b82b62836d, type: 3}
 --- !u!4 &1093056880 stripped
@@ -30904,7 +30904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedf6827a7086434591919cea1ade8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allMenuItems: []
+  AllMenuItems: []
 --- !u!114 &1484409867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30917,9 +30917,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da53028c1351112458320fbef3442e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Patient: {fileID: 0}
+  Patient: {fileID: 1015465985}
   PatientMenu: {fileID: 1484409866}
-  PatientStates: []
+  PatientStates:
+  - Label: initialState
+    MenuItems: []
+    Transition:
+      AnimationName: m35a@Standup-SitOnChair
+      Parent: {fileID: 0}
+      MovementLabel: 
+  InitialState: 0
 --- !u!4 &1489482454
 Transform:
   m_ObjectHideFlags: 0

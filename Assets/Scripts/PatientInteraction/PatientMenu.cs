@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatientMenu : MonoBehaviour
 {
-    public List<PatientMenuItem> allMenuItems;
+    public List<PatientMenuItem> AllMenuItems;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class PatientMenu : MonoBehaviour
 [System.Serializable]
 public class PatientMenuItem
 {
-    public string label;
-    public string text;
-    public string icon;
+    public string Label;
+    public string Text;
+    public string Icon;
 }
