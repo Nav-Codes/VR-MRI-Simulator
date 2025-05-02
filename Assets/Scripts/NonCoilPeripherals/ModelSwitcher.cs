@@ -8,24 +8,30 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ModelSwitcher : MonoBehaviour
 {
     public GameObject startingObject;
+    public Collider startingCollider; // Collider for the starting object
     public GameObject alternateObject;
+    public Collider alternateCollider; // Collider for the alternate object
     public GameObject targetObject;
     public bool switchFromStarting = false; // Flag to determine if the switch should happen from the starting object
     public bool switchFromAlternate = true; // Flag to determine if the switch should happen on the alternate object
-
     private void Switch()
     {
-        if (startingObject.GetComponent<MeshRenderer>().enabled)
+        if (startingObject.activeSelf)
         {
-            startingObject.GetComponent<MeshRenderer>().enabled = false;
-            alternateObject.GetComponent<MeshRenderer>().enabled = true;
+            startingObject.SetActive(false);
+            startingCollider.enabled = false;
+            alternateObject.SetActive(true);
+            alternateCollider.enabled = true;
         }
         else
         {
-            startingObject.GetComponent<MeshRenderer>().enabled = true;
-            alternateObject.GetComponent<MeshRenderer>().enabled = false;
+            alternateObject.SetActive(false);
+            alternateCollider.enabled = false;
+            startingObject.SetActive(true);
+            startingCollider.enabled = true;
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,11 +43,11 @@ public class ModelSwitcher : MonoBehaviour
 
     public void SwitchLogic()
     {
-        if (switchFromStarting && startingObject.GetComponent<MeshRenderer>().enabled)
+        if (switchFromStarting && startingObject.activeSelf)
         {
             Switch();
         }
-        else if (switchFromAlternate && alternateObject.GetComponent<MeshRenderer>().enabled)
+        else if (switchFromAlternate && alternateObject.activeSelf)
         {
             Switch();
         }

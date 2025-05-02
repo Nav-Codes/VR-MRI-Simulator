@@ -12353,6 +12353,7 @@ GameObject:
   - component: {fileID: 795377841}
   - component: {fileID: 795377842}
   - component: {fileID: 795377843}
+  - component: {fileID: 795377844}
   m_Layer: 0
   m_Name: BedSheet
   m_TagString: Untagged
@@ -12589,10 +12590,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingObject: {fileID: 691033312}
+  startingCollider: {fileID: 795377842}
   alternateObject: {fileID: 1023372101}
+  alternateCollider: {fileID: 795377844}
   targetObject: {fileID: 1300841440}
   switchFromStarting: 0
   switchFromAlternate: 1
+--- !u!65 &795377844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795377835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1527188, y: 0, z: 0.70287627}
+  m_Center: {x: -0.0030030012, y: 0.0051916847, z: -0.053242236}
 --- !u!1 &798760081
 GameObject:
   m_ObjectHideFlags: 0
@@ -16986,7 +17002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1023372102
 Transform:
   m_ObjectHideFlags: 0
@@ -16995,7 +17011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023372101}
   m_LocalRotation: {x: -0.00000008146034, y: -0.00000034173462, z: 2.7776585e-14, w: 1}
-  m_LocalPosition: {x: -0.007, y: 0, z: 0}
+  m_LocalPosition: {x: -0.007, y: -0.064, z: 0}
   m_LocalScale: {x: 0.215, y: 0.10000003, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17009,7 +17025,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023372101}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -22210,7 +22226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300841440}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.63}
   m_LocalScale: {x: 2, y: 1, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22228,8 +22244,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000002, y: 0.5403541, z: 10.000006}
-  m_Center: {x: -1.4518965e-14, y: 0.3405606, z: -0.00000005799711}
+  m_Size: {x: 10.000002, y: 3.9268382, z: 10.000006}
+  m_Center: {x: -5.4178745e-14, y: 1.2708305, z: -0.00000021642111}
 --- !u!114 &1300841444
 MonoBehaviour:
   m_ObjectHideFlags: 0

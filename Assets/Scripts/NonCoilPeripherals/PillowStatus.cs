@@ -5,7 +5,7 @@ using UnityEngine;
 public class PillowStatus : MonoBehaviour, CheckerInterface
 {
     public bool isCorrect() {
-        return (transform.GetChild(0).childCount > 0); 
+        return transform.childCount != 0;
     }
     public string getLabel() {
         return "Pillow Placement";
