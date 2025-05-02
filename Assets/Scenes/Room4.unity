@@ -20065,7 +20065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015465985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.67, y: 0, z: 0.94}
+  m_LocalPosition: {x: 16.67, y: 0, z: -0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30904,7 +30904,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedf6827a7086434591919cea1ade8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllMenuItems: []
+  allMenuItems:
+  - label: standFromChair
+    targetStateLabel: standInFrontOfChair
+    text: Stand up
+    icon: blank_icon.png
+  - label: test
+    targetStateLabel: standInFrontOfChair
+    text: Stand up
+    icon: blank_icon.png
+  - label: test2
+    targetStateLabel: standInFrontOfChair
+    text: Stand up
+    icon: blank_icon.png
 --- !u!114 &1484409867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30917,16 +30929,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da53028c1351112458320fbef3442e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Patient: {fileID: 1015465985}
-  PatientMenu: {fileID: 1484409866}
-  PatientStates:
-  - Label: initialState
-    MenuItems: []
-    Transition:
-      AnimationName: m35a@Standup-SitOnChair
-      Parent: {fileID: 0}
-      MovementLabel: 
-  InitialState: 0
+  patient: {fileID: 1015465985}
+  patientMenu: {fileID: 1484409866}
+  patientStates:
+  - label: initialStateInChair
+    menuItems:
+    - standFromChair
+    - test
+    - test2
+    - test3
+    transition:
+      animationName: m35a@Standup-SitOnChair
+      parent: {fileID: 0}
+      movementLabel: 
+  - label: standInFrontOfChair
+    menuItems: []
+    transition:
+      animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+  initialState: 0
 --- !u!4 &1489482454
 Transform:
   m_ObjectHideFlags: 0

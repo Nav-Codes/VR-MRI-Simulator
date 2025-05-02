@@ -1,37 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PatientStateManager : MonoBehaviour
 {
-    public GameObject Patient;
-    public PatientMenu PatientMenu;
-    public List<PatientState> PatientStates;
-    public int InitialState = 0;
+    public GameObject patient;
+    public PatientMenu patientMenu;
+    public List<PatientState> patientStates;
+    public int initialState = 0;
 
-    private GameObject PatientModel;
-    private Animator PatientAnimator;
+    private GameObject patientModel;
+    private Animator patientAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         // Get patient model and animator
-        PatientModel = Patient.transform.GetChild(0).gameObject;
-        PatientAnimator = PatientModel.GetComponent<Animator>();
+        patientModel = patient.transform.GetChild(0).gameObject;
+        patientAnimator = patientModel.GetComponent<Animator>();
 
-        // CHECK IF ANY STATES EXIST?
-        if (PatientStates.Count <= 0)
+        // Check if states exist
+        if (patientStates.Count <= 0)
         {
-            throw new System.Exception("No patient states have been defined.");
+            throw new System.Exception("Could not set initial patient state: No patient states have been defined.");
         }
 
-        if (InitialState < 0 || InitialState >= PatientStates.Count) 
+        if (initialState < 0 || initialState >= patientStates.Count) 
         {
-            throw new System.Exception("Initial patient state is out of range.");
+            throw new System.Exception("Could not set initial patient state: Initial patient state is out of range.");
         }
 
         // Set initial patient position
-        ChangePatientState(PatientStates[InitialState]);
+        ChangePatientState(patientStates[initialState]);
     }
 
     // Update is called once per frame
@@ -40,82 +42,76 @@ public class PatientStateManager : MonoBehaviour
         
     }
 
-    public void ChangePatientState(string NewStateLabel)
+    public void ChangePatientState(string newStateLabel)
     {
-        PatientState NewState = null;
-        foreach (PatientState ps in PatientStates)
+        PatientState newState = null;
+        foreach (PatientState ps in patientStates)
         {
-            if (ps.Label.Equals(NewStateLabel))
+            if (ps.label.Equals(newStateLabel))
             {
-                NewState = ps;
+                newState = ps;
             }
         }
-        if (NewState != null)
+        if (newState != null)
         {
-            StartCoroutine(ChangePatientStateCoroutine(NewState));
+            StartCoroutine(ChangePatientStateCoroutine(newState));
         }
         else
         {
-            Debug.Log($"Could not change patient state: no match found for state '{NewStateLabel}'");
+            throw new System.Exception($"Could not change patient state: no match found for state '{newStateLabel}'");
         }
     }
 
-    public void ChangePatientState(PatientState NewState)
+    public void ChangePatientState(PatientState newState)
     {
-        StartCoroutine(ChangePatientStateCoroutine(NewState));
+        StartCoroutine(ChangePatientStateCoroutine(newState));
     }
 
-    private IEnumerator ChangePatientStateCoroutine(PatientState NewState)
+    private IEnumerator ChangePatientStateCoroutine(PatientState newState)
     {
-        // CHECK THAT CORRECT STATE EXISTS?
-        // DISABLE MENU
+        patientMenu.Disable();
 
-        // SOMETHING LIKE THIS TO TEMPORARILY HANDLE MISSING STATES?
-        //if (!noAnimationPositions.Contains(selectedPositionName))
-        //{
-        //    ...
-        //}
+        // TODO: SOMETHING TO TEMPORARILY HANDLE MISSING STATES?
+        // TODO: HANDLE HEADPHONE CHANGE?
+        // TODO: FLIP MODEL IF NECESSARY?
 
-        // HANDLE HEADPHONE CHANGE?
+        if (newState.transition.animationName != null) 
+        {
+            yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
+        }
 
-        // FLIP MODEL IF NECESSARY
-        // PLAY ANIMATION
-        yield return StartCoroutine(PlayAnimation(NewState.Transition.AnimationName));
+        // TODO: UPDATE PARENT
+        // TODO: UPDATE POSITION
 
-        // UPDATE PARENT
-        // UPDATE POSITION
-
-        // UPDATE MENU
-        // ENABLE MENU
+        patientMenu.SetItems(newState.menuItems);
+        patientMenu.ShowMenu();
+        patientMenu.Enable();
     }
 
-    public IEnumerator PlayAnimation(string AnimationName)
+    private IEnumerator PlayAnimation(string animationName)
     {
-        
-
-        // PLAY ANIMATION
-        PatientAnimator.Play(AnimationName, 0, 0f);
-        PatientAnimator.speed = 1;
+        patientAnimator.Play(animationName, 0, 0f);
+        patientAnimator.speed = 1;
 
         // Ensure animation has started
-        yield return new WaitUntil(() => PatientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
-        yield return new WaitForSeconds(PatientAnimator.GetCurrentAnimatorStateInfo(0).length);
-        PatientAnimator.speed = 0;
+        yield return new WaitUntil(() => patientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
+        yield return new WaitForSeconds(patientAnimator.GetCurrentAnimatorStateInfo(0).length);
+        //patientAnimator.speed = 0;
     }
 }
 
 [System.Serializable]
 public class PatientState
 {
-    public string Label;
-    public List<PatientMenuItem> MenuItems;
-    public StateBeginTransition Transition;
+    public string label;
+    public List<string> menuItems;
+    public StateBeginTransition transition;
 }
 
 [System.Serializable]
 public class StateBeginTransition
 {
-    public string? AnimationName;
-    public GameObject? Parent;
-    public string? MovementLabel;
+    public string? animationName;
+    public GameObject? parent;
+    public string? movementLabel;
 }
