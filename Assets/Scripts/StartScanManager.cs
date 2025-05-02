@@ -1,8 +1,7 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro UI
+using System;
 using System.Collections.Generic;
-
-// to find the coil that is on the table, check the Coils game object if 
 
 public class StartScanManager : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class StartScanManager : MonoBehaviour
     public ErrorCheck ErrorChecker;
     public GameObject Coils;
     public Material Smudge;
+    Tuple<GameObject, Material> Og1 = null; // GameObject will be the coil, Material will be original material before smudging
+    Tuple<GameObject, Material> Og2 = null;
 
     private void Start()
     {
@@ -29,6 +30,23 @@ public class StartScanManager : MonoBehaviour
     {
         scannerAudioSource.Play();
         ApplySmudge();
+    }
+
+    private void SaveOgMaterials(GameObject Coil, Material[] materials)
+    {
+        if (Og1 != null)
+        {
+            Og1 = Tuple.Create(Coil, materials[0]);
+        }
+        else 
+        {
+            Og2 = Tuple.Create(Coil, materials[0]);
+        }
+    }
+
+    private void RevertSmudge()
+    {
+        //need to check which coil it collides with, cannot just revert the material for both on collision of one
     }
 
     private void ApplySmudge()
@@ -54,6 +72,7 @@ public class StartScanManager : MonoBehaviour
                     Material[] materials = meshRenderer.materials; // Get a copy of the materials array
                     if (materials.Length > 0)
                     {
+                        SaveOgMaterials(coilObject, materials);
                         materials[0] = Smudge; // Replace the first material
                         meshRenderer.materials = materials; // Reassign the modified array
                     }
