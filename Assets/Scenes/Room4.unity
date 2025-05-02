@@ -867,8 +867,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.025150988
+  m_Center: {x: 0.000000063703745, y: 0.18962815, z: 0.04465485}
 --- !u!1 &96823564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1553,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &131530986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2201,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &185803801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,8 +3177,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.027317347
+  m_Center: {x: 0.000000006031583, y: 0.017479911, z: 0.044654872}
 --- !u!1001 &223974226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3564,6 +3570,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &238347270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8787995050913052480, guid: ca6e9d788dfc8a24b9d917afbf010fa9, type: 3}
@@ -6779,6 +6788,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &413639789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7188,7 +7200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 821ed2baca201224c94b5ea91697e54f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821ed2baca201224c94b5ea91697e54f, type: 3}
@@ -7515,6 +7527,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &487401934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,6 +8413,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &531288479
 GameObject:
   m_ObjectHideFlags: 0
@@ -8933,6 +8951,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &569569414
 GameObject:
   m_ObjectHideFlags: 0
@@ -9721,6 +9742,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &608717810
 GameObject:
   m_ObjectHideFlags: 0
@@ -10764,6 +10788,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &690083842
 GameObject:
   m_ObjectHideFlags: 0
@@ -10853,7 +10880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691033312}
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: -0.04, y: 0.027, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 20, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12311,6 +12338,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &795377835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12321,9 +12351,9 @@ GameObject:
   m_Component:
   - component: {fileID: 795377836}
   - component: {fileID: 795377839}
-  - component: {fileID: 795377837}
   - component: {fileID: 795377841}
   - component: {fileID: 795377842}
+  - component: {fileID: 795377843}
   m_Layer: 0
   m_Name: BedSheet
   m_TagString: Untagged
@@ -12339,27 +12369,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795377835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.973, y: 0.062, z: 0.186}
+  m_LocalPosition: {x: -1.973, y: 0.09, z: 0.186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 691033313}
+  - {fileID: 1023372102}
   m_Father: {fileID: 6628768609262482806}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &795377837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795377835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f17bcc75a8ae74d8f508c2c514c1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1023372101}
 --- !u!54 &795377839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12531,6 +12549,21 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 795377843}
+        m_TargetAssemblyTypeName: ModelSwitcher, Assembly-CSharp
+        m_MethodName: SwitchLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!65 &795377842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12542,8 +12575,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.56218743, y: 0.12869787, z: 0.3831372}
-  m_Center: {x: 0.000013709068, y: 0.04044003, z: 0.0019787266}
+  m_Size: {x: 0.3881154, y: 0.087010026, z: 0.3831372}
+  m_Center: {x: 0.001870364, y: -0.025801942, z: 0.0019787266}
+--- !u!114 &795377843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795377835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcf165be636f4443a9d3abf306ae7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingObject: {fileID: 691033312}
+  alternateObject: {fileID: 1023372101}
+  targetObject: {fileID: 1300841440}
+  switchFromStarting: 0
+  switchFromAlternate: 1
 --- !u!1 &798760081
 GameObject:
   m_ObjectHideFlags: 0
@@ -12880,6 +12930,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &808646859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13519,6 +13572,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &854905465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15306,6 +15362,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &948305497
 GameObject:
   m_ObjectHideFlags: 0
@@ -16599,6 +16658,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1015465985
 GameObject:
   m_ObjectHideFlags: 0
@@ -16904,6 +16966,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1023372101
 GameObject:
   m_ObjectHideFlags: 0
@@ -16916,10 +16981,8 @@ GameObject:
   - component: {fileID: 1023372105}
   - component: {fileID: 1023372104}
   - component: {fileID: 1023372107}
-  - component: {fileID: 1023372108}
-  - component: {fileID: 1023372109}
   m_Layer: 0
-  m_Name: BedSheet
+  m_Name: UnfoldedSheet
   m_TagString: BedSheet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16932,13 +16995,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023372101}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: -0, z: 1}
-  m_LocalScale: {x: 2, y: 1, z: 0.7}
+  m_LocalRotation: {x: -0.00000008146034, y: -0.00000034173462, z: 2.7776585e-14, w: 1}
+  m_LocalPosition: {x: -0.007, y: 0, z: 0}
+  m_LocalScale: {x: 0.215, y: 0.10000003, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 728090428983355276}
-  m_RootOrder: 2
+  m_Father: {fileID: 795377836}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!23 &1023372104
 MeshRenderer:
@@ -17003,35 +17066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BedSheet: {fileID: 1023372101}
---- !u!65 &1023372108
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023372101}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.000002, y: 0.000003218649, z: 10.000006}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1023372109
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023372101}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1031145768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18576,6 +18610,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1168382154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18925,8 +18962,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1551355
-  m_Center: {x: -1.21971914e-14, y: -0.2173583, z: 2.6249689e-15}
+  m_Radius: 0.04271349
+  m_Center: {x: -1.27338e-15, y: -0.008741717, z: 0.013844851}
 --- !u!1 &1178165861
 GameObject:
   m_ObjectHideFlags: 0
@@ -20101,6 +20138,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1215352783
 GameObject:
   m_ObjectHideFlags: 0
@@ -20524,6 +20564,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1223365510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21082,6 +21125,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 1
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1250028352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22139,6 +22185,68 @@ MonoBehaviour:
   lightObject: {fileID: 307977221}
   externalLightObject: {fileID: 0}
   buttonName: Dock
+--- !u!1 &1300841440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300841441}
+  - component: {fileID: 1300841443}
+  - component: {fileID: 1300841444}
+  m_Layer: 0
+  m_Name: BedSheetSnapPoint
+  m_TagString: BedSheet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1300841441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300841440}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 728090428983355276}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!65 &1300841443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300841440}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 0.5403541, z: 10.000006}
+  m_Center: {x: -1.4518965e-14, y: 0.3405606, z: -0.00000005799711}
+--- !u!114 &1300841444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300841440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 1
+  snapPosition: {x: 0, y: 0, z: 0}
+  snapRotation: {x: 0, y: 0, z: 0}
+  expectedObject: {fileID: 795377835}
 --- !u!1 &1301018796
 GameObject:
   m_ObjectHideFlags: 0
@@ -22683,6 +22791,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1343359138
 GameObject:
   m_ObjectHideFlags: 0
@@ -24735,6 +24846,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 1
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1448561753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28425,7 +28539,7 @@ Transform:
   - {fileID: 543450653441483201}
   - {fileID: 543450652844402759}
   m_Father: {fileID: 728090428983355276}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1676033759
 MonoBehaviour:
@@ -29006,6 +29120,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 1
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1718814668
 GameObject:
   m_ObjectHideFlags: 0
@@ -29936,20 +30053,10 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
---- !u!114 &1807186004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807185995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f17bcc75a8ae74d8f508c2c514c1ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 660904449}
+  needScaling: 1
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1819839826
 GameObject:
   m_ObjectHideFlags: 0
@@ -31540,6 +31647,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1980847480
 GameObject:
   m_ObjectHideFlags: 0
@@ -33249,6 +33359,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2059489809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84584e7b628f1a94398e9aee65f678db, type: 3}
@@ -34412,6 +34525,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 1
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2132935864
 GameObject:
   m_ObjectHideFlags: 0
@@ -34635,6 +34751,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2143743696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df39838c88438b14f994578bd029313a, type: 3}
@@ -35649,7 +35768,8 @@ Transform:
   m_Children:
   - {fileID: 2061799145}
   - {fileID: 1909633927}
-  - {fileID: 1023372102}
+  - {fileID: 1300841441}
+  - {fileID: 2524169296266358025}
   - {fileID: 1676033758}
   m_Father: {fileID: 1934547096}
   m_RootOrder: 0
@@ -36833,6 +36953,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &2524169296266358025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903825831536572339}
+  m_LocalRotation: {x: 0.50000024, y: -0.49999982, z: -0.49999982, w: 0.50000024}
+  m_LocalPosition: {x: -0.07250368, y: 9.903268, z: 1.1580693}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 728090428983355276}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2527058302425012160
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37026,6 +37161,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &2903825831536572339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2524169296266358025}
+  - component: {fileID: 2903825831536572342}
+  - component: {fileID: 2903825831536572341}
+  - component: {fileID: 2903825831536572340}
+  m_Layer: 0
+  m_Name: PillowSnapPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2903825831536572340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903825831536572339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfeadc317cbada4ea8a9a3a0d34bba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapDistance: 0.2
+  snapPosition: {x: 0, y: 0, z: 0}
+  snapRotation: {x: 0, y: 0, z: 0}
+  expectedObject: {fileID: 1807185995}
+--- !u!114 &2903825831536572341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903825831536572339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604f1d53e7104b14d8d08ca1d15174ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pillow: {fileID: 2903825831536572339}
+--- !u!65 &2903825831536572342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903825831536572339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39640957, y: 0.030041564, z: 0.569961}
+  m_Center: {x: 0.000000029766106, y: 0.00030392397, z: -0.00000020857996}
 --- !u!33 &2912391538034622971
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -37514,6 +37710,9 @@ MonoBehaviour:
   positionOffset: 0.5
   grabRadius: 1.25
   needScaling: 0
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3469287836750787839
 MonoBehaviour:
   m_ObjectHideFlags: 0

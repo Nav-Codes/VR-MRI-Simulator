@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events; // Add at the top
 
 [DefaultExecutionOrder(100)]
 /// <summary>
@@ -26,6 +27,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     private bool isGrabbed = false; 
     private Vector3 originalLocalScale;
     public bool needScaling = false; // Flag to indicate if scaling is needed
+    public UnityEvent OnGrabbed = null; // Event to trigger when grabbed
 
     protected override void Awake()
     {
@@ -52,6 +54,7 @@ public class SnapGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        if (OnGrabbed != null) OnGrabbed.Invoke(); // Trigger the OnGrabbed event if assigned
         gameObject.layer = LayerMask.NameToLayer("Default");
         base.OnSelectEntered(args);
 

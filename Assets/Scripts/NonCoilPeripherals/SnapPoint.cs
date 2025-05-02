@@ -22,10 +22,12 @@ public class SnapPoint : MonoBehaviour
 
     private void TrySnapObject(Transform obj)
     {
+        Debug.Log("Trying to snap object: " + obj.name);
         float distance = Vector3.Distance(obj.position, transform.position);
 
         if (distance <= snapDistance)
         {
+            Debug.Log("Snapping object: " + obj.name);
             SnapObject(obj);
         }
     }
