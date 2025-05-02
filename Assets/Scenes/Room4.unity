@@ -2711,6 +2711,7 @@ GameObject:
   - component: {fileID: 211597196}
   - component: {fileID: 211597195}
   - component: {fileID: 211597194}
+  - component: {fileID: 211597197}
   m_Layer: 5
   m_Name: SecondErrorCheckDisplay
   m_TagString: Untagged
@@ -2803,6 +2804,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &211597197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211597192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &214746121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,7 +3790,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268122124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000016391277}
   m_LocalScale: {x: 0.002898867, y: 0.003629019, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3780,7 +3800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.256, y: -0.91}
+  m_AnchoredPosition: {x: 0.25599986, y: -0.91}
   m_SizeDelta: {x: 139.2876, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &272061315
@@ -5563,8 +5583,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363166177}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000021606684}
   m_LocalScale: {x: 0.0031032288, y: 0.003629019, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5574,7 +5594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.254, y: -0.91}
+  m_AnchoredPosition: {x: -0.25400025, y: -0.91}
   m_SizeDelta: {x: 132.5907, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &364825474 stripped
@@ -21658,6 +21678,7 @@ GameObject:
   - component: {fileID: 1256006651}
   - component: {fileID: 1256006650}
   - component: {fileID: 1256006649}
+  - component: {fileID: 1256006652}
   m_Layer: 5
   m_Name: FirstErrorCheckDisplay
   m_TagString: Untagged
@@ -21750,6 +21771,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1256006652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256006647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1001 &1269581617
 PrefabInstance:
   m_ObjectHideFlags: 0
