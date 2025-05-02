@@ -6,7 +6,7 @@ public class BedSheetStatus : MonoBehaviour, CheckerInterface
 {
     public GameObject BedSheet; // Assign in Inspector
     public bool isCorrect() {
-        return BedSheet.GetComponent<MeshRenderer>().enabled;   
+        return BedSheet.activeSelf;   
     }
     public string getLabel() {
         return "Bed Sheet Placement";
