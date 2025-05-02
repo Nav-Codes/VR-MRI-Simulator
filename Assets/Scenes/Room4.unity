@@ -24734,7 +24734,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
+  needScaling: 1
 --- !u!54 &1448561753
 Rigidbody:
   m_ObjectHideFlags: 0
