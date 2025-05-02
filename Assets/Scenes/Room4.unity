@@ -3295,7 +3295,7 @@ MonoBehaviour:
   - {fileID: 1343359138}
   - {fileID: 6290459220451491345}
   - {fileID: 1023372101}
-  - {fileID: 660904449}
+  - {fileID: 2903825831536572339}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 749532806}
   ContinueButton: {fileID: 268122124}
@@ -10360,7 +10360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604f1d53e7104b14d8d08ca1d15174ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pillow: {fileID: 660904449}
 --- !u!65 &660904453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37208,7 +37207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604f1d53e7104b14d8d08ca1d15174ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pillow: {fileID: 2903825831536572339}
 --- !u!65 &2903825831536572342
 BoxCollider:
   m_ObjectHideFlags: 0
