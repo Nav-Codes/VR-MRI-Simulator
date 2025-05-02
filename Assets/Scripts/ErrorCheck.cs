@@ -20,7 +20,7 @@ public class ErrorCheck : MonoBehaviour
         Debug.Log("ErrorCheck script initialized.");
     }
 
-    public bool Check(UnityEngine.Events.UnityAction ContinueClick = null, UnityEngine.Events.UnityAction GoBackClick = null)
+    public bool Check(UnityEngine.Events.UnityAction ContinueClick, UnityEngine.Events.UnityAction GoBackClick)
     {
         bool all_Correct = true;
         ContinueClickAction = ContinueClick;
