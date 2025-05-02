@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PatientMenu : MonoBehaviour
 {
+    public string iconBaseFilepath;
+    public GameObject buttonPrefab;
+    public GameObject menuObject;
     public List<PatientMenuItem> allMenuItems;
 
     private List<PatientMenuItem> currentMenuItems = new List<PatientMenuItem>();
@@ -63,8 +66,17 @@ public class PatientMenu : MonoBehaviour
 
     public void ShowMenu()
     {
+        int count = 0;
         foreach (PatientMenuItem item in currentMenuItems)
-            Debug.Log("MENU ITEM: " + item.label);
+        {
+            GameObject itemButton = Instantiate(buttonPrefab, menuObject.transform);
+            if (item.icon != null)
+            {
+                itemButton.GetComponent<UnityEngine.UI.Image>().sprite = item.icon;
+                itemButton.transform.localPosition = new Vector3(0, -1.65f * count, 0);
+                count++;
+            }
+        }
     }
 }
 
@@ -73,6 +85,6 @@ public class PatientMenuItem
 {
     public string label;
     public string targetStateLabel;
-    public string text;
-    public string icon;
+    public string hintText;
+    public Sprite icon;
 }
