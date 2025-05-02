@@ -18,7 +18,12 @@ public class StartScanManager : MonoBehaviour
     }
     public void StartScan()
     {
-        ErrorChecker.Check();
+        ErrorChecker.Check(OnContinueClick, () => {});
+    }
+
+    public void OnContinueClick()
+    {
         scannerAudioSource.Play();
     }
+
 }
