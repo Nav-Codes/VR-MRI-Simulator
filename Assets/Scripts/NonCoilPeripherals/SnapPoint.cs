@@ -53,7 +53,7 @@ public class SnapPoint : MonoBehaviour
         obj.localPosition = snapPosition;
 
         // Set rotation using custom snap rotation values
-        obj.rotation = Quaternion.Euler(snapRotation);
+        obj.localRotation = Quaternion.Euler(snapRotation);
 
         XRGrabInteractable grab = obj.GetComponent<XRGrabInteractable>();
         if (grab != null)
