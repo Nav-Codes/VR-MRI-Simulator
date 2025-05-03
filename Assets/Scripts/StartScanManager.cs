@@ -9,8 +9,8 @@ public class StartScanManager : MonoBehaviour
     public ErrorCheck ErrorChecker;
     public GameObject Coils;
     public Material Smudge;
-    Tuple<GameObject, Material> Og1 = null; // GameObject will be the coil, Material will be original material before smudging
-    Tuple<GameObject, Material> Og2 = null;
+    Tuple<GameObject, Material> Og1; // GameObject will be the coil, Material will be original material before smudging
+    Tuple<GameObject, Material> Og2;
 
     private void Start()
     {
@@ -34,19 +34,55 @@ public class StartScanManager : MonoBehaviour
 
     private void SaveOgMaterials(GameObject Coil, Material[] materials)
     {
-        if (Og1 != null)
+        if (Og1 == null)
         {
             Og1 = Tuple.Create(Coil, materials[0]);
         }
-        else 
+        else if (Og2 == null)
         {
             Og2 = Tuple.Create(Coil, materials[0]);
         }
     }
-
-    private void RevertSmudge()
+    
+    public void RevertSmudge(GameObject Coil)
     {
-        //need to check which coil it collides with, cannot just revert the material for both on collision of one
+        GameObject coilObject;
+        Material ogMaterial;
+
+        if (Og1.Item1.name.Equals(Coil.name))
+        {
+            coilObject = Og1.Item1;
+            ogMaterial = Og1.Item2;
+        }
+        else if (Og2.Item1.name.Equals(Coil.name))
+        {
+            coilObject = Og2.Item1;
+            ogMaterial = Og2.Item2;
+        }
+        else
+        {
+            return;
+        }
+
+        MeshRenderer meshRenderer = coilObject.GetComponent<MeshRenderer>();
+
+        if (meshRenderer != null)
+        {
+            Material[] materials = meshRenderer.materials; // Get a copy of the materials array
+            if (materials.Length > 0)
+            {
+                materials[0] = ogMaterial; // Replace the first material
+                meshRenderer.materials = materials; // Reassign the modified array
+            }
+            else
+            {
+                Debug.LogWarning("No materials found on the MeshRenderer.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No MeshRenderer found on the GameObject.");
+        }
     }
 
     private void ApplySmudge()
