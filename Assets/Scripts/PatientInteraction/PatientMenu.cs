@@ -26,6 +26,7 @@ public class PatientMenu : MonoBehaviour
     public void Disable()
     {
         isEnabled = false;
+        ClearMenu();
     }
 
     public void Enable()
@@ -37,6 +38,7 @@ public class PatientMenu : MonoBehaviour
     {
         if (items != null)
         {
+            currentMenuItems.Clear();
             foreach (string item in items)
             {
                 try
@@ -68,6 +70,8 @@ public class PatientMenu : MonoBehaviour
 
     public void ShowMenu()
     {
+        if (!isEnabled) return;
+
         int count = 0;
         foreach (PatientMenuItem item in currentMenuItems)
         {
@@ -80,6 +84,14 @@ public class PatientMenu : MonoBehaviour
                 itemButton.transform.localPosition = new Vector3(0, -1.65f * count, 0);
                 count++;
             }
+        }
+    }
+
+    private void ClearMenu()
+    {
+        foreach (Transform child in menuObject.transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }

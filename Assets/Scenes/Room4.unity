@@ -30789,11 +30789,11 @@ MonoBehaviour:
   - label: standFromChair
     targetStateLabel: standingByChair
     hintText: Stand up
-    icon: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
   - label: walkToTable
     targetStateLabel: walkingToTable
-    hintText: Test
-    icon: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
+    hintText: Walk to scanner table
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
 --- !u!114 &1484409867
 MonoBehaviour:
   m_ObjectHideFlags: 0

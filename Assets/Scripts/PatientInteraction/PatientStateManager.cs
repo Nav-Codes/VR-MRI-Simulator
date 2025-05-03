@@ -86,8 +86,8 @@ public class PatientStateManager : MonoBehaviour
 
         //SetMenuItems(newState);
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
-        patientMenu.ShowMenu();
         patientMenu.Enable();
+        patientMenu.ShowMenu();
     }
 
     private IEnumerator PlayAnimation(string animationName)
