@@ -7375,6 +7375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scannerAudioSource: {fileID: 1190496979}
   ErrorChecker: {fileID: 2042245841}
+  Coils: {fileID: 1676033757}
+  Smudge: {fileID: 2100000, guid: f8cc3f9e59c582144b07dd68bed16e1f, type: 2}
 --- !u!65 &482681453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20418,7 +20420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1223365503
 Transform:
   m_ObjectHideFlags: 0
@@ -34482,6 +34484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lysol
       objectReference: {fileID: 0}
+    - target: {fileID: 5108204734879497754, guid: f95c78168657fc84d8f7cbfc0a85e08b, type: 3}
+      propertyPath: m_TagString
+      value: Tissue
+      objectReference: {fileID: 0}
     - target: {fileID: 6125006389065370414, guid: f95c78168657fc84d8f7cbfc0a85e08b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -36836,7 +36842,7 @@ GameObject:
   - component: {fileID: 482681464}
   m_Layer: 0
   m_Name: Coil_TxRxKnee18_Base
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36990,7 +36996,7 @@ GameObject:
   - component: {fileID: 3567997862046025559}
   m_Layer: 0
   m_Name: Coil_TxRxKnee18_Top
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39331,6 +39337,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.000555754, y: 0.00039701426, z: 0.0008688226}
   m_Center: {x: 0.000019218407, y: 0.00012564103, z: 0.00004705413}
+--- !u!114 &6544086415586095423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108204734110678481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa460d2aee6d574f92b80e6df28f9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TissueObj: {fileID: 5108204734110678481}
+  StartScanManager: {fileID: 465349024}
 --- !u!1 &6559532722383394880
 GameObject:
   m_ObjectHideFlags: 0
