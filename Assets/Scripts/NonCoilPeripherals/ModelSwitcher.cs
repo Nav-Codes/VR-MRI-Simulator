@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 /// <summary>
 /// Manages the interaction and visibility of a object in an XR environment.
 /// Enables an object when grabbed and disables another object when grabbed.
@@ -41,7 +42,7 @@ public class ModelSwitcher : MonoBehaviour
     {
         if (other.gameObject == targetObject && !switchFromStarting)
         {
-            Switch(); // Call the Switch method when the target object enters the trigger
+            StartCoroutine(SwitchAfterDelay(0.1f));
         }
     }
 
@@ -55,5 +56,11 @@ public class ModelSwitcher : MonoBehaviour
         {
             Switch();
         }
+    }
+
+    private IEnumerator SwitchAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Switch();
     }
 }

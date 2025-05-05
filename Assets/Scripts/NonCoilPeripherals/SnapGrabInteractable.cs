@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.Events; // Add at the top
+using UnityEngine.Events; 
+using System.Collections.Generic;
+
 
 [DefaultExecutionOrder(100)]
 /// <summary>
@@ -24,10 +26,11 @@ public class SnapGrabInteractable : XRGrabInteractable
     private RigidbodyConstraints originalConstraints;
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
-    private bool isGrabbed = false; 
+    private bool isGrabbed = false;
     private Vector3 originalLocalScale;
     public bool needScaling = false; // Flag to indicate if scaling is needed
     public UnityEvent OnGrabbed = null; // Event to trigger when grabbed
+    private List<bool> colliderInitialStates = new List<bool>();
 
     protected override void Awake()
     {
@@ -83,7 +86,11 @@ public class SnapGrabInteractable : XRGrabInteractable
             initialRotationOffset = Quaternion.Inverse(controllerTransform.rotation) * transform.rotation;
         }
 
-        foreach (var col in colliders) col.enabled = false;
+        foreach (var col in colliders)
+        {
+            colliderInitialStates.Add(col.enabled);
+            col.enabled = false;
+        }
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
@@ -95,10 +102,13 @@ public class SnapGrabInteractable : XRGrabInteractable
             rb.isKinematic = false;
             rb.useGravity = true;             // Make it fall again
             rb.constraints = originalConstraints; // Restore original constraints
-            rb.WakeUp(); 
+            rb.WakeUp();
         }
 
-        foreach (var col in colliders) col.enabled = true;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = colliderInitialStates[i];
+        }
         controllerTransform = null;
 
         base.OnSelectExited(args);
