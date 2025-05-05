@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,6 +42,7 @@ public class PatientMover : MonoBehaviour
             if (transform.position == previousPosition)
             {
                 isMoving = false;
+                currentMovement.onMovementEndCallback(currentMovement.nextPatientStateLabel);
             }
 
             targetStepSize = speed * Time.deltaTime; // calculate target distance from last frame
@@ -70,7 +72,7 @@ public class PatientMover : MonoBehaviour
         SetSpeed(currentMovement);
     }
 
-    public void SetCurrentMovement(string movementLabel)
+    public void SetCurrentMovement(string movementLabel, PatientMovement.callback movementEndCallback)
     {
         foreach (PatientMovement movement in allPatientMovements)
         {
@@ -79,6 +81,7 @@ public class PatientMover : MonoBehaviour
                 currentMovement = movement;
                 SetCurrentSpline(currentMovement);
                 SetSpeed(currentMovement);
+                movement.onMovementEndCallback = movementEndCallback;
                 return;
             }
         }
@@ -110,11 +113,11 @@ public class PatientMover : MonoBehaviour
         isMoving = false;
     }
 
-    public void StartMoving(string movementLabel)
-    {
-        SetCurrentMovement(movementLabel);
-        isMoving = true;
-    }
+    //public void StartMoving(string movementLabel)
+    //{
+    //    SetCurrentMovement(movementLabel);
+    //    isMoving = true;
+    //}
 }
 
 [System.Serializable]
@@ -123,6 +126,7 @@ public class PatientMovement
     public string label;
     public BezierSpline pathSpline;
     public float speed;
+    public string nextPatientStateLabel;
     [HideInInspector] public delegate void callback(string label);
     [HideInInspector] public callback onMovementEndCallback;
 }

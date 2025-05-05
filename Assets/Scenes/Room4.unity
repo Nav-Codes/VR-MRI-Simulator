@@ -20072,6 +20072,7 @@ MonoBehaviour:
   - label: walkToTable
     pathSpline: {fileID: 436026581}
     speed: 1
+    nextPatientStateLabel: sittingOnTable
 --- !u!1 &1017098193
 GameObject:
   m_ObjectHideFlags: 0
@@ -30983,6 +30984,12 @@ MonoBehaviour:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
       movementLabel: walkToTable
+  - label: sittingOnTable
+    menuItems: []
+    transition:
+      animationName: m35a@walk-L_turn_90
+      parent: {fileID: 0}
+      movementLabel: 
   initialState: 0
 --- !u!4 &1489482454
 Transform:

@@ -83,7 +83,8 @@ public class PatientStateManager : MonoBehaviour
         // TODO: UPDATE MOVEMENT
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
-            patientMover.StartMoving(newState.transition.movementLabel);
+            patientMover.SetCurrentMovement(newState.transition.movementLabel, ChangePatientState);
+            patientMover.StartMoving();
         }
 
         if (newState.transition.animationName != null)
