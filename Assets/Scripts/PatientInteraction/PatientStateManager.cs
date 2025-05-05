@@ -9,6 +9,7 @@ public class PatientStateManager : MonoBehaviour
 {
     public GameObject patient;
     public PatientMenu patientMenu;
+    public PatientMover patientMover;
     public List<PatientState> patientStates;
     public int initialState = 0;
 
@@ -76,15 +77,21 @@ public class PatientStateManager : MonoBehaviour
         // TODO: HANDLE HEADPHONE CHANGE?
         // TODO: FLIP MODEL IF NECESSARY?
 
-        if (newState.transition.animationName != null) 
+        
+
+        // TODO: UPDATE PARENT
+        // TODO: UPDATE MOVEMENT
+        if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
+        {
+            patientMover.StartMoving(newState.transition.movementLabel);
+        }
+
+        if (newState.transition.animationName != null)
         {
             yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
         }
 
-        // TODO: UPDATE PARENT
-        // TODO: UPDATE POSITION
 
-        //SetMenuItems(newState);
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
         patientMenu.ShowMenu();
@@ -98,17 +105,7 @@ public class PatientStateManager : MonoBehaviour
         // Ensure animation has started
         yield return new WaitUntil(() => patientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
         yield return new WaitForSeconds(patientAnimator.GetCurrentAnimatorStateInfo(0).length);
-        //patientAnimator.speed = 0;
     }
-
-    //private void SetMenuItems(PatientState state)
-    //{
-    //    patientMenu.SetItems(state.menuItems);
-    //    List<PatientMenuItem> menuItems = patientMenu.GetCurrentMenu();
-        
-    //}
-
-    //private void 
 }
 
 [System.Serializable]
