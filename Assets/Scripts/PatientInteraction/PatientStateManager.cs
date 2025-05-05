@@ -77,10 +77,8 @@ public class PatientStateManager : MonoBehaviour
         // TODO: HANDLE HEADPHONE CHANGE?
         // TODO: FLIP MODEL IF NECESSARY?
 
-        
-
         // TODO: UPDATE PARENT
-        // TODO: UPDATE MOVEMENT
+
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
             patientMover.SetCurrentMovement(newState.transition.movementLabel, ChangePatientState);
@@ -90,6 +88,11 @@ public class PatientStateManager : MonoBehaviour
         if (newState.transition.animationName != null)
         {
             yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
+        }
+
+        if (newState.transition.parent != null)
+        {
+            patient.transform.SetParent(newState.transition.parent.transform);
         }
 
 
