@@ -9,7 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 public class BezierSplineInspector : Editor
 {
     private const int stepsPerCurve = 10;
-    private const float directionScale = 2f;
+    private const float directionScale = 1f;
     private const float handleSize = 0.04f;
     private const float pickSize = 0.06f;
 
@@ -20,7 +20,7 @@ public class BezierSplineInspector : Editor
     private Quaternion handleRotation;
 
     private static Color[] modeColors = {
-        Color.white,
+        Color.magenta,
         Color.yellow,
         Color.cyan
     };
@@ -43,7 +43,7 @@ public class BezierSplineInspector : Editor
             Handles.DrawLine(p0, p1);
             Handles.DrawLine(p2, p3);
 
-            Handles.DrawBezier(p0, p3, p1, p2, Color.white, null, 2f);
+            Handles.DrawBezier(p0, p3, p1, p2, Color.blue, null, 2f);
             p0 = p3;
         }
         ShowDirections();
