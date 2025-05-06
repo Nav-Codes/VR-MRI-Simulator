@@ -8,7 +8,6 @@ public class PatientHoverInteractable : XRBaseInteractable
     public GameObject speechBubble;
     public float delayBeforeFade = 1f;
     public float fadeDuration = 3f;
-
     private int hoverCount = 0;
     private CanvasGroup canvasGroup;
     private Coroutine fadeCoroutine;

@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headTransform: {fileID: 296132323}
   offset: {x: 0, y: 0.2, z: 0}
-  bubbleText: Hello!
+  bubbleText: ...
   bubbleInstance: {fileID: 0}
 --- !u!136 &96885879
 CapsuleCollider:
@@ -1169,7 +1169,6 @@ MonoBehaviour:
   speechBubble: {fileID: 0}
   delayBeforeFade: 1
   fadeDuration: 3
-  canvasGroup: {fileID: 0}
 --- !u!1001 &102222594
 PrefabInstance:
   m_ObjectHideFlags: 0

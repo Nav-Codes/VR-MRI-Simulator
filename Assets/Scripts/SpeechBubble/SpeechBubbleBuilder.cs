@@ -63,11 +63,27 @@ public class SpeechBubbleBuilder : MonoBehaviour
         panel.transform.SetParent(canvas);
         panel.transform.localRotation = Quaternion.identity;
         Image image = panel.AddComponent<Image>();
-        image.color = new Color(1f, 1f, 1f, 0.8f);
+        image.color = new Color(1f, 1f, 1f, 1f);
 
         RectTransform panelRect = panel.GetComponent<RectTransform>();
         panelRect.sizeDelta = new Vector2(0.5f, 0.2f);
         panelRect.localPosition = Vector3.zero;
+
+        GameObject tail = new GameObject("Tail");
+        tail.transform.SetParent(panel.transform);
+        tail.transform.localRotation = Quaternion.identity;
+        tail.transform.localScale = Vector3.one;
+
+        Image tailImage = tail.AddComponent<Image>();
+        tailImage.color = panel.GetComponent<Image>().color; // match color
+
+        RectTransform tailRect = tail.GetComponent<RectTransform>();
+        tailRect.sizeDelta = new Vector2(0.1f, 0.1f);
+        tailRect.localPosition = new Vector3(0, panelRect.sizeDelta.y/4f, 0);
+        tailRect.localRotation = Quaternion.Euler(0, 0, 45);
+        tailRect.anchorMin = new Vector2(0.5f, 0f);
+        tailRect.anchorMax = new Vector2(0.5f, 0f);
+        tailRect.pivot = new Vector2(0.5f, 1f);
 
         // Text
         GameObject textGO = new GameObject("Text");
@@ -99,7 +115,7 @@ public class SpeechBubbleBuilder : MonoBehaviour
         {
             textComp.raycastTarget = true;
         }
-        
+
         var hoverHandler = panel.AddComponent<SpeechBubbleHoverHandler>();
         hoverHandler.hoverTarget = GetComponent<PatientHoverInteractable>();
     }
