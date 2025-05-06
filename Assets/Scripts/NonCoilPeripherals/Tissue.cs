@@ -14,14 +14,8 @@ public class Tissue : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLISION DETECTED!!!");
-        if (collision.gameObject.CompareTag("Tissue"))
-        {
-            Debug.Log("TISSUE DETECTED!!!");
-        }
         if (collision.gameObject.CompareTag("Coil"))
         {
-            Debug.Log("COIL DETECTED!!!");
             StartScanManager.GetComponent<StartScanManager>().RevertSmudge(collision.gameObject);
         }
     }
