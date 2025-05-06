@@ -30949,7 +30949,7 @@ MonoBehaviour:
     hintText: Walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
   - label: turnHere
-    targetStateLabel: sittingOnTable
+    targetStateLabel: turnTest
     hintText: ...
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
 --- !u!114 &1484409867
@@ -30978,7 +30978,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 0
       moveToParent: 0
-      parentYOffset: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
       changeStateImmediately: 0
   - label: standingByChair
     menuItems:
@@ -30991,7 +30993,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 0
       moveToParent: 0
-      parentYOffset: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
       changeStateImmediately: 0
   - label: walkingToTable
     menuItems: []
@@ -31002,7 +31006,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 0
       moveToParent: 0
-      parentYOffset: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
       changeStateImmediately: 0
   - label: sittingOnTable
     menuItems:
@@ -31014,7 +31020,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 180
       moveToParent: 1
-      parentYOffset: 0.5
+      xOffset: -6
+      yOffset: 0
+      zOffset: -7
       changeStateImmediately: 0
   - label: turnTest
     menuItems:
@@ -31026,7 +31034,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 0
       moveToParent: 0
-      parentYOffset: 0
+      xOffset: 0
+      yOffset: 3
+      zOffset: 0
       changeStateImmediately: 0
   - label: turnTest2
     menuItems:
@@ -31038,7 +31048,9 @@ MonoBehaviour:
     options:
       pivotDegrees: 0
       moveToParent: 0
-      parentYOffset: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
       changeStateImmediately: 0
   initialState: 0
 --- !u!4 &1489482454

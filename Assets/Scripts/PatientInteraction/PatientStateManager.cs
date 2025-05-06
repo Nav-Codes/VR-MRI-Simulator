@@ -93,7 +93,17 @@ public class PatientStateManager : MonoBehaviour
         if (newState.transition.parent != null)
         {
             patient.transform.SetParent(newState.transition.parent.transform);
+            if (newState.options.moveToParent) 
+            {
+                patient.transform.position = newState.transition.parent.transform.position;
+            }
+            
         }
+        patient.transform.localPosition = new Vector3(
+            patient.transform.localPosition.x + newState.options.xOffset,
+            patient.transform.localPosition.y + newState.options.yOffset,
+            patient.transform.localPosition.z + newState.options.zOffset
+        );
 
 
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
@@ -139,6 +149,8 @@ public class StateOptions
 {
     public float pivotDegrees;
     public bool moveToParent = false;
-    public float parentYOffset;
+    public float xOffset;
+    public float yOffset;
+    public float zOffset;
     public bool changeStateImmediately = false;
 }
