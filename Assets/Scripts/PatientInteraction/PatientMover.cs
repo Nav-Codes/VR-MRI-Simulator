@@ -43,6 +43,7 @@ public class PatientMover : MonoBehaviour
             {
                 isMoving = false;
                 currentMovement.onMovementEndCallback(currentMovement.nextPatientStateLabel);
+                return;
             }
 
             targetStepSize = speed * Time.deltaTime; // calculate target distance from last frame

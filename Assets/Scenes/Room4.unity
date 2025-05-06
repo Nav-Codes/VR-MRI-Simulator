@@ -16307,13 +16307,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 7.829895, y: 0, z: 2.091528}
-  - {x: 7.811698, y: 0, z: 0.83420753}
-  - {x: 7.219036, y: 0, z: 0.18663308}
-  - {x: 5.808671, y: 0, z: -0.20080805}
-  - {x: 4.205787, y: 0, z: -0.64113593}
-  - {x: 4.0109525, y: 0, z: -2.0934393}
-  - {x: 1.925353, y: 0, z: -2.057522}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 1, z: -1.2573204}
+  - {x: -0.26116705, y: 1, z: -1.8892946}
+  - {x: -1.808784, y: 1, z: -2.1223278}
+  - {x: -3.4525194, y: 1, z: -2.369834}
+  - {x: -3.383469, y: 1, z: -4.340931}
+  - {x: -6.5842366, y: 1, z: -4.2878575}
   modes: 000000000100000000000000
 --- !u!4 &843297842
 Transform:
@@ -16323,7 +16323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843297840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.269585, y: -0.16939035, z: -0.4581871}
+  m_LocalPosition: {x: 7.78, y: -1, z: 6.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20047,15 +20047,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015465985}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.67, y: 0, z: -0.52}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 7.82, y: 0, z: 6.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1093056880}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1015465987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20070,7 +20070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPatientMovements:
   - label: walkToTable
-    pathSpline: {fileID: 436026581}
+    pathSpline: {fileID: 843297841}
     speed: 1
     nextPatientStateLabel: sittingOnTable
 --- !u!1 &1017098193
@@ -30948,6 +30948,10 @@ MonoBehaviour:
     targetStateLabel: walkingToTable
     hintText: Walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - label: turnHere
+    targetStateLabel: sittingOnTable
+    hintText: ...
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
 --- !u!114 &1484409867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30971,25 +30975,71 @@ MonoBehaviour:
       animationName: m35a@Standup-SitOnChair
       parent: {fileID: 0}
       movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      parentYOffset: 0
+      changeStateImmediately: 0
   - label: standingByChair
     menuItems:
     - walkToTable
+    - turnHere
     transition:
       animationName: m35a@90-Standup
       parent: {fileID: 0}
       movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      parentYOffset: 0
+      changeStateImmediately: 0
   - label: walkingToTable
     menuItems: []
     transition:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
       movementLabel: walkToTable
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      parentYOffset: 0
+      changeStateImmediately: 0
   - label: sittingOnTable
-    menuItems: []
+    menuItems:
+    - turnHere
     transition:
-      animationName: m35a@walk-L_turn_90
+      animationName: m35a@walk-R_turn_90
       parent: {fileID: 6361372468135736370}
       movementLabel: 
+    options:
+      pivotDegrees: 180
+      moveToParent: 1
+      parentYOffset: 0.5
+      changeStateImmediately: 0
+  - label: turnTest
+    menuItems:
+    - standFromChair
+    transition:
+      animationName: m35a@walk-R_turn_90
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      parentYOffset: 0
+      changeStateImmediately: 0
+  - label: turnTest2
+    menuItems:
+    - standFromChair
+    transition:
+      animationName: m35a@Stand-SitOnTable
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      parentYOffset: 0
+      changeStateImmediately: 0
   initialState: 0
 --- !u!4 &1489482454
 Transform:

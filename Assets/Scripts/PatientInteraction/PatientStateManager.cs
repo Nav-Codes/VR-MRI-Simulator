@@ -75,9 +75,9 @@ public class PatientStateManager : MonoBehaviour
 
         // TODO: SOMETHING TO TEMPORARILY HANDLE MISSING STATES?
         // TODO: HANDLE HEADPHONE CHANGE?
-        // TODO: FLIP MODEL IF NECESSARY?
 
-        // TODO: UPDATE PARENT
+        patientAnimator.enabled = false;
+        patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
 
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
@@ -103,6 +103,11 @@ public class PatientStateManager : MonoBehaviour
 
     private IEnumerator PlayAnimation(string animationName)
     {
+        if (!patientAnimator.HasState(0, Animator.StringToHash(animationName)))
+        {
+            yield break;
+        }
+        patientAnimator.enabled = true;
         patientAnimator.Play(animationName, 0, 0f);
         patientAnimator.speed = 1;
 
@@ -118,6 +123,7 @@ public class PatientState
     public string label;
     public List<string> menuItems;
     public StateBeginTransition transition;
+    public StateOptions options;
 }
 
 [System.Serializable]
@@ -126,4 +132,13 @@ public class StateBeginTransition
     public string? animationName;
     public GameObject? parent;
     public string? movementLabel;
+}
+
+[System.Serializable]
+public class StateOptions
+{
+    public float pivotDegrees;
+    public bool moveToParent = false;
+    public float parentYOffset;
+    public bool changeStateImmediately = false;
 }
