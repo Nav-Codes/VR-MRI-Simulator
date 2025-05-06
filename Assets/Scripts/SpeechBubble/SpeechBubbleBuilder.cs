@@ -27,7 +27,7 @@ public class SpeechBubbleBuilder : MonoBehaviour
 
         // Create a CanvasGroup to handle the visibility
         CanvasGroup canvasGroup = bubble.AddComponent<CanvasGroup>();
-        canvasGroup.alpha = 0f;  // Start as invisible but keep the interaction
+        canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
@@ -99,5 +99,8 @@ public class SpeechBubbleBuilder : MonoBehaviour
         {
             textComp.raycastTarget = true;
         }
+        
+        var hoverHandler = panel.AddComponent<SpeechBubbleHoverHandler>();
+        hoverHandler.hoverTarget = GetComponent<PatientHoverInteractable>();
     }
 }

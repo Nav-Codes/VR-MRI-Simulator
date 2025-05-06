@@ -10,12 +10,52 @@ public class PatientHoverInteractable : XRBaseInteractable
     public float fadeDuration = 3f;
 
     private int hoverCount = 0;
-    public CanvasGroup canvasGroup;
+    private CanvasGroup canvasGroup;
     private Coroutine fadeCoroutine;
 
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
+        HoverEnteredLogic();
+    }
+
+    protected override void OnHoverExited(HoverExitEventArgs args)
+    {
+        base.OnHoverExited(args);
+        HoverExitedLogic();
+    }
+
+    private IEnumerator DelayedFadeOut()
+    {
+        yield return new WaitForSeconds(delayBeforeFade);
+
+        float time = 0f;
+        float startAlpha = canvasGroup.alpha;
+
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        while (time < fadeDuration)
+        {
+            time += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
+            yield return null;
+
+            if (hoverCount > 0)
+                yield break;
+        }
+
+        if (hoverCount == 0)
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+        }
+    }
+
+
+    public void HoverEnteredLogic()
+    {
         hoverCount++;
 
         if (fadeCoroutine != null)
@@ -30,33 +70,13 @@ public class PatientHoverInteractable : XRBaseInteractable
         }
     }
 
-    protected override void OnHoverExited(HoverExitEventArgs args)
+    public void HoverExitedLogic()
     {
-        base.OnHoverExited(args);
         hoverCount = Mathf.Max(hoverCount - 1, 0);
 
         if (hoverCount == 0 && speechBubble != null)
         {
             fadeCoroutine = StartCoroutine(DelayedFadeOut());
         }
-    }
-
-    private IEnumerator DelayedFadeOut()
-    {
-        yield return new WaitForSeconds(delayBeforeFade);
-
-        float time = 0f;
-        float startAlpha = canvasGroup.alpha;
-
-        while (time < fadeDuration)
-        {
-            time += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, 0f, time / fadeDuration);
-            yield return null;
-        }
-
-        canvasGroup.alpha = 0f;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
     }
 }
