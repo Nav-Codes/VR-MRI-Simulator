@@ -12213,7 +12213,6 @@ MonoBehaviour:
   scannerAudioSource: {fileID: 1190496979}
   ErrorChecker: {fileID: 2042245841}
   Coils: {fileID: 1676033757}
-  Smudge: {fileID: 2100000, guid: f8cc3f9e59c582144b07dd68bed16e1f, type: 2}
 --- !u!65 &482681453
 BoxCollider:
   m_ObjectHideFlags: 0
