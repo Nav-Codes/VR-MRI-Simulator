@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PatientMenu
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: eedf6827a7086434591919cea1ade8e5, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: iconBaseFilepath
+    value: MenuIcons
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: buttonPrefab
+    value: 
+    objectReference: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: menuObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].label
+    value: standFromChair
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].targetStateLabel
+    value: standingByChair
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].hintText
+    value: Stand up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].label
+    value: walkToTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].targetStateLabel
+    value: walkingToTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].hintText
+    value: Walk to scanner table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].label
+    value: turnHere
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].targetStateLabel
+    value: turnTest
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].hintText
+    value: ...
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  m_ExcludedProperties: []

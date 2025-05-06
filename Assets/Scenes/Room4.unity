@@ -20032,6 +20032,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1015465986}
+  - component: {fileID: 1015465989}
+  - component: {fileID: 1015465988}
   - component: {fileID: 1015465987}
   m_Layer: 0
   m_Name: Patient
@@ -20073,6 +20075,121 @@ MonoBehaviour:
     pathSpline: {fileID: 843297841}
     speed: 1
     nextPatientStateLabel: sittingOnTable
+--- !u!114 &1015465988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015465985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedf6827a7086434591919cea1ade8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconBaseFilepath: MenuIcons
+  buttonPrefab: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
+  menuObject: {fileID: 1214328959}
+  allMenuItems:
+  - label: standFromChair
+    targetStateLabel: standingByChair
+    hintText: Stand up
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - label: walkToTable
+    targetStateLabel: walkingToTable
+    hintText: Walk to scanner table
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - label: testButton
+    targetStateLabel: test
+    hintText: ...
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+--- !u!114 &1015465989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015465985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da53028c1351112458320fbef3442e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patient: {fileID: 1015465985}
+  patientMenu: {fileID: 1015465988}
+  patientMover: {fileID: 1015465987}
+  patientStates:
+  - label: initialStateInChair
+    menuItems:
+    - standFromChair
+    transition:
+      animationName: m35a@Standup-SitOnChair
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
+      changeStateImmediately: 0
+  - label: standingByChair
+    menuItems:
+    - walkToTable
+    - turnHere
+    transition:
+      animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
+      changeStateImmediately: 0
+  - label: walkingToTable
+    menuItems: []
+    transition:
+      animationName: m35a@WalkCycle
+      parent: {fileID: 0}
+      movementLabel: walkToTable
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      xOffset: 0
+      yOffset: 0
+      zOffset: 0
+      changeStateImmediately: 0
+  - label: sittingOnTable
+    menuItems:
+    - turnHere
+    transition:
+      animationName: m35a@walk-R_turn_90
+      parent: {fileID: 6361372468135736370}
+      movementLabel: 
+    options:
+      pivotDegrees: 180
+      moveToParent: 1
+      xOffset: -6
+      yOffset: 0
+      zOffset: -7
+      changeStateImmediately: 0
+  - label: test
+    menuItems:
+    - standFromChair
+    transition:
+      animationName: m35a@walk-R_turn_90
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      pivotDegrees: 0
+      moveToParent: 0
+      xOffset: 0
+      yOffset: 3
+      zOffset: 0
+      changeStateImmediately: 0
+  initialState: 0
 --- !u!1 &1017098193
 GameObject:
   m_ObjectHideFlags: 0
@@ -20842,7 +20959,6 @@ Transform:
   - {fileID: 595476699}
   - {fileID: 465349025}
   - {fileID: 1343359139}
-  - {fileID: 1484409865}
   m_Father: {fileID: 2132935865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30891,168 +31007,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: -0.1, z: 0}
---- !u!1 &1484409864
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1484409865}
-  - component: {fileID: 1484409867}
-  - component: {fileID: 1484409866}
-  m_Layer: 0
-  m_Name: PatientManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1484409865
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484409864}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1058458867}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1484409866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484409864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eedf6827a7086434591919cea1ade8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconBaseFilepath: MenuIcons
-  buttonPrefab: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
-  menuObject: {fileID: 1214328959}
-  allMenuItems:
-  - label: standFromChair
-    targetStateLabel: standingByChair
-    hintText: Stand up
-    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
-  - label: walkToTable
-    targetStateLabel: walkingToTable
-    hintText: Walk to scanner table
-    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
-  - label: turnHere
-    targetStateLabel: turnTest
-    hintText: ...
-    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
---- !u!114 &1484409867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484409864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da53028c1351112458320fbef3442e83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patient: {fileID: 1015465985}
-  patientMenu: {fileID: 1484409866}
-  patientMover: {fileID: 1015465987}
-  patientStates:
-  - label: initialStateInChair
-    menuItems:
-    - standFromChair
-    transition:
-      animationName: m35a@Standup-SitOnChair
-      parent: {fileID: 0}
-      movementLabel: 
-    options:
-      pivotDegrees: 0
-      moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
-  - label: standingByChair
-    menuItems:
-    - walkToTable
-    - turnHere
-    transition:
-      animationName: m35a@90-Standup
-      parent: {fileID: 0}
-      movementLabel: 
-    options:
-      pivotDegrees: 0
-      moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
-  - label: walkingToTable
-    menuItems: []
-    transition:
-      animationName: m35a@WalkCycle
-      parent: {fileID: 0}
-      movementLabel: walkToTable
-    options:
-      pivotDegrees: 0
-      moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
-  - label: sittingOnTable
-    menuItems:
-    - turnHere
-    transition:
-      animationName: m35a@walk-R_turn_90
-      parent: {fileID: 6361372468135736370}
-      movementLabel: 
-    options:
-      pivotDegrees: 180
-      moveToParent: 1
-      xOffset: -6
-      yOffset: 0
-      zOffset: -7
-      changeStateImmediately: 0
-  - label: turnTest
-    menuItems:
-    - standFromChair
-    transition:
-      animationName: m35a@walk-R_turn_90
-      parent: {fileID: 0}
-      movementLabel: 
-    options:
-      pivotDegrees: 0
-      moveToParent: 0
-      xOffset: 0
-      yOffset: 3
-      zOffset: 0
-      changeStateImmediately: 0
-  - label: turnTest2
-    menuItems:
-    - standFromChair
-    transition:
-      animationName: m35a@Stand-SitOnTable
-      parent: {fileID: 0}
-      movementLabel: 
-    options:
-      pivotDegrees: 0
-      moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
-  initialState: 0
 --- !u!4 &1489482454
 Transform:
   m_ObjectHideFlags: 0
