@@ -1,44 +1,33 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 /// <summary>
 /// Extends <see cref="VRHoldButton"/> to handle movement controls for a bed.
 /// Determines movement direction (up or down) based on the button type.
-/// When held, it moves the bed in the corresponding direction and turns on the button light.
 /// </summary>
 public class VRHoldMoveButton : VRHoldButton
 {
-    // Determines if the button moves the bed up
     private bool moveUp;
-    
-    // Initializes movement direction based on the button type
+
     void Awake()
     {
         moveUp = type == "Up";
     }
+
     /// <summary>
-    /// Checks if the button is being held and performs the corresponding action.
-    /// - If held, moves the bed and turns on the light.
-    /// - If released, turns off the light.
+    /// Overrides behavior when the button is held:
+    /// - Moves the bed in the corresponding direction.
+    /// - Turns on the button light.
     /// </summary>
-    private void Update()
+    protected override void ifHeld()
     {
-        if (isHeld)
-        {
-            Move();
-            LightOn();
-        }
-        else
-        {
-            LightOff();
-        }
+        base.ifHeld(); // Keep the default light behavior
+        Move();
     }
-    /// <summary>
-    /// Moves the bed in the determined direction.
-    /// - Moves up if `moveUp` is true.
-    /// - Moves down otherwise.
-    /// </summary>
+
     private void Move()
     {
+        if (bedController == null) return;
+
         if (moveUp)
         {
             bedController.MoveUp();

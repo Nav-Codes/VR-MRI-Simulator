@@ -15,18 +15,11 @@ public class ErrorCheck : MonoBehaviour
     public GameObject GoBackButton;  // Button to allow user to check their mistakes before moving on to the next steps
     private UnityEngine.Events.UnityAction GoBackClickAction; // Unity delegate that defines what to do when check errors button is clicked
 
-    void Start()
-    {
-        Debug.Log("ErrorCheck script initialized.");
-    }
-
     public bool Check(UnityEngine.Events.UnityAction ContinueClick, UnityEngine.Events.UnityAction GoBackClick)
     {
         bool all_Correct = true;
         ContinueClickAction = ContinueClick;
         GoBackClickAction = GoBackClick;
-
-        Debug.Log("Starting error check...");
 
         if (Errors == null || Errors.Length == 0)
         {
@@ -41,8 +34,6 @@ public class ErrorCheck : MonoBehaviour
 
         foreach (GameObject obj in Errors)
         {
-            Debug.Log($"Checking object: {obj.name}");
-
             // Check if the GameObject has a component implementing CheckerInterface
             CheckerInterface checker = obj.GetComponent<CheckerInterface>();
 
@@ -53,7 +44,6 @@ public class ErrorCheck : MonoBehaviour
             }
 
             bool isCorrect = checker.isCorrect();
-            Debug.Log($"{obj.name} check result: {(isCorrect ? "Correct ✅" : "Not Correct ❌")}");
 
             try
             {
@@ -72,8 +62,6 @@ public class ErrorCheck : MonoBehaviour
 
         //set active the buttons on the canvas
         ShowButtons(all_Correct, errorText);
-
-        Debug.Log("Error check complete.");
 
         return all_Correct;
     }
@@ -128,8 +116,6 @@ public class ErrorCheck : MonoBehaviour
         // Update text and color
         errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
         errorText.color = color;
-
-        Debug.Log($"Set text: {errorText.text}, Color: {errorText.color.ToString()}");
 
         return errorTextObj;
     }

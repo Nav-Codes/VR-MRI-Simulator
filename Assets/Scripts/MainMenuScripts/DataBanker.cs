@@ -18,13 +18,6 @@ public class DataBanker : MonoBehaviour
         {
             // Assign the instance as the singleton
             Instance = this;
-            // Prevent this object from being destroyed when loading new scenes
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // If another instance exists, destroy this duplicate
-            Destroy(gameObject); // Prevent duplicate instances
         }
     }
 
