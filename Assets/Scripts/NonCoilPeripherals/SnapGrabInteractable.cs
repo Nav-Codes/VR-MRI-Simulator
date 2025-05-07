@@ -27,7 +27,6 @@ public class SnapGrabInteractable : XRGrabInteractable
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
     private bool isGrabbed = false;
-    private Vector3 originalLocalScale;
     public bool needScaling = false; // Flag to indicate if scaling is needed
     public UnityEvent OnGrabbed = null; // Event to trigger when grabbed
     private List<bool> colliderInitialStates = new List<bool>();
@@ -41,8 +40,6 @@ public class SnapGrabInteractable : XRGrabInteractable
         attachEaseInTime = 0f;
         trackPosition = false;
         trackRotation = false;
-        originalLocalScale = transform.localScale;
-
     }
 
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
@@ -61,11 +58,10 @@ public class SnapGrabInteractable : XRGrabInteractable
         gameObject.layer = LayerMask.NameToLayer("Default");
         base.OnSelectEntered(args);
 
+        Vector3 worldScale = transform.lossyScale;
+
         if (transform.parent != null)
             transform.SetParent(null, true); // Keep world position when unparenting
-
-        if (!needScaling)
-            transform.localScale = Vector3.one;
 
         controllerTransform = args.interactorObject.transform;
         isGrabbed = true; // Enable LateUpdate when grabbed
@@ -113,16 +109,11 @@ public class SnapGrabInteractable : XRGrabInteractable
 
         base.OnSelectExited(args);
         transform.SetParent(null, true);
-        if (needScaling)
-            transform.localScale = originalLocalScale; // Reset scale to original if needed
-        else
-            transform.localScale = Vector3.one;
     }
 
     private void FixedUpdate()
     {
         if (!isGrabbed || controllerTransform == null) return;
-
 
         // Maintain positional offset
         Vector3 targetPosition = controllerTransform.position + controllerTransform.TransformDirection(new Vector3(0, 0, positionOffset));
