@@ -11,7 +11,10 @@ public class SnapPoint : MonoBehaviour
     public Vector3 snapPosition; // Position to snap to
     public Vector3 snapRotation; // Rotation to snap to
     public GameObject expectedObject; // The specific object that can snap
-
+    private void Awake()
+    {
+        gameObject.layer = LayerMask.NameToLayer("SnapPoints");
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == expectedObject) // Compare by reference
