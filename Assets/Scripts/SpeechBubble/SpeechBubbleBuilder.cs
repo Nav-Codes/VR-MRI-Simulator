@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using UnityEngine.Events; // Required for UnityEvent
 
 public class SpeechBubbleBuilder : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class SpeechBubbleBuilder : MonoBehaviour
     public Vector3 offset = new Vector3(0, 0.2f, 0);
     public string bubbleText = "Hello!";
     public GameObject bubbleInstance;
-
+    [Header("Speech Bubble Events")]
+    public UnityEvent onSpeechBubbleClicked; // <-- Add this
     void Awake()
     {
         // Create empty holder
@@ -79,7 +81,7 @@ public class SpeechBubbleBuilder : MonoBehaviour
 
         RectTransform tailRect = tail.GetComponent<RectTransform>();
         tailRect.sizeDelta = new Vector2(0.1f, 0.1f);
-        tailRect.localPosition = new Vector3(0, panelRect.sizeDelta.y/4f, 0);
+        tailRect.localPosition = new Vector3(0, panelRect.sizeDelta.y / 4f, 0);
         tailRect.localRotation = Quaternion.Euler(0, 0, 45);
         tailRect.anchorMin = new Vector2(0.5f, 0f);
         tailRect.anchorMax = new Vector2(0.5f, 0f);
@@ -101,7 +103,7 @@ public class SpeechBubbleBuilder : MonoBehaviour
 
         // Add a Button component to the panel to make it clickable
         Button btn = panel.AddComponent<Button>();
-        btn.onClick.AddListener(() => Debug.Log("Speech bubble clicked."));
+        btn.onClick.AddListener(() => onSpeechBubbleClicked?.Invoke());
 
         // Ensure raycasting is enabled for the panel and its children
         var imageComp = panel.GetComponent<Image>();
