@@ -20,7 +20,13 @@ public class CoilStatus : MonoBehaviour, CheckerInterface
         {
             if (dataBanker.GetExamType().Contains(coil.name))
             {
-                return (coil.transform.GetChild(0).childCount != 0);
+                int numParts = coil.transform.childCount;
+                int checkNumParts = 0;
+
+                foreach (Transform childCoil in coil.transform)
+                    if (childCoil.childCount > 0) checkNumParts++;
+                    
+                if (checkNumParts == numParts) return true; 
             }
         }
         return false;
