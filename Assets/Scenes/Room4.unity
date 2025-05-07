@@ -7977,15 +7977,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edda120ddb7c41f2bda4c8d0345b917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Errors:
-  - {fileID: 1343359138}
-  - {fileID: 6290459220451491345}
-  - {fileID: 795377835}
-  - {fileID: 2903825831536572339}
+  errorGroupEntries:
+  - key: Knee
+    objects:
+    - {fileID: 1343359138}
+    - {fileID: 6290459220451491345}
+    - {fileID: 795377835}
+    - {fileID: 2903825831536572339}
+  - key: Head
+    objects:
+    - {fileID: 1343359138}
+    - {fileID: 6290459220451491345}
+    - {fileID: 795377835}
+    - {fileID: 1462486739}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 749532806}
   ContinueButton: {fileID: 268122124}
   GoBackButton: {fileID: 363166177}
+  dataBanker: {fileID: 1178165863}
 --- !u!4 &236542780
 Transform:
   m_ObjectHideFlags: 0
@@ -36015,6 +36024,7 @@ GameObject:
   - component: {fileID: 1462486740}
   - component: {fileID: 1462486744}
   - component: {fileID: 1462486745}
+  - component: {fileID: 1462486746}
   m_Layer: 0
   m_Name: BaseSnapPoint
   m_TagString: Untagged
@@ -36066,6 +36076,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1462486746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462486739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676116833e646fb44bca00cccdb73d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataBanker: {fileID: 1178165863}
 --- !u!1 &1474541387
 GameObject:
   m_ObjectHideFlags: 0
@@ -52291,16 +52314,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edda120ddb7c41f2bda4c8d0345b917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Errors:
-  - {fileID: 361103814}
-  - {fileID: 1676033757}
-  - {fileID: 919132148846453219}
-  - {fileID: 1914924571}
-  - {fileID: 849463693}
+  errorGroupEntries:
+  - key: Knee
+    objects:
+    - {fileID: 361103814}
+    - {fileID: 1676033757}
+    - {fileID: 919132148846453219}
+    - {fileID: 1914924571}
+    - {fileID: 849463693}
+  - key: Head
+    objects:
+    - {fileID: 361103814}
+    - {fileID: 1676033757}
+    - {fileID: 919132148846453219}
+    - {fileID: 1914924571}
+    - {fileID: 849463693}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
   ContinueButton: {fileID: 1591670235}
   GoBackButton: {fileID: 1433546252}
+  dataBanker: {fileID: 1178165863}
 --- !u!4 &2042245842
 Transform:
   m_ObjectHideFlags: 0

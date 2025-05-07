@@ -5,18 +5,48 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
+[Serializable]
+public class ErrorGroupEntry
+{
+    public string key;
+    public GameObject[] objects;
+}
+
 public class ErrorCheck : MonoBehaviour
 {
-    public GameObject[] Errors;           // Array of objects implementing CheckerInterface
+    public List<ErrorGroupEntry> errorGroupEntries = new List<ErrorGroupEntry>(); // Visible in Inspector
+    private Dictionary<string, GameObject[]> errorGroups = new Dictionary<string, GameObject[]>(); // Used at runtime
+
     public GameObject ErrorTextPrefab;    // Prefab with TMP for error message
     public Transform ErrorPanel;          // Panel to display error messages
     public GameObject ContinueButton;     // Button to continue the next steps of the simulation with the errors
-    private UnityEngine.Events.UnityAction ContinueClickAction;    // Unity delegate that defines what to do when continue button is clicked
-    public GameObject GoBackButton;  // Button to allow user to check their mistakes before moving on to the next steps
-    private UnityEngine.Events.UnityAction GoBackClickAction; // Unity delegate that defines what to do when check errors button is clicked
+    private UnityEngine.Events.UnityAction ContinueClickAction;    // Unity delegate for continue
+    public GameObject GoBackButton;       // Button to allow user to check their mistakes before moving on
+    private UnityEngine.Events.UnityAction GoBackClickAction;      // Unity delegate for go back
+    public DataBanker dataBanker;
 
     public bool Check(UnityEngine.Events.UnityAction ContinueClick, UnityEngine.Events.UnityAction GoBackClick)
     {
+        // Build the dictionary from the serialized list
+        errorGroups.Clear();
+        foreach (var entry in errorGroupEntries)
+        {
+            if (!errorGroups.ContainsKey(entry.key))
+                errorGroups.Add(entry.key, entry.objects);
+        }
+
+        string type = dataBanker.GetExamType();
+        GameObject[] Errors = null;
+        if (errorGroups != null && errorGroups.ContainsKey(type))
+        {
+            Errors = errorGroups[type];
+        }
+        else
+        {
+            Debug.LogError($"No errors found for type: {type}");
+            return false;
+        }
+
         bool all_Correct = true;
         ContinueClickAction = ContinueClick;
         GoBackClickAction = GoBackClick;
@@ -34,13 +64,12 @@ public class ErrorCheck : MonoBehaviour
 
         foreach (GameObject obj in Errors)
         {
-            // Check if the GameObject has a component implementing CheckerInterface
             CheckerInterface checker = obj.GetComponent<CheckerInterface>();
 
             if (checker == null)
             {
                 Debug.LogError($"{obj.name} does not have a script implementing CheckerInterface!");
-                continue; // Skip to the next object
+                continue;
             }
 
             bool isCorrect = checker.isCorrect();
@@ -59,8 +88,6 @@ public class ErrorCheck : MonoBehaviour
         }
 
         ErrorPanel.gameObject.SetActive(true);
-
-        //set active the buttons on the canvas
         ShowButtons(all_Correct, errorText);
 
         return all_Correct;
@@ -68,13 +95,13 @@ public class ErrorCheck : MonoBehaviour
 
     public void ClickContinue()
     {
-        ContinueClickAction();
+        ContinueClickAction?.Invoke();
         DisablePanel();
     }
 
     public void ClickGoBack()
     {
-        GoBackClickAction();
+        GoBackClickAction?.Invoke();
         DisablePanel();
     }
 
@@ -91,9 +118,8 @@ public class ErrorCheck : MonoBehaviour
             GoBackButton.SetActive(false);
             errorText.SetActive(false);
             ContinueButton.SetActive(true);
-            
-            Color newColor;
-            if (ColorUtility.TryParseHtmlString("#69EA70", out newColor))
+
+            if (ColorUtility.TryParseHtmlString("#69EA70", out Color newColor))
                 ContinueButton.GetComponent<Image>().color = newColor;
             else
                 Debug.LogWarning("Invalid color format!");
@@ -102,18 +128,15 @@ public class ErrorCheck : MonoBehaviour
 
     private GameObject AddText(string text, Color color, bool isTitle = false)
     {
-        // Instantiate the error text
         GameObject errorTextObj = Instantiate(ErrorTextPrefab, ErrorPanel);
         LayoutRebuilder.ForceRebuildLayoutImmediate(ErrorPanel.GetComponent<RectTransform>());
 
-        // Get the TextMeshPro component
         TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
         if (errorText == null)
         {
             throw new Exception("ErrorTextPrefab missing TMP_Text component");
         }
 
-        // Update text and color
         errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
         errorText.color = color;
 
