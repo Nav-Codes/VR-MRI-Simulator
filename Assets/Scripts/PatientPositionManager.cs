@@ -23,7 +23,6 @@ public class PatientPositionManager : MonoBehaviour, CheckerInterface
     private Dictionary<string, GameObject> PatientPositionMap; // Efficient lookup
     private GameObject activePatientPosition; // Currently active position
     private bool defaultEnabled = false;
-    public CoilManager coilManager;
     public GameObject transitionModel;
     public Animator transitionAnimator;
     public CallBell callBell;
