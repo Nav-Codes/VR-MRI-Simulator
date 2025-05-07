@@ -20,7 +20,7 @@ public class CoilStatus : MonoBehaviour, CheckerInterface
         {
             if (dataBanker.GetExamType().Contains(coil.name))
             {
-                return (coil.transform.GetChild(0).childCount > 0);
+                return (coil.transform.GetChild(0).childCount != 0);
             }
         }
         return false;

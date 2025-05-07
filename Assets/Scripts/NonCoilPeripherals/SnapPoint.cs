@@ -22,10 +22,12 @@ public class SnapPoint : MonoBehaviour
 
     private void TrySnapObject(Transform obj)
     {
+        Debug.Log("Trying to snap object: " + obj.name);
         float distance = Vector3.Distance(obj.position, transform.position);
 
         if (distance <= snapDistance)
         {
+            Debug.Log("Snapping object: " + obj.name);
             SnapObject(obj);
         }
     }
@@ -51,7 +53,7 @@ public class SnapPoint : MonoBehaviour
         obj.localPosition = snapPosition;
 
         // Set rotation using custom snap rotation values
-        obj.rotation = Quaternion.Euler(snapRotation);
+        obj.localRotation = Quaternion.Euler(snapRotation);
 
         XRGrabInteractable grab = obj.GetComponent<XRGrabInteractable>();
         if (grab != null)

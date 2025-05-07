@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BedSheetStatus : MonoBehaviour, CheckerInterface
 {
-    public GameObject BedSheet; // Assign in Inspector
+    public GameObject OpenBedSheet; // Assign in Inspector
     public bool isCorrect() {
-        return BedSheet.GetComponent<MeshRenderer>().enabled;   
+        return OpenBedSheet.activeSelf;   
     }
     public string getLabel() {
         return "Bed Sheet Placement";

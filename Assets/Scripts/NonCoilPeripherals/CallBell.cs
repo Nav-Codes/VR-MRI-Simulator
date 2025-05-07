@@ -40,4 +40,8 @@ public class CallBell : MonoBehaviour, ISnappable, CheckerInterface
     {
         isInHand = true;
     }
+
+    public void Release() {
+        isInHand = false;
+    }
 }
