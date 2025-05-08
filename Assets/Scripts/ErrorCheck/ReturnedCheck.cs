@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class RemovalCheck : MonoBehaviour
+public class ReturnedCheck : MonoBehaviour
 {
     public List<ErrorGroupEntry> errorGroupEntries = new List<ErrorGroupEntry>(); // Visible in Inspector
     private Dictionary<string, GameObject[]> errorGroups = new Dictionary<string, GameObject[]>(); // Used at runtime
@@ -57,19 +57,19 @@ public class RemovalCheck : MonoBehaviour
 
         foreach (GameObject obj in Errors)
         {
-            RemovalInterface checker = obj.GetComponent<RemovalInterface>();
+            ReturnedInterface checker = obj.GetComponent<ReturnedInterface>();
 
             if (checker == null)
             {
-                Debug.LogError($"{obj.name} does not have a script implementing RemovalInterface!");
+                Debug.LogError($"{obj.name} does not have a script implementing ReturnedInterface!");
                 continue;
             }
 
-            bool isRemoved = checker.isRemoved();
+            bool isReturned = checker.isReturned();
 
             try
             {
-                AddText((checker.getRemovalLabel() + (isRemoved ? " is removed" : " is not removed")), (isRemoved ? Color.green : Color.red));
+                AddText((checker.getReturnedLabel() + (isReturned ? " is Returned" : " is not Returned")), (isReturned ? Color.green : Color.red));
             }
             catch (Exception e)
             {
@@ -77,7 +77,7 @@ public class RemovalCheck : MonoBehaviour
                 return false;
             }
 
-            all_Correct = all_Correct && isRemoved;
+            all_Correct = all_Correct && isReturned;
         }
 
         ErrorPanel.gameObject.SetActive(true);

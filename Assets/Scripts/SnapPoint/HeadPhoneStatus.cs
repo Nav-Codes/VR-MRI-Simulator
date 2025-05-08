@@ -4,7 +4,7 @@ using UnityEngine;
 /// When the headphones are snapped to a specific point (via the OnSnapped method from the ISnappable interface),
 /// it will activate the open headphone model and deactivate the closed one.
 /// </summary>
-public class HeadPhoneStatus : MonoBehaviour, CheckerInterface, RemovalInterface
+public class HeadPhoneStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public GameObject headphoneOpen;
 
@@ -13,16 +13,16 @@ public class HeadPhoneStatus : MonoBehaviour, CheckerInterface, RemovalInterface
         return "Headphones on patient";
     }
 
-    public string getRemovalLabel()
+    public string getReturnedLabel()
     {
-        return "Headphones removal";
+        return "Headphones";
     }
 
     public bool isCorrect()
     {
         return headphoneOpen.activeSelf;
     }
-    public bool isRemoved()
+    public bool isReturned()
     {
         return !isCorrect();
     }
