@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // Required for TextMeshPro UI
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public class StartScanManager : MonoBehaviour
@@ -26,7 +27,7 @@ public class StartScanManager : MonoBehaviour
     public void OnContinueClick()
     {
         scannerAudioSource.Play();
-        ApplySmudge();
+        StartCoroutine(WaitForAudioToEnd());
     }
 
     public void RevertSmudge(GameObject Coil)
@@ -38,6 +39,15 @@ public class StartScanManager : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
         }
+    }
+
+    private IEnumerator WaitForAudioToEnd()
+    {
+        while (scannerAudioSource.isPlaying)
+        {
+            yield return new WaitForSeconds(1f); // Wait 1 second between checks
+        }
+        ApplySmudge();
     }
 
     private void ApplySmudge()
@@ -54,7 +64,7 @@ public class StartScanManager : MonoBehaviour
                 {
                     coilObject = SnapPoint.gameObject.transform.GetChild(0).gameObject;
                 }
-                catch (UnityException e) { continue; }
+                catch (UnityException) { continue; }
 
                 foreach (Transform child in coilObject.transform)
                 {

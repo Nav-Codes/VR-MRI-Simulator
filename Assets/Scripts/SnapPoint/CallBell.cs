@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CallBell : MonoBehaviour, ISnappable, CheckerInterface
+public class CallBell : MonoBehaviour, ISnappable, CheckerInterface, RemovalInterface
 {
     private Transform originalParent;
     private Vector3 originalPosition;
@@ -31,11 +31,21 @@ public class CallBell : MonoBehaviour, ISnappable, CheckerInterface
         return isInHand;
     }
 
+    public bool isRemoved()
+    {
+        return !isInHand;
+    }
+
     public string getLabel()
     {
         return "Call bell";
     }
 
+    public string getRemovalLabel()
+    {
+        return "Call bell removal";
+    }
+    
     public void OnSnapped(Transform snapPointParent)
     {
         isInHand = true;

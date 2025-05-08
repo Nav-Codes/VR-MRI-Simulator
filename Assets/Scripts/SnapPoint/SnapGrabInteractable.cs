@@ -22,7 +22,7 @@ public class SnapGrabInteractable : XRGrabInteractable
 
     private Rigidbody rb;
     private Transform controllerTransform;
-    private Collider[] colliders;
+    private new Collider[] colliders;
     private RigidbodyConstraints originalConstraints;
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed

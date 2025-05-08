@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoilStatus : MonoBehaviour, CheckerInterface
+public class CoilStatus : MonoBehaviour, CheckerInterface, RemovalInterface
 {
     private List<GameObject> coils = new List<GameObject>(); // Use List instead of Array
     public DataBanker dataBanker;
@@ -32,7 +32,28 @@ public class CoilStatus : MonoBehaviour, CheckerInterface
         return false;
     }
 
+    public bool isRemoved() {
+        foreach (GameObject coil in coils)
+        {
+            if (dataBanker.GetExamType().Contains(coil.name))
+            {
+                int numParts = coil.transform.childCount;
+                int checkNumParts = 0;
+
+                foreach (Transform childCoil in coil.transform)
+                    if (childCoil.childCount > 0) checkNumParts++;
+                    
+                if (checkNumParts != 0) return false; 
+            }
+        }
+        return true;
+    }
+
     public string getLabel() {
         return "Coil Selection";
+    }
+
+    public string getRemovalLabel() {
+        return "Coil Removal";
     }
 }

@@ -5,13 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-[Serializable]
-public class ErrorGroupEntry
-{
-    public string key;
-    public GameObject[] objects;
-}
-
 public class ErrorCheck : MonoBehaviour
 {
     public List<ErrorGroupEntry> errorGroupEntries = new List<ErrorGroupEntry>(); // Visible in Inspector
