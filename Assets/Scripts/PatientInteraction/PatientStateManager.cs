@@ -73,9 +73,6 @@ public class PatientStateManager : MonoBehaviour
     {
         patientMenu.Disable();
 
-        // TODO: SOMETHING TO TEMPORARILY HANDLE MISSING STATES?
-        // TODO: HANDLE HEADPHONE CHANGE?
-
         patientAnimator.enabled = false;
         patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
 
@@ -108,7 +105,6 @@ public class PatientStateManager : MonoBehaviour
 
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
-        patientMenu.ShowMenu();
     }
 
     private IEnumerator PlayAnimation(string animationName)
