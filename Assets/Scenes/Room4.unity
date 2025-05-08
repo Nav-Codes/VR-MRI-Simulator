@@ -10879,7 +10879,7 @@ GameObject:
   - component: {fileID: 413639792}
   m_Layer: 0
   m_Name: Coil_BioMatrixBody18_Abdomino_Base
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32359,7 +32359,7 @@ GameObject:
   - component: {fileID: 1223365510}
   m_Layer: 0
   m_Name: Coil_CP-SpineArray_Base
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55510,7 +55510,7 @@ GameObject:
   - component: {fileID: 1698387689}
   m_Layer: 0
   m_Name: Coil_HeadNeck Base
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56523,7 +56523,7 @@ GameObject:
   - component: {fileID: 8470882802319027298}
   m_Layer: 0
   m_Name: Coil_AnkleTop
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56968,7 +56968,7 @@ GameObject:
   - component: {fileID: 1240216598}
   m_Layer: 0
   m_Name: Coil_HeadNeck Top
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58208,7 +58208,7 @@ GameObject:
   - component: {fileID: 8745123367363190158}
   m_Layer: 0
   m_Name: Coil_Hand/Wrist16_Flat_Top
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59600,7 +59600,7 @@ GameObject:
   - component: {fileID: 8429431781756687629}
   m_Layer: 0
   m_Name: Coil_AnkleBase
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59648,7 +59648,7 @@ GameObject:
   - component: {fileID: 568943962}
   m_Layer: 0
   m_Name: Coil_HandWrist16_Flat_Base
-  m_TagString: Untagged
+  m_TagString: Coil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
