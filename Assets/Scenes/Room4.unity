@@ -29066,6 +29066,7 @@ MonoBehaviour:
   iconBaseFilepath: MenuIcons
   buttonPrefab: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
   menuObject: {fileID: 1214328959}
+  speechBubbleBuilder: {fileID: 2028140144}
   cancelSprite: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   allMenuItems:
   - label: standFromChair
@@ -32158,7 +32159,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214328959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.05}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32167,7 +32168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.262, y: 0.33}
+  m_AnchoredPosition: {x: -0.262, y: 0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214328961
@@ -53129,7 +53130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headTransform: {fileID: 316159859}
-  offset: {x: 0, y: 0.2, z: 0}
+  offset: {x: -0.262, y: 0.15, z: 0}
   bubbleText: ...
   bubbleInstance: {fileID: 0}
   onSpeechBubbleClicked:

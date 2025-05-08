@@ -1,11 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatientMenuButton : MonoBehaviour
 {
     public int buttonIndex;
     private Vector3 endPosition;
+    private float buttonOffset = -1.65f;
+    private bool isAnimatingIn = false;
+    private bool isAnimatingOut = false;
+    private float animationDuration = 0.15f;
+    private float animationTime;
+
+    void Update()
+    {
+        if (isAnimatingIn)
+        {
+            animationTime += Time.deltaTime;
+            float t = Mathf.Clamp01(animationTime / animationDuration);
+            transform.localPosition = Vector3.Lerp(Vector3.zero, endPosition, t);
+
+            Debug.Log($"ANIM: time={animationTime:F2}/{animationDuration}, t={t:F2}, pos={transform.localPosition}");
+            Debug.Log($"Time.deltaTime = {Time.deltaTime}, FPS = {1f / Time.deltaTime}");
+
+            if (t >= 1f)
+            {
+                isAnimatingIn = false;
+            }
+        }
+
+        if (isAnimatingOut)
+        {
+            animationTime += Time.deltaTime;
+            float t = Mathf.Clamp01(animationTime / animationDuration);
+            transform.localPosition = Vector3.Lerp(endPosition, Vector3.zero, t);
+            if (t >= 1f)
+            {
+                isAnimatingOut = false;
+                gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void Initialize(PatientMenuItem menuItem)
     {
@@ -15,19 +52,22 @@ public class PatientMenuButton : MonoBehaviour
         {
             GetComponent<UnityEngine.UI.Image>().sprite = menuItem.icon;
         }
-        endPosition = new Vector3(0, -1.65f * buttonIndex, 0);
+        endPosition = new Vector3(0, buttonOffset * buttonIndex, 0);
         gameObject.SetActive(false);
     }
 
     public void AnimateIn()
     {
-        transform.localPosition = endPosition;
+        transform.localPosition = Vector3.zero;
+        isAnimatingIn = true;
+        animationTime = 0;
         gameObject.SetActive(true);
     }
 
     public void AnimateOut() 
     {
-        gameObject.SetActive(false);
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = endPosition;
+        isAnimatingOut = true;
+        animationTime = 0;
     }
 }
