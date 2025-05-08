@@ -9,6 +9,7 @@ public class StartScanManager : MonoBehaviour
     [SerializeField] private AudioSource scannerAudioSource;
     public ErrorCheck ErrorChecker;
     public GameObject Coils;
+    public GameObject TissueObject;
 
     private void Start()
     {
@@ -28,17 +29,6 @@ public class StartScanManager : MonoBehaviour
     {
         scannerAudioSource.Play();
         StartCoroutine(WaitForAudioToEnd());
-    }
-
-    public void RevertSmudge(GameObject Coil)
-    {
-        foreach (Transform child in Coil.transform)
-        {
-            if (child.gameObject.name.ToLower().Contains("smudge"))
-            {
-                child.gameObject.SetActive(false);
-            }
-        }
     }
 
     private IEnumerator WaitForAudioToEnd()
@@ -71,6 +61,7 @@ public class StartScanManager : MonoBehaviour
                     if (child.gameObject.name.ToLower().Contains("smudge"))
                     {
                         child.gameObject.SetActive(true);
+                        TissueObject.GetComponent<Tissue>().RevertSmudge(coilObject);
                     }
                 }
             }

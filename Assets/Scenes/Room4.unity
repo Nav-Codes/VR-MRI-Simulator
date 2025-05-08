@@ -16214,6 +16214,7 @@ MonoBehaviour:
   scannerAudioSource: {fileID: 1190496979}
   ErrorChecker: {fileID: 2042245841}
   Coils: {fileID: 1676033757}
+  TissueObject: {fileID: 5108204734110678481}
 --- !u!65 &482681453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58791,7 +58792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TissueObj: {fileID: 5108204734110678481}
-  StartScanManager: {fileID: 465349024}
 --- !u!1 &6559532722383394880
 GameObject:
   m_ObjectHideFlags: 0
