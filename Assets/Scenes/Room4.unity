@@ -28677,19 +28677,23 @@ MonoBehaviour:
   iconBaseFilepath: MenuIcons
   buttonPrefab: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
   menuObject: {fileID: 1214328959}
+  cancelSprite: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   allMenuItems:
   - label: standFromChair
     targetStateLabel: standingByChair
     hintText: Stand up
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
   - label: walkToTable
     targetStateLabel: walkingToTable
     hintText: Walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
-  - label: testButton
-    targetStateLabel: test
-    hintText: ...
-    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: 
+    targetStateLabel: 
+    hintText: 
+    icon: {fileID: 0}
+    button: {fileID: 0}
 --- !u!114 &1015465989
 MonoBehaviour:
   m_ObjectHideFlags: 0
