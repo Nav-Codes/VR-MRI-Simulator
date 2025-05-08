@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BedSheetStatus : MonoBehaviour, CheckerInterface, RemovalInterface
+public class BedSheetStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public GameObject OpenBedSheet; // Assign in Inspector
     public bool isCorrect() {
@@ -12,10 +12,10 @@ public class BedSheetStatus : MonoBehaviour, CheckerInterface, RemovalInterface
         return "Bed Sheet Placement";
     }
 
-    public bool isRemoved() {
+    public bool isReturned() {
         return !isCorrect();   
     }
-    public string getRemovalLabel() {
-        return "Bed Sheet Removal";
+    public string getReturnedLabel() {
+        return "Bed Sheet";
     }
 }

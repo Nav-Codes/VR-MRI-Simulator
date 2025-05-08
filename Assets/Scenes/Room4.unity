@@ -17107,6 +17107,7 @@ GameObject:
   - component: {fileID: 507662131}
   - component: {fileID: 507662132}
   - component: {fileID: 507662133}
+  - component: {fileID: 507662134}
   m_Layer: 0
   m_Name: RemovablePlateSnapPoint
   m_TagString: Untagged
@@ -17176,6 +17177,18 @@ MonoBehaviour:
   SnapPointsToBeToggled:
   - {fileID: 1462486739}
   - {fileID: 1480802919}
+--- !u!114 &507662134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507662129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d25edee8edddf4abb613f866a5c5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509714236
 GameObject:
   m_ObjectHideFlags: 0
@@ -29729,6 +29742,14 @@ MonoBehaviour:
     objects:
     - {fileID: 795377835}
     - {fileID: 2903825831536572339}
+    - {fileID: 1676033757}
+    - {fileID: 919132148846453219}
+    - {fileID: 1914924571}
+    - {fileID: 849463693}
+  - key: Head
+    objects:
+    - {fileID: 795377835}
+    - {fileID: 507662129}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}

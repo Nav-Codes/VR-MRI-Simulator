@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PillowStatus : MonoBehaviour, CheckerInterface, RemovalInterface
+public class PillowStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public bool isCorrect() {
         return transform.childCount != 0;
     }
-    public bool isRemoved() {
+    public bool isReturned() {
         return !isCorrect();
     }
     public string getLabel() {
         return "Pillow Placement";
     }
-    public string getRemovalLabel() {
-        return "Pillow Removal";
+    public string getReturnedLabel() {
+        return "Pillow";
     }
 }
