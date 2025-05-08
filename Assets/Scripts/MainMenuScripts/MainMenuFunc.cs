@@ -8,7 +8,6 @@ using UnityEngine.InputSystem.XR; // Required for XR Input Reset
 using UnityEngine.XR.Management;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
-using UnityEngine.InputSystem.XR;
 
 // Handles the main menu interactions, UI switching, and XR teleportation
 public class MainMenuFunc : MonoBehaviour
