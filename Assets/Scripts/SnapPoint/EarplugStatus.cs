@@ -24,6 +24,6 @@ public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
     public bool isReturned()
     {
-        return !isCorrect() && garbageCan.Contains(earplugsWorn.transform);
+        return !isCorrect() && garbageCan.Contains(transform);
     }
 }
