@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoilStatus : MonoBehaviour, CheckerInterface
+public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
-    private List<GameObject> coils = new List<GameObject>(); // Use List instead of Array
+    private List<GameObject> coils = new List<GameObject>();
     public DataBanker dataBanker;
-    // Start is called before the first frame update
+    public Container shelfParent;
     void Start()
     {
         foreach (Transform child in transform)
@@ -32,7 +32,28 @@ public class CoilStatus : MonoBehaviour, CheckerInterface
         return false;
     }
 
+    public bool isReturned() {
+        foreach (GameObject coil in coils)
+        {
+            if (dataBanker.GetExamType().Contains(coil.name))
+            {
+                int numParts = coil.transform.childCount;
+                int checkNumParts = 0;
+
+                foreach (Transform childCoil in coil.transform)
+                    if (childCoil.childCount > 0) checkNumParts++;
+                    
+                if (checkNumParts != 0 || !shelfParent.Contains(coil.transform)) return false ; 
+            }
+        }
+        return true;
+    }
+
     public string getLabel() {
         return "Coil Selection";
+    }
+
+    public string getReturnedLabel() {
+        return "All Coils";
     }
 }

@@ -4,17 +4,26 @@ using UnityEngine;
 /// When the earplug bag is snapped to a specific point (via the OnSnapped method from the ISnappable interface),
 /// it will activate the worn earplug models and deactivate the earplug bag model.
 /// </summary>
-public class EarplugStatus : MonoBehaviour, CheckerInterface
+public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public GameObject earplugsWorn;
-
+    public Container garbageCan;
+    
     public string getLabel()
     {
         return "Earplugs on patient";
     }
+    public string getReturnedLabel()
+    {
+        return "Earplugs";
+    }
 
     public bool isCorrect()
     {
-        return earplugsWorn.activeSelf;
+        return earplugsWorn.activeSelf && garbageCan.Contains(earplugsWorn.transform);
+    }
+    public bool isReturned()
+    {
+        return !isCorrect();
     }
 }

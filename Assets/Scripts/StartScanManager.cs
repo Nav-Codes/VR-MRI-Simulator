@@ -54,7 +54,7 @@ public class StartScanManager : MonoBehaviour
                 {
                     coilObject = SnapPoint.gameObject.transform.GetChild(0).gameObject;
                 }
-                catch (UnityException e) { continue; }
+                catch (UnityException) { continue; }
 
                 foreach (Transform child in coilObject.transform)
                 {
