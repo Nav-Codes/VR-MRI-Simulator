@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PillowStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
+    public Container LaundryHamper;
+    public GameObject Pillow;
     public bool isCorrect() {
         return transform.childCount != 0;
     }
     public bool isReturned() {
-        return !isCorrect();
+        return !isCorrect() && LaundryHamper.Contains(Pillow.transform);
     }
     public string getLabel() {
         return "Pillow Placement";
