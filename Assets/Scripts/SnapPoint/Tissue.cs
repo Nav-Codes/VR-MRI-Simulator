@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tissue : MonoBehaviour, ReturnedInterface
 {
     public GameObject TissueObj;
-    private List<GameObject> dirtyCoils;
+    private List<GameObject> dirtyCoils = new List<GameObject>();
 
     void Update()
     {
