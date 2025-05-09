@@ -16,6 +16,6 @@ public class PillowStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
         return "Pillow Placement";
     }
     public string getReturnedLabel() {
-        return "Pillow";
+        return "Pillow Disposal";
     }
 }

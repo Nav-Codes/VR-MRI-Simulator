@@ -47,6 +47,6 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
 
     public string getReturnedLabel() {
-        return "All Coils";
+        return "Returning Coils to Shelf";
     }
 }

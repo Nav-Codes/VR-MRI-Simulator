@@ -11,6 +11,6 @@ public class RemovableHeadPlateStatus : MonoBehaviour, ReturnedInterface
 
     public string getReturnedLabel()
     {
-        return "Head Plate";
+        return "Head Plate Replacement";
     }
 }

@@ -69,7 +69,7 @@ public class ReturnedCheck : MonoBehaviour
 
             try
             {
-                AddText((checker.getReturnedLabel() + (isReturned ? " is Returned" : " is not Returned")), (isReturned ? Color.green : Color.red));
+                AddText((checker.getReturnedLabel() + (isReturned ? " was done" : " was not done")), (isReturned ? Color.green : Color.red));
             }
             catch (Exception e)
             {

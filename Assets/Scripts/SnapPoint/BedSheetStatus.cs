@@ -27,6 +27,6 @@ public class BedSheetStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 
     public string getReturnedLabel()
     {
-        return "Bed Sheet";
+        return "Bed Sheet Disposal";
     }
 }
