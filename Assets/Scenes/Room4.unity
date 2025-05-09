@@ -21373,7 +21373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af3894eea12b9ef4fbec4675185858fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.050294
+      value: 4.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af3894eea12b9ef4fbec4675185858fb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21381,7 +21381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af3894eea12b9ef4fbec4675185858fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.161
+      value: -2.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af3894eea12b9ef4fbec4675185858fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35174,6 +35174,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371660595}
+  - component: {fileID: 1371660597}
+  - component: {fileID: 1371660596}
   m_Layer: 0
   m_Name: ShelfParent
   m_TagString: Untagged
@@ -35199,6 +35201,32 @@ Transform:
   m_Father: {fileID: 3377795654388870660}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1371660596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371660594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.775333, y: 2.7220082, z: 0.90683365}
+  m_Center: {x: -1.8391771, y: 0.12652755, z: -0.20186186}
+--- !u!114 &1371660597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371660594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b9f519bcd3dea49a6ea36b038420a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfCollider: {fileID: 1371660596}
 --- !u!1 &1376248170
 GameObject:
   m_ObjectHideFlags: 0
@@ -39418,6 +39446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataBanker: {fileID: 1178165863}
+  shelfParent: {fileID: 0}
 --- !u!1 &1682037787
 GameObject:
   m_ObjectHideFlags: 0
@@ -46398,6 +46427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earplugsWorn: {fileID: 1326715947}
+  garbageCan: {fileID: 0}
 --- !u!1 &1927009096
 GameObject:
   m_ObjectHideFlags: 0
