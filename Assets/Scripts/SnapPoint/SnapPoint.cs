@@ -69,6 +69,22 @@ public class SnapPoint : MonoBehaviour
         {
             snappable.OnSnapped(transform.parent);
         }
+        DisableGhost(obj);
+    }
+
+    private void DisableGhost(Transform obj)
+    {
+        if (!obj.gameObject.CompareTag("Coil")) return;
+        
+        GameObject parent = obj.parent.gameObject; 
+        
+        foreach (Transform child in parent.transform)
+        {
+            if (child.gameObject.CompareTag("Ghost"))
+            {
+                child.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
     }
 }
 

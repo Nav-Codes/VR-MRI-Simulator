@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 68738208}
   m_Layer: 0
   m_Name: BaseGhost
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9566,7 +9566,7 @@ GameObject:
   - component: {fileID: 325845125}
   m_Layer: 0
   m_Name: TopGhost
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
