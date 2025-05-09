@@ -9560,10 +9560,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325845123}
+  - component: {fileID: 325845127}
+  - component: {fileID: 325845124}
   - component: {fileID: 325845126}
   - component: {fileID: 325845125}
-  - component: {fileID: 325845124}
-  - component: {fileID: 325845127}
   m_Layer: 0
   m_Name: TopGhost
   m_TagString: Untagged
@@ -9598,7 +9598,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.18548633
-  m_Center: {x: 0.0000000062130003, y: 0.0000000041420027, z: -0.06949123}
+  m_Center: {x: 0.0000000062130003, y: 0.08, z: -0.03}
 --- !u!23 &325845125
 MeshRenderer:
   m_ObjectHideFlags: 0
