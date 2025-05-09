@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
-    private List<GameObject> coils = new List<GameObject>(); // Use List instead of Array
+    private List<GameObject> coils = new List<GameObject>();
     public DataBanker dataBanker;
-    // Start is called before the first frame update
+    public Container shelfParent;
     void Start()
     {
         foreach (Transform child in transform)
@@ -43,7 +43,7 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
                 foreach (Transform childCoil in coil.transform)
                     if (childCoil.childCount > 0) checkNumParts++;
                     
-                if (checkNumParts != 0) return false; 
+                if (checkNumParts != 0 || !shelfParent.Contains(coil.transform)) return false ; 
             }
         }
         return true;
@@ -54,6 +54,6 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
 
     public string getReturnedLabel() {
-        return "Coil";
+        return "All Coils";
     }
 }

@@ -7,7 +7,8 @@ using UnityEngine;
 public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public GameObject earplugsWorn;
-
+    public Container garbageCan;
+    
     public string getLabel()
     {
         return "Earplugs on patient";
@@ -19,7 +20,7 @@ public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 
     public bool isCorrect()
     {
-        return earplugsWorn.activeSelf;
+        return earplugsWorn.activeSelf && garbageCan.Contains(earplugsWorn.transform);
     }
     public bool isReturned()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SanitizeHands : MonoBehaviour, CheckerInterface
 {
     private DataBanker dataBanker;
-    private bool CORRECT = false;
+    private bool correct = false;
     
     // Effect settings
     [Header("Effect Settings")]
@@ -39,7 +39,7 @@ public class SanitizeHands : MonoBehaviour, CheckerInterface
 
     public void HandleButtonClick(Transform buttonTransform)
     {
-        CORRECT = true;
+        correct = true;
         CreateBubbleEffect(buttonTransform);
     }
 
@@ -94,6 +94,6 @@ public class SanitizeHands : MonoBehaviour, CheckerInterface
         yield return null;
     }
 
-    public bool isCorrect() => CORRECT;
+    public bool isCorrect() => correct;
     public string getLabel() => "Hand Hygiene";
 }

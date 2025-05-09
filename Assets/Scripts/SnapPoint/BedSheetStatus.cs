@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class BedSheetStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
-    public GameObject OpenBedSheet; // Assign in Inspector
-    public bool isCorrect() {
-        return OpenBedSheet.activeSelf;   
+    public GameObject OpenBedSheet;
+    public Container LaundryHamper;
+    public bool isCorrect()
+    {
+        return OpenBedSheet.activeSelf;
     }
-    public string getLabel() {
+    public string getLabel()
+    {
         return "Bed Sheet Placement";
     }
+    public bool isReturned()
+    {
+        if (LaundryHamper == null || OpenBedSheet == null || GetComponent<Collider>() == null || LaundryHamper.GetComponent<Collider>() == null)
+        {
+            Debug.LogWarning("Missing references or colliders in BedSheetStatus");
+            return false;
+        }
 
-    public bool isReturned() {
-        return !isCorrect();   
+        return !isCorrect() && LaundryHamper.Contains(transform);
     }
-    public string getReturnedLabel() {
+
+    public string getReturnedLabel()
+    {
         return "Bed Sheet";
     }
 }
