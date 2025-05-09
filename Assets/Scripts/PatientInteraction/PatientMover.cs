@@ -101,6 +101,9 @@ public class PatientMover : MonoBehaviour
 
     public void SetSpeed(PatientMovement movement)
     {
+        speedFactor = speed / 100; // approximate value to start
+        targetStepSize = 0;
+        t = speedFactor / 5;
         this.speed = movement.speed;
     }
 

@@ -38,7 +38,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.size
-    value: 6
+    value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[0].label
@@ -65,7 +65,7 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].options.pivotDegrees
+    propertyPath: patientStates.Array.data[0].options.updateParent
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -73,19 +73,27 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].options.xOffset
+    propertyPath: patientStates.Array.data[0].options.updateRotation
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].options.yOffset
+    propertyPath: patientStates.Array.data[0].options.pivotDegrees
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].options.zOffset
+    propertyPath: patientStates.Array.data[0].options.updatePosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].options.changeStateImmediately
+    propertyPath: patientStates.Array.data[0].options.xPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[0].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[0].options.zPosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -94,15 +102,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].menuItems.Array.size
-    value: 2
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].menuItems.Array.data[0]
     value: walkToTable
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].menuItems.Array.data[1]
-    value: turnHere
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].transition.animationName
@@ -117,7 +121,7 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].options.pivotDegrees
+    propertyPath: patientStates.Array.data[1].options.updateParent
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -125,19 +129,27 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].options.xOffset
+    propertyPath: patientStates.Array.data[1].options.updateRotation
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].options.yOffset
+    propertyPath: patientStates.Array.data[1].options.pivotDegrees
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].options.zOffset
+    propertyPath: patientStates.Array.data[1].options.updatePosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[1].options.changeStateImmediately
+    propertyPath: patientStates.Array.data[1].options.xPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[1].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[1].options.zPosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -161,7 +173,7 @@ Preset:
     value: walkToTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[2].options.pivotDegrees
+    propertyPath: patientStates.Array.data[2].options.updateParent
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -169,24 +181,32 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[2].options.xOffset
+    propertyPath: patientStates.Array.data[2].options.updateRotation
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[2].options.yOffset
+    propertyPath: patientStates.Array.data[2].options.pivotDegrees
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[2].options.zOffset
+    propertyPath: patientStates.Array.data[2].options.updatePosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[2].options.changeStateImmediately
+    propertyPath: patientStates.Array.data[2].options.xPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[2].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[2].options.zPosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].label
-    value: sittingOnTable
+    value: sittingOnTableEdge
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].menuItems.Array.size
@@ -194,7 +214,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].menuItems.Array.data[0]
-    value: turnHere
+    value: lieDown
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].transition.animationName
@@ -209,32 +229,40 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].options.pivotDegrees
-    value: 180
+    propertyPath: patientStates.Array.data[3].options.updateParent
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].options.moveToParent
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].options.xOffset
-    value: -6
+    propertyPath: patientStates.Array.data[3].options.updateRotation
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].options.yOffset
-    value: 0
+    propertyPath: patientStates.Array.data[3].options.pivotDegrees
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].options.zOffset
-    value: -7
+    propertyPath: patientStates.Array.data[3].options.updatePosition
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].options.changeStateImmediately
-    value: 0
+    propertyPath: patientStates.Array.data[3].options.xPosition
+    value: -5.77
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[3].options.yPosition
+    value: 0.15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[3].options.zPosition
+    value: -6.85
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].label
-    value: turnTest
+    value: lyingOnTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].menuItems.Array.size
@@ -242,11 +270,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].menuItems.Array.data[0]
-    value: standFromChair
+    value: sitUp
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].transition.animationName
-    value: m35a@walk-R_turn_90
+    value: m35a@Bedside-90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].transition.parent
@@ -257,7 +285,7 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].options.pivotDegrees
+    propertyPath: patientStates.Array.data[4].options.updateParent
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -265,36 +293,48 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].options.xOffset
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].options.yOffset
-    value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].options.zOffset
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].options.changeStateImmediately
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].label
-    value: turnTest2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].menuItems.Array.size
+    propertyPath: patientStates.Array.data[4].options.updateRotation
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.pivotDegrees
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.updatePosition
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.xPosition
+    value: 1.16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.yPosition
+    value: 10.67
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.zPosition
+    value: -9.39
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].label
+    value: sittingOnTableFromLying
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].menuItems.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].menuItems.Array.data[0]
-    value: standFromChair
+    value: lieDown
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].menuItems.Array.data[1]
+    value: dismountTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].transition.animationName
-    value: m35a@Stand-SitOnTable
+    value: m35a@0-90_Transition
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].transition.parent
@@ -305,7 +345,7 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].options.pivotDegrees
+    propertyPath: patientStates.Array.data[5].options.updateParent
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -313,20 +353,136 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].options.xOffset
+    propertyPath: patientStates.Array.data[5].options.updateRotation
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].options.yOffset
+    propertyPath: patientStates.Array.data[5].options.pivotDegrees
+    value: 90
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].options.updatePosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].options.zOffset
+    propertyPath: patientStates.Array.data[5].options.xPosition
+    value: 0.975
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].options.yPosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[5].options.changeStateImmediately
+    propertyPath: patientStates.Array.data[5].options.zPosition
+    value: 1.876
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].label
+    value: standingBesideTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].menuItems.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].menuItems.Array.data[0]
+    value: exitRoom
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].transition.animationName
+    value: m35a@SitOnTable-Stand
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].transition.parent
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].transition.movementLabel
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.updateParent
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.moveToParent
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.updateRotation
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.pivotDegrees
+    value: 90
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.updatePosition
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.xPosition
+    value: 0.975
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].options.zPosition
+    value: 1.876
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].label
+    value: walkingFromTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].menuItems.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].transition.animationName
+    value: m35a@WalkCycle
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].transition.parent
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].transition.movementLabel
+    value: walkFromTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.updateParent
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.moveToParent
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.updateRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.pivotDegrees
+    value: 90
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.updatePosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.xPosition
+    value: 0.975
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.zPosition
+    value: 1.876
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: initialState

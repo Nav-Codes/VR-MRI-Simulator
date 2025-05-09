@@ -22,9 +22,6 @@ public class PatientMenuButton : MonoBehaviour
             float t = Mathf.Clamp01(animationTime / animationDuration);
             transform.localPosition = Vector3.Lerp(Vector3.zero, endPosition, t);
 
-            Debug.Log($"ANIM: time={animationTime:F2}/{animationDuration}, t={t:F2}, pos={transform.localPosition}");
-            Debug.Log($"Time.deltaTime = {Time.deltaTime}, FPS = {1f / Time.deltaTime}");
-
             if (t >= 1f)
             {
                 isAnimatingIn = false;

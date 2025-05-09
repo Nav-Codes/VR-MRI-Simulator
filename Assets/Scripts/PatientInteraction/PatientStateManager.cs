@@ -74,7 +74,39 @@ public class PatientStateManager : MonoBehaviour
         patientMenu.Disable();
 
         patientAnimator.enabled = false;
-        patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
+        
+        if (newState.options.updateParent)
+        {
+            if (newState.transition.parent != null) 
+            {
+                patient.transform.SetParent(newState.transition.parent.transform);
+            }
+            else
+            {
+                patient.transform.SetParent(null);
+            }
+
+            
+            //if (newState.options.moveToParent)
+            //{
+            //    patient.transform.position = newState.transition.parent.transform.position;
+            //}
+
+        }
+        if (newState.options.updateRotation)
+        { 
+            //patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
+            patient.transform.rotation = Quaternion.Euler(0, newState.options.pivotDegrees, 0);
+        }
+        if (newState.options.updatePosition)
+        {
+            patient.transform.localPosition = new Vector3(
+                newState.options.xPosition,
+                newState.options.yPosition,
+                newState.options.zPosition
+            );
+        }
+        
 
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
@@ -86,22 +118,6 @@ public class PatientStateManager : MonoBehaviour
         {
             yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
         }
-
-        if (newState.transition.parent != null)
-        {
-            patient.transform.SetParent(newState.transition.parent.transform);
-            if (newState.options.moveToParent) 
-            {
-                patient.transform.position = newState.transition.parent.transform.position;
-            }
-            
-        }
-        patient.transform.localPosition = new Vector3(
-            patient.transform.localPosition.x + newState.options.xOffset,
-            patient.transform.localPosition.y + newState.options.yOffset,
-            patient.transform.localPosition.z + newState.options.zOffset
-        );
-
 
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
@@ -143,10 +159,15 @@ public class StateBeginTransition
 [System.Serializable]
 public class StateOptions
 {
-    public float pivotDegrees;
+    public bool updateParent = false;
     public bool moveToParent = false;
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
-    public bool changeStateImmediately = false;
+    public bool updateRotation = false;
+    public float pivotDegrees;
+    public bool updatePosition = false;
+    [Tooltip("New local X position")]
+    public float xPosition;
+    [Tooltip("New local Y position")]
+    public float yPosition;
+    [Tooltip("New local Z position")]
+    public float zPosition;
 }

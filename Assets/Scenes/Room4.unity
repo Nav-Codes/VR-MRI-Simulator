@@ -16058,7 +16058,7 @@ GameObject:
   - component: {fileID: 436026580}
   - component: {fileID: 436026581}
   m_Layer: 0
-  m_Name: TestPath
+  m_Name: PathTableToLeaving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16072,7 +16072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436026579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.67, y: -1, z: -0.52}
+  m_LocalPosition: {x: 0.975, y: -1, z: 1.876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16093,10 +16093,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {x: 0, y: 1, z: 0}
-  - {x: -2.5005436, y: 1, z: -0.018043995}
-  - {x: -2.3067732, y: 1, z: -1.6998806}
-  - {x: -3.9051151, y: 1, z: -2.1148934}
-  modes: 0000000000000000
+  - {x: 0, y: 1, z: 1.0399584}
+  - {x: 3.6915307, y: 1, z: 1.315285}
+  - {x: 4.9455957, y: 1, z: 2.000688}
+  - {x: 6.470514, y: 1, z: 2.8341246}
+  - {x: 5.839258, y: 1, z: 3.947844}
+  - {x: 5.954187, y: 1, z: 7.1119723}
+  modes: 000000000100000000000000
 --- !u!1 &437735676
 GameObject:
   m_ObjectHideFlags: 0
@@ -18898,6 +18901,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 122128004}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &635252381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 635252382}
+  m_Layer: 0
+  m_Name: midpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &635252382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635252381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745183609091768203}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638853744
 GameObject:
@@ -29063,7 +29097,11 @@ MonoBehaviour:
   - label: walkToTable
     pathSpline: {fileID: 843297841}
     speed: 1
-    nextPatientStateLabel: sittingOnTable
+    nextPatientStateLabel: sittingOnTableEdge
+  - label: walkFromTable
+    pathSpline: {fileID: 436026581}
+    speed: 1
+    nextPatientStateLabel: initialStateInChair
 --- !u!114 &1015465988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29092,10 +29130,25 @@ MonoBehaviour:
     hintText: Walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
-  - label: 
-    targetStateLabel: 
-    hintText: 
-    icon: {fileID: 0}
+  - label: lieDown
+    targetStateLabel: lyingOnTable
+    hintText: Lie down
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: sitUp
+    targetStateLabel: sittingOnTableFromLying
+    hintText: Sit up
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: dismountTable
+    targetStateLabel: standingBesideTable
+    hintText: Dismount table
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: exitRoom
+    targetStateLabel: walkingFromTable
+    hintText: Exit room
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
 --- !u!114 &1015465989
 MonoBehaviour:
@@ -29121,12 +29174,14 @@ MonoBehaviour:
       parent: {fileID: 0}
       movementLabel: 
     options:
-      pivotDegrees: 0
+      updateParent: 0
       moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
   - label: standingByChair
     menuItems:
     - walkToTable
@@ -29135,12 +29190,14 @@ MonoBehaviour:
       parent: {fileID: 0}
       movementLabel: 
     options:
-      pivotDegrees: 0
+      updateParent: 0
       moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
   - label: walkingToTable
     menuItems: []
     transition:
@@ -29148,40 +29205,94 @@ MonoBehaviour:
       parent: {fileID: 0}
       movementLabel: walkToTable
     options:
-      pivotDegrees: 0
+      updateParent: 0
       moveToParent: 0
-      xOffset: 0
-      yOffset: 0
-      zOffset: 0
-      changeStateImmediately: 0
-  - label: sittingOnTable
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+  - label: sittingOnTableEdge
     menuItems:
-    - turnHere
+    - lieDown
     transition:
       animationName: m35a@walk-R_turn_90
       parent: {fileID: 486751749397188668}
       movementLabel: 
     options:
-      pivotDegrees: 180
+      updateParent: 1
       moveToParent: 1
-      xOffset: -6
-      yOffset: 0
-      zOffset: -7
-      changeStateImmediately: 0
-  - label: test
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 1
+      xPosition: -5.77
+      yPosition: 0.15
+      zPosition: -6.85
+  - label: lyingOnTable
     menuItems:
-    - standFromChair
+    - sitUp
     transition:
-      animationName: m35a@walk-R_turn_90
+      animationName: m35a@Bedside-90
       parent: {fileID: 0}
       movementLabel: 
     options:
-      pivotDegrees: 0
+      updateParent: 0
       moveToParent: 0
-      xOffset: 0
-      yOffset: 3
-      zOffset: 0
-      changeStateImmediately: 0
+      updateRotation: 1
+      pivotDegrees: 0
+      updatePosition: 1
+      xPosition: 1.16
+      yPosition: 10.67
+      zPosition: -9.39
+  - label: sittingOnTableFromLying
+    menuItems:
+    - lieDown
+    - dismountTable
+    transition:
+      animationName: m35a@0-90_Transition
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 90
+      updatePosition: 0
+      xPosition: 0.975
+      yPosition: 0
+      zPosition: 1.876
+  - label: standingBesideTable
+    menuItems:
+    - exitRoom
+    transition:
+      animationName: m35a@SitOnTable-Stand
+      parent: {fileID: 0}
+      movementLabel: 
+    options:
+      updateParent: 1
+      moveToParent: 0
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 1
+      xPosition: 0.975
+      yPosition: 0
+      zPosition: 1.876
+  - label: walkingFromTable
+    menuItems: []
+    transition:
+      animationName: m35a@WalkCycle
+      parent: {fileID: 0}
+      movementLabel: walkFromTable
+    options:
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 90
+      updatePosition: 0
+      xPosition: 0.975
+      yPosition: 0
+      zPosition: 1.876
   initialState: 0
 --- !u!1 &1017098193
 GameObject:
@@ -55903,6 +56014,7 @@ Transform:
   - {fileID: 1300841441}
   - {fileID: 2524169296266358025}
   - {fileID: 1676033758}
+  - {fileID: 635252382}
   m_Father: {fileID: 1934547096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
