@@ -8,8 +8,15 @@ public class SnapGhost : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coil"))
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            //could compare mesh renderers to see if they are the exact same to ensure that only that coils ghost spawns
+            if (gameObject.GetComponent<MeshFilter>().sharedMesh == other.gameObject.GetComponentInParent<MeshFilter>().sharedMesh)
+            {
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }
