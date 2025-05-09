@@ -30006,6 +30006,7 @@ MonoBehaviour:
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
+    - {fileID: 5108204734110678481}
   - key: Head
     objects:
     - {fileID: 795377835}
@@ -30014,6 +30015,7 @@ MonoBehaviour:
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
+    - {fileID: 5108204734110678481}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 336062940}
   ContinueButton: {fileID: 1927009096}
