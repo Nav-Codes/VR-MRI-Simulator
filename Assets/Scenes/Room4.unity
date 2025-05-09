@@ -20821,7 +20821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenBedSheet: {fileID: 1023372101}
-  LaundryHamper: {fileID: 0}
+  LaundryHamper: {fileID: 1156573846}
 --- !u!1 &807275459
 GameObject:
   m_ObjectHideFlags: 0
@@ -29745,7 +29745,7 @@ Transform:
   m_GameObject: {fileID: 1023372101}
   m_LocalRotation: {x: -0.00000008146034, y: -0.00000034173462, z: 2.7776585e-14, w: 1}
   m_LocalPosition: {x: -0.007, y: -0.064, z: 0}
-  m_LocalScale: {x: 0.215, y: 0.10000003, z: 0.06}
+  m_LocalScale: {x: 0.215, y: 0.10000003, z: 0.041}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 795377836}
@@ -34476,8 +34476,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000002, y: 3.9268382, z: 10.000006}
-  m_Center: {x: -5.4178745e-14, y: 1.2708305, z: -0.00000021642111}
+  m_Size: {x: 10.000002, y: 3.2507503, z: 10.000006}
+  m_Center: {x: 4.4409065e-15, y: 0.9327854, z: -0.0000004257473}
 --- !u!114 &1300841444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35290,7 +35290,7 @@ GameObject:
   - component: {fileID: 1371660595}
   - component: {fileID: 1371660597}
   - component: {fileID: 1371660596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShelfParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46574,7 +46574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earplugsWorn: {fileID: 1326715947}
-  garbageCan: {fileID: 0}
+  garbageCan: {fileID: 3064208977810049496}
 --- !u!1 &1927009096
 GameObject:
   m_ObjectHideFlags: 0

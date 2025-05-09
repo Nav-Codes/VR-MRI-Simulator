@@ -15,6 +15,7 @@ public class ModelSwitcher : MonoBehaviour
     public GameObject targetObject;
     public bool switchFromStarting = false; // Flag to determine if the switch should happen from the starting object
     public bool switchFromAlternate = true; // Flag to determine if the switch should happen on the alternate object
+    private bool hasTriggered = true;
     private void Switch()
     {
         if (startingObject.activeSelf)
@@ -40,12 +41,20 @@ public class ModelSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == targetObject && !switchFromStarting)
+        if (other.gameObject == targetObject && !switchFromStarting && !hasTriggered)
         {
+            hasTriggered = true;
             StartCoroutine(SwitchAfterDelay(0.1f));
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == targetObject)
+        {
+            hasTriggered = false;
+        }
+    }
     public void SwitchLogic()
     {
         if (switchFromStarting && startingObject.activeSelf)
