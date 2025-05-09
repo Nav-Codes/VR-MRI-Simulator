@@ -8,12 +8,14 @@ public class PatientMenu : MonoBehaviour
     public string iconBaseFilepath;
     public GameObject buttonPrefab;
     public GameObject menuObject;
+    public SpeechBubbleBuilder speechBubbleBuilder;
     public Sprite cancelSprite;
     public List<PatientMenuItem> allMenuItems;
 
     private List<PatientMenuItem> currentMenuItems = new();
     private PatientMenuItem cancelItem;
     private bool isEnabled = false;
+    private bool isVisible = false;
 
     void Start()
     {
@@ -32,11 +34,13 @@ public class PatientMenu : MonoBehaviour
     {
         isEnabled = false;
         ClearMenu();
+        speechBubbleBuilder.bubbleInstance.SetActive(false);
     }
 
     public void Enable()
     {
         isEnabled = true;
+        speechBubbleBuilder.bubbleInstance.SetActive(true);
     }
 
     public void SetItems(List<string> items, PatientMenuItem.callback stateCallback)
@@ -44,7 +48,7 @@ public class PatientMenu : MonoBehaviour
         ClearMenu();
         if (items != null)
         {
-            int buttonCount = 0;
+            int buttonCount = 1;
             foreach (string item in items)
             {
                 try
@@ -87,10 +91,17 @@ public class PatientMenu : MonoBehaviour
     {
         if (!isEnabled) return;
 
+        if (isVisible)
+        {
+            HideMenu();
+            return;
+        }
+
         foreach (PatientMenuItem item in currentMenuItems)
         {
             item.button.AnimateIn();
         }
+        isVisible = true;
     }
 
     public void HideMenu()
@@ -101,10 +112,12 @@ public class PatientMenu : MonoBehaviour
         {
             item.button.AnimateOut();
         }
+        isVisible= false;
     }
 
     private void ClearMenu()
     {
+        isVisible = false;
         currentMenuItems.Clear();
         foreach (Transform child in menuObject.transform)
         {
