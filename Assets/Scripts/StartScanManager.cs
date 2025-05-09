@@ -61,7 +61,7 @@ public class StartScanManager : MonoBehaviour
                     if (child.gameObject.name.ToLower().Contains("smudge"))
                     {
                         child.gameObject.SetActive(true);
-                        TissueObject.GetComponent<Tissue>().RevertSmudge(coilObject);
+                        TissueObject.GetComponent<Tissue>().AddDirtyCoil(coilObject);
                     }
                 }
             }

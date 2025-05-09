@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tissue : MonoBehaviour, CheckerInterface
+public class Tissue : MonoBehaviour, ReturnedInterface
 {
     public GameObject TissueObj;
     private List<GameObject> dirtyCoils;
@@ -37,16 +37,12 @@ public class Tissue : MonoBehaviour, CheckerInterface
         dirtyCoils.Add(Coil);
     }
 
-    public bool isCorrect()
+    public bool isReturned()
     {
-        //maybe on start scan, we can assign the coil object that is being used somewhere, 
-        //then access that coil object to check if the smudge object is active 
-
-        //if we can assign a tissue object thingy in the start scan manager, mmay not need start scan manager game object in here
         return dirtyCoils.Count == 0;
     }
 
-    public string getLabel()
+    public string getReturnedLabel()
     {
         return "Coil Cleaning";
     }
