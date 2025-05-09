@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
 
 public class PatientStateManager : MonoBehaviour
@@ -74,7 +75,9 @@ public class PatientStateManager : MonoBehaviour
         patientMenu.Disable();
 
         patientAnimator.enabled = false;
-        
+
+        newState.transition.additionalEvents?.Invoke();
+
         if (newState.options.updateParent)
         {
             if (newState.transition.parent != null) 
@@ -154,6 +157,7 @@ public class StateBeginTransition
     public string? animationName;
     public GameObject? parent;
     public string? movementLabel;
+    public UnityEvent additionalEvents;
 }
 
 [System.Serializable]
