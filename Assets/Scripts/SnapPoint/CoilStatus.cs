@@ -24,8 +24,16 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
                 int checkNumParts = 0;
 
                 foreach (Transform childCoil in coil.transform)
-                    if (childCoil.childCount > 0) checkNumParts++;
-                    
+                {
+                    foreach(Transform realCoil in childCoil.gameObject.transform)
+                    {
+                        if (realCoil.gameObject.CompareTag("Coil"))
+                        {
+                            checkNumParts++;
+                        }
+                    }
+                }
+
                 if (checkNumParts == numParts) return true; 
             }
         }
