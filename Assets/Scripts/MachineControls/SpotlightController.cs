@@ -4,19 +4,27 @@ using UnityEngine;
 /// Controls a spotlight in a Unity scene.
 /// Provides functionality to toggle the spotlight on and off.
 /// </summary>
-public class SpotlightController : MonoBehaviour
+public class SpotlightController : MonoBehaviour, CheckerInterface
 {
-    // Reference to the spotlight component
+    private bool turnedOnOnce = false;
     public Light spotlight;
-    /// <summary>
-    /// Toggles the spotlight on or off.
-    /// If the spotlight is enabled, it turns off; if it's disabled, it turns on.
-    /// </summary>
     public void ToggleSpotlight()
     {
+        if (!turnedOnOnce)
+        {
+            turnedOnOnce = true;
+        }
         if (spotlight != null)
         {
             spotlight.enabled = !spotlight.enabled;
         }
+    }
+    public bool isCorrect()
+    {
+        return turnedOnOnce;
+    }
+    public string getLabel()
+    {
+        return "Landmarking";
     }
 }
