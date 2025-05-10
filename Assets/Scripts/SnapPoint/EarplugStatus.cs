@@ -15,7 +15,7 @@ public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
     public string getReturnedLabel()
     {
-        return "Earplugs";
+        return "Earplugs disposal";
     }
 
     public bool isCorrect()
