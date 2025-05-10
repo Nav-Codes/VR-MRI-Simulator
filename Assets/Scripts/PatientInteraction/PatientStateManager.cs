@@ -16,6 +16,8 @@ public class PatientStateManager : MonoBehaviour
 
     private GameObject patientModel;
     private Animator patientAnimator;
+    private PatientState currentState;
+    private bool isFlipped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,38 +80,21 @@ public class PatientStateManager : MonoBehaviour
 
         newState.transition.additionalEvents?.Invoke();
 
-        if (newState.options.updateParent)
+        if (!isFlipped && newState.options.flipModel)
         {
-            if (newState.transition.parent != null) 
-            {
-                patient.transform.SetParent(newState.transition.parent.transform);
-            }
-            else
-            {
-                patient.transform.SetParent(null);
-            }
+            patient.transform.localScale = new Vector3
+                (
+                    -patient.transform.localScale.x,
+                    patient.transform.localScale.y,
+                    patient.transform.localScale.z
+                );
+            isFlipped = true;
+        }
 
-            
-            //if (newState.options.moveToParent)
-            //{
-            //    patient.transform.position = newState.transition.parent.transform.position;
-            //}
+        currentState = newState;
 
-        }
-        if (newState.options.updateRotation)
-        { 
-            //patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
-            patient.transform.rotation = Quaternion.Euler(0, newState.options.pivotDegrees, 0);
-        }
-        if (newState.options.updatePosition)
-        {
-            patient.transform.localPosition = new Vector3(
-                newState.options.xPosition,
-                newState.options.yPosition,
-                newState.options.zPosition
-            );
-        }
-        
+        if (!isFlipped || newState.options.flipModel)
+            UpdateTransform(newState);
 
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
@@ -122,8 +107,55 @@ public class PatientStateManager : MonoBehaviour
             yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
         }
 
+        if (isFlipped && !newState.options.flipModel)
+        {
+            patient.transform.localScale = new Vector3
+                (
+                    -patient.transform.localScale.x,
+                    patient.transform.localScale.y,
+                    patient.transform.localScale.z
+                );
+            isFlipped = false;
+            UpdateTransform(newState);
+        }
+
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
+    }
+
+    private void UpdateTransform(PatientState newState)
+    {
+        if (newState.options.updateParent)
+        {
+            if (newState.transition.parent != null)
+            {
+                patient.transform.SetParent(newState.transition.parent.transform);
+            }
+            else
+            {
+                patient.transform.SetParent(null);
+            }
+
+
+            //if (newState.options.moveToParent)
+            //{
+            //    patient.transform.position = newState.transition.parent.transform.position;
+            //}
+
+        }
+        if (newState.options.updateRotation)
+        {
+            //patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
+            patient.transform.rotation = Quaternion.Euler(0, newState.options.pivotDegrees, 0);
+        }
+        if (newState.options.updatePosition)
+        {
+            patient.transform.localPosition = new Vector3(
+                newState.options.xPosition,
+                newState.options.yPosition,
+                newState.options.zPosition
+            );
+        }
     }
 
     private IEnumerator PlayAnimation(string animationName)
@@ -136,9 +168,29 @@ public class PatientStateManager : MonoBehaviour
         patientAnimator.Play(animationName, 0, 0f);
         patientAnimator.speed = 1;
 
+        AnimatorStateInfo currentState = patientAnimator.GetCurrentAnimatorStateInfo(0);
+
         // Ensure animation has started
         yield return new WaitUntil(() => patientAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0);
-        yield return new WaitForSeconds(patientAnimator.GetCurrentAnimatorStateInfo(0).length);
+        
+        //int lastStateHash = currentState.fullPathHash;
+
+        while (true)
+        {
+            if (currentState.loop) break;
+
+            currentState = patientAnimator.GetCurrentAnimatorStateInfo(0);
+
+            //// If there is another animation state, update to that one
+            //if (currentState.fullPathHash != lastStateHash)
+            //{
+            //    lastStateHash = currentState.fullPathHash;
+            //}
+
+            if (!currentState.loop && currentState.normalizedTime >= 1f) break;
+
+            yield return null;
+        }
     }
 }
 
@@ -163,6 +215,7 @@ public class StateBeginTransition
 [System.Serializable]
 public class StateOptions
 {
+    public bool flipModel = false;
     public bool updateParent = false;
     public bool moveToParent = false;
     public bool updateRotation = false;

@@ -18902,37 +18902,6 @@ Transform:
   m_Father: {fileID: 122128004}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &635252381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 635252382}
-  m_Layer: 0
-  m_Name: midpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &635252382
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635252381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 745183609091768203}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638853744
 GameObject:
   m_ObjectHideFlags: 0
@@ -29277,9 +29246,14 @@ MonoBehaviour:
     hintText: Walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
-  - label: lieDown
-    targetStateLabel: lyingOnTable
-    hintText: Lie down
+  - label: lieFeetToScanner
+    targetStateLabel: lyingFeetToScanner
+    hintText: Lie down (feet towards scanner)
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: lieHeadToScanner
+    targetStateLabel: lyingHeadToScanner
+    hintText: Lie down (head towards scanner)
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: sitUp
@@ -29320,7 +29294,11 @@ MonoBehaviour:
       animationName: m35a@Standup-SitOnChair
       parent: {fileID: 0}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 0
@@ -29336,7 +29314,11 @@ MonoBehaviour:
       animationName: m35a@90-Standup
       parent: {fileID: 0}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 0
@@ -29351,7 +29333,11 @@ MonoBehaviour:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
       movementLabel: walkToTable
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 0
@@ -29362,12 +29348,17 @@ MonoBehaviour:
       zPosition: 0
   - label: sittingOnTableEdge
     menuItems:
-    - lieDown
+    - lieFeetToScanner
+    - lieHeadToScanner
     transition:
       animationName: m35a@walk-R_turn_90
       parent: {fileID: 486751749397188668}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 1
       moveToParent: 1
       updateRotation: 1
@@ -29376,14 +29367,50 @@ MonoBehaviour:
       xPosition: -5.77
       yPosition: 0.15
       zPosition: -6.85
-  - label: lyingOnTable
+  - label: lyingFeetToScanner
     menuItems:
     - sitUp
     transition:
       animationName: m35a@Bedside-90
       parent: {fileID: 0}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Flip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     options:
+      flipModel: 1
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 1
+      pivotDegrees: 0
+      updatePosition: 1
+      xPosition: 1.2
+      yPosition: -10
+      zPosition: -9.39
+  - label: lyingHeadToScanner
+    menuItems:
+    - sitUp
+    transition:
+      animationName: m35a@Bedside-90
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 1
@@ -29394,21 +29421,38 @@ MonoBehaviour:
       zPosition: -9.39
   - label: sittingOnTableFromLying
     menuItems:
-    - lieDown
+    - lieFeetToScanner
+    - lieHeadToScanner
     - dismountTable
     transition:
       animationName: m35a@0-90_Transition
       parent: {fileID: 0}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Unflip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 0
       pivotDegrees: 90
-      updatePosition: 0
-      xPosition: 0.975
-      yPosition: 0
-      zPosition: 1.876
+      updatePosition: 1
+      xPosition: 1.16
+      yPosition: 6.6
+      zPosition: -9.39
   - label: standingBesideTable
     menuItems:
     - exitRoom
@@ -29416,7 +29460,11 @@ MonoBehaviour:
       animationName: m35a@SitOnTable-Stand
       parent: {fileID: 0}
       movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 1
       moveToParent: 0
       updateRotation: 1
@@ -29431,7 +29479,11 @@ MonoBehaviour:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
       movementLabel: walkFromTable
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
     options:
+      flipModel: 0
       updateParent: 0
       moveToParent: 0
       updateRotation: 0
@@ -39516,6 +39568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676033758}
   - component: {fileID: 1676033759}
+  - component: {fileID: 1676033760}
   m_Layer: 0
   m_Name: Coils
   m_TagString: Untagged
@@ -39558,6 +39611,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataBanker: {fileID: 1178165863}
   shelfParent: {fileID: 0}
+--- !u!114 &1676033760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676033757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0351d28d1ad5f34385d2124917cb68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataBanker: {fileID: 0}
+  headCoil: {fileID: 0}
 --- !u!1 &1682037787
 GameObject:
   m_ObjectHideFlags: 0
@@ -56227,7 +56294,6 @@ Transform:
   - {fileID: 1300841441}
   - {fileID: 2524169296266358025}
   - {fileID: 1676033758}
-  - {fileID: 635252382}
   m_Father: {fileID: 1934547096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
