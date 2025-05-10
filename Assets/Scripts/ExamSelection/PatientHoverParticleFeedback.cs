@@ -1,0 +1,51 @@
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
+[RequireComponent(typeof(Collider))]
+public class PatientHoverParticleFeedback : XRBaseInteractable
+{
+    public DataBanker databanker;
+    public string examType;
+    public ParticleSystem hoverParticles;
+    private int hoverCount = 0;
+
+    void Start()
+    {
+        if (hoverParticles != null)
+            hoverParticles.Stop(); // Ensure the particles are not playing at the start
+    }
+
+    protected override void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        base.OnHoverEntered(args);
+        HoverEnteredLogic();
+    }
+
+    protected override void OnHoverExited(HoverExitEventArgs args)
+    {
+        base.OnHoverExited(args);
+        HoverExitedLogic();
+    }
+
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+        databanker.SetExamType(examType);
+    }
+
+    private void HoverEnteredLogic()
+    {
+        hoverCount++;
+
+        if (hoverParticles != null && !hoverParticles.isPlaying)
+            hoverParticles.Play();
+    }
+
+    private void HoverExitedLogic()
+    {
+        hoverCount = Mathf.Max(hoverCount - 1, 0);
+
+        if (hoverCount == 0 && hoverParticles != null && hoverParticles.isPlaying)
+            hoverParticles.Stop();
+    }
+}

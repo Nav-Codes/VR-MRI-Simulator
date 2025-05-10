@@ -19,6 +19,7 @@ public class DataBanker : MonoBehaviour
             // Assign the instance as the singleton
             Instance = this;
         }
+        gender = "Male"; // Default
     }
 
     // Set the exam type
