@@ -6,6 +6,6 @@ public class GhostCollider : MonoBehaviour
 {
     void Update()
     {
-        gameObject.GetComponent<BoxCollider>().enabled = true;        
+        gameObject.GetComponent<Collider>().enabled = true;        
     }
 }
