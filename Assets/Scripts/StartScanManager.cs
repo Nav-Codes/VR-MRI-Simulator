@@ -49,12 +49,21 @@ public class StartScanManager : MonoBehaviour
             foreach (Transform SnapPoint in Coil.gameObject.transform)
             {
                 //try getting a child gameObject from the snap point game object
-                GameObject coilObject;
-                try
+                GameObject coilObject = null;
+
+                foreach (Transform realCoil in SnapPoint.gameObject.transform)
                 {
-                    coilObject = SnapPoint.gameObject.transform.GetChild(0).gameObject;
+                    try
+                    {
+                        if (realCoil.gameObject.CompareTag("Coil"))
+                        {
+                            coilObject = realCoil.gameObject;
+                        }
+                    }
+                    catch (UnityException) { continue; }
                 }
-                catch (UnityException) { continue; }
+
+                if (coilObject == null) continue;
 
                 foreach (Transform child in coilObject.transform)
                 {
@@ -67,5 +76,4 @@ public class StartScanManager : MonoBehaviour
             }
         }
     }
-
 }
