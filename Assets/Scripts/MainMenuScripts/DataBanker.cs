@@ -9,6 +9,8 @@ public class DataBanker : MonoBehaviour
     // Private variables to store exam type and gender
     private string exam;
     private string gender;
+
+    private bool FirstCheck;
     
     // Call awake when script instance is being loaded
     private void Awake()
@@ -44,5 +46,15 @@ public class DataBanker : MonoBehaviour
     public string GetGender()
     {
         return gender;
+    }
+
+    public void setFirstCheck(bool isFirstCheck)
+    {
+        FirstCheck = isFirstCheck;
+    }
+
+    public bool isFirstCheck()
+    {
+        return FirstCheck;
     }
 }
