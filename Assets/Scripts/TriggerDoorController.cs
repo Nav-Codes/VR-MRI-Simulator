@@ -8,30 +8,7 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface
 {
     [SerializeField] private Animator leftDoor = null;
     [SerializeField] private Animator rightDoor = null;
-
-    [SerializeField] private DataBanker DataBanker = null;
-    
-    [SerializeField] private ErrorCheck firstErrorCheck = null;
-
     private bool isOpen = false;
-
-    private void doNothing()
-    {
-        Debug.Log("doNothing");
-    }
-    
-    public void afterFirstOpen()
-    {
-        if (DataBanker != null && DataBanker.Instance.isFirstCheck() == false)
-        {
-            DataBanker.setFirstCheck(true);
-            firstErrorCheck.Check(OpenDoor, doNothing);
-        }
-        else
-        {
-            OpenDoor();
-        }
-    }
 
     public void OpenDoor()
     {

@@ -39264,8 +39264,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256006647}
-  m_LocalRotation: {x: -0, y: 0.5, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: -0.52}
+  m_LocalRotation: {x: -0, y: 0.58821094, z: -0, w: 0.8087076}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39274,10 +39274,10 @@ RectTransform:
   - {fileID: 363166181}
   m_Father: {fileID: 1960995965}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 72.06, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5.4399996, y: 1.53}
+  m_AnchoredPosition: {x: 10, y: 1.53}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256006649
@@ -49528,7 +49528,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5268308436593864547}
         m_TargetAssemblyTypeName: TriggerDoorController, Assembly-CSharp
-        m_MethodName: afterFirstOpen
+        m_MethodName: OpenDoor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69692,6 +69692,8 @@ MonoBehaviour:
   outsideRoomCollider: {fileID: 5268308436593864544}
   player: {fileID: 1749084064}
   patient: {fileID: 1631481421}
+  dataBanker: {fileID: 1178165863}
+  FirstErrorCheckHolder: {fileID: 236542779}
   ThirdErrorCheckHolder: {fileID: 1048992491}
 --- !u!114 &5268308436593864547
 MonoBehaviour:
@@ -69707,8 +69709,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 468228857}
   rightDoor: {fileID: 1089771857}
-  DataBanker: {fileID: 1178165863}
-  firstErrorCheck: {fileID: 236542779}
 --- !u!1 &5294194768158451525
 GameObject:
   m_ObjectHideFlags: 0
@@ -71506,7 +71506,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5268308436593864547}
         m_TargetAssemblyTypeName: TriggerDoorController, Assembly-CSharp
-        m_MethodName: afterFirstOpen
+        m_MethodName: OpenDoor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

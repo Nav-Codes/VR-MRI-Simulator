@@ -19,11 +19,12 @@ public class DoubleDoor : MonoBehaviour
     }
 
     private Dictionary<GameObject, EntryStage> objectStages = new Dictionary<GameObject, EntryStage>();
-
-    public bool playerIsInsideRoom { get; private set; } = false;
-    public bool patientIsInsideRoom { get; private set; } = false;
+    public DataBanker dataBanker = null;
+    private bool playerIsInsideRoom = false;
+    private bool patientIsInsideRoom = false;
     private bool bothEnteredRoomOnce = false;
-
+    private bool playerEnteredRoomOnce = false;
+    public ErrorCheck FirstErrorCheckHolder = null;
     public ReturnedCheck ThirdErrorCheckHolder = null;
 
     private void Awake()
@@ -44,6 +45,9 @@ public class DoubleDoor : MonoBehaviour
         if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom)
         {
             ThirdErrorCheckHolder.Check(() => {}, () => {});
+        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce)
+        {
+            FirstErrorCheckHolder.Check(() => {}, () => {});
         }
     }
 
@@ -94,8 +98,13 @@ public class DoubleDoor : MonoBehaviour
         }
 
         // Final state check
-        if (obj == player)
+        if (obj == player) {
             playerIsInsideRoom = objectStages[obj] == EntryStage.Inside;
+            if (playerIsInsideRoom && !playerEnteredRoomOnce)
+            {
+                playerEnteredRoomOnce = true;
+            }
+        }
         else if (obj == patient)
             patientIsInsideRoom = objectStages[obj] == EntryStage.Inside;
     }
