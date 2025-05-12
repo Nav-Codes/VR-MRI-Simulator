@@ -8,7 +8,7 @@ public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
     public GameObject earplugsWorn;
     public Container garbageCan;
-    
+
     public string getLabel()
     {
         return "Earplugs on patient";
@@ -20,10 +20,10 @@ public class EarplugStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 
     public bool isCorrect()
     {
-        return earplugsWorn.activeSelf && garbageCan.Contains(earplugsWorn.transform);
+        return earplugsWorn.activeSelf;
     }
     public bool isReturned()
     {
-        return !isCorrect();
+        return !isCorrect() && garbageCan.Contains(transform);
     }
 }

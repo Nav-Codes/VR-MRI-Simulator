@@ -15,7 +15,7 @@ public class HeadPhoneStatus : MonoBehaviour, CheckerInterface, ReturnedInterfac
 
     public string getReturnedLabel()
     {
-        return "Headphones";
+        return "Headphones removal";
     }
 
     public bool isCorrect()

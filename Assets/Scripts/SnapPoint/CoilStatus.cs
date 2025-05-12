@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 {
-    private List<GameObject> coils = new List<GameObject>();
+    private List<GameObject> examTypes = new List<GameObject>();
+    public List<GameObject> coils = new List<GameObject>();
     public DataBanker dataBanker;
     public Container shelfParent;
     void Start()
     {
         foreach (Transform child in transform)
         {
-            coils.Add(child.gameObject);
+            examTypes.Add(child.gameObject);
         }
     }
 
     public bool isCorrect() {
-        foreach (GameObject coil in coils)
+        foreach (GameObject examType in examTypes)
         {
-            if (dataBanker.GetExamType().Contains(coil.name))
+            if (dataBanker.GetExamType().Contains(examType.name))
             {
-                int numParts = coil.transform.childCount;
+                int numParts = examType.transform.childCount;
                 int checkNumParts = 0;
 
-                foreach (Transform childCoil in coil.transform)
-                    if (childCoil.childCount > 0) checkNumParts++;
+                foreach (Transform snapPoint in examType.transform)
+                    if (snapPoint.childCount > 0) checkNumParts++;
                     
                 if (checkNumParts == numParts) return true; 
             }
@@ -35,16 +36,8 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     public bool isReturned() {
         foreach (GameObject coil in coils)
         {
-            if (dataBanker.GetExamType().Contains(coil.name))
-            {
-                int numParts = coil.transform.childCount;
-                int checkNumParts = 0;
-
-                foreach (Transform childCoil in coil.transform)
-                    if (childCoil.childCount > 0) checkNumParts++;
-                    
-                if (checkNumParts != 0 || !shelfParent.Contains(coil.transform)) return false ; 
-            }
+            if (coil == null) continue; // Skip if the coil is null
+            if (!shelfParent.Contains(coil.transform)) return false; // If the coil has children, it's not returned
         }
         return true;
     }
@@ -54,6 +47,6 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
 
     public string getReturnedLabel() {
-        return "All Coils";
+        return "Returning Coils to Shelf";
     }
 }

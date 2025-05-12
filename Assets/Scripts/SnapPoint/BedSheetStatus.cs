@@ -16,7 +16,7 @@ public class BedSheetStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
     }
     public bool isReturned()
     {
-        if (LaundryHamper == null || OpenBedSheet == null || GetComponent<Collider>() == null || LaundryHamper.GetComponent<Collider>() == null)
+        if (LaundryHamper == null || OpenBedSheet == null )
         {
             Debug.LogWarning("Missing references or colliders in BedSheetStatus");
             return false;
@@ -27,6 +27,6 @@ public class BedSheetStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
 
     public string getReturnedLabel()
     {
-        return "Bed Sheet";
+        return "Bed Sheet Disposal";
     }
 }

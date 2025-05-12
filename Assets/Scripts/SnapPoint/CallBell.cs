@@ -43,7 +43,7 @@ public class CallBell : MonoBehaviour, ISnappable, CheckerInterface, ReturnedInt
 
     public string getReturnedLabel()
     {
-        return "Call Bell";
+        return "Call Bell Removal";
     }
     
     public void OnSnapped(Transform snapPointParent)
