@@ -21510,7 +21510,7 @@ Animator:
   m_GameObject: {fileID: 468228855}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3dbb0cb0fe86440c95e348f38d9d9f3, type: 2}
+  m_Controller: {fileID: 9100000, guid: b2470cbdfaf42e146a1a2e70a999dd50, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35487,7 +35487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1089771856}
   - component: {fileID: 1089771857}
-  - component: {fileID: 1089771858}
   m_Layer: 0
   m_Name: RightDoor
   m_TagString: Untagged
@@ -35521,7 +35520,7 @@ Animator:
   m_GameObject: {fileID: 1089771855}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6197914f9d7463a44b1b9ef5ad47bb18, type: 2}
+  m_Controller: {fileID: 9100000, guid: b2470cbdfaf42e146a1a2e70a999dd50, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35532,22 +35531,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1089771858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089771855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49764b8f7a3e12b4ea2f9bce47d6b124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 1089771856}
-  doorAnimator: {fileID: 1089771857}
-  DataBanker: {fileID: 1178165863}
-  firstErrorCheck: {fileID: 236542779}
 --- !u!1 &1090549019
 GameObject:
   m_ObjectHideFlags: 0
@@ -36161,8 +36144,6 @@ GameObject:
   - component: {fileID: 1134537759}
   - component: {fileID: 1134537763}
   - component: {fileID: 1134537762}
-  - component: {fileID: 1134537761}
-  - component: {fileID: 1134537760}
   m_Layer: 0
   m_Name: Box005
   m_TagString: Untagged
@@ -36186,43 +36167,6 @@ Transform:
   m_Father: {fileID: 468228856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: -90}
---- !u!114 &1134537760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134537758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49764b8f7a3e12b4ea2f9bce47d6b124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  doorAnimator: {fileID: 0}
-  DataBanker: {fileID: 1178165863}
-  firstErrorCheck: {fileID: 236542779}
---- !u!95 &1134537761
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134537758}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e553a8f0dc50a4a60a2baa671b52c7ea, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!23 &1134537762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49575,8 +49519,14 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1134537760}
+      - m_Target: {fileID: 5268308436593864547}
         m_TargetAssemblyTypeName: TriggerDoorController, Assembly-CSharp
         m_MethodName: afterFirstOpen
         m_Mode: 1
@@ -49588,12 +49538,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -69698,6 +69642,7 @@ GameObject:
   - component: {fileID: 5268308436593864545}
   - component: {fileID: 5268308436593864544}
   - component: {fileID: 5268308436593864546}
+  - component: {fileID: 5268308436593864547}
   m_Layer: 0
   m_Name: DoubleDoor
   m_TagString: Untagged
@@ -69748,6 +69693,22 @@ MonoBehaviour:
   player: {fileID: 1749084064}
   patient: {fileID: 1631481421}
   ThirdErrorCheckHolder: {fileID: 1048992491}
+--- !u!114 &5268308436593864547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268308436593864543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49764b8f7a3e12b4ea2f9bce47d6b124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDoor: {fileID: 468228857}
+  rightDoor: {fileID: 1089771857}
+  DataBanker: {fileID: 1178165863}
+  firstErrorCheck: {fileID: 236542779}
 --- !u!1 &5294194768158451525
 GameObject:
   m_ObjectHideFlags: 0
@@ -71543,7 +71504,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1089771858}
+      - m_Target: {fileID: 5268308436593864547}
         m_TargetAssemblyTypeName: TriggerDoorController, Assembly-CSharp
         m_MethodName: afterFirstOpen
         m_Mode: 1
