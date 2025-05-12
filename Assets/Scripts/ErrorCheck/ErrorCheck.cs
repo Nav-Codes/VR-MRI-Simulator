@@ -88,13 +88,13 @@ public class ErrorCheck : MonoBehaviour
 
     public void ClickContinue()
     {
-        ContinueClickAction?.Invoke();
+        ContinueClickAction();
         DisablePanel();
     }
 
     public void ClickGoBack()
     {
-        GoBackClickAction?.Invoke();
+        GoBackClickAction();
         DisablePanel();
     }
 
