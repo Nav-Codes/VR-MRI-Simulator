@@ -6,8 +6,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TriggerDoorController : MonoBehaviour, CheckerInterface
 {
-    [SerializeField] private Animator myDoor = null;
-    
+    [SerializeField] private Animator leftDoor = null;
+    [SerializeField] private Animator rightDoor = null;
+
     [SerializeField] private DataBanker DataBanker = null;
     
     [SerializeField] private ErrorCheck firstErrorCheck = null;
@@ -34,39 +35,24 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface
 
     public void OpenDoor()
     {
-
-        if (myDoor.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        if (leftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            Transform parent = transform.parent;
-            if (parent != null)
+            //Transform parent = door.parent;
+            if (leftDoor != null && rightDoor != null)
             {
-                string parentName = parent.name;
-
                 if (!isOpen)
                 {
                     // Opening the door
-                    if (parentName == "LeftDoor")
-                    {
-                        myDoor.Play("Open", 0, 0.0f);
-                    }
-                    else if (parentName == "RightDoor")
-                    {
-                        myDoor.Play("DoorOpen", 0, 0.0f);
-                    }
+                    leftDoor.Play("DoorOpenClockwise", 0, 0.0f);
+                    rightDoor.Play("DoorOpenCounterclockwise", 0, 0.0f);
 
                     isOpen = true;
                 }
                 else
                 {
                     // Closing the door
-                    if (parentName == "LeftDoor")
-                    {
-                        myDoor.Play("Close", 0, 0.0f);
-                    }
-                    else if (parentName == "RightDoor")
-                    {
-                        myDoor.Play("DoorClose", 0, 0.0f);
-                    }
+                    leftDoor.Play("DoorCloseCounterclockwise", 0, 0.0f);
+                    rightDoor.Play("DoorCloseClockwise", 0, 0.0f);
 
                     isOpen = false;
                 }

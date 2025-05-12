@@ -29,6 +29,12 @@ public class ErrorCheck : MonoBehaviour
         }
 
         string type = dataBanker.GetExamType();
+        if (type == null)
+        {
+            Debug.LogError($"Exam type not set.");
+            return false;
+        }
+
         GameObject[] Errors = null;
         if (errorGroups != null && errorGroups.ContainsKey(type))
         {

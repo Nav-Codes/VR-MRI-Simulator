@@ -10,7 +10,7 @@ public class DataBanker : MonoBehaviour
     private string exam;
     private string gender;
 
-    private bool FirstCheck;
+    private bool FirstCheck = false;
     
     // Call awake when script instance is being loaded
     private void Awake()
@@ -27,6 +27,7 @@ public class DataBanker : MonoBehaviour
     // Set the exam type
     public void SetExamType(string examType)
     {
+        Debug.Log("Setting exam type: " + examType);
         exam = examType;
     }
 
