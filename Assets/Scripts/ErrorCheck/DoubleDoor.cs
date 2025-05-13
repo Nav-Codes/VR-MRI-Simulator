@@ -26,6 +26,8 @@ public class DoubleDoor : MonoBehaviour
     private bool playerEnteredRoomOnce = false;
     public ErrorCheck FirstErrorCheckHolder = null;
     public ReturnedCheck ThirdErrorCheckHolder = null;
+    private bool FirstErrorCheckClosed = false;
+    private bool ThirdErrorCheckClosed = false;
 
     private void Awake()
     {
@@ -42,12 +44,12 @@ public class DoubleDoor : MonoBehaviour
         if (playerIsInsideRoom && patientIsInsideRoom){
             bothEnteredRoomOnce = true;
         }
-        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom)
+        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed)
         {
-            ThirdErrorCheckHolder.Check(() => {}, () => {});
-        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce)
+            ThirdErrorCheckHolder.Check(() => {}, () => {ThirdErrorCheckClosed = true;});
+        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed)
         {
-            FirstErrorCheckHolder.Check(() => {}, () => {});
+            FirstErrorCheckHolder.Check(() => {}, () => {FirstErrorCheckClosed = true;});
         }
     }
 
@@ -100,9 +102,11 @@ public class DoubleDoor : MonoBehaviour
         // Final state check
         if (obj == player) {
             playerIsInsideRoom = objectStages[obj] == EntryStage.Inside;
-            if (playerIsInsideRoom && !playerEnteredRoomOnce)
+            if (playerIsInsideRoom)
             {
                 playerEnteredRoomOnce = true;
+                FirstErrorCheckClosed = false;
+                ThirdErrorCheckClosed = false;
             }
         }
         else if (obj == patient)
