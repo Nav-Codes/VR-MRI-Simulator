@@ -4,6 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(Collider))]
 public class PatientHoverParticleFeedback : XRBaseInteractable
 {
+    public PatientStateManager patient;
     public DataBanker databanker;
     public string examType;
     public ParticleSystem hoverParticles;
@@ -35,6 +36,9 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
     private void HoverEnteredLogic()
     {
+        PatientState patientState = patient.GetCurrentState();
+        if (patientState == null || patientState.label != "standingByChair") return;
+
         hoverCount++;
 
         if (hoverParticles != null && !hoverParticles.isPlaying)

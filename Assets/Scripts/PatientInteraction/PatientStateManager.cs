@@ -78,6 +78,8 @@ public class PatientStateManager : MonoBehaviour
 
         patientAnimator.enabled = false;
 
+        currentState = null;
+
         newState.transition.additionalEvents?.Invoke();
 
         if (!isFlipped && newState.options.flipModel)
@@ -90,8 +92,6 @@ public class PatientStateManager : MonoBehaviour
                 );
             isFlipped = true;
         }
-
-        currentState = newState;
 
         if (!isFlipped || newState.options.flipModel)
             UpdateTransform(newState);
@@ -118,6 +118,8 @@ public class PatientStateManager : MonoBehaviour
             isFlipped = false;
             UpdateTransform(newState);
         }
+
+        currentState = newState;
 
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
@@ -191,6 +193,11 @@ public class PatientStateManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public PatientState GetCurrentState()
+    {
+        return currentState;
     }
 }
 
