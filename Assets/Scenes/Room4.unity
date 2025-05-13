@@ -34830,6 +34830,26 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
+  - label: standingByChair
+    menuItems:
+    - walkToTable
+    transition:
+      animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
   - label: walkingToTable
     menuItems: []
     transition:
