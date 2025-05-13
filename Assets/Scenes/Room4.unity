@@ -34458,7 +34458,19 @@ MonoBehaviour:
       movementLabel: 
       additionalEvents:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Unflip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     options:
       flipModel: 0
       updateParent: 0
@@ -40305,18 +40317,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96dde43d5b0f4ceaac11453cc9a1055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnOffsetY: 0
-  effectDuration: 0.5
-  bubbleSize: 0.03125
-  bubbleCount: 10
+  spawnOffsetY: -0.125
+  effectDuration: 1
+  bubbleSize: 0.065
+  bubbleCount: 8
   effectColor: {r: 0.8, g: 0.9, b: 1, a: 0.7}
-  minFallSpeed: 0.1
-  maxFallSpeed: 0.3
+  minFallSpeed: 0.0125
+  maxFallSpeed: 0.01825
   bubbleMass: 0.02
-  bubbleDrag: 3
-  torqueAmount: 2
-  sanitizerContainer: {fileID: 0}
-  soapContainer: {fileID: 0}
+  bubbleDrag: 4
+  torqueAmount: 1
+  sanitizerContainer: {fileID: 5465596295293416364}
+  soapContainer: {fileID: 1815831541037285361}
 --- !u!1 &1364019690
 GameObject:
   m_ObjectHideFlags: 0
