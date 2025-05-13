@@ -36,6 +36,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
         base.OnSelectEntered(args);
         databanker.SetExamType(examType);
+        patient.ChangePatientState("sittingInChairExamSelected");
     }
 
     private void HoverEnteredLogic()

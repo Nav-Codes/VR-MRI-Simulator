@@ -1030,7 +1030,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   patient: {fileID: 1015465989}
-  examSelectionPatientStateLabel: standingByChair
+  examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Knee
   hoverParticles: {fileID: 74946541}
@@ -34740,8 +34740,13 @@ MonoBehaviour:
   cancelSprite: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   allMenuItems:
   - label: standFromChair
-    targetStateLabel: standingByChair
+    targetStateLabel: examSelect
     hintText: Stand up
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: standFromChairExamSelected
+    targetStateLabel: standingByChairExamSelected
+    hintText: Get up and walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: walkToTable
@@ -34810,9 +34815,9 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
-  - label: standingByChair
-    menuItems:
-    - walkToTable
+      immediateNextState: 
+  - label: examSelect
+    menuItems: []
     transition:
       animationName: m35a@90-Standup
       parent: {fileID: 0}
@@ -34830,9 +34835,30 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
-  - label: standingByChair
+      immediateNextState: 
+  - label: sittingInChairExamSelected
     menuItems:
-    - walkToTable
+    - standFromChairExamSelected
+    transition:
+      animationName: m35a@Standup-SitOnChair
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      immediateNextState: 
+  - label: standingByChairExamSelected
+    menuItems: []
     transition:
       animationName: m35a@90-Standup
       parent: {fileID: 0}
@@ -34850,6 +34876,7 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      immediateNextState: walkingToTable
   - label: walkingToTable
     menuItems: []
     transition:
@@ -34869,6 +34896,7 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      immediateNextState: 
   - label: sittingOnTableEdge
     menuItems:
     - lieFeetToScanner
@@ -34890,6 +34918,7 @@ MonoBehaviour:
       xPosition: -5.77
       yPosition: 0.15
       zPosition: -6.85
+      immediateNextState: 
   - label: lyingFeetToScanner
     menuItems:
     - sitUp
@@ -34922,6 +34951,7 @@ MonoBehaviour:
       xPosition: 1.2
       yPosition: -10
       zPosition: -9.39
+      immediateNextState: 
   - label: lyingHeadToScanner
     menuItems:
     - sitUp
@@ -34954,6 +34984,7 @@ MonoBehaviour:
       xPosition: 1.16
       yPosition: 10.67
       zPosition: -9.39
+      immediateNextState: 
   - label: sittingOnTableFromLying
     menuItems:
     - lieFeetToScanner
@@ -34988,6 +35019,7 @@ MonoBehaviour:
       xPosition: 1.16
       yPosition: 6.6
       zPosition: -9.39
+      immediateNextState: 
   - label: standingBesideTable
     menuItems:
     - exitRoom
@@ -35008,6 +35040,7 @@ MonoBehaviour:
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      immediateNextState: 
   - label: walkingFromTable
     menuItems: []
     transition:
@@ -35027,6 +35060,7 @@ MonoBehaviour:
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      immediateNextState: 
   initialState: 0
 --- !u!1 &1017098193
 GameObject:
@@ -45091,7 +45125,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   patient: {fileID: 1015465989}
-  examSelectionPatientStateLabel: standingByChair
+  examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Head
   hoverParticles: {fileID: 1609770410}

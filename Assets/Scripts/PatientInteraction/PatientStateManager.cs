@@ -123,6 +123,19 @@ public class PatientStateManager : MonoBehaviour
 
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
+
+        if (newState.options.immediateNextState != null && newState.options.immediateNextState != "")
+        {
+            try
+            {
+                ChangePatientState(newState.options.immediateNextState);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log($"Attempt to set patient state to {newState.options.immediateNextState} failed: {e}");
+            }
+        }
+        
     }
 
     private void UpdateTransform(PatientState newState)
@@ -234,4 +247,5 @@ public class StateOptions
     public float yPosition;
     [Tooltip("New local Z position")]
     public float zPosition;
+    public string immediateNextState;
 }
