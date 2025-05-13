@@ -103,6 +103,7 @@ public class ErrorCheck : MonoBehaviour
         GoBackClickAction();
         DisablePanel();
     }
+    
 
     private void ShowButtons(bool allCorrect, GameObject errorText)
     {

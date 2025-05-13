@@ -22163,7 +22163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -67430,7 +67430,7 @@ GameObject:
   - component: {fileID: 1927009099}
   - component: {fileID: 1927009098}
   m_Layer: 5
-  m_Name: ContinueButton
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67503,7 +67503,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1048992491}
         m_TargetAssemblyTypeName: ReturnedCheck, Assembly-CSharp
-        m_MethodName: ClickContinue
+        m_MethodName: ClickRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

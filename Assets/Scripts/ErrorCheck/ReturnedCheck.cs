@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class ReturnedCheck : MonoBehaviour
@@ -96,6 +97,20 @@ public class ReturnedCheck : MonoBehaviour
     {
         GoBackClickAction?.Invoke();
         DisablePanel();
+    }
+    
+    public void ClickRestart()
+    {
+        // Reset DataBanker before reloading the scene
+        if (dataBanker != null)
+        {
+            dataBanker.SetExamType(null);  // Reset exam type
+            dataBanker.SetGender("Male");   // Reset to default gender
+            dataBanker.setFirstCheck(false); // Reset first check flag
+        }
+    
+        // Reload the scene
+        SceneManager.LoadScene("Room4");
     }
 
     private void ShowButtons(bool allCorrect, GameObject errorText)
