@@ -9,6 +9,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
     public DataBanker databanker;
     public string examType;
     public ParticleSystem hoverParticles;
+    public ParticleSystem selectionParticles;
     public InputActionReference rightActivateAction;
     public InputActionReference leftActivateAction;
 
@@ -43,9 +44,14 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
     private void OnActivatePressed(InputAction.CallbackContext context)
     {
+        PatientState patientState = patient.GetCurrentState();
+        if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
+
         if (isHovered)
         {
             databanker.SetExamType(examType);
+            if (selectionParticles != null)
+                selectionParticles.Play();
         }
     }
 
