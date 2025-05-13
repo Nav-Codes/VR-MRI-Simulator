@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PatientHoverParticleFeedback : XRBaseInteractable
 {
     public PatientStateManager patient;
+    public string examSelectionPatientStateLabel;
     public DataBanker databanker;
     public string examType;
     public ParticleSystem hoverParticles;
@@ -30,6 +31,9 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        PatientState patientState = patient.GetCurrentState();
+        if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
+
         base.OnSelectEntered(args);
         databanker.SetExamType(examType);
     }
@@ -37,7 +41,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
     private void HoverEnteredLogic()
     {
         PatientState patientState = patient.GetCurrentState();
-        if (patientState == null || patientState.label != "standingByChair") return;
+        if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
 
         hoverCount++;
 

@@ -1030,6 +1030,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   patient: {fileID: 1015465989}
+  examSelectionPatientStateLabel: standingByChair
   databanker: {fileID: 1178165863}
   examType: Knee
   hoverParticles: {fileID: 74946541}
@@ -45070,6 +45071,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   patient: {fileID: 1015465989}
+  examSelectionPatientStateLabel: standingByChair
   databanker: {fileID: 1178165863}
   examType: Head
   hoverParticles: {fileID: 1609770410}
