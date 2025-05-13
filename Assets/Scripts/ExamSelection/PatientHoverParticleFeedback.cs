@@ -50,6 +50,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         if (isHovered)
         {
             databanker.SetExamType(examType);
+            patient.ChangePatientState("sittingInChairExamSelected");
             if (selectionParticles != null)
                 selectionParticles.Play();
         }
