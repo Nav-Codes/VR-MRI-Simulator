@@ -31,8 +31,9 @@ public class CoilContainerFlipper : MonoBehaviour
 
     public bool HasAttachedCoil(GameObject snapPoint)
     {
-        foreach (Transform childCoil in snapPoint.transform)
-            if (childCoil.childCount > 0) return true;
+        foreach (Transform childSnapPoint in snapPoint.transform)
+            foreach (Transform child in childSnapPoint)
+                if (child.gameObject.CompareTag("Coil")) return true;
 
         return false;
     }
