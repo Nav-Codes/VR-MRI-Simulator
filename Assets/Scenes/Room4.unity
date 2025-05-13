@@ -6008,6 +6008,68 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6783394614101840514, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
+--- !u!1 &90668063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90668064}
+  - component: {fileID: 90668066}
+  - component: {fileID: 90668065}
+  m_Layer: 0
+  m_Name: KneeUpStateTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &90668064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.071, y: -0.048, z: 0.105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652917236525}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90668065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054813d11020a294a98f536579c48e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerDistance: 0.2
+  patient: {fileID: 1015465989}
+  expectedObject: {fileID: 2026202236011694742}
+  targetStateLabel: kneeRaised
+--- !u!135 &90668066
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &96823564
 GameObject:
   m_ObjectHideFlags: 0
@@ -39918,6 +39980,26 @@ MonoBehaviour:
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      immediateNextState: 
+  - label: kneeRaised
+    menuItems: []
+    transition:
+      animationName: m35a@0-KneeRaise
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
       immediateNextState: 
   initialState: 0
 --- !u!1 &1017098193
@@ -76835,6 +76917,7 @@ Transform:
   m_Children:
   - {fileID: 1525072948}
   - {fileID: 885523105}
+  - {fileID: 90668064}
   m_Father: {fileID: 1676033758}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
