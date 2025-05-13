@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PatientHoverParticleFeedback : XRBaseInteractable
 {
+    public PatientStateManager patient;
+    public string examSelectionPatientStateLabel;
     public DataBanker databanker;
     public string examType;
     public ParticleSystem hoverParticles;
@@ -63,6 +65,9 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
     private void HandleHoverEntered()
     {
+        PatientState patientState = patient.GetCurrentState();
+        if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
+
         hoverCount++;
         if (hoverParticles != null && !hoverParticles.isPlaying)
             hoverParticles.Play();

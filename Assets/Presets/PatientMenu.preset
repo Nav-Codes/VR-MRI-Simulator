@@ -46,7 +46,7 @@ Preset:
     objectReference: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.size
-    value: 6
+    value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].label
@@ -54,7 +54,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].targetStateLabel
-    value: standingByChair
+    value: examSelect
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].hintText
@@ -70,15 +70,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].label
-    value: walkToTable
+    value: standFromChairExamSelected
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].targetStateLabel
-    value: walkingToTable
+    value: standingByChairExamSelected
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].hintText
-    value: Walk to scanner table
+    value: Get up and walk to scanner table
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].icon
@@ -90,15 +90,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].label
-    value: lieDown
+    value: walkToTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].targetStateLabel
-    value: lyingOnTable
+    value: walkingToTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].hintText
-    value: Lie down
+    value: Walk to scanner table
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].icon
@@ -110,15 +110,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].label
-    value: sitUp
+    value: lieFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].targetStateLabel
-    value: sittingOnTableFromLying
+    value: lyingFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].hintText
-    value: Sit up
+    value: Lie down (feet towards scanner)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].icon
@@ -130,15 +130,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].label
-    value: dismountTable
+    value: lieHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].targetStateLabel
-    value: standingBesideTable
+    value: lyingHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].hintText
-    value: Dismount table
+    value: Lie down (head towards scanner)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].icon
@@ -150,15 +150,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].label
-    value: exitRoom
+    value: sitUp
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].targetStateLabel
-    value: walkingFromTable
+    value: sittingOnTableFromLying
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].hintText
-    value: Exit room
+    value: Sit up
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].icon
@@ -166,6 +166,46 @@ Preset:
     objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].label
+    value: dismountTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].targetStateLabel
+    value: standingBesideTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].hintText
+    value: Dismount table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].label
+    value: exitRoom
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].targetStateLabel
+    value: walkingFromTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].hintText
+    value: Exit room
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].button
     value: 
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

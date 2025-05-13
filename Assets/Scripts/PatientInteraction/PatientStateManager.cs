@@ -78,6 +78,8 @@ public class PatientStateManager : MonoBehaviour
 
         patientAnimator.enabled = false;
 
+        currentState = null;
+
         newState.transition.additionalEvents?.Invoke();
 
         if (!isFlipped && newState.options.flipModel)
@@ -90,8 +92,6 @@ public class PatientStateManager : MonoBehaviour
                 );
             isFlipped = true;
         }
-
-        currentState = newState;
 
         if (!isFlipped || newState.options.flipModel)
             UpdateTransform(newState);
@@ -119,8 +119,23 @@ public class PatientStateManager : MonoBehaviour
             UpdateTransform(newState);
         }
 
+        currentState = newState;
+
         patientMenu.SetItems(newState.menuItems, ChangePatientState);
         patientMenu.Enable();
+
+        if (newState.options.immediateNextState != null && newState.options.immediateNextState != "")
+        {
+            try
+            {
+                ChangePatientState(newState.options.immediateNextState);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log($"Attempt to set patient state to {newState.options.immediateNextState} failed: {e}");
+            }
+        }
+        
     }
 
     private void UpdateTransform(PatientState newState)
@@ -192,6 +207,11 @@ public class PatientStateManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public PatientState GetCurrentState()
+    {
+        return currentState;
+    }
 }
 
 [System.Serializable]
@@ -227,4 +247,5 @@ public class StateOptions
     public float yPosition;
     [Tooltip("New local Z position")]
     public float zPosition;
+    public string immediateNextState;
 }

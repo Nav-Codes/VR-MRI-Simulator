@@ -1029,6 +1029,8 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  patient: {fileID: 1015465989}
+  examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Knee
   hoverParticles: {fileID: 74946541}
@@ -34725,8 +34727,13 @@ MonoBehaviour:
   cancelSprite: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   allMenuItems:
   - label: standFromChair
-    targetStateLabel: standingByChair
+    targetStateLabel: examSelect
     hintText: Stand up
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: standFromChairExamSelected
+    targetStateLabel: standingByChairExamSelected
+    hintText: Get up and walk to scanner table
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: walkToTable
@@ -34795,9 +34802,9 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
-  - label: standingByChair
-    menuItems:
-    - walkToTable
+      immediateNextState: 
+  - label: examSelect
+    menuItems: []
     transition:
       animationName: m35a@90-Standup
       parent: {fileID: 0}
@@ -34815,6 +34822,48 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      immediateNextState: 
+  - label: sittingInChairExamSelected
+    menuItems:
+    - standFromChairExamSelected
+    transition:
+      animationName: m35a@Standup-SitOnChair
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      immediateNextState: 
+  - label: standingByChairExamSelected
+    menuItems: []
+    transition:
+      animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      updateParent: 0
+      moveToParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      immediateNextState: walkingToTable
   - label: walkingToTable
     menuItems: []
     transition:
@@ -34834,6 +34883,7 @@ MonoBehaviour:
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      immediateNextState: 
   - label: sittingOnTableEdge
     menuItems:
     - lieFeetToScanner
@@ -34855,6 +34905,7 @@ MonoBehaviour:
       xPosition: -5.77
       yPosition: 0.15
       zPosition: -6.85
+      immediateNextState: 
   - label: lyingFeetToScanner
     menuItems:
     - sitUp
@@ -34887,6 +34938,7 @@ MonoBehaviour:
       xPosition: 1.2
       yPosition: -10
       zPosition: -9.39
+      immediateNextState: 
   - label: lyingHeadToScanner
     menuItems:
     - sitUp
@@ -34896,7 +34948,19 @@ MonoBehaviour:
       movementLabel: 
       additionalEvents:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Unflip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     options:
       flipModel: 0
       updateParent: 0
@@ -34907,6 +34971,7 @@ MonoBehaviour:
       xPosition: 1.16
       yPosition: 10.67
       zPosition: -9.39
+      immediateNextState: 
   - label: sittingOnTableFromLying
     menuItems:
     - lieFeetToScanner
@@ -34941,6 +35006,7 @@ MonoBehaviour:
       xPosition: 1.16
       yPosition: 6.6
       zPosition: -9.39
+      immediateNextState: 
   - label: standingBesideTable
     menuItems:
     - exitRoom
@@ -34961,6 +35027,7 @@ MonoBehaviour:
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      immediateNextState: 
   - label: walkingFromTable
     menuItems: []
     transition:
@@ -34980,6 +35047,7 @@ MonoBehaviour:
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      immediateNextState: 
   initialState: 0
 --- !u!1 &1017098193
 GameObject:
@@ -40732,18 +40800,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96dde43d5b0f4ceaac11453cc9a1055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnOffsetY: 0
-  effectDuration: 0.5
-  bubbleSize: 0.03125
-  bubbleCount: 10
+  spawnOffsetY: -0.125
+  effectDuration: 1
+  bubbleSize: 0.065
+  bubbleCount: 8
   effectColor: {r: 0.8, g: 0.9, b: 1, a: 0.7}
-  minFallSpeed: 0.1
-  maxFallSpeed: 0.3
+  minFallSpeed: 0.0125
+  maxFallSpeed: 0.01825
   bubbleMass: 0.02
-  bubbleDrag: 3
-  torqueAmount: 2
-  sanitizerContainer: {fileID: 0}
-  soapContainer: {fileID: 0}
+  bubbleDrag: 4
+  torqueAmount: 1
+  sanitizerContainer: {fileID: 5465596295293416364}
+  soapContainer: {fileID: 1815831541037285361}
 --- !u!1 &1364019690
 GameObject:
   m_ObjectHideFlags: 0
@@ -45022,6 +45090,8 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  patient: {fileID: 1015465989}
+  examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Head
   hoverParticles: {fileID: 1609770410}
@@ -50578,7 +50648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataBanker: {fileID: 0}
-  headCoil: {fileID: 0}
 --- !u!1 &1682037787
 GameObject:
   m_ObjectHideFlags: 0
@@ -66318,7 +66387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786269605559400874}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 2.6546154, y: 0.579, z: -2.341}
+  m_LocalPosition: {x: 2.6546154, y: 0.557, z: -2.341}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
