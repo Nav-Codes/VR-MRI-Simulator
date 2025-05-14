@@ -27,7 +27,9 @@ public class DoubleDoor : MonoBehaviour
     public ErrorCheck FirstErrorCheckHolder = null;
     public ReturnedCheck ThirdErrorCheckHolder = null;
     private bool FirstErrorCheckClosed = false;
+    private bool FirstErrorCheckClosedForever = false;
     private bool ThirdErrorCheckClosed = false;
+    private bool ThirdErrorCheckClosedForever = false;
 
     private void Awake()
     {
@@ -44,12 +46,12 @@ public class DoubleDoor : MonoBehaviour
         if (playerIsInsideRoom && patientIsInsideRoom){
             bothEnteredRoomOnce = true;
         }
-        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed)
+        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed && !ThirdErrorCheckClosedForever)
         {
-            ThirdErrorCheckHolder.Check(() => {}, () => {ThirdErrorCheckClosed = true;});
-        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed)
+            ThirdErrorCheckHolder.Check(() => {ThirdErrorCheckClosedForever = true;}, () => {ThirdErrorCheckClosed = true;});
+        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
         {
-            FirstErrorCheckHolder.Check(() => {}, () => {FirstErrorCheckClosed = true;});
+            FirstErrorCheckHolder.Check(() => {FirstErrorCheckClosedForever = true;}, () => {FirstErrorCheckClosed = true;});
         }
     }
 
