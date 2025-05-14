@@ -5874,6 +5874,203 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6783394614101840514, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
+--- !u!1 &90668063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90668064}
+  - component: {fileID: 90668066}
+  - component: {fileID: 90668065}
+  m_Layer: 0
+  m_Name: KneeUpStateTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90668064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.071, y: -0.048, z: 0.105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450652917236525}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90668065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054813d11020a294a98f536579c48e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerDistance: 0.2
+  patient: {fileID: 1015465989}
+  expectedObject: {fileID: 2026202236011694742}
+  startingStateLabel: lyingFeetToScanner
+  targetStateLabel: kneeRaised
+--- !u!135 &90668066
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90668063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0.1, y: 0, z: 0}
+--- !u!1 &96823564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96823565}
+  - component: {fileID: 96823568}
+  - component: {fileID: 96823567}
+  - component: {fileID: 96823566}
+  m_Layer: 5
+  m_Name: FemaleButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &96823565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96823564}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1584579425}
+  m_Father: {fileID: 1414088764}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 2, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &96823566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96823564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 96823567}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1178165862}
+        m_TargetAssemblyTypeName: MainMenuFunc, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 96823566}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &96823567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96823564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5f4b5e4d7ee5eb14e97739815339826f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &96823568
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96823564}
+  m_CullTransparentMesh: 1
 --- !u!1001 &102222594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24875,7 +25072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6c993ff97b01743b72b7cc892fb224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 0.389
+  minY: 0.473
   maxY: 0.718
   speed: 0.1
 --- !u!1 &788877707
@@ -38686,17 +38883,22 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: lieFeetToScanner
-    targetStateLabel: lyingFeetToScanner
+    targetStateLabel: turningFeetToScanner
     hintText: Lie down (feet towards scanner)
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: lieHeadToScanner
-    targetStateLabel: lyingHeadToScanner
+    targetStateLabel: turningHeadToScanner
     hintText: Lie down (head towards scanner)
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: sitUp
     targetStateLabel: sittingOnTableFromLying
+    hintText: Sit up
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: sitUpFlipped
+    targetStateLabel: sittingOnTableFromLyingFlipped
     hintText: Sit up
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
@@ -38725,6 +38927,7 @@ MonoBehaviour:
   patient: {fileID: 1015465985}
   patientMenu: {fileID: 1015465988}
   patientMover: {fileID: 1015465987}
+  dataBanker: {fileID: 1178165863}
   patientStates:
   - label: initialStateInChair
     menuItems:
@@ -38738,14 +38941,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: 
   - label: examSelect
     menuItems: []
@@ -38758,14 +38962,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: 
   - label: sittingInChairExamSelected
     menuItems:
@@ -38779,14 +38984,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: 
   - label: standingByChairExamSelected
     menuItems: []
@@ -38799,14 +39005,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: walkingToTable
   - label: walkingToTable
     menuItems: []
@@ -38819,14 +39026,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 0
       yPosition: 0
       zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: 
   - label: sittingOnTableEdge
     menuItems:
@@ -38841,18 +39049,18 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 1
-      moveToParent: 1
       updateRotation: 1
       pivotDegrees: 90
       updatePosition: 1
       xPosition: -5.77
       yPosition: 0.15
       zPosition: -6.85
+      transitionOffsetY: 0
       immediateNextState: 
-  - label: lyingFeetToScanner
-    menuItems:
-    - sitUp
+  - label: turningFeetToScanner
+    menuItems: []
     transition:
       animationName: m35a@Bedside-90
       parent: {fileID: 0}
@@ -38874,18 +39082,40 @@ MonoBehaviour:
             m_CallState: 2
     options:
       flipModel: 1
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 1
       pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.2
       yPosition: -10
       zPosition: -9.39
-      immediateNextState: 
-  - label: lyingHeadToScanner
+      transitionOffsetY: 0
+      immediateNextState: lyingFeetToScanner
+  - label: lyingFeetToScanner
     menuItems:
-    - sitUp
+    - sitUpFlipped
+    transition:
+      animationName: m35a@90-0_Transition
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 1
+      pivotDegrees: 180
+      updatePosition: 1
+      xPosition: -1.3
+      yPosition: -10
+      zPosition: -9.39
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: turningHeadToScanner
+    menuItems: []
     transition:
       animationName: m35a@Bedside-90
       parent: {fileID: 0}
@@ -38907,14 +39137,49 @@ MonoBehaviour:
             m_CallState: 2
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 1
       pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.16
       yPosition: 10.67
       zPosition: -9.39
+      transitionOffsetY: 0
+      immediateNextState: lyingHeadToScanner
+  - label: lyingHeadToScanner
+    menuItems:
+    - sitUp
+    transition:
+      animationName: m35a@90-0_Transition
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Unflip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 1
+      pivotDegrees: 0
+      updatePosition: 1
+      xPosition: 1.16
+      yPosition: 10.67
+      zPosition: -9.39
+      transitionOffsetY: 0
       immediateNextState: 
   - label: sittingOnTableFromLying
     menuItems:
@@ -38942,14 +39207,51 @@ MonoBehaviour:
             m_CallState: 2
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
-      updateRotation: 0
-      pivotDegrees: 90
+      updateRotation: 1
+      pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.16
       yPosition: 6.6
       zPosition: -9.39
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: sittingOnTableFromLyingFlipped
+    menuItems:
+    - lieFeetToScanner
+    - lieHeadToScanner
+    - dismountTable
+    transition:
+      animationName: m35a@0-90_Transition
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1676033760}
+            m_TargetAssemblyTypeName: CoilContainerFlipper, Assembly-CSharp
+            m_MethodName: Unflip
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    options:
+      flipModel: 0
+      flipTransition: 1
+      updateParent: 0
+      updateRotation: 1
+      pivotDegrees: 0
+      updatePosition: 1
+      xPosition: 1.16
+      yPosition: 6.6
+      zPosition: -9.39
+      transitionOffsetY: -16.5
       immediateNextState: 
   - label: standingBesideTable
     menuItems:
@@ -38963,14 +39265,15 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 1
-      moveToParent: 0
       updateRotation: 1
       pivotDegrees: 90
       updatePosition: 1
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      transitionOffsetY: 0
       immediateNextState: 
   - label: walkingFromTable
     menuItems: []
@@ -38983,14 +39286,58 @@ MonoBehaviour:
           m_Calls: []
     options:
       flipModel: 0
+      flipTransition: 0
       updateParent: 0
-      moveToParent: 0
       updateRotation: 0
       pivotDegrees: 90
       updatePosition: 0
       xPosition: 0.975
       yPosition: 0
       zPosition: 1.876
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: kneeRaised
+    menuItems: []
+    transition:
+      animationName: m35a@0-KneeRaise
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: kneeLowered
+    menuItems:
+    - sitUpFlipped
+    transition:
+      animationName: m35a@KneeRaise-0
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
       immediateNextState: 
   initialState: 0
 --- !u!1 &1017098193
@@ -58626,7 +58973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0351d28d1ad5f34385d2124917cb68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataBanker: {fileID: 0}
+  dataBanker: {fileID: 1178165863}
 --- !u!1 &1682037787
 GameObject:
   m_ObjectHideFlags: 0
@@ -72482,20 +72829,20 @@ MonoBehaviour:
   errorGroupEntries:
   - key: Knee
     objects:
-    - {fileID: 361103814}
+    - {fileID: 1015465985}
+    - {fileID: 506267439}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
-    - {fileID: 506267439}
   - key: Head
     objects:
-    - {fileID: 361103814}
+    - {fileID: 1015465985}
+    - {fileID: 506267439}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
-    - {fileID: 506267439}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
   ContinueButton: {fileID: 1591670235}
@@ -74814,6 +75161,7 @@ Transform:
   m_Children:
   - {fileID: 1525072948}
   - {fileID: 885523105}
+  - {fileID: 90668064}
   m_Father: {fileID: 1676033758}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76368,6 +76716,7 @@ GameObject:
   - component: {fileID: 482681460}
   - component: {fileID: 482681453}
   - component: {fileID: 482681464}
+  - component: {fileID: 9059361558467529936}
   m_Layer: 0
   m_Name: Coil_TxRxKnee18_Base
   m_TagString: Coil
@@ -79848,7 +80197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: 1.06097
   maxX: -1.524
-  minY: 0.61
+  minY: 0.694
   maxY: 0.939
   speed: 0.1
   FixedDistance: -1.6
@@ -85867,6 +86216,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026202236011694742}
   m_Mesh: {fileID: -3168326441815038794, guid: 3530016d19528ea43bb2fb3d7bf713a3, type: 3}
+--- !u!114 &9059361558467529936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026202236011694742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3110b89a70407d4089d7a95222c28b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patient: {fileID: 1015465989}
+  startingStateLabel: kneeRaised
+  targetStateLabel: kneeLowered
 --- !u!1 &9067829890021851135
 GameObject:
   m_ObjectHideFlags: 0

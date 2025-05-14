@@ -9,6 +9,8 @@ public class CoilContainerFlipper : MonoBehaviour
     public DataBanker dataBanker;
     private bool coilsFlipped = false;
     private List<SnapPointRecord> snapPoints = new();
+    private bool defaultFlipped = false;
+    private bool examSet = false;
 
     void Start()
     {
@@ -27,6 +29,16 @@ public class CoilContainerFlipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!examSet)
+        {
+            string examType = dataBanker.GetExamType();
+            if (examType != null && examType == "Knee")
+            {
+                //defaultFlipped = true;
+                Flip();
+                examSet = true;
+            }
+        }
     }
 
     public bool HasAttachedCoil(GameObject snapPoint)

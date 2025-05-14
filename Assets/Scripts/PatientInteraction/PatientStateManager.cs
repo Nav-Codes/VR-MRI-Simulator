@@ -6,11 +6,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
 
-public class PatientStateManager : MonoBehaviour
+public class PatientStateManager : MonoBehaviour, CheckerInterface
 {
     public GameObject patient;
     public PatientMenu patientMenu;
     public PatientMover patientMover;
+    public DataBanker dataBanker;
     public List<PatientState> patientStates;
     public int initialState = 0;
 
@@ -41,12 +42,6 @@ public class PatientStateManager : MonoBehaviour
         ChangePatientState(patientStates[initialState]);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangePatientState(string newStateLabel)
     {
         PatientState newState = null;
@@ -75,14 +70,12 @@ public class PatientStateManager : MonoBehaviour
     private IEnumerator ChangePatientStateCoroutine(PatientState newState)
     {
         patientMenu.Disable();
-
         patientAnimator.enabled = false;
-
         currentState = null;
 
         newState.transition.additionalEvents?.Invoke();
 
-        if (!isFlipped && newState.options.flipModel)
+        if (newState.options.flipTransition || (!isFlipped && newState.options.flipModel))
         {
             patient.transform.localScale = new Vector3
                 (
@@ -93,8 +86,8 @@ public class PatientStateManager : MonoBehaviour
             isFlipped = true;
         }
 
-        if (!isFlipped || newState.options.flipModel)
-            UpdateTransform(newState);
+        if (newState.options.flipTransition || (!isFlipped || newState.options.flipModel))
+            UpdateTransform(newState, newState.options.flipTransition);
 
         if (newState.transition.movementLabel != null && newState.transition.movementLabel != "") 
         {
@@ -107,7 +100,7 @@ public class PatientStateManager : MonoBehaviour
             yield return StartCoroutine(PlayAnimation(newState.transition.animationName));
         }
 
-        if (isFlipped && !newState.options.flipModel)
+        if (newState.options.flipTransition || (isFlipped && !newState.options.flipModel))
         {
             patient.transform.localScale = new Vector3
                 (
@@ -138,7 +131,7 @@ public class PatientStateManager : MonoBehaviour
         
     }
 
-    private void UpdateTransform(PatientState newState)
+    private void UpdateTransform(PatientState newState, bool offsetPosition = false)
     {
         if (newState.options.updateParent)
         {
@@ -151,25 +144,29 @@ public class PatientStateManager : MonoBehaviour
                 patient.transform.SetParent(null);
             }
 
-
-            //if (newState.options.moveToParent)
-            //{
-            //    patient.transform.position = newState.transition.parent.transform.position;
-            //}
-
         }
         if (newState.options.updateRotation)
         {
-            //patient.transform.Rotate(0, newState.options.pivotDegrees, 0);
             patient.transform.rotation = Quaternion.Euler(0, newState.options.pivotDegrees, 0);
         }
         if (newState.options.updatePosition)
         {
-            patient.transform.localPosition = new Vector3(
-                newState.options.xPosition,
-                newState.options.yPosition,
-                newState.options.zPosition
-            );
+            if (offsetPosition)
+            {
+                patient.transform.localPosition = new Vector3(
+                    newState.options.xPosition,
+                    newState.options.yPosition + newState.options.transitionOffsetY,
+                    newState.options.zPosition
+                );
+            }
+            else
+            {
+                patient.transform.localPosition = new Vector3(
+                    newState.options.xPosition,
+                    newState.options.yPosition,
+                    newState.options.zPosition
+                );
+            }
         }
     }
 
@@ -212,6 +209,20 @@ public class PatientStateManager : MonoBehaviour
     {
         return currentState;
     }
+
+    public bool isCorrect()
+    {
+        if (dataBanker.GetExamType() == "Knee")
+            return currentState.label == "lyingFeetToScanner";
+        else if (dataBanker.GetExamType() == "Head")
+            return currentState.label == "lyingHeadToScanner";
+        return false;
+    }
+
+    public string getLabel()
+    {
+        return "Patient position";
+    }
 }
 
 [System.Serializable]
@@ -236,8 +247,8 @@ public class StateBeginTransition
 public class StateOptions
 {
     public bool flipModel = false;
+    public bool flipTransition = false;
     public bool updateParent = false;
-    public bool moveToParent = false;
     public bool updateRotation = false;
     public float pivotDegrees;
     public bool updatePosition = false;
@@ -247,5 +258,6 @@ public class StateOptions
     public float yPosition;
     [Tooltip("New local Z position")]
     public float zPosition;
+    public float transitionOffsetY;
     public string immediateNextState;
 }
