@@ -80054,7 +80054,7 @@ MonoBehaviour:
   dataBanker: {fileID: 1178165863}
   FirstErrorCheckHolder: {fileID: 236542779}
   ThirdErrorCheckHolder: {fileID: 1048992491}
-  currentXROrigin: {fileID: 7873184976370034911}
+  playerCamera: {fileID: 9014170785003416609}
 --- !u!114 &5268308436593864547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83474,7 +83474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7696548425910069598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.83, y: 0, z: 3.82}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85670,7 +85670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014170785003416609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36144, z: 0}
+  m_LocalPosition: {x: 7.039595, y: 1.36144, z: 3.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
