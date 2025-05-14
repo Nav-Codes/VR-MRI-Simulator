@@ -43,8 +43,9 @@ public class DoubleDoor : MonoBehaviour
     private bool FirstErrorCheckClosedForever = false;
     private bool ThirdErrorCheckClosed = false;
     private bool ThirdErrorCheckClosedForever = false;
-
     public GameObject playerCamera;
+    public UnityEvent blink;
+    public float blinkTime = 0.25f;
 
     private void Awake()
     {
@@ -137,6 +138,13 @@ public class DoubleDoor : MonoBehaviour
         }
     }
 
+    private IEnumerator BlinkThenTeleport()
+    {
+        blink.Invoke();
+        yield return new WaitForSeconds(blinkTime);
+        TeleportPlayer();
+    }
+
 
     private void TeleportPlayer()
     {
@@ -171,8 +179,10 @@ public class DoubleDoor : MonoBehaviour
             {
                 CopyThirdDisplay();
                 ThirdErrorCheckClosedForever = true;
-                TeleportPlayer();
-            }, () => { ThirdErrorCheckClosed = true; });
+                StartCoroutine(BlinkThenTeleport());
+
+            }, () => { });
+            ThirdErrorCheckClosed = true;
         }
         else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
         {
@@ -180,7 +190,8 @@ public class DoubleDoor : MonoBehaviour
             {
                 CopyFirstDisplay();
                 FirstErrorCheckClosedForever = true;
-            }, () => { FirstErrorCheckClosed = true; });
+            }, () => { });
+            FirstErrorCheckClosed = true;
         }
     }
 
