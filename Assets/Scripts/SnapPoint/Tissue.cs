@@ -35,7 +35,7 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         DirtyObjects.Remove(smudge);
     }
 
-    public void AddDirtyCoil(GameObject Coil)
+    public void AddDirtyObject(GameObject Coil)
     {
         DirtyObjects.Add(Coil);
     }

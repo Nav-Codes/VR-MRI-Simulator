@@ -29,7 +29,6 @@ public class StartScanManager : MonoBehaviour
     {
         scannerAudioSource.Play();
         AddDirtyCoils();
-        TissueObject.GetComponent<Tissue>().ApplySmudge();
     }
 
     private void AddDirtyCoils()
@@ -61,7 +60,7 @@ public class StartScanManager : MonoBehaviour
                 {
                     if (child.gameObject.name.ToLower().Contains("smudge"))
                     {
-                        TissueObject.GetComponent<Tissue>().AddDirtyCoil(coilObject);
+                        TissueObject.GetComponent<Tissue>().AddDirtyObject(coilObject);
                     }
                 }
             }
