@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.Events; 
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 
@@ -29,6 +29,11 @@ public class SnapGrabInteractable : XRGrabInteractable
     private bool isGrabbed = false;
     public bool needScaling = false; // Flag to indicate if scaling is needed
     public UnityEvent OnGrabbed = null; // Event to trigger when grabbed
+    public UnityEvent OnReleased = null; // Event to trigger when released
+    [Header("Release Settings")]
+    [Tooltip("Delay in seconds before triggering OnReleased event.")]
+    public float onReleasedDelay = 0f;
+
     private List<bool> colliderInitialStates = new List<bool>();
 
     protected override void Awake()
@@ -57,6 +62,8 @@ public class SnapGrabInteractable : XRGrabInteractable
         if (OnGrabbed != null) OnGrabbed.Invoke(); // Trigger the OnGrabbed event if assigned
         gameObject.layer = LayerMask.NameToLayer("Default");
         base.OnSelectEntered(args);
+
+        colliderInitialStates.Clear();
 
         Vector3 worldScale = transform.lossyScale;
 
@@ -88,16 +95,15 @@ public class SnapGrabInteractable : XRGrabInteractable
             col.enabled = false;
         }
     }
-
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        isGrabbed = false; // Disable LateUpdate when released
+        isGrabbed = false;
 
         if (rb != null)
         {
             rb.isKinematic = false;
-            rb.useGravity = true;             // Make it fall again
-            rb.constraints = originalConstraints; // Restore original constraints
+            rb.useGravity = true;
+            rb.constraints = originalConstraints;
             rb.WakeUp();
         }
 
@@ -105,10 +111,21 @@ public class SnapGrabInteractable : XRGrabInteractable
         {
             colliders[i].enabled = colliderInitialStates[i];
         }
+
         controllerTransform = null;
 
         base.OnSelectExited(args);
         transform.SetParent(null, true);
+
+        if (onReleasedDelay > 0f)
+            StartCoroutine(InvokeReleaseEventAfterDelay());
+        else if (OnReleased != null)
+            OnReleased.Invoke();
+    }
+    private System.Collections.IEnumerator InvokeReleaseEventAfterDelay()
+    {
+        yield return new WaitForSeconds(onReleasedDelay);
+        if (OnReleased != null) OnReleased.Invoke();
     }
 
     private void FixedUpdate()

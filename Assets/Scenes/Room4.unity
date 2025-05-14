@@ -6664,6 +6664,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &130825926
 GameObject:
   m_ObjectHideFlags: 0
@@ -12329,6 +12333,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &185803801
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,6 +13858,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1001 &259293511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16687,6 +16699,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!65 &413639789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22275,6 +22291,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &496563445
 GameObject:
   m_ObjectHideFlags: 0
@@ -23256,6 +23276,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &531288479
 GameObject:
   m_ObjectHideFlags: 0
@@ -23731,6 +23755,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &569569414
 GameObject:
   m_ObjectHideFlags: 0
@@ -24366,6 +24394,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &608717810
 GameObject:
   m_ObjectHideFlags: 0
@@ -24941,6 +24973,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &691033312
 GameObject:
   m_ObjectHideFlags: 0
@@ -26180,6 +26216,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &795377835
 GameObject:
   m_ObjectHideFlags: 0
@@ -26405,6 +26445,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!65 &795377842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26740,6 +26784,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &818522662
 GameObject:
   m_ObjectHideFlags: 0
@@ -32489,6 +32537,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!114 &849463700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38813,6 +38865,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &948305497
 GameObject:
   m_ObjectHideFlags: 0
@@ -39776,6 +39832,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1015465985
 GameObject:
   m_ObjectHideFlags: 0
@@ -40449,6 +40509,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1023372101
 GameObject:
   m_ObjectHideFlags: 0
@@ -42096,6 +42160,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1170448760
 GameObject:
   m_ObjectHideFlags: 0
@@ -43312,6 +43380,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1214328959
 GameObject:
   m_ObjectHideFlags: 0
@@ -43796,6 +43868,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!65 &1223365510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44284,6 +44360,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1244709056
 GameObject:
   m_ObjectHideFlags: 0
@@ -45953,6 +46033,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1343359138
 GameObject:
   m_ObjectHideFlags: 0
@@ -48304,6 +48388,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!54 &1474636246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -60987,6 +61075,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1718814668
 GameObject:
   m_ObjectHideFlags: 0
@@ -61823,6 +61915,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1812503177
 GameObject:
   m_ObjectHideFlags: 0
@@ -67793,6 +67889,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!54 &1914924574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -68423,6 +68523,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &1980847480
 GameObject:
   m_ObjectHideFlags: 0
@@ -75088,6 +75192,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1 &2057205961
 GameObject:
   m_ObjectHideFlags: 0
@@ -76244,7 +76352,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -76275,6 +76383,22 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6544086415586095427}
+        m_TargetAssemblyTypeName: ReturnToParent, Assembly-CSharp
+        m_MethodName: ReturnToParentObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedDelay: 0.7
 --- !u!1 &2132935864
 GameObject:
   m_ObjectHideFlags: 0
@@ -76501,6 +76625,10 @@ MonoBehaviour:
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!1001 &2146068824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80693,6 +80821,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedDelay: 0
 --- !u!114 &3469287836750787839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83621,6 +83753,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TissueObj: {fileID: 5108204734110678481}
+--- !u!114 &6544086415586095427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108204734110678481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0e87d85f64b29449f00233857d563a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6559532722383394880
 GameObject:
   m_ObjectHideFlags: 0
