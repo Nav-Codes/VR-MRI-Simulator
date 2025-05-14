@@ -12,15 +12,6 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         TissueObj.GetComponent<BoxCollider>().enabled = true;
     }
 
-    //Change this to check if the object has a smudge thing
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Coil"))
-        {
-            RevertSmudge(collision.gameObject);
-        }
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.ToLower().Contains("smudge"))
