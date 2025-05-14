@@ -40033,6 +40033,7 @@ MonoBehaviour:
   patient: {fileID: 1015465985}
   patientMenu: {fileID: 1015465988}
   patientMover: {fileID: 1015465987}
+  dataBanker: {fileID: 1178165863}
   patientStates:
   - label: initialStateInChair
     menuItems:
@@ -61023,7 +61024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0351d28d1ad5f34385d2124917cb68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataBanker: {fileID: 0}
+  dataBanker: {fileID: 1178165863}
 --- !u!1 &1682037787
 GameObject:
   m_ObjectHideFlags: 0
@@ -75013,20 +75014,20 @@ MonoBehaviour:
   errorGroupEntries:
   - key: Knee
     objects:
-    - {fileID: 361103814}
+    - {fileID: 1015465985}
+    - {fileID: 506267439}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
-    - {fileID: 506267439}
   - key: Head
     objects:
-    - {fileID: 361103814}
+    - {fileID: 1015465985}
+    - {fileID: 506267439}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
-    - {fileID: 506267439}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorPanel: {fileID: 863700265}
   ContinueButton: {fileID: 1591670235}

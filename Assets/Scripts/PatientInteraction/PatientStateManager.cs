@@ -6,11 +6,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
 
-public class PatientStateManager : MonoBehaviour
+public class PatientStateManager : MonoBehaviour, CheckerInterface
 {
     public GameObject patient;
     public PatientMenu patientMenu;
     public PatientMover patientMover;
+    public DataBanker dataBanker;
     public List<PatientState> patientStates;
     public int initialState = 0;
 
@@ -18,7 +19,6 @@ public class PatientStateManager : MonoBehaviour
     private Animator patientAnimator;
     private PatientState currentState;
     private bool isFlipped = false;
-    //private bool isInTransition = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +40,6 @@ public class PatientStateManager : MonoBehaviour
 
         // Set initial patient position
         ChangePatientState(patientStates[initialState]);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ChangePatientState(string newStateLabel)
@@ -214,6 +208,20 @@ public class PatientStateManager : MonoBehaviour
     public PatientState GetCurrentState()
     {
         return currentState;
+    }
+
+    public bool isCorrect()
+    {
+        if (dataBanker.GetExamType() == "Knee")
+            return currentState.label == "lyingFeetToScanner";
+        else if (dataBanker.GetExamType() == "Head")
+            return currentState.label == "lyingHeadToScanner";
+        return false;
+    }
+
+    public string getLabel()
+    {
+        return "Patient position";
     }
 }
 
