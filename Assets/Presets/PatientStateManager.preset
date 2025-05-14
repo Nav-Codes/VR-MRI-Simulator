@@ -37,6 +37,10 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: dataBanker
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.size
     value: 16
     objectReference: {fileID: 0}
@@ -446,15 +450,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].options.xPosition
-    value: -5.77
+    value: -5.837
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].options.yPosition
-    value: 0.15
+    value: 4.32
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].options.zPosition
-    value: -6.85
+    value: -7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].options.transitionOffsetY
@@ -562,7 +566,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].options.yPosition
-    value: -10
+    value: -3.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].options.zPosition
@@ -634,7 +638,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].options.yPosition
-    value: -10
+    value: -3.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].options.zPosition
@@ -846,7 +850,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.updateRotation
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.pivotDegrees
@@ -854,7 +858,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.updatePosition
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.xPosition
@@ -986,7 +990,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.yPosition
-    value: 6.6
+    value: 10.67
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.zPosition
@@ -1110,7 +1114,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.yPosition
-    value: 6.6
+    value: 10.67
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.zPosition
@@ -1118,7 +1122,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.transitionOffsetY
-    value: -16.5
+    value: -14.3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.immediateNextState
@@ -1178,7 +1182,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.xPosition
-    value: 0.975
+    value: 0.63
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.yPosition
@@ -1186,7 +1190,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.zPosition
-    value: 1.876
+    value: 1.82
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.transitionOffsetY
