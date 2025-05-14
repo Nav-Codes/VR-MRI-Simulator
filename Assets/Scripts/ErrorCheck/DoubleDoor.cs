@@ -14,12 +14,12 @@ public class DoubleDoor : MonoBehaviour
     public Collider outsideRoomCollider;
     public GameObject player;
     public GameObject patient;
-    
+
     [SerializeField] private Transform panel1ToCopy;  // Source panel to copy from
     [SerializeField] private Transform Final1stPanel; // Destination panel to copy to
     [SerializeField] private Transform panel3ToCopy;  // Source panel to copy from 
     [SerializeField] private Transform Final3rdPanel; // Destination panel to copy to
-    [SerializeField] private GameObject ErrorTextPrefab; 
+    [SerializeField] private GameObject ErrorTextPrefab;
 
 
     private enum EntryStage
@@ -43,8 +43,9 @@ public class DoubleDoor : MonoBehaviour
     private bool FirstErrorCheckClosedForever = false;
     private bool ThirdErrorCheckClosed = false;
     private bool ThirdErrorCheckClosedForever = false;
-    
-    public XROrigin currentXROrigin;
+    public GameObject playerCamera;
+    public UnityEvent blink;
+    public float blinkTime = 0.25f;
 
     private void Awake()
     {
@@ -53,18 +54,18 @@ public class DoubleDoor : MonoBehaviour
             Debug.LogWarning("Missing references in DoubleDoor script.");
         }
     }
-    
+
     private bool IsErrorText(GameObject obj)
     {
         // Check if this is the specific error text we want to ignore
         TMP_Text textComponent = obj.GetComponent<TMP_Text>();
         if (textComponent == null) return false;
-    
+
         return textComponent.text.Contains("Procedure Feedback") ||
                textComponent.text.Contains("Please fix your errors before continuing");
     }
-    
-    private GameObject AddText(string text, Transform Panel,Color color, bool isTitle = false)
+
+    private GameObject AddText(string text, Transform Panel, Color color, bool isTitle = false)
     {
         GameObject errorTextObj = Instantiate(ErrorTextPrefab, Panel);
         LayoutRebuilder.ForceRebuildLayoutImmediate(Panel.GetComponent<RectTransform>());
@@ -95,8 +96,8 @@ public class DoubleDoor : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        AddText("First Check Results",Final1stPanel, Color.black, true);
-        
+        AddText("First Check Results", Final1stPanel, Color.black, true);
+
         foreach (Transform child in panel1ToCopy)
         {
             // Copy all children from source to destination
@@ -122,8 +123,8 @@ public class DoubleDoor : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        
-        AddText("Third Check Results",Final3rdPanel, Color.black, true);
+
+        AddText("Third Check Results", Final3rdPanel, Color.black, true);
         foreach (Transform child in panel3ToCopy)
         {
             // Copy all children from source to destination
@@ -136,28 +137,40 @@ public class DoubleDoor : MonoBehaviour
             Debug.Log($"Copied children from {panel3ToCopy.name} to {Final3rdPanel.name}");
         }
     }
-    
-    
-    private void TeleportCurrentXRToOrigin()
+
+    private IEnumerator BlinkThenTeleport()
     {
-        if (currentXROrigin != null)
+        blink.Invoke();
+        yield return new WaitForSeconds(blinkTime);
+        TeleportPlayer();
+    }
+
+
+    private void TeleportPlayer()
+    {
+        if (playerCamera != null)
         {
-            // Teleport the XR Origin to a new position
-            currentXROrigin.transform.position = new Vector3(16.78f, 0f, -1.5f);
+            // Get the current Y value to preserve height
+            float currentY = playerCamera.transform.position.y;
+
+            // Set a new position using the existing Y
+            playerCamera.transform.position = new Vector3(12.61f, currentY, -0.57f);
         }
         else
         {
-            Debug.LogError("Current XROrigin not found for teleportation!");
+            Debug.LogError("Current player camera not found for teleportation!");
         }
     }
-    
-    
+
+
+
 
     private void Update()
     {
         UpdateStage(player);
         UpdateStage(patient);
-        if (playerIsInsideRoom && patientIsInsideRoom){
+        if (playerIsInsideRoom && patientIsInsideRoom)
+        {
             bothEnteredRoomOnce = true;
         }
         if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed && !ThirdErrorCheckClosedForever)
@@ -166,19 +179,23 @@ public class DoubleDoor : MonoBehaviour
             {
                 CopyThirdDisplay();
                 ThirdErrorCheckClosedForever = true;
-                TeleportCurrentXRToOrigin();
-            }, () => {ThirdErrorCheckClosed = true;});
-        } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
+                StartCoroutine(BlinkThenTeleport());
+
+            }, () => { });
+            ThirdErrorCheckClosed = true;
+        }
+        else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
         {
             FirstErrorCheckHolder.Check(() =>
             {
                 CopyFirstDisplay();
                 FirstErrorCheckClosedForever = true;
-            }, () => {FirstErrorCheckClosed = true;});
+            }, () => { });
+            FirstErrorCheckClosed = true;
         }
     }
-    
-    
+
+
 
     private void UpdateStage(GameObject obj)
     {
@@ -227,7 +244,8 @@ public class DoubleDoor : MonoBehaviour
         }
 
         // Final state check
-        if (obj == player) {
+        if (obj == player)
+        {
             playerIsInsideRoom = objectStages[obj] == EntryStage.Inside;
             if (playerIsInsideRoom)
             {

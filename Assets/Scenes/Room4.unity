@@ -43664,8 +43664,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256006647}
-  m_LocalRotation: {x: -0, y: 0.58821094, z: -0, w: 0.8087076}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 3.382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43674,7 +43674,7 @@ RectTransform:
   - {fileID: 363166181}
   m_Father: {fileID: 1960995965}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 72.06, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 10, y: 1.53}
@@ -80054,7 +80054,23 @@ MonoBehaviour:
   dataBanker: {fileID: 1178165863}
   FirstErrorCheckHolder: {fileID: 236542779}
   ThirdErrorCheckHolder: {fileID: 1048992491}
-  currentXROrigin: {fileID: 7873184976370034911}
+  playerCamera: {fileID: 9014170785003416609}
+  blink:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1887312186}
+        m_TargetAssemblyTypeName: VRBlink, Assembly-CSharp
+        m_MethodName: Blink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  blinkTime: 0.25
 --- !u!114 &5268308436593864547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83474,7 +83490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7696548425910069598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.83, y: 0, z: 3.82}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85670,7 +85686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014170785003416609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36144, z: 0}
+  m_LocalPosition: {x: 7.039595, y: 1.36144, z: 3.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
