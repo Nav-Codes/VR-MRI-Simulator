@@ -23,7 +23,7 @@ public class Tissue : MonoBehaviour, ReturnedInterface
     public void RevertSmudge(GameObject smudge)
     {
         smudge.SetActive(false);
-        DirtyObjects.Remove(smudge);
+        DirtyObjects.Remove(smudge.transform.parent.gameObject);
     }
 
     public void AddDirtyObject(GameObject Coil)
@@ -35,6 +35,7 @@ public class Tissue : MonoBehaviour, ReturnedInterface
     {
         foreach (GameObject obj in DirtyObjects)
         {
+            Debug.Log("DIRTY OBJECT: [" + obj + "]");
             foreach (Transform smudge in obj.transform)
             {
                 if (smudge.gameObject.name.ToLower().Contains("smudge"))
@@ -53,6 +54,6 @@ public class Tissue : MonoBehaviour, ReturnedInterface
 
     public string getReturnedLabel()
     {
-        return "Coil Cleaning";
+        return "Equipment Cleaning";
     }
 }
