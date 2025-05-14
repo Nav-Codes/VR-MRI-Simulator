@@ -24,7 +24,7 @@ public abstract class BaseCheck : MonoBehaviour
     public void ClickContinue()
     {
         ContinueClickAction?.Invoke();
-        DisablePanel();
+        // DisablePanel();
     }
 
     public void ClickGoBack()
