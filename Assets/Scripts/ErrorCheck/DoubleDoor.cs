@@ -143,8 +143,7 @@ public class DoubleDoor : MonoBehaviour
         if (currentXROrigin != null)
         {
             // Teleport the XR Origin to a new position
-            currentXROrigin.transform.position = new Vector3(3.5f, 1.33f, -4.5f);
-            Debug.Log("XR Rig teleported to (5, 0, 0)");
+            currentXROrigin.transform.position = new Vector3(16.78f, 0f, -1.5f);
         }
         else
         {
