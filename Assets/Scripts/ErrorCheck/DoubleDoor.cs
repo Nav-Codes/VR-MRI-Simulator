@@ -1,6 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+using System.Collections;
+using UnityEngine.UI;
+using System;
+using UnityEngine.XR.Management;
+using Unity.XR.CoreUtils;
 
 public class DoubleDoor : MonoBehaviour
 {
@@ -8,6 +14,13 @@ public class DoubleDoor : MonoBehaviour
     public Collider outsideRoomCollider;
     public GameObject player;
     public GameObject patient;
+    
+    [SerializeField] private Transform panel1ToCopy;  // Source panel to copy from
+    [SerializeField] private Transform Final1stPanel; // Destination panel to copy to
+    [SerializeField] private Transform panel3ToCopy;  // Source panel to copy from 
+    [SerializeField] private Transform Final3rdPanel; // Destination panel to copy to
+    [SerializeField] private GameObject ErrorTextPrefab; 
+
 
     private enum EntryStage
     {
@@ -30,6 +43,8 @@ public class DoubleDoor : MonoBehaviour
     private bool FirstErrorCheckClosedForever = false;
     private bool ThirdErrorCheckClosed = false;
     private bool ThirdErrorCheckClosedForever = false;
+    
+    public XROrigin currentXROrigin;
 
     private void Awake()
     {
@@ -38,6 +53,106 @@ public class DoubleDoor : MonoBehaviour
             Debug.LogWarning("Missing references in DoubleDoor script.");
         }
     }
+    
+    private bool IsErrorText(GameObject obj)
+    {
+        // Check if this is the specific error text we want to ignore
+        TMP_Text textComponent = obj.GetComponent<TMP_Text>();
+        if (textComponent == null) return false;
+    
+        return textComponent.text.Contains("Procedure Feedback") ||
+               textComponent.text.Contains("Please fix your errors before continuing");
+    }
+    
+    private GameObject AddText(string text, Transform Panel,Color color, bool isTitle = false)
+    {
+        GameObject errorTextObj = Instantiate(ErrorTextPrefab, Panel);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(Panel.GetComponent<RectTransform>());
+
+        TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
+        if (errorText == null)
+        {
+            throw new Exception("ErrorTextPrefab missing TMP_Text component");
+        }
+
+        errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
+        errorText.color = color;
+
+        return errorTextObj;
+    }
+
+    private void CopyFirstDisplay()
+    {
+        if (panel1ToCopy == null || Final1stPanel == null)
+        {
+            Debug.LogError("First panel references are missing!");
+            return;
+        }
+
+        // Clear existing children in destination
+        foreach (Transform child in Final1stPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        AddText("First Check Results",Final1stPanel, Color.black, true);
+        
+        foreach (Transform child in panel1ToCopy)
+        {
+            // Copy all children from source to destination
+            if (!IsErrorText(child.gameObject))
+            {
+                GameObject newChild = Instantiate(child.gameObject, Final1stPanel);
+            }
+
+            Debug.Log($"Copied children from {panel1ToCopy.name} to {Final1stPanel.name}");
+        }
+    }
+
+    private void CopyThirdDisplay()
+    {
+        if (panel3ToCopy == null || Final3rdPanel == null)
+        {
+            Debug.LogError("Third panel references are missing!");
+            return;
+        }
+
+        // Clear existing children in destination
+        foreach (Transform child in Final3rdPanel)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        AddText("Third Check Results",Final3rdPanel, Color.black, true);
+        foreach (Transform child in panel3ToCopy)
+        {
+            // Copy all children from source to destination
+            if (!IsErrorText(child.gameObject))
+            {
+                GameObject newChild = Instantiate(child.gameObject, Final3rdPanel);
+                newChild.name = child.name; // Preserve original name
+            }
+
+            Debug.Log($"Copied children from {panel3ToCopy.name} to {Final3rdPanel.name}");
+        }
+    }
+    
+    
+    private void TeleportCurrentXRToOrigin()
+    {
+        if (currentXROrigin != null)
+        {
+            // Teleport the XR Origin to a new position
+            currentXROrigin.transform.position = new Vector3(3.5f, 1.33f, -4.5f);
+            Debug.Log("XR Rig teleported to (5, 0, 0)");
+        }
+        else
+        {
+            Debug.LogError("Current XROrigin not found for teleportation!");
+        }
+    }
+    
+    
 
     private void Update()
     {
@@ -48,12 +163,23 @@ public class DoubleDoor : MonoBehaviour
         }
         if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed && !ThirdErrorCheckClosedForever)
         {
-            ThirdErrorCheckHolder.Check(() => {ThirdErrorCheckClosedForever = true;}, () => {ThirdErrorCheckClosed = true;});
+            ThirdErrorCheckHolder.Check(() =>
+            {
+                CopyThirdDisplay();
+                ThirdErrorCheckClosedForever = true;
+                TeleportCurrentXRToOrigin();
+            }, () => {ThirdErrorCheckClosed = true;});
         } else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
         {
-            FirstErrorCheckHolder.Check(() => {FirstErrorCheckClosedForever = true;}, () => {FirstErrorCheckClosed = true;});
+            FirstErrorCheckHolder.Check(() =>
+            {
+                CopyFirstDisplay();
+                FirstErrorCheckClosedForever = true;
+            }, () => {FirstErrorCheckClosed = true;});
         }
     }
+    
+    
 
     private void UpdateStage(GameObject obj)
     {

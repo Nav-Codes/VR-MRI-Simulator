@@ -18,6 +18,8 @@ public class ReturnedCheck : MonoBehaviour
     public GameObject GoBackButton;       // Button to allow user to check their mistakes before moving on
     private UnityEngine.Events.UnityAction GoBackClickAction;      // Unity delegate for go back
     public DataBanker dataBanker;
+    
+    
 
     public bool Check(UnityEngine.Events.UnityAction ContinueClick, UnityEngine.Events.UnityAction GoBackClick)
     {
