@@ -21,24 +21,19 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         }
     }
 
-    public void RevertSmudge(GameObject Coil)
+    void OnTriggerEnter(Collider other)
     {
-        foreach (Transform child in Coil.transform)
+        if (other.gameObject.name.ToLower().Contains("smudge"))
         {
-            if (child.gameObject.name.ToLower().Contains("smudge"))
-            {
-                child.gameObject.SetActive(false);
-                DirtyObjects.Remove(Coil);
-            }
+            RevertSmudge(other.gameObject);
         }
     }
 
-    //could move the apply smudge here since we will have access to all the object that will be dirty 
-    //will need the tissue obj in the start scan manager 
-    //coils need to by dynamically added to the list
-    //could also add them to dirty coils list after the zone 3 screen is pressed (look at what is attached to the bed and add it)
-        //need to ensure the list only contains unique items
-    //maybe add a box collider to the smudge object itself and when tissue collides with game object with name smudge, disable it
+    public void RevertSmudge(GameObject smudge)
+    {
+        smudge.SetActive(false);
+        DirtyObjects.Remove(smudge);
+    }
 
     public void AddDirtyCoil(GameObject Coil)
     {
