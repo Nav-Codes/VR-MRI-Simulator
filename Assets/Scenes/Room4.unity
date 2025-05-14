@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 4435642}
   - component: {fileID: 4435641}
   - component: {fileID: 4435643}
+  - component: {fileID: 4435644}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -5006,6 +5007,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.26, z: 0.13}
   m_Center: {x: -0.07245372, y: 2.7673114e-16, z: -0.0027196445}
+--- !u!114 &4435644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &11895061 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 534377961241331988, guid: 1bb5b0bbb6b7919458a16997235a11da, type: 3}
@@ -12079,6 +12092,7 @@ GameObject:
   - component: {fileID: 155881868}
   - component: {fileID: 155881867}
   - component: {fileID: 155881869}
+  - component: {fileID: 155881870}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -16952,6 +16966,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2773406969609325531, guid: 3530016d19528ea43bb2fb3d7bf713a3, type: 3}
+--- !u!114 &155881870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155881865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &163443481
 GameObject:
   m_ObjectHideFlags: 0
@@ -20639,7 +20665,8 @@ GameObject:
   - component: {fileID: 366365264}
   - component: {fileID: 366365266}
   - component: {fileID: 366365265}
-  - component: {fileID: 366365267}
+  - component: {fileID: 366365268}
+  - component: {fileID: 366365269}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -25499,8 +25526,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!64 &366365267
-MeshCollider:
+--- !u!114 &366365268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366365263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &366365269
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -25509,10 +25548,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3155116464966309572, guid: 0aa1bea015b6edf43827906d2945eabf, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &372915464
 GameObject:
   m_ObjectHideFlags: 0
@@ -26459,6 +26497,7 @@ GameObject:
   - component: {fileID: 432039984}
   - component: {fileID: 432039983}
   - component: {fileID: 432039985}
+  - component: {fileID: 432039986}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -31331,6 +31370,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3964093, y: 0.1293084, z: 0.5699607}
   m_Center: {x: -0.000000007450581, y: 1.2621775e-29, z: 0}
+--- !u!114 &432039986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432039981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433685053
 GameObject:
   m_ObjectHideFlags: 0
@@ -31343,6 +31394,7 @@ GameObject:
   - component: {fileID: 433685056}
   - component: {fileID: 433685055}
   - component: {fileID: 433685057}
+  - component: {fileID: 433685058}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -36216,6 +36268,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6783394614101840514, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
+--- !u!114 &433685058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433685053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &436026579
 GameObject:
   m_ObjectHideFlags: 0
@@ -48286,6 +48350,7 @@ GameObject:
   - component: {fileID: 932380193}
   - component: {fileID: 932380192}
   - component: {fileID: 932380194}
+  - component: {fileID: 932380195}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -53159,6 +53224,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6967326408704965514, guid: b88bea9e45f805247b2c7a24672cfad1, type: 3}
+--- !u!114 &932380195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932380190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935896478
 GameObject:
   m_ObjectHideFlags: 0
@@ -86397,6 +86474,7 @@ GameObject:
   - component: {fileID: 1854151931}
   - component: {fileID: 1854151930}
   - component: {fileID: 1854151932}
+  - component: {fileID: 1854151933}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -91270,6 +91348,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3168326441815038794, guid: 3530016d19528ea43bb2fb3d7bf713a3, type: 3}
+--- !u!114 &1854151933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854151928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1875824552
 GameObject:
   m_ObjectHideFlags: 0
@@ -98374,6 +98464,7 @@ GameObject:
   - component: {fileID: 2011192125}
   - component: {fileID: 2011192127}
   - component: {fileID: 2011192126}
+  - component: {fileID: 2011192128}
   m_Layer: 0
   m_Name: Smudge
   m_TagString: Untagged
@@ -103233,6 +103324,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &2011192128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011192124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f662900b10ae4097ff01453fe72d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024644710
 GameObject:
   m_ObjectHideFlags: 0
