@@ -5,13 +5,14 @@ using UnityEngine;
 public class Tissue : MonoBehaviour, ReturnedInterface
 {
     public GameObject TissueObj;
-    private List<GameObject> dirtyCoils = new List<GameObject>();
+    public List<GameObject> DirtyObjects = new List<GameObject>();
 
     void Update()
     {
         TissueObj.GetComponent<BoxCollider>().enabled = true;
     }
 
+    //Change this to check if the object has a smudge thing
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Coil"))
@@ -27,19 +28,41 @@ public class Tissue : MonoBehaviour, ReturnedInterface
             if (child.gameObject.name.ToLower().Contains("smudge"))
             {
                 child.gameObject.SetActive(false);
-                dirtyCoils.Remove(Coil);
+                DirtyObjects.Remove(Coil);
             }
         }
     }
 
+    //could move the apply smudge here since we will have access to all the object that will be dirty 
+    //will need the tissue obj in the start scan manager 
+    //coils need to by dynamically added to the list
+    //could also add them to dirty coils list after the zone 3 screen is pressed (look at what is attached to the bed and add it)
+        //need to ensure the list only contains unique items
+    //maybe add a box collider to the smudge object itself and when tissue collides with game object with name smudge, disable it
+
     public void AddDirtyCoil(GameObject Coil)
     {
-        dirtyCoils.Add(Coil);
+        DirtyObjects.Add(Coil);
     }
 
+    public void ApplySmudge()
+    {
+        foreach (GameObject obj in DirtyObjects)
+        {
+            foreach (Transform smudge in obj.transform)
+            {
+                if (smudge.gameObject.name.ToLower().Contains("smudge"))
+                {
+                    smudge.gameObject.SetActive(true);
+                }
+            }
+        }
+    }
+
+    //make this check if all the smudge game objects are disabled
     public bool isReturned()
     {
-        return dirtyCoils.Count == 0;
+        return DirtyObjects.Count == 0;
     }
 
     public string getReturnedLabel()

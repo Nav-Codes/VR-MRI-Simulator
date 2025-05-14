@@ -28,19 +28,11 @@ public class StartScanManager : MonoBehaviour
     public void OnContinueClick()
     {
         scannerAudioSource.Play();
-        StartCoroutine(WaitForAudioToEnd());
+        AddDirtyCoils();
+        TissueObject.GetComponent<Tissue>().ApplySmudge();
     }
 
-    private IEnumerator WaitForAudioToEnd()
-    {
-        while (scannerAudioSource.isPlaying)
-        {
-            yield return new WaitForSeconds(1f); // Wait 1 second between checks
-        }
-        ApplySmudge();
-    }
-
-    private void ApplySmudge()
+    private void AddDirtyCoils()
     {
         //iterate thru each of the coils
         foreach (Transform Coil in Coils.transform)
@@ -69,7 +61,6 @@ public class StartScanManager : MonoBehaviour
                 {
                     if (child.gameObject.name.ToLower().Contains("smudge"))
                     {
-                        child.gameObject.SetActive(true);
                         TissueObject.GetComponent<Tissue>().AddDirtyCoil(coilObject);
                     }
                 }
