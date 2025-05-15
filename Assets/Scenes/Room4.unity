@@ -40743,6 +40743,7 @@ GameObject:
   - component: {fileID: 795377843}
   - component: {fileID: 795377844}
   - component: {fileID: 795377845}
+  - component: {fileID: 795377846}
   m_Layer: 0
   m_Name: BedSheet
   m_TagString: Untagged
@@ -40955,7 +40956,19 @@ MonoBehaviour:
         m_CallState: 1
   OnReleased:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 795377846}
+        m_TargetAssemblyTypeName: BedSmudger, Assembly-CSharp
+        m_MethodName: SmudgeBed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onReleasedDelay: 0
 --- !u!65 &795377842
 BoxCollider:
@@ -41016,6 +41029,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OpenBedSheet: {fileID: 1023372101}
   LaundryHamper: {fileID: 1156573846}
+--- !u!114 &795377846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795377835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6629be349932546bddaa7d977345e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TissueObject: {fileID: 5108204734110678481}
+  PatientBed: {fileID: 486751749397188668}
 --- !u!1 &807275459
 GameObject:
   m_ObjectHideFlags: 0
@@ -55064,7 +55091,7 @@ MonoBehaviour:
           m_Calls:
           - m_Target: {fileID: 6544086415586095423}
             m_TargetAssemblyTypeName: Tissue, Assembly-CSharp
-            m_MethodName: ApplySmudge
+            m_MethodName: ApplySmudgeAll
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}

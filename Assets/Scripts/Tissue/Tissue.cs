@@ -31,7 +31,22 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         DirtyObjects.Add(Coil);
     }
 
-    public void ApplySmudge()
+    public void ApplySmudge(GameObject customObj)
+    {
+        if (!DirtyObjects.Contains(customObj))
+        {
+            DirtyObjects.Add(customObj);
+        }
+        foreach (Transform smudge in customObj.transform)
+        {
+            if (smudge.gameObject.name.ToLower().Contains("smudge"))
+            {
+                smudge.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void ApplySmudgeAll()
     {
         foreach (GameObject obj in DirtyObjects)
         {
