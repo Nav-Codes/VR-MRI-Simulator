@@ -110781,6 +110781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 468228857}
   rightDoor: {fileID: 1089771857}
+  Zone3Door: {fileID: 1000911240276089428}
 --- !u!4 &5282580677870738695
 Transform:
   m_ObjectHideFlags: 0
