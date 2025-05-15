@@ -35,7 +35,6 @@ public class Tissue : MonoBehaviour, ReturnedInterface
     {
         foreach (GameObject obj in DirtyObjects)
         {
-            Debug.Log("DIRTY OBJECT: [" + obj + "]");
             foreach (Transform smudge in obj.transform)
             {
                 if (smudge.gameObject.name.ToLower().Contains("smudge"))
