@@ -5,45 +5,55 @@ using UnityEngine;
 public class Tissue : MonoBehaviour, ReturnedInterface
 {
     public GameObject TissueObj;
-    private List<GameObject> dirtyCoils = new List<GameObject>();
+    public List<GameObject> DirtyObjects = new List<GameObject>();
 
     void Update()
     {
         TissueObj.GetComponent<BoxCollider>().enabled = true;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Coil"))
+        if (other.gameObject.name.ToLower().Contains("smudge"))
         {
-            RevertSmudge(collision.gameObject);
+            RevertSmudge(other.gameObject);
         }
     }
 
-    public void RevertSmudge(GameObject Coil)
+    public void RevertSmudge(GameObject smudge)
     {
-        foreach (Transform child in Coil.transform)
+        smudge.SetActive(false);
+        DirtyObjects.Remove(smudge.transform.parent.gameObject);
+    }
+
+    public void AddDirtyObject(GameObject Coil)
+    {
+        DirtyObjects.Add(Coil);
+    }
+
+    public void ApplySmudge()
+    {
+        foreach (GameObject obj in DirtyObjects)
         {
-            if (child.gameObject.name.ToLower().Contains("smudge"))
+            Debug.Log("DIRTY OBJECT: [" + obj + "]");
+            foreach (Transform smudge in obj.transform)
             {
-                child.gameObject.SetActive(false);
-                dirtyCoils.Remove(Coil);
+                if (smudge.gameObject.name.ToLower().Contains("smudge"))
+                {
+                    smudge.gameObject.SetActive(true);
+                }
             }
         }
     }
 
-    public void AddDirtyCoil(GameObject Coil)
-    {
-        dirtyCoils.Add(Coil);
-    }
-
+    //make this check if all the smudge game objects are disabled
     public bool isReturned()
     {
-        return dirtyCoils.Count == 0;
+        return DirtyObjects.Count == 0;
     }
 
     public string getReturnedLabel()
     {
-        return "Coil Cleaning";
+        return "Equipment Cleaning";
     }
 }
