@@ -32333,7 +32333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857952716}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -0.79, y: 0.98, z: 0.09}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
@@ -32341,7 +32341,7 @@ Transform:
   - {fileID: 214022438}
   m_Father: {fileID: 1731381401834505320}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 90}
 --- !u!23 &857952718
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66019,7 +66019,7 @@ Transform:
   - {fileID: 1326715948}
   - {fileID: 1448561751}
   m_Father: {fileID: 6628768609262482806}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1914924573
 MonoBehaviour:
@@ -75347,7 +75347,7 @@ GameObject:
   - component: {fileID: 5443238865057036776}
   - component: {fileID: 5443238865057036778}
   m_Layer: 0
-  m_Name: BedPlatform
+  m_Name: SlidingTray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80539,8 +80539,8 @@ MonoBehaviour:
   maxX: -1.524
   minY: 0.694
   maxY: 0.939
-  speed: 0.1
-  FixedDistance: -1.6
+  tableController: {fileID: 782628381}
+  FixedDistance: -1.5
 --- !u!65 &5443238865057036778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81478,7 +81478,7 @@ GameObject:
   - component: {fileID: 6290459220451491347}
   - component: {fileID: 6290459220451491350}
   m_Layer: 0
-  m_Name: Bed01
+  m_Name: UpDownBed(Bed01)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82034,8 +82034,8 @@ Transform:
   - {fileID: 8470882802319027297}
   - {fileID: 8819782046899131358}
   - {fileID: 795377836}
-  - {fileID: 1807185994}
   - {fileID: 1914924572}
+  - {fileID: 1807185994}
   - {fileID: 543450651580572704}
   m_Father: {fileID: 1371660595}
   m_RootOrder: 0
