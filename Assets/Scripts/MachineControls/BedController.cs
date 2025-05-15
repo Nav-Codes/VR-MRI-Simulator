@@ -15,7 +15,7 @@ public class BedController : MonoBehaviour
     public TrayController trayController;
     // Manages Cart movement
     public CartMovementController cartMovementController;
-    
+
     /// <summary>
     // Moves the bed upwards
     // If the tray is not at the max height, it moves the tray and table up
@@ -25,12 +25,12 @@ public class BedController : MonoBehaviour
     public void MoveUp()
     {
         // for moving up, if the table/tray is not at max height, move both tray and table up
-        if (!trayController.IsAtMaxY())
+        if (!tableController.IsAtMax())
         {
-            trayController.MoveUp();
             tableController.MoveUp();
         }
-        else if (!cartMovementController.isDocked()) {
+        else if (!cartMovementController.isDocked())
+        {
             // if the tray is at max height and the cart is not docked, do nothing
         }
         else // if the tray is at max height, move the tray into mri
@@ -47,10 +47,9 @@ public class BedController : MonoBehaviour
     public void MoveDown()
     {
         //if the tray is outside the mri, move tray and table down
-        if (trayController.IsAtMinX())
+        if (trayController.IsAtMin())
         {
             tableController.MoveDown();
-            trayController.MoveDown();
         }
         else
         { // if the tray is inside the mri, move both tray out
@@ -75,16 +74,33 @@ public class BedController : MonoBehaviour
     /// - Moves the tray to max height.
     /// - Moves the tray halfway into the MRI.
     /// </summary>
-    public void MoveFixedDistance() // Approximately half way into the MRI
+    public void MoveFixedDistance()
+    {
+        if (tableController.IsAtMax())
+        {
+            trayController.MoveToFixedDistance();
+        }
+        else
+        {
+            StartCoroutine(MoveFixedDistanceSequence());
+        }
+    }
+    private IEnumerator MoveFixedDistanceSequence()
     {
         tableController.MoveToMax();
-        trayController.MoveToMax();
+
+        while (!tableController.IsAtMax())
+        {
+            yield return null;
+        }
+
         trayController.MoveToFixedDistance();
     }
+
 
     // Check if the tray is outside the MRI
     public bool IsAtMinX() // x is the horizontal axis into the MRI
     {
-        return trayController.IsAtMinX();
+        return trayController.IsAtMin();
     }
 }
