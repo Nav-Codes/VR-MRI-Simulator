@@ -103426,6 +103426,7 @@ MonoBehaviour:
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
+    - {fileID: 5268308436593864543}
   - key: Head
     objects:
     - {fileID: 1015465985}
@@ -103434,6 +103435,7 @@ MonoBehaviour:
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
     - {fileID: 849463693}
+    - {fileID: 5268308436593864543}
   ErrorTextPrefab: {fileID: 4798566840284684701, guid: 7289d3810368849f88a17cc5fa48c80d, type: 3}
   ErrorTextContainer: {fileID: 7873618}
   ErrorPanel: {fileID: 333087181}
