@@ -213,7 +213,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
     public bool isCorrect()
     {
         if (dataBanker.GetExamType() == "Knee")
-            return currentState.label == "lyingFeetToScanner";
+            return currentState.label == "kneeLowered";
         else if (dataBanker.GetExamType() == "Head")
             return currentState.label == "lyingHeadToScanner";
         return false;
