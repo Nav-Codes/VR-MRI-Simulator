@@ -31,7 +31,6 @@ public class StartScanManager : MonoBehaviour
     public void OnContinueClick()
     {
         scannerAudioSource.Play();
-        AddDirtyCoils();
         MovePanel(panel2, finalPanel2, "Second Check Results");
     }
     private void MovePanel(Transform sourcePanel, Transform targetParent, string newTitle)
@@ -96,35 +95,5 @@ public class StartScanManager : MonoBehaviour
         tmp.color = color;
 
         return obj;
-    }
-
-    private void AddDirtyCoils()
-    {
-        foreach (Transform coil in Coils.transform)
-        {
-            foreach (Transform snapPoint in coil)
-            {
-                GameObject coilObject = null;
-
-                foreach (Transform inner in snapPoint)
-                {
-                    if (inner.CompareTag("Coil"))
-                    {
-                        coilObject = inner.gameObject;
-                        break;
-                    }
-                }
-
-                if (coilObject == null) continue;
-
-                foreach (Transform child in coilObject.transform)
-                {
-                    if (child.name.ToLower().Contains("smudge"))
-                    {
-                        TissueObject.GetComponent<Tissue>().AddDirtyObject(coilObject);
-                    }
-                }
-            }
-        }
     }
 }
