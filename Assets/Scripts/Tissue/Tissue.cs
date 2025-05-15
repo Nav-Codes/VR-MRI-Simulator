@@ -23,12 +23,12 @@ public class Tissue : MonoBehaviour, ReturnedInterface
     public void RevertSmudge(GameObject smudge)
     {
         smudge.SetActive(false);
-        DirtyObjects.Remove(smudge.transform.parent.gameObject);
+        // DirtyObjects.Remove(smudge.transform.parent.gameObject);
     }
 
-    public void AddDirtyObject(GameObject Coil)
+    public void AddDirtyObject(GameObject obj)
     {
-        DirtyObjects.Add(Coil);
+        if (!DirtyObjects.Contains(obj)) DirtyObjects.Add(obj);
     }
 
     public void ApplySmudge(GameObject customObj)
@@ -60,10 +60,20 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         }
     }
 
-    //make this check if all the smudge game objects are disabled
+    //check if all smudge disabled instead of checking if it is removed from the list
     public bool isReturned()
     {
-        return DirtyObjects.Count == 0;
+        foreach (GameObject obj in DirtyObjects)
+        {
+            foreach (Transform smudge in obj.transform)
+            {
+                if (smudge.gameObject.name.ToLower().Contains("smudge"))
+                {
+                    if (smudge.gameObject.activeSelf) return false;
+                }
+            }
+        }
+        return true;
     }
 
     public string getReturnedLabel()
