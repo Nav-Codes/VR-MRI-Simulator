@@ -8,6 +8,7 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface
 {
     [SerializeField] private Animator leftDoor = null;
     [SerializeField] private Animator rightDoor = null;
+    public GameObject Zone3Door;
     private bool isOpen = false;
 
     public void OpenDoor()
@@ -39,11 +40,11 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface
 
     public string getLabel()
     {
-        return "Door closed";
+        return "Zones 3 & 4 doors closed";
     }
 
     public bool isCorrect()
     {
-        return !isOpen;
+        return !isOpen && Zone3Door.GetComponent<Zone3Door>().isCorrect();
     }
 }
