@@ -41657,7 +41657,7 @@ GameObject:
   - component: {fileID: 822617040}
   - component: {fileID: 822617042}
   - component: {fileID: 822617041}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SnapPointHeadphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46853,7 +46853,7 @@ MonoBehaviour:
   smoothSpeed: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 9
 --- !u!1 &843297840
 GameObject:
   m_ObjectHideFlags: 0
@@ -46923,7 +46923,7 @@ GameObject:
   - component: {fileID: 849463699}
   - component: {fileID: 849463700}
   - component: {fileID: 849463701}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Headphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67514,7 +67514,7 @@ MonoBehaviour:
   smoothSpeed: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 9
 --- !u!1001 &1448561750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74491,7 +74491,7 @@ GameObject:
   - component: {fileID: 1609770409}
   - component: {fileID: 1609770408}
   - component: {fileID: 1609770407}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HeadTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92052,7 +92052,7 @@ GameObject:
   - component: {fileID: 1889641230}
   - component: {fileID: 1889641232}
   - component: {fileID: 1889641231}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SnapPointEarplugs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105020,7 +105020,7 @@ GameObject:
   - component: {fileID: 2089735461}
   - component: {fileID: 2089735463}
   - component: {fileID: 2089735462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SnapPointCallBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107404,7 +107404,7 @@ GameObject:
   - component: {fileID: 3469287836750787838}
   - component: {fileID: 3469287836750787839}
   - component: {fileID: 3469287836750787840}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CallBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110420,7 +110420,7 @@ MonoBehaviour:
   smoothSpeed: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 9
 --- !u!1 &3471343860472204780
 GameObject:
   m_ObjectHideFlags: 0
@@ -118171,7 +118171,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147484449
+    m_Bits: 2147486497
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
@@ -118506,7 +118506,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147484449
+    m_Bits: 2147486497
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
