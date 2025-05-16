@@ -80378,7 +80378,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d007a7ee4650d0e4192c89d1535d1978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coils: []
+  coils:
+  - {fileID: 539778746889471838}
+  - {fileID: 2302372847003268223}
+  - {fileID: 6491834512100802592}
+  - {fileID: 1566306940592892832}
+  - {fileID: 2026202236011694742}
+  - {fileID: 413639780}
+  - {fileID: 2256052220271925356}
+  - {fileID: 1223365502}
+  - {fileID: 6559532722383394880}
+  - {fileID: 4280241081968006816}
   dataBanker: {fileID: 1178165863}
   shelfParent: {fileID: 1371660597}
 --- !u!114 &1676033760
