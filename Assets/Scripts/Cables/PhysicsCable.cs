@@ -25,6 +25,7 @@ public class PhysicsCable : MonoBehaviour
 
     private List<Transform> segmentTransforms = new List<Transform>();
     private LineRenderer lineRenderer;
+    private Transform cableParent;
 
     void Start()
     {
@@ -36,6 +37,18 @@ public class PhysicsCable : MonoBehaviour
             return;
         }
 
+        // Create or find the "Cable" parent GameObject under this object
+        GameObject cableParentGO = transform.Find("Cable")?.gameObject;
+        if (cableParentGO == null)
+        {
+            cableParentGO = new GameObject("Cable");
+            cableParentGO.transform.SetParent(transform);
+            cableParentGO.transform.localPosition = Vector3.zero;
+            cableParentGO.transform.localRotation = Quaternion.identity;
+            cableParentGO.transform.localScale = Vector3.one;
+        }
+        cableParent = cableParentGO.transform;
+
         lineRenderer.positionCount = numSegments + 2;
 
         for (int i = 0; i < numSegments; i++)
@@ -44,19 +57,20 @@ public class PhysicsCable : MonoBehaviour
 
             if (cableSegmentPrefab != null)
             {
-                segmentObj = Instantiate(cableSegmentPrefab, transform);
+                segmentObj = Instantiate(cableSegmentPrefab, cableParent);
                 var rb = segmentObj.GetComponent<Rigidbody>();
                 if (rb != null) rb.isKinematic = true;
             }
             else
             {
                 segmentObj = new GameObject("CableSegment_" + i);
-                segmentObj.transform.parent = transform;
+                segmentObj.transform.SetParent(cableParent);
             }
 
             segmentTransforms.Add(segmentObj.transform);
         }
     }
+
 
     void Update()
     {
