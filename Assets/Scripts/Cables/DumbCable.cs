@@ -4,7 +4,7 @@ using UnityEngine;
 /// The cable dynamically updates its shape each frame, applying a sagging effect 
 /// based on a sine function. The number of segments determines the smoothness of the curve.
 /// </summary>
-public class CableConnection : MonoBehaviour
+public class DumbCable : MonoBehaviour
 {
     public Transform grabObject;
     public Transform largeObject;

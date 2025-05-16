@@ -5344,7 +5344,7 @@ GameObject:
   - component: {fileID: 54879882}
   - component: {fileID: 54879881}
   - component: {fileID: 54879880}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BaseGhost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -5578,7 +5578,7 @@ GameObject:
   - component: {fileID: 68738210}
   - component: {fileID: 68738209}
   - component: {fileID: 68738208}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BaseGhost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -10845,7 +10845,7 @@ GameObject:
   - component: {fileID: 90668064}
   - component: {fileID: 90668066}
   - component: {fileID: 90668065}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KneeUpStateTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17458,7 +17458,7 @@ GameObject:
   - component: {fileID: 186751745}
   - component: {fileID: 186751744}
   - component: {fileID: 186751746}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LefttHandArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19653,7 +19653,7 @@ GameObject:
   - component: {fileID: 325845124}
   - component: {fileID: 325845126}
   - component: {fileID: 325845125}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TopGhost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -25372,7 +25372,7 @@ GameObject:
   - component: {fileID: 372915468}
   - component: {fileID: 372915467}
   - component: {fileID: 372915469}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RightHandArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46552,22 +46552,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c70cca7ae4e2d5a48b3eaeb661abb386, type: 3}
   m_PrefabInstance: {fileID: 148349062}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &843267137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843267127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c4eecaec5942bf46be289c538b7b79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabObject: {fileID: 1996717478}
-  largeObject: {fileID: 1538801235}
-  numSegments: 10
-  sagAmount: 0.15
 --- !u!120 &843267138
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -46667,6 +46651,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &843267141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843267127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cff4e5092461648a0d791eda42a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabObject: {fileID: 1996717478}
+  largeObject: {fileID: 1538801235}
+  numSegments: 30
+  sagAmount: 0.15
+  cableSegmentPrefab: {fileID: 0}
+  raycastOffset: 0.5
+  segmentHeightOffset: 0.01
+  smoothSpeed: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 265
 --- !u!1 &843297840
 GameObject:
   m_ObjectHideFlags: 0
@@ -47956,22 +47963,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0050305272
   m_Center: {x: -0.0000695159, y: 0.00031770451, z: -0.00034024724}
---- !u!114 &900684988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148846453219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c4eecaec5942bf46be289c538b7b79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabObject: {fileID: 733981491}
-  largeObject: {fileID: 198723767}
-  numSegments: 10
-  sagAmount: 0.15
 --- !u!114 &913488525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66935,22 +66926,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df39838c88438b14f994578bd029313a, type: 3}
   m_PrefabInstance: {fileID: 1431395947}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1431395950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431395949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c4eecaec5942bf46be289c538b7b79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabObject: {fileID: 891281324}
-  largeObject: {fileID: 1538801235}
-  numSegments: 10
-  sagAmount: 0.15
 --- !u!120 &1431395951
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -67050,6 +67025,29 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1431395954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431395949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cff4e5092461648a0d791eda42a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabObject: {fileID: 891281324}
+  largeObject: {fileID: 1538801235}
+  numSegments: 30
+  sagAmount: 0.15
+  cableSegmentPrefab: {fileID: 0}
+  raycastOffset: 0.5
+  segmentHeightOffset: 0.01
+  smoothSpeed: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 265
 --- !u!1001 &1448561750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97591,7 +97589,7 @@ GameObject:
   - component: {fileID: 1991114803}
   - component: {fileID: 1991114802}
   - component: {fileID: 1991114804}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TopGhost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -106642,10 +106640,10 @@ GameObject:
   - component: {fileID: 900684983}
   - component: {fileID: 900684986}
   - component: {fileID: 900684987}
-  - component: {fileID: 900684988}
   - component: {fileID: 3469287836750787837}
   - component: {fileID: 3469287836750787838}
   - component: {fileID: 3469287836750787839}
+  - component: {fileID: 3469287836750787840}
   m_Layer: 0
   m_Name: CallBell
   m_TagString: Untagged
@@ -109640,6 +109638,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ea335930fe9424a9393b4664e40a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3469287836750787840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148846453219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cff4e5092461648a0d791eda42a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabObject: {fileID: 733981491}
+  largeObject: {fileID: 198723767}
+  numSegments: 30
+  sagAmount: 0.15
+  cableSegmentPrefab: {fileID: 0}
+  raycastOffset: 0.5
+  segmentHeightOffset: 0.01
+  smoothSpeed: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 265
 --- !u!1 &3471343860472204780
 GameObject:
   m_ObjectHideFlags: 0
@@ -111186,7 +111207,7 @@ GameObject:
   - component: {fileID: 3214957081075664518}
   - component: {fileID: 8134802322098359938}
   - component: {fileID: 6870920066803820817}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
