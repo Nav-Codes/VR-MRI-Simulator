@@ -11658,7 +11658,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -17317,7 +17316,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -18842,7 +18840,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -26107,7 +26104,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -36762,7 +36758,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -37624,7 +37619,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -38034,7 +38028,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -38750,7 +38743,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -39545,7 +39537,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -40777,7 +40768,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -40828,14 +40818,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795377835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.973, y: 0.09, z: 0.186}
+  m_LocalPosition: {x: -1.9729998, y: 0.08999996, z: 0.18600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 691033313}
   - {fileID: 1023372102}
   m_Father: {fileID: 6628768609262482806}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &795377839
 Rigidbody:
@@ -40851,7 +40841,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &795377841
 MonoBehaviour:
@@ -41007,7 +40997,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -41384,7 +41373,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -46981,7 +46969,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -53109,7 +53096,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -54342,6 +54328,89 @@ Transform:
   m_Father: {fileID: 2132935865}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1003155005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003155006}
+  - component: {fileID: 1003155008}
+  - component: {fileID: 1003155007}
+  m_Layer: 0
+  m_Name: Frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1003155006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003155005}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0.19999999}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 952652324039525526}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1003155007
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003155005}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -817613205732023585, guid: 87940ae39553f2f4b8b6c25f4b7abfa9, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1003155008
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003155005}
+  m_Mesh: {fileID: -6360558719573625917, guid: 886919025a19cab4e8672edd0a49a081, type: 3}
 --- !u!54 &1009343340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -54512,7 +54581,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -55351,7 +55419,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -57091,7 +57158,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -58219,7 +58285,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -58707,7 +58772,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -59199,7 +59263,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -65538,7 +65601,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -67538,7 +67600,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -80049,7 +80110,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -85570,7 +85630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 821ed2baca201224c94b5ea91697e54f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 821ed2baca201224c94b5ea91697e54f, type: 3}
       propertyPath: m_LocalScale.x
@@ -85819,7 +85879,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -96374,7 +96433,7 @@ Transform:
   - {fileID: 1326715948}
   - {fileID: 1448561751}
   m_Father: {fileID: 6628768609262482806}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1914924573
 MonoBehaviour:
@@ -96530,7 +96589,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -97041,7 +97099,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -103897,7 +103954,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -104886,7 +104942,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -105128,7 +105183,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 0
   OnGrabbed:
     m_PersistentCalls:
       m_Calls: []
@@ -106556,13 +106610,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464803771632049708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 0, z: -1.959}
+  m_LocalPosition: {x: 4.18, y: 0, z: -2.124}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1418250857838252876}
+  - {fileID: 1003155006}
   - {fileID: 8635310440806605140}
-  - {fileID: 2734833971879281750}
   - {fileID: 6557360301331583862}
   m_Father: {fileID: 3377795654388870660}
   m_RootOrder: 15
@@ -108108,21 +108162,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!4 &2734833971879281750
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801357725598304532}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.9, z: 0.19999999}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 952652324039525526}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2745476680665517338
 GameObject:
   m_ObjectHideFlags: 0
@@ -109467,7 +109506,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   positionOffset: 0.5
   grabRadius: 1.25
-  needScaling: 1
   OnGrabbed:
     m_PersistentCalls:
       m_Calls:
@@ -109761,48 +109799,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &3942333189856572195
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801357725598304532}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -817613205732023585, guid: 87940ae39553f2f4b8b6c25f4b7abfa9, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &4038542469467413034
 Transform:
   m_ObjectHideFlags: 0
@@ -112719,9 +112715,9 @@ Transform:
   - {fileID: 969556999247015131}
   - {fileID: 8470882802319027297}
   - {fileID: 8819782046899131358}
-  - {fileID: 795377836}
   - {fileID: 1914924572}
   - {fileID: 1807185994}
+  - {fileID: 795377836}
   - {fileID: 543450651580572704}
   m_Father: {fileID: 1371660595}
   m_RootOrder: 0
@@ -115215,14 +115211,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5428797333054229466}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &8171345423873772155
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801357725598304532}
-  m_Mesh: {fileID: -6360558719573625917, guid: 886919025a19cab4e8672edd0a49a081, type: 3}
 --- !u!33 &8191873199932889728
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -115712,7 +115700,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 952652324039525526}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8635310440806605141
 BoxCollider:

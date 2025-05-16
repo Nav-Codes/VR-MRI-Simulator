@@ -27,7 +27,6 @@ public class SnapGrabInteractable : XRGrabInteractable
     private bool freezeRotationX, freezeRotationY, freezeRotationZ;
     private Quaternion initialRotationOffset; // Stores the rotation offset when grabbed
     private bool isGrabbed = false;
-    public bool needScaling = false; // Flag to indicate if scaling is needed
     public UnityEvent OnGrabbed = null; // Event to trigger when grabbed
     public UnityEvent OnReleased = null; // Event to trigger when released
     [Header("Release Settings")]
