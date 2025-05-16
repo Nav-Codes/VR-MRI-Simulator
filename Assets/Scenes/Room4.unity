@@ -36174,8 +36174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: 0, y: 1, z: 0}
-  - {x: 0, y: 1, z: 1.0399584}
+  - {x: 0.22228026, y: 1, z: 0}
+  - {x: 0.22228026, y: 1, z: 1.0399584}
   - {x: 3.6257718, y: 1, z: 1.4524897}
   - {x: 4.9455957, y: 1, z: 2.000688}
   - {x: 6.470514, y: 1, z: 2.6340737}
@@ -55327,7 +55327,7 @@ MonoBehaviour:
       updateRotation: 1
       pivotDegrees: 90
       updatePosition: 1
-      xPosition: 0.63
+      xPosition: 0.82
       yPosition: 0
       zPosition: 1.82
       transitionOffsetY: 0
