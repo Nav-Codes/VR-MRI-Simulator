@@ -10,13 +10,10 @@ public class ShowSpeechButtonZone: MonoBehaviour
     public XRRayInteractor rightRayInteractor;
 
     public GameObject speechButton; 
-    public float rayAngleThreshold = 0.7f;
+    public float rayAngleThreshold = 30f;
     public float buttonDropHeight = 0.2f;
     public float animationDuration = 0.5f;
 
-    //public PatientMenu patientMenu;
-
-    private bool isTriggered = false;
     private bool isAnimating = false;
     private bool isShowing = false;
     private Vector3 shownPosition;
@@ -50,11 +47,27 @@ public class ShowSpeechButtonZone: MonoBehaviour
 
     bool CheckRayAboveView(XRRayInteractor ray)
     {
-        if (!ray) return false;
+        // Camera's current view direction
+        Vector3 cameraForward = cameraTransform.forward;
 
-        Vector3 rayDirection = ray.transform.forward;
-        float dot = Vector3.Dot(rayDirection.normalized, Vector3.up);
-        return dot > rayAngleThreshold; // Adjust threshold (1.0 = directly up)
+        // Ray's direction
+        Vector3 rayDirection;
+        if (ray.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+        {
+            rayDirection = (hit.point - ray.transform.position).normalized;
+        }
+        else
+        {
+            // Fallback: use ray interactor's forward
+            rayDirection = ray.transform.forward;
+        }
+
+        // Compare vertical (pitch) angle difference between camera and ray
+        float verticalAngleDifference = Vector3.SignedAngle(rayDirection, cameraForward, cameraTransform.right);
+
+
+        // Return true if ray is angled upward relative to camera by threshold
+        return verticalAngleDifference > rayAngleThreshold;
     }
 
     void ShowButton()
