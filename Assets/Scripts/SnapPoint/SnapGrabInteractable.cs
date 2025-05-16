@@ -34,7 +34,7 @@ public class SnapGrabInteractable : XRGrabInteractable
     public float onReleasedDelay = 0f;
 
     private List<bool> colliderInitialStates = new List<bool>();
-
+    private int originalLayer;
     protected override void Awake()
     {
         base.Awake();
@@ -44,6 +44,7 @@ public class SnapGrabInteractable : XRGrabInteractable
         attachEaseInTime = 0f;
         trackPosition = false;
         trackRotation = false;
+        originalLayer = gameObject.layer;
     }
 
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
@@ -116,10 +117,14 @@ public class SnapGrabInteractable : XRGrabInteractable
         base.OnSelectExited(args);
         transform.SetParent(null, true);
 
-        if (onReleasedDelay > 0f)
+        if (onReleasedDelay > 0f) {
             StartCoroutine(InvokeReleaseEventAfterDelay());
-        else if (OnReleased != null)
+            gameObject.layer = originalLayer;
+        }
+        else if (OnReleased != null) {
             OnReleased.Invoke();
+            gameObject.layer = originalLayer;
+        }
     }
     private System.Collections.IEnumerator InvokeReleaseEventAfterDelay()
     {

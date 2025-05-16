@@ -46923,7 +46923,7 @@ GameObject:
   - component: {fileID: 849463699}
   - component: {fileID: 849463700}
   - component: {fileID: 849463701}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Headphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107404,7 +107404,7 @@ GameObject:
   - component: {fileID: 3469287836750787838}
   - component: {fileID: 3469287836750787839}
   - component: {fileID: 3469287836750787840}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CallBell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118171,7 +118171,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147484449
+    m_Bits: 2147486497
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
@@ -118506,7 +118506,7 @@ MonoBehaviour:
   m_ConeCastAngle: 3
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147484449
+    m_Bits: 2147486497
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
