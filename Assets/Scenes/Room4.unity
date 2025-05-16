@@ -40800,9 +40800,9 @@ GameObject:
   - component: {fileID: 795377841}
   - component: {fileID: 795377842}
   - component: {fileID: 795377843}
-  - component: {fileID: 795377844}
   - component: {fileID: 795377845}
   - component: {fileID: 795377846}
+  - component: {fileID: 795377847}
   m_Layer: 0
   m_Name: BedSheet
   m_TagString: Untagged
@@ -40841,7 +40841,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &795377841
 MonoBehaviour:
@@ -41039,8 +41039,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35341835, y: 0.077744, z: 0.26264027}
-  m_Center: {x: 0.011508435, y: -0.030434955, z: -0.012669778}
+  m_Size: {x: 0.32974958, y: 0.060530663, z: 0.24915391}
+  m_Center: {x: 0.010432452, y: -0.030434959, z: -0.01315135}
 --- !u!114 &795377843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41056,23 +41056,10 @@ MonoBehaviour:
   startingObject: {fileID: 691033312}
   startingCollider: {fileID: 795377842}
   alternateObject: {fileID: 1023372101}
-  alternateCollider: {fileID: 795377844}
+  alternateCollider: {fileID: 795377847}
   targetObject: {fileID: 1300841440}
   switchFromStarting: 0
   switchFromAlternate: 1
---- !u!65 &795377844
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795377835}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 2.1527188, y: 0, z: 0.70287627}
-  m_Center: {x: -0.0030030012, y: 0.0051916847, z: -0.053242236}
 --- !u!114 &795377845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41101,6 +41088,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TissueObject: {fileID: 5108204734110678481}
   PatientBed: {fileID: 486751749397188668}
+--- !u!65 &795377847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795377835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6045327, y: 2.146381, z: 0.0016945984}
+  m_Center: {x: -0.0004956722, y: 0.00071430206, z: 0.06722143}
 --- !u!1 &807275459
 GameObject:
   m_ObjectHideFlags: 0
@@ -55451,14 +55451,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023372101}
-  m_LocalRotation: {x: -0.00000008146034, y: -0.00000034173462, z: 2.7776585e-14, w: 1}
-  m_LocalPosition: {x: -0.007, y: -0.064, z: 0}
-  m_LocalScale: {x: 0.215, y: 0.10000003, z: 0.041}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.07}
+  m_LocalScale: {x: 0.215, y: 0.1, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 795377836}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 90}
 --- !u!23 &1023372104
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65055,14 +65055,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300841440}
-  m_LocalRotation: {x: 0.50000024, y: 0.4999998, z: 0.4999998, w: 0.50000024}
-  m_LocalPosition: {x: 0, y: 0, z: 1.6299994}
-  m_LocalScale: {x: 2, y: 1, z: 0.70000005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 745183609091768203}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1300841443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65074,8 +65074,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000002, y: 3.2507503, z: 10.000006}
-  m_Center: {x: 4.4409065e-15, y: 0.9327854, z: -0.0000004257473}
+  m_Size: {x: 7.086384, y: 24.656387, z: 1.8267031}
+  m_Center: {x: -0.09552544, y: -0.04019977, z: 2.0064638}
 --- !u!114 &1300841444
 MonoBehaviour:
   m_ObjectHideFlags: 0
