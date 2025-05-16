@@ -46889,8 +46889,8 @@ MonoBehaviour:
   - {x: -0.063583255, y: 1, z: -1.8154695}
   - {x: -1.5351148, y: 1, z: -2.3484025}
   - {x: -3.1417017, y: 1, z: -2.9302475}
-  - {x: -5.798557, y: 1, z: -4.287858}
-  - {x: -7.018059, y: 1, z: -4.2878575}
+  - {x: -5.600076, y: 1, z: -4.2580967}
+  - {x: -6.819578, y: 1, z: -4.2848563}
   modes: 000000000100000000000000
 --- !u!4 &843297842
 Transform:
@@ -55104,8 +55104,8 @@ MonoBehaviour:
       updateRotation: 1
       pivotDegrees: 90
       updatePosition: 1
-      xPosition: -5.837
-      yPosition: 4.32
+      xPosition: -5.83
+      yPosition: 2.62
       zPosition: -7
       transitionOffsetY: 0
       immediateNextState: 
@@ -55139,7 +55139,7 @@ MonoBehaviour:
       pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.2
-      yPosition: -3.5
+      yPosition: -5.5
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: lyingFeetToScanner
@@ -55162,7 +55162,7 @@ MonoBehaviour:
       pivotDegrees: 180
       updatePosition: 1
       xPosition: -1.3
-      yPosition: -3.5
+      yPosition: -5.5
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
