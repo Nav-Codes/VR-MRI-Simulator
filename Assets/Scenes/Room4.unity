@@ -55196,7 +55196,7 @@ MonoBehaviour:
       pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.16
-      yPosition: 10.67
+      yPosition: 8.88
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: lyingHeadToScanner
@@ -55231,7 +55231,7 @@ MonoBehaviour:
       pivotDegrees: 0
       updatePosition: 0
       xPosition: 1.16
-      yPosition: 10.67
+      yPosition: 8.88
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
@@ -55268,7 +55268,7 @@ MonoBehaviour:
       pivotDegrees: 0
       updatePosition: 1
       xPosition: 1.16
-      yPosition: 10.67
+      yPosition: 8.89
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
