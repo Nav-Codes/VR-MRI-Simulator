@@ -62,7 +62,7 @@ public class DoubleDoor : MonoBehaviour
         {
             ThirdErrorCheckHolder.Check(() =>
             {
-                MovePanel(panel3, finalPanel3, "Third Check Results");
+                MovePanel(panel3, finalPanel3, "Room Teardown/Patient Dismissal Results");
                 thirdCheckComplete = true;
                 StartCoroutine(BlinkThenTeleport());
             }, () => { });
@@ -71,7 +71,7 @@ public class DoubleDoor : MonoBehaviour
         {
             FirstErrorCheckHolder.Check(() =>
             {
-                MovePanel(panel1, finalPanel1, "First Check Results");
+                MovePanel(panel1, finalPanel1, "Room Prep Results");
                 firstCheckComplete = true;
             }, () => { });
         }

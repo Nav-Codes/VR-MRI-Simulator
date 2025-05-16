@@ -31,7 +31,7 @@ public class StartScanManager : MonoBehaviour
     public void OnContinueClick()
     {
         scannerAudioSource.Play();
-        MovePanel(panel2, finalPanel2, "Second Check Results");
+        MovePanel(panel2, finalPanel2, "Patient Prep Results");
     }
     private void MovePanel(Transform sourcePanel, Transform targetParent, string newTitle)
     {
