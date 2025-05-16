@@ -55983,7 +55983,7 @@ MonoBehaviour:
   - key: Knee
     objects:
     - {fileID: 795377835}
-    - {fileID: 2903825831536572339}
+    - {fileID: 1807185995}
     - {fileID: 1676033757}
     - {fileID: 919132148846453219}
     - {fileID: 1914924571}
@@ -86451,6 +86451,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onReleasedDelay: 0
+--- !u!114 &1807186004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807185995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da787871e6625d49bb668b84f132276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shelfParent: {fileID: 1371660597}
 --- !u!1 &1810937773
 GameObject:
   m_ObjectHideFlags: 0
