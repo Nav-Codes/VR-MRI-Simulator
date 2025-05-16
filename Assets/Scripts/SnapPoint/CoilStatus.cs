@@ -21,12 +21,12 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
         {
             if (dataBanker.GetExamType().Contains(examType.name))
             {
-                int numParts = examType.transform.childCount;
+                int numParts = GetNumParts(examType);
                 int checkNumParts = 0;
 
                 foreach (Transform childCoil in examType.transform)
                 {
-                    foreach(Transform realCoil in childCoil.gameObject.transform)
+                    foreach (Transform realCoil in childCoil.gameObject.transform)
                     {
                         if (realCoil.gameObject.CompareTag("Coil"))
                         {
@@ -35,13 +35,24 @@ public class CoilStatus : MonoBehaviour, CheckerInterface, ReturnedInterface
                     }
                 }
 
-                if (checkNumParts == numParts) return true; 
+                if (checkNumParts == numParts) return true;
             }
         }
         return false;
     }
 
-    public bool isReturned() {
+    private int GetNumParts(GameObject exam)
+    {
+        int numParts = 0;
+        foreach (Transform child in exam.transform)
+        {
+            if (child.gameObject.name.ToLower().Contains("snappoint")) numParts++;
+        }
+        return numParts;
+    }
+
+    public bool isReturned()
+    {
         foreach (GameObject coil in coils)
         {
             if (coil == null) continue; // Skip if the coil is null

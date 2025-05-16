@@ -5,45 +5,79 @@ using UnityEngine;
 public class Tissue : MonoBehaviour, ReturnedInterface
 {
     public GameObject TissueObj;
-    private List<GameObject> dirtyCoils = new List<GameObject>();
+    public List<GameObject> DirtyObjects = new List<GameObject>();
 
     void Update()
     {
         TissueObj.GetComponent<BoxCollider>().enabled = true;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Coil"))
+        if (other.gameObject.name.ToLower().Contains("smudge"))
         {
-            RevertSmudge(collision.gameObject);
+            RevertSmudge(other.gameObject);
         }
     }
 
-    public void RevertSmudge(GameObject Coil)
+    public void RevertSmudge(GameObject smudge)
     {
-        foreach (Transform child in Coil.transform)
+        smudge.SetActive(false);
+        // DirtyObjects.Remove(smudge.transform.parent.gameObject);
+    }
+
+    public void AddDirtyObject(GameObject obj)
+    {
+        if (!DirtyObjects.Contains(obj)) DirtyObjects.Add(obj);
+    }
+
+    public void ApplySmudge(GameObject customObj)
+    {
+        if (!DirtyObjects.Contains(customObj))
         {
-            if (child.gameObject.name.ToLower().Contains("smudge"))
+            DirtyObjects.Add(customObj);
+        }
+        foreach (Transform smudge in customObj.transform)
+        {
+            if (smudge.gameObject.name.ToLower().Contains("smudge"))
             {
-                child.gameObject.SetActive(false);
-                dirtyCoils.Remove(Coil);
+                smudge.gameObject.SetActive(true);
             }
         }
     }
 
-    public void AddDirtyCoil(GameObject Coil)
+    public void ApplySmudgeAll()
     {
-        dirtyCoils.Add(Coil);
+        foreach (GameObject obj in DirtyObjects)
+        {
+            foreach (Transform smudge in obj.transform)
+            {
+                if (smudge.gameObject.name.ToLower().Contains("smudge"))
+                {
+                    smudge.gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
+    //check if all smudge disabled instead of checking if it is removed from the list
     public bool isReturned()
     {
-        return dirtyCoils.Count == 0;
+        foreach (GameObject obj in DirtyObjects)
+        {
+            foreach (Transform smudge in obj.transform)
+            {
+                if (smudge.gameObject.name.ToLower().Contains("smudge"))
+                {
+                    if (smudge.gameObject.activeSelf) return false;
+                }
+            }
+        }
+        return true;
     }
 
     public string getReturnedLabel()
     {
-        return "Coil Cleaning";
+        return "Equipment Cleaning";
     }
 }

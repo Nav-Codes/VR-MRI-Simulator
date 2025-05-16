@@ -1,10 +1,7 @@
-using UnityEngine;
-using TMPro; // Required for TextMeshPro UI
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class StartScanManager : MonoBehaviour
 {
@@ -12,48 +9,20 @@ public class StartScanManager : MonoBehaviour
     public ErrorCheck ErrorChecker;
     public GameObject Coils;
     public GameObject TissueObject;
-    
-    [SerializeField] private Transform panel2ToCopy;  // Source panel to copy from 
-    [SerializeField] private Transform Final2ndPanel; // Destination panel to copy to
-    [SerializeField] private GameObject ErrorTextPrefab; 
-    
-    
-    private bool IsErrorText(GameObject obj)
-    {
-        // Check if this is the specific error text we want to ignore
-        TMP_Text textComponent = obj.GetComponent<TMP_Text>();
-        if (textComponent == null) return false;
-    
-        return textComponent.text.Contains("Procedure Feedback") ||
-               textComponent.text.Contains("Please fix your errors before continuing");
-    }
-    
-    private GameObject AddText(string text, Transform Panel,Color color, bool isTitle = false)
-    {
-        GameObject errorTextObj = Instantiate(ErrorTextPrefab, Panel);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(Panel.GetComponent<RectTransform>());
 
-        TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
-        if (errorText == null)
-        {
-            throw new Exception("ErrorTextPrefab missing TMP_Text component");
-        }
-
-        errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
-        errorText.color = color;
-
-        return errorTextObj;
-    }
+    [Header("UI Panels")]
+    [SerializeField] private Transform panel2;
+    [SerializeField] private Transform finalPanel2;
+    [SerializeField] private GameObject ErrorTextPrefab;
 
     private void Start()
     {
-        // Ensure scanner sound is stopped initially
         if (scannerAudioSource != null)
         {
-            //scannerAudioSource.loop = true;
             scannerAudioSource.Stop();
         }
     }
+
     public void StartScan()
     {
         ErrorChecker.Check(OnContinueClick, () => { });
@@ -62,82 +31,69 @@ public class StartScanManager : MonoBehaviour
     public void OnContinueClick()
     {
         scannerAudioSource.Play();
-        StartCoroutine(WaitForAudioToEnd());
-
-        CopySecondDisplay();
+        MovePanel(panel2, finalPanel2, "Patient Prep Results");
     }
-    
-    private void CopySecondDisplay()
+    private void MovePanel(Transform sourcePanel, Transform targetParent, string newTitle)
     {
-        if (panel2ToCopy == null || Final2ndPanel == null)
+        if (!sourcePanel || !targetParent)
         {
-            Debug.LogError("First panel references are missing!");
+            Debug.LogError("Missing panel references during move.");
             return;
         }
 
-        // Clear existing children in destination
-        foreach (Transform child in Final2ndPanel)
-        {
+        // Clear any previous children in the target parent
+        foreach (Transform child in targetParent)
             Destroy(child.gameObject);
+
+        // Re-parent the entire source panel to the new parent
+        sourcePanel.SetParent(targetParent, false);
+        sourcePanel.localPosition = Vector3.zero;
+        sourcePanel.localRotation = Quaternion.identity;
+        sourcePanel.localScale = Vector3.one;
+
+        // Make sure there's at least one child (content panel)
+        if (sourcePanel.childCount == 0)
+        {
+            Debug.LogWarning("Source panel has no content.");
+            return;
         }
 
-        AddText("Second Check Results",Final2ndPanel, Color.black, true);
-        
-        foreach (Transform child in panel2ToCopy)
-        {
-            // Copy all children from source to destination
-            if (!IsErrorText(child.gameObject))
-            {
-                GameObject newChild = Instantiate(child.gameObject, Final2ndPanel);
-            }
+        Transform contentPanel = sourcePanel.GetChild(0);
 
-            Debug.Log($"Copied children from {panel2ToCopy.name} to {Final2ndPanel.name}");
+        // Replace first entry (title)
+        if (contentPanel.childCount > 0)
+        {
+            Destroy(contentPanel.GetChild(0).gameObject);
+            GameObject newTitleText = AddText(newTitle, contentPanel, Color.black, true);
+            newTitleText.transform.SetSiblingIndex(0);
+        }
+
+        // Remove second entry (description)
+        if (contentPanel.childCount > 1)
+        {
+            Destroy(contentPanel.GetChild(1).gameObject);
+        }
+
+        // Deactivate the last child of the source panel (assumed to be the button row)
+        if (sourcePanel.childCount > 1)
+        {
+            Transform buttonRow = sourcePanel.GetChild(sourcePanel.childCount - 1);
+            buttonRow.gameObject.SetActive(false);
         }
     }
 
-    private IEnumerator WaitForAudioToEnd()
+    private GameObject AddText(string text, Transform parent, Color color, bool isTitle = false)
     {
-        while (scannerAudioSource.isPlaying)
-        {
-            yield return new WaitForSeconds(1f); // Wait 1 second between checks
-        }
-        ApplySmudge();
-    }
+        if (!ErrorTextPrefab) throw new MissingReferenceException("Missing ErrorTextPrefab");
 
-    private void ApplySmudge()
-    {
-        //iterate thru each of the coils
-        foreach (Transform Coil in Coils.transform)
-        {
-            //iterate thru all the snap points on the coils 
-            foreach (Transform SnapPoint in Coil.gameObject.transform)
-            {
-                //try getting a child gameObject from the snap point game object
-                GameObject coilObject = null;
+        GameObject obj = Instantiate(ErrorTextPrefab, parent);
+        TMP_Text tmp = obj.GetComponent<TMP_Text>();
 
-                foreach (Transform realCoil in SnapPoint.gameObject.transform)
-                {
-                    try
-                    {
-                        if (realCoil.gameObject.CompareTag("Coil"))
-                        {
-                            coilObject = realCoil.gameObject;
-                        }
-                    }
-                    catch (UnityException) { continue; }
-                }
+        if (!tmp) throw new MissingComponentException("ErrorTextPrefab missing TMP_Text");
 
-                if (coilObject == null) continue;
+        tmp.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
+        tmp.color = color;
 
-                foreach (Transform child in coilObject.transform)
-                {
-                    if (child.gameObject.name.ToLower().Contains("smudge"))
-                    {
-                        child.gameObject.SetActive(true);
-                        TissueObject.GetComponent<Tissue>().AddDirtyCoil(coilObject);
-                    }
-                }
-            }
-        }
+        return obj;
     }
 }

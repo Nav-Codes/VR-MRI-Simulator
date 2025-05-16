@@ -1,201 +1,83 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using System.Collections;
 using UnityEngine.UI;
-using System;
-using UnityEngine.XR.Management;
-using Unity.XR.CoreUtils;
 
 public class DoubleDoor : MonoBehaviour
 {
+    [Header("Colliders")]
     public Collider insideRoomCollider;
     public Collider outsideRoomCollider;
+
+    [Header("References")]
     public GameObject player;
     public GameObject patient;
-
-    [SerializeField] private Transform panel1ToCopy;  // Source panel to copy from
-    [SerializeField] private Transform Final1stPanel; // Destination panel to copy to
-    [SerializeField] private Transform panel3ToCopy;  // Source panel to copy from 
-    [SerializeField] private Transform Final3rdPanel; // Destination panel to copy to
-    [SerializeField] private GameObject ErrorTextPrefab;
-
-
-    private enum EntryStage
-    {
-        None,
-        Outside,
-        EnteredOverlapFromOutside,
-        Inside,
-        EnteredOverlapFromInside
-    }
-
-    private Dictionary<GameObject, EntryStage> objectStages = new Dictionary<GameObject, EntryStage>();
-    public DataBanker dataBanker = null;
-    private bool playerIsInsideRoom = false;
-    private bool patientIsInsideRoom = false;
-    private bool bothEnteredRoomOnce = false;
-    private bool playerEnteredRoomOnce = false;
-    public ErrorCheck FirstErrorCheckHolder = null;
-    public ReturnedCheck ThirdErrorCheckHolder = null;
-    private bool FirstErrorCheckClosed = false;
-    private bool FirstErrorCheckClosedForever = false;
-    private bool ThirdErrorCheckClosed = false;
-    private bool ThirdErrorCheckClosedForever = false;
     public GameObject playerCamera;
+    public GameObject ErrorTextPrefab;
+
+    [Header("Panels")]
+    [SerializeField] private Transform panel1;
+    [SerializeField] private Transform finalPanel1;
+    [SerializeField] private Transform panel3;
+    [SerializeField] private Transform finalPanel3;
+
+    [Header("Error Checks")]
+    public ErrorCheck FirstErrorCheckHolder;
+    public ReturnedCheck ThirdErrorCheckHolder;
+
+    [Header("Other")]
+    public DataBanker dataBanker;
     public UnityEvent blink;
     public float blinkTime = 0.25f;
 
+    private enum EntryStage { None, Outside, EnteredOverlapFromOutside, Inside, EnteredOverlapFromInside }
+    private Dictionary<GameObject, EntryStage> objectStages = new();
+
+    private bool playerEnteredRoomOnce = false;
+    private bool bothEnteredRoomOnce = false;
+    private bool playerIsInsideRoom = false;
+    private bool patientIsInsideRoom = false;
+    private bool firstCheckComplete = false;
+    private bool thirdCheckComplete = false;
+
     private void Awake()
     {
-        if (insideRoomCollider == null || outsideRoomCollider == null || player == null || patient == null)
+        if (!insideRoomCollider || !outsideRoomCollider || !player || !patient)
         {
-            Debug.LogWarning("Missing references in DoubleDoor script.");
+            Debug.LogWarning("Missing essential references in DoubleDoor script.");
         }
     }
-
-    private bool IsErrorText(GameObject obj)
-    {
-        // Check if this is the specific error text we want to ignore
-        TMP_Text textComponent = obj.GetComponent<TMP_Text>();
-        if (textComponent == null) return false;
-
-        return textComponent.text.Contains("Procedure Feedback") ||
-               textComponent.text.Contains("Please fix your errors before continuing");
-    }
-
-    private GameObject AddText(string text, Transform Panel, Color color, bool isTitle = false)
-    {
-        GameObject errorTextObj = Instantiate(ErrorTextPrefab, Panel);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(Panel.GetComponent<RectTransform>());
-
-        TMP_Text errorText = errorTextObj.GetComponent<TMP_Text>();
-        if (errorText == null)
-        {
-            throw new Exception("ErrorTextPrefab missing TMP_Text component");
-        }
-
-        errorText.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
-        errorText.color = color;
-
-        return errorTextObj;
-    }
-
-    private void CopyFirstDisplay()
-    {
-        if (panel1ToCopy == null || Final1stPanel == null)
-        {
-            Debug.LogError("First panel references are missing!");
-            return;
-        }
-
-        // Clear existing children in destination
-        foreach (Transform child in Final1stPanel)
-        {
-            Destroy(child.gameObject);
-        }
-
-        AddText("First Check Results", Final1stPanel, Color.black, true);
-
-        foreach (Transform child in panel1ToCopy)
-        {
-            // Copy all children from source to destination
-            if (!IsErrorText(child.gameObject))
-            {
-                GameObject newChild = Instantiate(child.gameObject, Final1stPanel);
-            }
-
-            Debug.Log($"Copied children from {panel1ToCopy.name} to {Final1stPanel.name}");
-        }
-    }
-
-    private void CopyThirdDisplay()
-    {
-        if (panel3ToCopy == null || Final3rdPanel == null)
-        {
-            Debug.LogError("Third panel references are missing!");
-            return;
-        }
-
-        // Clear existing children in destination
-        foreach (Transform child in Final3rdPanel)
-        {
-            Destroy(child.gameObject);
-        }
-
-        AddText("Third Check Results", Final3rdPanel, Color.black, true);
-        foreach (Transform child in panel3ToCopy)
-        {
-            // Copy all children from source to destination
-            if (!IsErrorText(child.gameObject))
-            {
-                GameObject newChild = Instantiate(child.gameObject, Final3rdPanel);
-                newChild.name = child.name; // Preserve original name
-            }
-
-            Debug.Log($"Copied children from {panel3ToCopy.name} to {Final3rdPanel.name}");
-        }
-    }
-
-    private IEnumerator BlinkThenTeleport()
-    {
-        blink.Invoke();
-        yield return new WaitForSeconds(blinkTime);
-        TeleportPlayer();
-    }
-
-
-    private void TeleportPlayer()
-    {
-        if (playerCamera != null)
-        {
-            // Get the current Y value to preserve height
-            float currentY = playerCamera.transform.position.y;
-
-            // Set a new position using the existing Y
-            playerCamera.transform.position = new Vector3(12.61f, currentY, -0.57f);
-        }
-        else
-        {
-            Debug.LogError("Current player camera not found for teleportation!");
-        }
-    }
-
-
-
 
     private void Update()
     {
         UpdateStage(player);
         UpdateStage(patient);
+
         if (playerIsInsideRoom && patientIsInsideRoom)
-        {
             bothEnteredRoomOnce = true;
-        }
-        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !ThirdErrorCheckClosed && !ThirdErrorCheckClosedForever)
+
+        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !thirdCheckComplete)
         {
             ThirdErrorCheckHolder.Check(() =>
             {
-                CopyThirdDisplay();
-                ThirdErrorCheckClosedForever = true;
+                MovePanel(panel3, finalPanel3, "Room Teardown/Patient Dismissal Results");
+                thirdCheckComplete = true;
                 StartCoroutine(BlinkThenTeleport());
-
             }, () => { });
-            ThirdErrorCheckClosed = true;
         }
-        else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !FirstErrorCheckClosed && !FirstErrorCheckClosedForever)
+        else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !firstCheckComplete)
         {
             FirstErrorCheckHolder.Check(() =>
             {
-                CopyFirstDisplay();
-                FirstErrorCheckClosedForever = true;
+                MovePanel(panel1, finalPanel1, "Room Prep Results");
+                firstCheckComplete = true;
             }, () => { });
-            FirstErrorCheckClosed = true;
         }
     }
 
-
+    #region Stage Tracking
 
     private void UpdateStage(GameObject obj)
     {
@@ -212,50 +94,134 @@ public class DoubleDoor : MonoBehaviour
         switch (current)
         {
             case EntryStage.None:
-                if (inInside && !inOutside)
-                    objectStages[obj] = EntryStage.Inside;
-                else if (inOutside && !inInside)
-                    objectStages[obj] = EntryStage.Outside;
+                objectStages[obj] = inInside ? EntryStage.Inside : (inOutside ? EntryStage.Outside : EntryStage.None);
                 break;
 
             case EntryStage.Outside:
-                if (inOverlap)
-                    objectStages[obj] = EntryStage.EnteredOverlapFromOutside;
+                if (inOverlap) objectStages[obj] = EntryStage.EnteredOverlapFromOutside;
                 break;
 
             case EntryStage.EnteredOverlapFromOutside:
-                if (inInside && !inOutside)
-                    objectStages[obj] = EntryStage.Inside;
-                else if (!inOverlap)
-                    objectStages[obj] = EntryStage.Outside; // backed out
+                if (inInside && !inOutside) objectStages[obj] = EntryStage.Inside;
+                else if (!inOverlap) objectStages[obj] = EntryStage.Outside;
                 break;
 
             case EntryStage.Inside:
-                if (inOverlap)
-                    objectStages[obj] = EntryStage.EnteredOverlapFromInside;
+                if (inOverlap) objectStages[obj] = EntryStage.EnteredOverlapFromInside;
                 break;
 
             case EntryStage.EnteredOverlapFromInside:
-                if (inOutside && !inInside)
-                    objectStages[obj] = EntryStage.Outside;
-                else if (!inOverlap)
-                    objectStages[obj] = EntryStage.Inside; // backed in
+                if (inOutside && !inInside) objectStages[obj] = EntryStage.Outside;
+                else if (!inOverlap) objectStages[obj] = EntryStage.Inside;
                 break;
         }
 
-        // Final state check
         if (obj == player)
         {
             playerIsInsideRoom = objectStages[obj] == EntryStage.Inside;
             if (playerIsInsideRoom)
             {
                 playerEnteredRoomOnce = true;
-                FirstErrorCheckClosed = false;
-                ThirdErrorCheckClosed = false;
+                firstCheckComplete = false;
+                thirdCheckComplete = false;
             }
         }
         else if (obj == patient)
+        {
             patientIsInsideRoom = objectStages[obj] == EntryStage.Inside;
+        }
     }
 
+    #endregion
+
+    #region Panel Handling
+
+    private void MovePanel(Transform sourcePanel, Transform targetParent, string newTitle)
+    {
+        if (!sourcePanel || !targetParent)
+        {
+            Debug.LogError("Missing panel references during move.");
+            return;
+        }
+
+        // Clear any previous children in the target parent
+        foreach (Transform child in targetParent)
+            Destroy(child.gameObject);
+
+        // Re-parent the entire source panel to the new parent
+        sourcePanel.SetParent(targetParent, false);
+        sourcePanel.localPosition = Vector3.zero;
+        sourcePanel.localRotation = Quaternion.identity;
+        sourcePanel.localScale = Vector3.one;
+
+        // Make sure there's at least one child (content panel)
+        if (sourcePanel.childCount == 0)
+        {
+            Debug.LogWarning("Source panel has no content.");
+            return;
+        }
+
+        Transform contentPanel = sourcePanel.GetChild(0);
+
+        // Replace first entry (title)
+        if (contentPanel.childCount > 0)
+        {
+            Destroy(contentPanel.GetChild(0).gameObject);
+            GameObject newTitleText = AddText(newTitle, contentPanel, Color.black, true);
+            newTitleText.transform.SetSiblingIndex(0);
+        }
+
+        // Remove second entry (description)
+        if (contentPanel.childCount > 1)
+        {
+            Destroy(contentPanel.GetChild(1).gameObject);
+        }
+
+        // Deactivate the last child of the source panel (assumed to be the button row)
+        if (sourcePanel.childCount > 1)
+        {
+            Transform buttonRow = sourcePanel.GetChild(sourcePanel.childCount - 1);
+            buttonRow.gameObject.SetActive(false);
+        }
+    }
+    
+    private GameObject AddText(string text, Transform parent, Color color, bool isTitle = false)
+    {
+        if (!ErrorTextPrefab) throw new MissingReferenceException("Missing ErrorTextPrefab");
+
+        GameObject obj = Instantiate(ErrorTextPrefab, parent);
+        TMP_Text tmp = obj.GetComponent<TMP_Text>();
+
+        if (!tmp) throw new MissingComponentException("ErrorTextPrefab missing TMP_Text");
+
+        tmp.text = isTitle ? $"<style=\"Title\">{text}</style>" : text;
+        tmp.color = color;
+
+        return obj;
+    }
+
+    #endregion
+
+    #region Teleport & Blink
+
+    private IEnumerator BlinkThenTeleport()
+    {
+        blink?.Invoke();
+        yield return new WaitForSeconds(blinkTime);
+        TeleportPlayer();
+    }
+
+    private void TeleportPlayer()
+    {
+        if (!playerCamera)
+        {
+            Debug.LogError("Player camera not assigned.");
+            return;
+        }
+
+        float y = playerCamera.transform.position.y;
+        playerCamera.transform.position = new Vector3(12.61f, y, -0.57f);
+    }
+
+    #endregion
 }
