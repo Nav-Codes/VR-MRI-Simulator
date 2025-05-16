@@ -54,6 +54,23 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
         }
         if (newState != null)
         {
+            //if (newState.conditions != null && newState.conditions.Count > 0) {
+            foreach (GameObject conditionObject in newState.conditionObjects)
+            {
+                IPatientStateCondition checker = conditionObject.GetComponent<IPatientStateCondition>();
+                if (checker == null)
+                {
+                    Debug.LogWarning($"{conditionObject.name} does not implement IPatientStateCondition.");
+                    continue;
+                }
+
+                if (!checker.IsStateChangeAllowed())
+                {
+                    Debug.Log($"{conditionObject.name} prevented patient state change");
+                    return;
+                }
+            }
+
             StartCoroutine(ChangePatientStateCoroutine(newState));
         }
         else
@@ -64,6 +81,21 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
 
     public void ChangePatientState(PatientState newState)
     {
+        foreach (GameObject conditionObject in newState.conditionObjects)
+        {
+            IPatientStateCondition checker = conditionObject.GetComponent<IPatientStateCondition>();
+            if (checker == null)
+            {
+                Debug.LogWarning($"{conditionObject.name} does not implement IPatientStateCondition.");
+                continue;
+            }
+
+            if (!checker.IsStateChangeAllowed())
+            {
+                Debug.Log($"{conditionObject.name} prevented patient state change");
+                return;
+            }
+        }
         StartCoroutine(ChangePatientStateCoroutine(newState));
     }
 
@@ -230,6 +262,7 @@ public class PatientState
 {
     public string label;
     public List<string> menuItems;
+    public List<GameObject> conditionObjects;
     public StateBeginTransition transition;
     public StateOptions options;
 }
