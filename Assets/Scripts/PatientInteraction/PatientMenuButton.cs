@@ -8,7 +8,7 @@ public class PatientMenuButton : MonoBehaviour
 {
     public int buttonIndex;
     private Vector3 endPosition;
-    private float buttonOffset = -1.65f;
+    private float buttonOffset = -0.2f;
     private bool isAnimatingIn = false;
     private bool isAnimatingOut = false;
     private float animationDuration = 0.15f;
@@ -45,10 +45,11 @@ public class PatientMenuButton : MonoBehaviour
     {
         GetComponent<UnityEngine.UI.Button>()
             .onClick.AddListener(delegate { menuItem.onclickCallback(menuItem.targetStateLabel); });
-        if (menuItem.icon != null)
-        {
-            GetComponent<UnityEngine.UI.Image>().sprite = menuItem.icon;
-        }
+        //if (menuItem.icon != null)
+        //{
+        //    GetComponent<UnityEngine.UI.Image>().sprite = menuItem.icon;
+        //}
+        GetComponentInChildren<TextMeshProUGUI>().text = menuItem.hintText;
         endPosition = new Vector3(0, buttonOffset * buttonIndex, 0);
         gameObject.SetActive(false);
     }

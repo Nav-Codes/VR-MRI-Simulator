@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class TriggerDoorController : MonoBehaviour, CheckerInterface
+public class TriggerDoorController : MonoBehaviour, CheckerInterface, IPatientStateCondition
 {
     [SerializeField] private Animator leftDoor = null;
     [SerializeField] private Animator rightDoor = null;
@@ -46,5 +46,10 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface
     public bool isCorrect()
     {
         return !isOpen && Zone3Door.GetComponent<Zone3Door>().isCorrect();
+    }
+
+    public bool IsStateChangeAllowed()
+    {
+        return isOpen;
     }
 }
