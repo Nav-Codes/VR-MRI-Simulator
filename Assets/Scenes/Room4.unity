@@ -5859,6 +5859,8 @@ MonoBehaviour:
   examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Knee
+  bodyPartName: right knee
+  dialogueController: {fileID: 696253997}
   hoverParticles: {fileID: 74946541}
   selectionParticles: {fileID: 839927076}
   rightActivateAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -81214,6 +81216,8 @@ MonoBehaviour:
   examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
   examType: Head
+  bodyPartName: head
+  dialogueController: {fileID: 696253997}
   hoverParticles: {fileID: 1609770410}
   selectionParticles: {fileID: 1557353020}
   rightActivateAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}

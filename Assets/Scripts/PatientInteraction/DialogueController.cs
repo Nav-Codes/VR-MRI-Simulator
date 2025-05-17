@@ -111,6 +111,11 @@ public class DialogueController : MonoBehaviour
         );
     }
 
+    public void SetUserText()
+    {
+        userText.text = string.Format(userSpeechTemplate, defaultText);
+    }
+
     public void SetUserText(string text)
     {
         userText.text = string.Format(userSpeechTemplate, text);
@@ -155,6 +160,9 @@ public class DialogueController : MonoBehaviour
         else if (dialogueTemplate != null && dialogueTemplate.Trim() != "")
         {
             SetUserText(defaultText);
+            SetUserSpeechVisibility(true);
+            userTextActive = true;
+            userDialogueTime = duration;
         }
 
         if (patientDialogue != null && patientDialogue.Trim() != "")

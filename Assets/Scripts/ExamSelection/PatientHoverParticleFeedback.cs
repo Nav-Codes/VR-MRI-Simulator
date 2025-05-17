@@ -8,6 +8,8 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
     public string examSelectionPatientStateLabel;
     public DataBanker databanker;
     public string examType;
+    public string bodyPartName;
+    public DialogueController dialogueController;
     public ParticleSystem hoverParticles;
     public ParticleSystem selectionParticles;
     public InputActionReference rightActivateAction;
@@ -15,6 +17,8 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
 
     private int hoverCount = 0;
     private bool isHovered = false;
+    private bool hasStarted = false;
+    private bool selectingExam = false;
 
     void Start()
     {
@@ -28,6 +32,20 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         {
             leftActivateAction.action.Enable();
             leftActivateAction.action.performed += OnActivatePressed;
+        }
+    }
+
+
+    void Update()
+    {
+        if (!hasStarted)
+        {
+            PatientState patientState = patient.GetCurrentState();
+            if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
+
+            hoverParticles.Emit(1);
+            dialogueController.InitiateDialogue("We'll be scanning your {0} today, right?", "", "", 0);
+            hasStarted = true;
         }
     }
 
@@ -53,6 +71,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
             patient.ChangePatientState("sittingInChairExamSelected");
             if (selectionParticles != null)
                 selectionParticles.Play();
+            dialogueController.InitiateDialogue("We'll be scanning your {0} today, right?", bodyPartName, "Yes", 1);
         }
     }
 
@@ -75,6 +94,8 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         PatientState patientState = patient.GetCurrentState();
         if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
 
+        dialogueController.SetUserText(bodyPartName);
+
         hoverCount++;
         if (hoverParticles != null && !hoverParticles.isPlaying)
             hoverParticles.Play();
@@ -85,5 +106,10 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         hoverCount = Mathf.Max(hoverCount - 1, 0);
         if (hoverCount == 0 && hoverParticles != null && hoverParticles.isPlaying)
             hoverParticles.Stop();
+
+        PatientState patientState = patient.GetCurrentState();
+        if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
+
+        dialogueController.SetUserText();
     }
 }
