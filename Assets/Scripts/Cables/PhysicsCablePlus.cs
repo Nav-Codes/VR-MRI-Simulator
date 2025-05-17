@@ -53,16 +53,16 @@ public class PhysicsCablePlus : PhysicsCable
         }
     }
 
-    protected override void Update()
-    {
-        // Keep visual cable update in Update as before
-        base.Update();
+    // protected override void Update()
+    // {
+    //     // Keep visual cable update in Update as before
+    //     base.Update();
 
-        // Optional: Debug log for info (can be moved or removed)
-        if (grabObject != null && largeObject != null)
-        {
-            float dist = Vector3.Distance(grabObject.position, largeObject.position);
-            Debug.Log($"[CablePlus] Distance: {dist:F2}, LeashRange: {leashRange}, OnlyOneHeld: {isGrabObjectHeld ^ isLargeObjectHeld}");
-        }
-    }
+    //     // Optional: Debug log for info (can be moved or removed)
+    //     if (grabObject != null && largeObject != null)
+    //     {
+    //         float dist = Vector3.Distance(grabObject.position, largeObject.position);
+    //         Debug.Log($"[CablePlus] Distance: {dist:F2}, LeashRange: {leashRange}, OnlyOneHeld: {isGrabObjectHeld ^ isLargeObjectHeld}");
+    //     }
+    // }
 }
