@@ -49,8 +49,11 @@ public class PatientMenuButton : MonoBehaviour
                 if (menuItem.label != "cancel")
                 {
                     dialogueController.InitiateDialogue(
-                        menuItem.userDialogueText, menuItem.patientDialogueText, menuItem.dialogueDuration
-                        );
+                        menuItem.dialogueTemplate,
+                        menuItem.userDialogueText, 
+                        menuItem.patientDialogueText, 
+                        menuItem.dialogueDuration
+                    );
                 }
                 menuItem.onclickCallback(menuItem.targetStateLabel); 
             });

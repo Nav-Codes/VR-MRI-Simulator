@@ -133,6 +133,7 @@ public class PatientMenuItem
     public string label;
     public string targetStateLabel;
     public string hintText;
+    public string dialogueTemplate;
     public string userDialogueText;
     public string patientDialogueText;
     public float dialogueDuration;
