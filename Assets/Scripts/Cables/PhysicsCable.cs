@@ -1,10 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-/// <summary>
-/// Simulates a sagging cable between two points. Optionally populates with visible segment prefabs,
-/// or uses invisible transforms. The cable follows a curved LineRenderer and avoids colliders using raycasts.
-/// </summary>
 [RequireComponent(typeof(LineRenderer))]
 public class PhysicsCable : MonoBehaviour
 {
@@ -23,21 +19,19 @@ public class PhysicsCable : MonoBehaviour
     [Tooltip("Which layers should block the cable when raycasting.")]
     public LayerMask collisionLayers = ~0; // Default to Everything
 
-    private List<Transform> segmentTransforms = new List<Transform>();
-    private LineRenderer lineRenderer;
-    private Transform cableParent;
+    protected List<Transform> segmentTransforms = new List<Transform>();
+    protected LineRenderer lineRenderer;
+    protected Transform cableParent;
 
-    void Start()
+    protected virtual void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-
         if (lineRenderer == null)
         {
             Debug.LogError("LineRenderer is missing!");
             return;
         }
 
-        // Create or find the "Cable" parent GameObject under this object
         GameObject cableParentGO = transform.Find("Cable")?.gameObject;
         if (cableParentGO == null)
         {
@@ -54,7 +48,6 @@ public class PhysicsCable : MonoBehaviour
         for (int i = 0; i < numSegments; i++)
         {
             GameObject segmentObj;
-
             if (cableSegmentPrefab != null)
             {
                 segmentObj = Instantiate(cableSegmentPrefab, cableParent);
@@ -66,13 +59,11 @@ public class PhysicsCable : MonoBehaviour
                 segmentObj = new GameObject("CableSegment_" + i);
                 segmentObj.transform.SetParent(cableParent);
             }
-
             segmentTransforms.Add(segmentObj.transform);
         }
     }
 
-
-    void Update()
+    protected virtual void Update()
     {
         Vector3 start = grabObject.position;
         Vector3 end = largeObject.position;
@@ -85,7 +76,6 @@ public class PhysicsCable : MonoBehaviour
             Vector3 position = Vector3.Lerp(start, end, t);
             position.y -= Mathf.Sin(t * Mathf.PI) * sagAmount;
 
-            // Raycast down from above
             Vector3 rayStart = position + Vector3.up * raycastOffset;
             if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, raycastOffset + 1f, collisionLayers))
             {
@@ -98,7 +88,6 @@ public class PhysicsCable : MonoBehaviour
             Vector3 targetPos = Vector3.Lerp(segment.position, position, Time.deltaTime * smoothSpeed);
             segment.position = targetPos;
 
-            // Optional look direction (if visible prefab)
             if (i > 0 && cableSegmentPrefab != null)
             {
                 Vector3 dir = targetPos - segmentTransforms[i - 1].position;
