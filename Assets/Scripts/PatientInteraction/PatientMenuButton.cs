@@ -41,10 +41,19 @@ public class PatientMenuButton : MonoBehaviour
         }
     }
 
-    public void Initialize(PatientMenuItem menuItem)
+    public void Initialize(PatientMenuItem menuItem, DialogueController dialogueController)
     {
         GetComponent<UnityEngine.UI.Button>()
-            .onClick.AddListener(delegate { menuItem.onclickCallback(menuItem.targetStateLabel); });
+            .onClick.AddListener(() => {
+                
+                if (menuItem.label != "cancel")
+                {
+                    dialogueController.InitiateDialogue(
+                        menuItem.userDialogueText, menuItem.patientDialogueText, menuItem.dialogueDuration
+                        );
+                }
+                menuItem.onclickCallback(menuItem.targetStateLabel); 
+            });
         //if (menuItem.icon != null)
         //{
         //    GetComponent<UnityEngine.UI.Image>().sprite = menuItem.icon;

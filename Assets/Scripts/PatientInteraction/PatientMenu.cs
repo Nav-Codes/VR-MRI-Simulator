@@ -8,7 +8,7 @@ public class PatientMenu : MonoBehaviour
     public string iconBaseFilepath;
     public GameObject buttonPrefab;
     public GameObject menuObject;
-    public SpeechBubbleBuilder speechBubbleBuilder;
+    public DialogueController dialogueController;
     public Sprite cancelSprite;
     public List<PatientMenuItem> allMenuItems;
 
@@ -20,6 +20,7 @@ public class PatientMenu : MonoBehaviour
     void Start()
     {
         cancelItem = new PatientMenuItem();
+        cancelItem.label = "cancel";
         cancelItem.hintText = "Cancel";
         cancelItem.icon = cancelSprite;
         cancelItem.onclickCallback = (string unused) => HideMenu();
@@ -34,13 +35,13 @@ public class PatientMenu : MonoBehaviour
     {
         isEnabled = false;
         ClearMenu();
-        speechBubbleBuilder.bubbleInstance.SetActive(false);
+        //speechBubbleBuilder.bubbleInstance.SetActive(false);
     }
 
     public void Enable()
     {
         isEnabled = true;
-        speechBubbleBuilder.bubbleInstance.SetActive(true);
+        //speechBubbleBuilder.bubbleInstance.SetActive(true);
     }
 
     public void SetItems(List<string> items, PatientMenuItem.callback stateCallback)
@@ -66,7 +67,7 @@ public class PatientMenu : MonoBehaviour
             currentMenuItems.Add(cancelItem);
             cancelItem.button = Instantiate(buttonPrefab, menuObject.transform).GetComponent<PatientMenuButton>();
             cancelItem.button.buttonIndex = buttonCount;
-            cancelItem.button.Initialize(cancelItem);
+            cancelItem.button.Initialize(cancelItem, dialogueController);
         }
     }
 
@@ -80,7 +81,7 @@ public class PatientMenu : MonoBehaviour
                 currentMenuItems.Add(item);
                 item.button = Instantiate(buttonPrefab, menuObject.transform).GetComponent<PatientMenuButton>();
                 item.button.buttonIndex = buttonIndex;
-                item.button.Initialize(item);
+                item.button.Initialize(item, dialogueController);
                 return;
             }
         }
@@ -132,6 +133,9 @@ public class PatientMenuItem
     public string label;
     public string targetStateLabel;
     public string hintText;
+    public string userDialogueText;
+    public string patientDialogueText;
+    public float dialogueDuration;
     public Sprite icon;
     [HideInInspector] public delegate void callback(string label);
     [HideInInspector] public callback onclickCallback;

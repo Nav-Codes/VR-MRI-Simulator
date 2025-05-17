@@ -29,7 +29,7 @@ public class SpeechBubbleBuilder : MonoBehaviour
 
         // Create a CanvasGroup to handle the visibility
         CanvasGroup canvasGroup = bubble.AddComponent<CanvasGroup>();
-        canvasGroup.alpha = 0f;
+        //canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
@@ -120,5 +120,10 @@ public class SpeechBubbleBuilder : MonoBehaviour
 
         var hoverHandler = panel.AddComponent<SpeechBubbleHoverHandler>();
         hoverHandler.hoverTarget = GetComponent<PatientHoverInteractable>();
+    }
+
+    public void SetText(string text)
+    {
+        bubbleInstance.GetComponentInChildren<TextMeshProUGUI>().text = text;
     }
 }

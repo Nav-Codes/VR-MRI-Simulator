@@ -6,10 +6,11 @@ using UnityEngine;
 public class DialogueController : MonoBehaviour
 {
     public GameObject userSpeechPanel;
-    public SpeechBubbleBuilder patientSpeechBubble;
+    public GameObject patientSpeechPanel;
     public ShowSpeechButtonZone showSpeechButtonZone;
 
     private TMPro.TextMeshProUGUI userText;
+    private TMPro.TextMeshProUGUI patientText;
     private string dialogueType = "intro";
     private string userSpeechTemplate;
 
@@ -24,16 +25,15 @@ public class DialogueController : MonoBehaviour
         userText.text = "Which patient am I scanning next?";
         SetUserSpeechVisibility(true);
 
-        //string msg =
-        //    @"Dear {0},
+        patientText = patientSpeechPanel.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        if (patientText == null)
+        {
+            Debug.LogError("patientText object missing");
+        }
+        SetPatientSpeechVisibility(false);
 
-        //    Your job finished at {1} and your file is available for download at {2}.
-
-        //    Regards,
-
-        //    --
-        //    {3}";
-        //            msg = string.Format(msg, user, finishTime, fileUrl, signature);
+        //string msg = @"Hello {0}";
+        //msg = string.Format(msg, "...");
     }
 
     // Update is called once per frame
@@ -55,5 +55,23 @@ public class DialogueController : MonoBehaviour
     public void SetUserSpeechTemplate(string template)
     {
         userSpeechTemplate = template;
+    }
+
+    public void SetPatientText(string text)
+    {
+        patientText.text = text;
+    }
+
+    public void SetPatientSpeechVisibility(bool isVisible)
+    {
+        patientSpeechPanel.SetActive(isVisible);
+    }
+
+    public void InitiateDialogue(string userDialogue, string patientDialogue, float duration)
+    {
+        SetUserText(userDialogue);
+        SetUserSpeechVisibility(true);
+        SetPatientText(patientDialogue);
+        SetPatientSpeechVisibility(true);
     }
 }
