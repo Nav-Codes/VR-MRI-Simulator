@@ -12,6 +12,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
     public PatientMenu patientMenu;
     public PatientMover patientMover;
     public DataBanker dataBanker;
+    public DialogueController dialogueController;
     public List<PatientState> patientStates;
     public int initialState = 0;
 
@@ -66,6 +67,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
 
                 if (!checker.IsStateChangeAllowed())
                 {
+                    dialogueController.InitiateDialogue("", "", checker.GetRefusalMessage(), 2);
                     Debug.Log($"{conditionObject.name} prevented patient state change");
                     return;
                 }

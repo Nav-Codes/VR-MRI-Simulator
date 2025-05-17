@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IPatientStateCondition
 {
     public bool IsStateChangeAllowed();
+
+    public string GetRefusalMessage();
 }

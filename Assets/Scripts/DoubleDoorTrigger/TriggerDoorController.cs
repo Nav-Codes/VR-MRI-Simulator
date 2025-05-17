@@ -52,4 +52,9 @@ public class TriggerDoorController : MonoBehaviour, CheckerInterface, IPatientSt
     {
         return isOpen;
     }
+
+    public string GetRefusalMessage()
+    {
+        return "The door is closed...";
+    }
 }

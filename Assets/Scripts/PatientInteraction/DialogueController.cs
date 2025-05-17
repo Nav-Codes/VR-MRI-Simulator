@@ -140,7 +140,7 @@ public class DialogueController : MonoBehaviour
     public void SetPatientSpeechVisibility(bool isVisible)
     {
         SetPanelOpacity(patientPanelImg, patientText, speechOpacity);
-        patientSpeechPanel.SetActive(isVisible);
+        patientSpeechPanel.SetActive(isVisible && patientText.text != "");
     }
 
     public void InitiateDialogue(string dialogueTemplate, string userDialogue, string patientDialogue, float duration)
@@ -156,6 +156,10 @@ public class DialogueController : MonoBehaviour
             SetUserSpeechVisibility(true);
             userTextActive = true;
             userDialogueTime = duration;
+            if (patientDialogue == null || patientDialogue.Trim() == "")
+            {
+                SetPatientText("");
+            }
         }
         else if (dialogueTemplate != null && dialogueTemplate.Trim() != "")
         {
@@ -168,7 +172,17 @@ public class DialogueController : MonoBehaviour
         if (patientDialogue != null && patientDialogue.Trim() != "")
         {
             SetPatientText(patientDialogue);
-            SetPatientSpeechVisibility(false);
+            if (userDialogue != null && userDialogue.Trim() != "")
+            {
+                SetPatientSpeechVisibility(false);
+            }
+            else
+            {
+                SetPatientText(patientDialogue);
+                SetPatientSpeechVisibility(true);
+                patientTextActive = true;
+                patientDialogueTime = duration;
+            }
         }
     }
 }
