@@ -118909,7 +118909,7 @@ MonoBehaviour:
   minY: 0.6860491
   maxY: 24
   tableController: {fileID: 782628381}
-  FixedDistance: 12
+  FixedDistance: 11.656976
 --- !u!65 &5443238865057036778
 BoxCollider:
   m_ObjectHideFlags: 0
