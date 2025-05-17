@@ -41859,7 +41859,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   leashRange: 1.5
-  leashPullSpeed: 1
+  leashPullForce: 50
 --- !u!1 &497223611
 GameObject:
   m_ObjectHideFlags: 0
@@ -118066,7 +118066,7 @@ MonoBehaviour:
   minY: 0.6860491
   maxY: 24
   tableController: {fileID: 782628381}
-  FixedDistance: 12
+  FixedDistance: 11.656976
 --- !u!65 &5443238865057036778
 BoxCollider:
   m_ObjectHideFlags: 0

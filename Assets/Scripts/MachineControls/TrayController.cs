@@ -50,7 +50,7 @@ public class TrayController : MonoBehaviour
 
     public void MoveToFixedDistance()
     {
-        targetY = Mathf.Max(targetY - Mathf.Abs(FixedDistance), maxY);
+        targetY = Mathf.Min(targetY + FixedDistance, maxY);
         isMovingToFixedDistance = true;
         isMovingHome = false;
     }
