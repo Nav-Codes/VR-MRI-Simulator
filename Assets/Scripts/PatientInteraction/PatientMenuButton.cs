@@ -8,7 +8,7 @@ public class PatientMenuButton : MonoBehaviour
 {
     public int buttonIndex;
     private Vector3 endPosition;
-    private float buttonOffset = -0.2f;
+    private float buttonOffset = -40f;
     private bool isAnimatingIn = false;
     private bool isAnimatingOut = false;
     private float animationDuration = 0.15f;
