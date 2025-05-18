@@ -5858,6 +5858,7 @@ MonoBehaviour:
   patient: {fileID: 1015465989}
   examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
+  PillowSnapPoint: {fileID: 2903825831536572339}
   examType: Knee
   bodyPartName: right knee
   dialogueController: {fileID: 696253997}
@@ -81316,6 +81317,7 @@ MonoBehaviour:
   patient: {fileID: 1015465989}
   examSelectionPatientStateLabel: examSelect
   databanker: {fileID: 1178165863}
+  PillowSnapPoint: {fileID: 0}
   examType: Head
   bodyPartName: head
   dialogueController: {fileID: 696253997}

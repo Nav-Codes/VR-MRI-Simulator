@@ -7,6 +7,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
     public PatientStateManager patient;
     public string examSelectionPatientStateLabel;
     public DataBanker databanker;
+    public GameObject PillowSnapPoint;
     public string examType;
     public string bodyPartName;
     public DialogueController dialogueController;
@@ -68,6 +69,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         if (isHovered)
         {
             databanker.SetExamType(examType);
+            if (databanker.GetExamType().ToLower().Contains("knee")) PillowSnapPoint.GetComponent<PillowStatus>().Flip();
             patient.ChangePatientState("sittingInChairExamSelected");
             if (selectionParticles != null)
                 selectionParticles.Play();
