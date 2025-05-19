@@ -107,7 +107,7 @@ public class PatientMenu : MonoBehaviour
 
     public void HideMenu()
     {
-        if (!isEnabled) return;
+        if (!isEnabled || !isVisible) return;
 
         foreach (PatientMenuItem item in currentMenuItems)
         {

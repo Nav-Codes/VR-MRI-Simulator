@@ -62,6 +62,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
                 if (checker == null)
                 {
                     Debug.LogWarning($"{conditionObject.name} does not implement IPatientStateCondition.");
+                    patientMenu.HideMenu();
                     continue;
                 }
 
@@ -69,6 +70,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
                 {
                     dialogueController.InitiateDialogue("", "", checker.GetRefusalMessage(), 2);
                     Debug.Log($"{conditionObject.name} prevented patient state change");
+                    patientMenu.HideMenu();
                     return;
                 }
             }
@@ -89,12 +91,14 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
             if (checker == null)
             {
                 Debug.LogWarning($"{conditionObject.name} does not implement IPatientStateCondition.");
+                patientMenu.HideMenu();
                 continue;
             }
 
             if (!checker.IsStateChangeAllowed())
             {
                 Debug.Log($"{conditionObject.name} prevented patient state change");
+                patientMenu.HideMenu();
                 return;
             }
         }
