@@ -72,6 +72,11 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
             if (selectionParticles != null)
                 selectionParticles.Play();
             dialogueController.InitiateDialogue("We'll be scanning your {0} today, right?", bodyPartName, "Yes", 1);
+            var allInstances = FindObjectsOfType<PatientHoverParticleFeedback>();
+            foreach (var instance in allInstances)
+            {
+                instance.gameObject.SetActive(false);
+            }
         }
     }
 

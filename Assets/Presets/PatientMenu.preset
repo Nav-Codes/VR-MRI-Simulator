@@ -31,13 +31,13 @@ Preset:
   - target: {fileID: 0}
     propertyPath: buttonPrefab
     value: 
-    objectReference: {fileID: 2929096928202371516, guid: 1dfd3c84702e0444796134f28ddb6c4b, type: 3}
+    objectReference: {fileID: 5991535276523526377, guid: d3ccf27978ba76c4a9a9592ee87b9643, type: 3}
   - target: {fileID: 0}
     propertyPath: menuObject
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: speechBubbleBuilder
+    propertyPath: dialogueController
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -46,7 +46,7 @@ Preset:
     objectReference: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.size
-    value: 9
+    value: 11
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].label
@@ -61,9 +61,25 @@ Preset:
     value: Stand up
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].userDialogueText
+    value: Would you please stand up?
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].patientDialogueText
+    value: Okay
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[0].dialogueDuration
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].icon
     value: 
-    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].button
     value: 
@@ -78,7 +94,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].hintText
-    value: Get up and walk to scanner table
+    value: Walk to scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].dialogueTemplate
+    value: Would you please {0}?
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].userDialogueText
+    value: walk to the scanner and sit on the table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[1].dialogueDuration
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[1].icon
@@ -98,7 +130,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].hintText
-    value: Walk to scanner table
+    value: Walk to scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].userDialogueText
+    value: walk to the scanner and sit on the table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[2].dialogueDuration
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[2].icon
@@ -110,15 +158,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].label
-    value: lieFeetToScanner
+    value: sitOnTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].targetStateLabel
-    value: turningFeetToScanner
+    value: sittingOnTableEdge
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].hintText
-    value: Lie down (feet towards scanner)
+    value: Sit on table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[3].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[3].userDialogueText
+    value: sit on the table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[3].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[3].dialogueDuration
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[3].icon
@@ -130,15 +194,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].label
-    value: lieHeadToScanner
+    value: lieFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].targetStateLabel
-    value: turningHeadToScanner
+    value: turningFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].hintText
-    value: Lie down (head towards scanner)
+    value: Lie feet to scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[4].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[4].userDialogueText
+    value: lie down with your feet towards the scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[4].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[4].dialogueDuration
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[4].icon
@@ -150,15 +230,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].label
-    value: sitUp
+    value: lieHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].targetStateLabel
-    value: sittingOnTableFromLying
+    value: turningHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].hintText
-    value: Sit up
+    value: Lie head to scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[5].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[5].userDialogueText
+    value: lie down with your head towards the scanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[5].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[5].dialogueDuration
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[5].icon
@@ -170,15 +266,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[6].label
-    value: sitUpFlipped
+    value: sitUp
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[6].targetStateLabel
-    value: sittingOnTableFromLyingFlipped
+    value: sittingOnTableFromLying
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[6].hintText
     value: Sit up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].userDialogueText
+    value: sit up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[6].dialogueDuration
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[6].icon
@@ -190,15 +302,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[7].label
-    value: dismountTable
+    value: sitUpFlipped
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[7].targetStateLabel
-    value: standingBesideTable
+    value: sittingOnTableFromLyingFlipped
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[7].hintText
-    value: Dismount table
+    value: Sit up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].userDialogueText
+    value: sit up
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[7].dialogueDuration
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[7].icon
@@ -210,15 +338,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[8].label
-    value: exitRoom
+    value: dismountTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[8].targetStateLabel
-    value: walkingFromTable
+    value: standingBesideTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[8].hintText
-    value: Exit room
+    value: Dismount table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[8].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[8].userDialogueText
+    value: come down from the table
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[8].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[8].dialogueDuration
+    value: 2.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[8].icon
@@ -226,6 +370,78 @@ Preset:
     objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[8].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].label
+    value: exitRoom
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].targetStateLabel
+    value: walkingFromTable
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].hintText
+    value: Exit room
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].userDialogueText
+    value: exit the room and change back into your clothes
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].patientDialogueText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].dialogueDuration
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[9].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].label
+    value: nod
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].targetStateLabel
+    value: inChairReadyForExamSelection
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].hintText
+    value: Greet
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].userDialogueText
+    value: Hello, my name is ... and I'll be your MRI technologist today.
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].patientDialogueText
+    value: Hello
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].dialogueDuration
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[10].button
     value: 
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

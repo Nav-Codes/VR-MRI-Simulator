@@ -42,7 +42,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[0].nextPatientStateLabel
-    value: sittingOnTableEdge
+    value: standingBesideTableBefore
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[1].label
