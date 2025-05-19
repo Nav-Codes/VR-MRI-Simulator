@@ -26,13 +26,11 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         if (rightActivateAction != null)
         {
             rightActivateAction.action.Enable();
-            rightActivateAction.action.performed += OnActivatePressed;
         }
 
         if (leftActivateAction != null)
         {
             leftActivateAction.action.Enable();
-            leftActivateAction.action.performed += OnActivatePressed;
         }
     }
 
@@ -82,6 +80,11 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         base.OnHoverEntered(args);
         isHovered = true;
         HandleHoverEntered();
+
+        if (rightActivateAction != null)
+            rightActivateAction.action.performed += OnActivatePressed;
+        if (leftActivateAction != null)
+            leftActivateAction.action.performed += OnActivatePressed;
     }
 
     protected override void OnHoverExited(HoverExitEventArgs args)
@@ -89,6 +92,11 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         base.OnHoverExited(args);
         isHovered = false;
         HandleHoverExited();
+
+        if (rightActivateAction != null)
+            rightActivateAction.action.performed -= OnActivatePressed;
+        if (leftActivateAction != null)
+            leftActivateAction.action.performed -= OnActivatePressed;
     }
 
     private void HandleHoverEntered()

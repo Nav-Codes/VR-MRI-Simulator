@@ -60618,7 +60618,7 @@ MonoBehaviour:
   - label: walkToTable
     pathSpline: {fileID: 843297841}
     speed: 1
-    nextPatientStateLabel: sittingOnTableEdge
+    nextPatientStateLabel: standingBesideTableBefore
   - label: walkFromTable
     pathSpline: {fileID: 436026581}
     speed: 1
@@ -60666,6 +60666,15 @@ MonoBehaviour:
     userDialogueText: walk to the scanner and sit on the bed
     patientDialogueText: 
     dialogueDuration: 3
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    button: {fileID: 0}
+  - label: sitOnTable
+    targetStateLabel: sittingOnTableEdge
+    hintText: Sit on table
+    dialogueTemplate: 
+    userDialogueText: sit on the bed
+    patientDialogueText: 
+    dialogueDuration: 2
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: lieFeetToScanner
@@ -60886,13 +60895,37 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+  - label: standingBesideTableBefore
+    menuItems:
+    - sitOnTable
+    conditionObjects: []
+    transition:
+      animationName: m35a@walk-R_turn_90
+      parent: {fileID: 486751749397188668}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 0
+      xPosition: -5.83
+      yPosition: 2.62
+      zPosition: -7
+      transitionOffsetY: 0
+      immediateNextState: sittingOnTableEdge
   - label: sittingOnTableEdge
     menuItems:
     - lieFeetToScanner
     - lieHeadToScanner
-    conditionObjects: []
+    conditionObjects:
+    - {fileID: 6290459220451491345}
     transition:
-      animationName: m35a@walk-R_turn_90
+      animationName: m35a@Stand-SitOnTable
       parent: {fileID: 486751749397188668}
       movementLabel: 
       additionalEvents:
@@ -61113,7 +61146,8 @@ MonoBehaviour:
   - label: standingBesideTable
     menuItems:
     - exitRoom
-    conditionObjects: []
+    conditionObjects:
+    - {fileID: 6290459220451491345}
     transition:
       animationName: m35a@SitOnTable-Stand
       parent: {fileID: 0}
@@ -61135,7 +61169,8 @@ MonoBehaviour:
       immediateNextState: 
   - label: walkingFromTable
     menuItems: []
-    conditionObjects: []
+    conditionObjects:
+    - {fileID: 5268308436593864543}
     transition:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}

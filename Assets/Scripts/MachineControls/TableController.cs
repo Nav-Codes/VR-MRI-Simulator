@@ -5,7 +5,7 @@ using UnityEngine;
 /// The table can be moved up, down, or directly to its maximum position, and it will smoothly transition between positions when moved.
 /// The class also provides methods to check if the table is at its minimum or maximum position.
 /// </summary>
-public class TableController : MonoBehaviour, CheckerInterface
+public class TableController : MonoBehaviour, CheckerInterface, IPatientStateCondition
 {
     public float minY; // Minimum Y position
     public float maxY; // Maximum Y position
@@ -75,5 +75,15 @@ public class TableController : MonoBehaviour, CheckerInterface
     public string getLabel()
     {
         return "Table Height";
+    }
+
+    public bool IsStateChangeAllowed()
+    {
+        return IsAtMin();
+    }
+
+    public string GetRefusalMessage()
+    {
+        return "The table is kind of high...";
     }
 }
