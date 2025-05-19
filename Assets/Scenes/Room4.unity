@@ -60654,7 +60654,7 @@ MonoBehaviour:
     targetStateLabel: standingByChairExamSelected
     hintText: Walk to scanner
     dialogueTemplate: Would you please {0}?
-    userDialogueText: walk to the scanner and sit on the bed
+    userDialogueText: walk to the scanner and sit on the table
     patientDialogueText: 
     dialogueDuration: 3
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
@@ -60663,7 +60663,7 @@ MonoBehaviour:
     targetStateLabel: walkingToTable
     hintText: Walk to scanner
     dialogueTemplate: 
-    userDialogueText: walk to the scanner and sit on the bed
+    userDialogueText: walk to the scanner and sit on the table
     patientDialogueText: 
     dialogueDuration: 3
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
@@ -60672,14 +60672,14 @@ MonoBehaviour:
     targetStateLabel: sittingOnTableEdge
     hintText: Sit on table
     dialogueTemplate: 
-    userDialogueText: sit on the bed
+    userDialogueText: sit on the table
     patientDialogueText: 
     dialogueDuration: 2
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     button: {fileID: 0}
   - label: lieFeetToScanner
     targetStateLabel: turningFeetToScanner
-    hintText: Lie down (feet towards scanner)
+    hintText: Lie feet to scanner
     dialogueTemplate: 
     userDialogueText: lie down with your feet towards the scanner
     patientDialogueText: 
@@ -60688,7 +60688,7 @@ MonoBehaviour:
     button: {fileID: 0}
   - label: lieHeadToScanner
     targetStateLabel: turningHeadToScanner
-    hintText: Lie down (head towards scanner)
+    hintText: Lie head to scanner
     dialogueTemplate: 
     userDialogueText: lie down with your head towards the scanner
     patientDialogueText: 
