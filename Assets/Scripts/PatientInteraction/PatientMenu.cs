@@ -44,7 +44,7 @@ public class PatientMenu : MonoBehaviour
         //speechBubbleBuilder.bubbleInstance.SetActive(true);
     }
 
-    public void SetItems(List<string> items, PatientMenuItem.callback stateCallback)
+    public void SetItems(List<string> items, PatientMenuItem.callback stateCallback, string? examTypeFilter = null)
     {
         ClearMenu();
         if (items != null)
@@ -54,7 +54,7 @@ public class PatientMenu : MonoBehaviour
             {
                 try
                 {
-                    AddItem(item, stateCallback, buttonCount);
+                    AddItem(item, stateCallback, buttonCount, examTypeFilter);
                     buttonCount++;
                 }
                 catch(System.Exception e)
@@ -71,11 +71,13 @@ public class PatientMenu : MonoBehaviour
         }
     }
 
-    private void AddItem(string itemName, PatientMenuItem.callback stateCallback, int buttonIndex)
+    private void AddItem(string itemName, PatientMenuItem.callback stateCallback, int buttonIndex, string? examTypeFilter = null)
     {
         foreach (PatientMenuItem item in allMenuItems) 
         {
-            if (item.label.Equals(itemName))
+            if (item.label.Equals(itemName) && 
+                (examTypeFilter == null || item.examFilter == null || 
+                item.examFilter.Equals("") || item.examFilter.Equals(examTypeFilter)))
             {
                 item.onclickCallback = stateCallback;
                 currentMenuItems.Add(item);
@@ -138,6 +140,8 @@ public class PatientMenuItem
     public string patientDialogueText;
     public float dialogueDuration;
     public Sprite icon;
+    [Tooltip("Menu item will only show for this exam type (leave blank for no filter)")]
+    public string examFilter;
     [HideInInspector] public delegate void callback(string label);
     [HideInInspector] public callback onclickCallback;
     [HideInInspector] public PatientMenuButton button;

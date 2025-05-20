@@ -152,7 +152,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
 
         currentState = newState;
 
-        patientMenu.SetItems(newState.menuItems, ChangePatientState);
+        patientMenu.SetItems(newState.menuItems, ChangePatientState, dataBanker.GetExamType());
         patientMenu.Enable();
 
         if (newState.options.immediateNextState != null && newState.options.immediateNextState != "")
