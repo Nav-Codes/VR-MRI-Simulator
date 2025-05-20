@@ -41,7 +41,8 @@ public class DoubleDoor : MonoBehaviour
     private bool patientIsInsideRoom = false;
     private bool firstCheckComplete = false;
     private bool thirdCheckComplete = false;
-
+    private bool closeFirstCheck = false;
+    private bool closeThirdCheck = false;
     private void Awake()
     {
         if (!insideRoomCollider || !outsideRoomCollider || !player || !patient)
@@ -58,22 +59,26 @@ public class DoubleDoor : MonoBehaviour
         if (playerIsInsideRoom && patientIsInsideRoom)
             bothEnteredRoomOnce = true;
 
-        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !thirdCheckComplete)
+        if (bothEnteredRoomOnce && !playerIsInsideRoom && !patientIsInsideRoom && !thirdCheckComplete && !closeThirdCheck)
         {
             ThirdErrorCheckHolder.Check(() =>
             {
                 MovePanel(panel3, finalPanel3, "Room Teardown/Patient Dismissal Results");
                 thirdCheckComplete = true;
                 StartCoroutine(BlinkThenTeleport());
-            }, () => { });
+            }, () => { 
+                closeThirdCheck = true;
+                });
         }
-        else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !firstCheckComplete)
+        else if (dataBanker.GetExamType() != null && !playerIsInsideRoom && playerEnteredRoomOnce && !firstCheckComplete && !closeFirstCheck)
         {
             FirstErrorCheckHolder.Check(() =>
             {
                 MovePanel(panel1, finalPanel1, "Room Prep Results");
                 firstCheckComplete = true;
-            }, () => { });
+            }, () => { 
+                closeFirstCheck = true;
+                });
         }
     }
 
@@ -122,8 +127,8 @@ public class DoubleDoor : MonoBehaviour
             if (playerIsInsideRoom)
             {
                 playerEnteredRoomOnce = true;
-                firstCheckComplete = false;
-                thirdCheckComplete = false;
+                closeFirstCheck = false;
+                closeThirdCheck = false;
             }
         }
         else if (obj == patient)
@@ -146,45 +151,48 @@ public class DoubleDoor : MonoBehaviour
 
         // Clear any previous children in the target parent
         foreach (Transform child in targetParent)
+        {
             Destroy(child.gameObject);
+        }
 
-        // Re-parent the entire source panel to the new parent
+        // Re-parent the source panel
         sourcePanel.SetParent(targetParent, false);
         sourcePanel.localPosition = Vector3.zero;
         sourcePanel.localRotation = Quaternion.identity;
         sourcePanel.localScale = Vector3.one;
 
-        // Make sure there's at least one child (content panel)
+
+        // Ensure sourcePanel has at least one child
         if (sourcePanel.childCount == 0)
         {
-            Debug.LogWarning("Source panel has no content.");
+            Debug.LogWarning("[MovePanel] Source panel has no children.");
             return;
         }
 
         Transform contentPanel = sourcePanel.GetChild(0);
 
-        // Replace first entry (title)
+        // Replace title
         if (contentPanel.childCount > 0)
         {
-            Destroy(contentPanel.GetChild(0).gameObject);
+            Transform oldTitle = contentPanel.GetChild(0);
+            Destroy(oldTitle.gameObject);
+
+            Transform description = contentPanel.GetChild(1);
+            Destroy(description.gameObject);
+
             GameObject newTitleText = AddText(newTitle, contentPanel, Color.black, true);
             newTitleText.transform.SetSiblingIndex(0);
+
         }
 
-        // Remove second entry (description)
-        if (contentPanel.childCount > 1)
-        {
-            Destroy(contentPanel.GetChild(1).gameObject);
-        }
-
-        // Deactivate the last child of the source panel (assumed to be the button row)
+        // Disable button row
         if (sourcePanel.childCount > 1)
         {
             Transform buttonRow = sourcePanel.GetChild(sourcePanel.childCount - 1);
             buttonRow.gameObject.SetActive(false);
         }
     }
-    
+
     private GameObject AddText(string text, Transform parent, Color color, bool isTitle = false)
     {
         if (!ErrorTextPrefab) throw new MissingReferenceException("Missing ErrorTextPrefab");
