@@ -9,7 +9,7 @@ public class PatientWalkIn : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.ToLower().Contains("snappoint"))
+        if (other.gameObject.name.ToLower().Contains("headtarget"))
             RightCurtainController.GetComponent<SmoothCurtainAnimator>().TriggerAnimation();
     }
 }
