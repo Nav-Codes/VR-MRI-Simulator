@@ -10,6 +10,8 @@ TagManager:
   - Tissue
   - Coil
   - Ghost
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
