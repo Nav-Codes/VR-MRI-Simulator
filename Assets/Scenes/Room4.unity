@@ -52262,8 +52262,8 @@ MonoBehaviour:
   - {x: -0.063583255, y: 1, z: -1.8154695}
   - {x: -1.5351148, y: 1, z: -2.3484025}
   - {x: -3.1417017, y: 1, z: -2.9302475}
-  - {x: -5.600076, y: 1, z: -4.2580967}
-  - {x: -6.819578, y: 1, z: -4.2848563}
+  - {x: -5.7868037, y: 1, z: -4.3043284}
+  - {x: -7.0063057, y: 1, z: -4.331088}
   modes: 000000000100000000000000
 --- !u!4 &843297842
 Transform:
@@ -107489,6 +107489,10 @@ PrefabInstance:
       value: Lysol
       objectReference: {fileID: 0}
     - target: {fileID: 5108204734879497754, guid: f95c78168657fc84d8f7cbfc0a85e08b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108204734879497754, guid: f95c78168657fc84d8f7cbfc0a85e08b, type: 3}
       propertyPath: m_TagString
       value: Tissue
       objectReference: {fileID: 0}
@@ -107683,13 +107687,37 @@ MonoBehaviour:
   grabRadius: 1.25
   OnGrabbed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6544086415586095423}
+        m_TargetAssemblyTypeName: Tissue, Assembly-CSharp
+        m_MethodName: OnGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnReleased:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6544086415586095427}
         m_TargetAssemblyTypeName: ReturnToParent, Assembly-CSharp
         m_MethodName: ReturnToParentObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6544086415586095423}
+        m_TargetAssemblyTypeName: Tissue, Assembly-CSharp
+        m_MethodName: OnRelease
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -113516,15 +113544,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4638392282593973357}
-  m_LocalRotation: {x: 0.000000053385083, y: 0.7071068, z: 0.7071068, w: 0.00000005338508}
-  m_LocalPosition: {x: 0.41374022, y: 0.4469275, z: -0.0785791}
+  m_LocalRotation: {x: -0.50941336, y: 0.49040604, z: 0.49040604, w: -0.50941336}
+  m_LocalPosition: {x: 0.42942667, y: 0.44314575, z: -0.07857907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5471647676521323814}
   m_Father: {fileID: 8013698513622464810}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.178, y: -90, z: -90}
 --- !u!23 &5231024628163537425
 MeshRenderer:
   m_ObjectHideFlags: 0

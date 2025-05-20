@@ -12,6 +12,16 @@ public class Tissue : MonoBehaviour, ReturnedInterface
         TissueObj.GetComponent<BoxCollider>().enabled = true;
     }
 
+    public void OnGrab()
+    {
+        TissueObj.GetComponent<Collider>().isTrigger = true;
+    }
+
+    public void OnRelease()
+    {
+        TissueObj.GetComponent<Collider>().isTrigger = false;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.ToLower().Contains("smudge"))
