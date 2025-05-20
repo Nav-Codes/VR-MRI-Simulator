@@ -60,18 +60,13 @@ public class StartScanManager : MonoBehaviour
 
         Transform contentPanel = sourcePanel.GetChild(0);
 
-        // Replace first entry (title)
+        // Replace first entry (title) and second entry (description)
         if (contentPanel.childCount > 0)
         {
             Destroy(contentPanel.GetChild(0).gameObject);
+            Destroy(contentPanel.GetChild(1).gameObject);
             GameObject newTitleText = AddText(newTitle, contentPanel, Color.black, true);
             newTitleText.transform.SetSiblingIndex(0);
-        }
-
-        // Remove second entry (description)
-        if (contentPanel.childCount > 1)
-        {
-            Destroy(contentPanel.GetChild(1).gameObject);
         }
 
         // Deactivate the last child of the source panel (assumed to be the button row)
