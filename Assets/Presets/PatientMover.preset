@@ -26,11 +26,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.size
-    value: 2
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[0].label
-    value: walkToTable
+    value: walkToTable(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[0].pathSpline
@@ -42,11 +42,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[0].nextPatientStateLabel
-    value: standingBesideTableBefore
+    value: standingBesideTableBefore(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[1].label
-    value: walkFromTable
+    value: walkToTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[1].pathSpline
@@ -58,6 +58,38 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.data[1].nextPatientStateLabel
+    value: standingBesideTableBefore(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[2].label
+    value: walkFromTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[2].pathSpline
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[2].speed
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[2].nextPatientStateLabel
+    value: initialStateInChair
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[3].label
+    value: walkFromTable(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[3].pathSpline
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[3].speed
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allPatientMovements.Array.data[3].nextPatientStateLabel
     value: initialStateInChair
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

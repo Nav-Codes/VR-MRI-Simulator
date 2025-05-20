@@ -44399,7 +44399,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 132, y: 0}
+  m_SizeDelta: {x: 220, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655411897
 MonoBehaviour:
@@ -44468,8 +44468,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 12
@@ -60355,11 +60355,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPatientMovements:
-  - label: walkToTable
+  - label: walkToTable(Knee)
     pathSpline: {fileID: 843297841}
     speed: 1
-    nextPatientStateLabel: standingBesideTableBefore
-  - label: walkFromTable
+    nextPatientStateLabel: standingBesideTableBefore(Knee)
+  - label: walkToTable(Head)
+    pathSpline: {fileID: 843297841}
+    speed: 1
+    nextPatientStateLabel: standingBesideTableBefore(Head)
+  - label: walkFromTable(Knee)
+    pathSpline: {fileID: 436026581}
+    speed: 1
+    nextPatientStateLabel: initialStateInChair
+  - label: walkFromTable(Head)
     pathSpline: {fileID: 436026581}
     speed: 1
     nextPatientStateLabel: initialStateInChair
@@ -60391,28 +60399,58 @@ MonoBehaviour:
     icon: {fileID: 0}
     examFilter: 
     button: {fileID: 0}
-  - label: standFromChairExamSelected
-    targetStateLabel: standingByChairExamSelected
+  - label: standFromChairExamSelected(Knee)
+    targetStateLabel: standingByChairExamSelected(Knee)
     hintText: Walk to scanner
     dialogueTemplate: Would you please {0}?
     userDialogueText: walk to the scanner and sit on the table
     patientDialogueText: 
     dialogueDuration: 3
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
-    examFilter: 
+    examFilter: Knee
     button: {fileID: 0}
-  - label: walkToTable
-    targetStateLabel: walkingToTable
+  - label: standFromChairExamSelected(Head)
+    targetStateLabel: standingByChairExamSelected(Head)
+    hintText: Walk to scanner
+    dialogueTemplate: Would you please {0}?
+    userDialogueText: walk to the scanner and sit on the table
+    patientDialogueText: 
+    dialogueDuration: 3
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: Head
+    button: {fileID: 0}
+  - label: walkToTable(Knee)
+    targetStateLabel: walkingToTable(Knee)
     hintText: Walk to scanner
     dialogueTemplate: 
     userDialogueText: walk to the scanner and sit on the table
     patientDialogueText: 
     dialogueDuration: 3
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: Knee
+    button: {fileID: 0}
+  - label: walkToTable(Head)
+    targetStateLabel: walkingToTable(Head)
+    hintText: Walk to scanner
+    dialogueTemplate: 
+    userDialogueText: walk to the scanner and sit on the table
+    patientDialogueText: 
+    dialogueDuration: 3
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: Head
+    button: {fileID: 0}
+  - label: sitOnTable(Knee)
+    targetStateLabel: sittingOnTableEdge(Knee)
+    hintText: Sit on table
+    dialogueTemplate: 
+    userDialogueText: sit on the table
+    patientDialogueText: 
+    dialogueDuration: 2
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     examFilter: 
     button: {fileID: 0}
-  - label: sitOnTable
-    targetStateLabel: sittingOnTableEdge
+  - label: sitOnTable(Head)
+    targetStateLabel: sittingOnTableEdge(Head)
     hintText: Sit on table
     dialogueTemplate: 
     userDialogueText: sit on the table
@@ -60461,8 +60499,8 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     examFilter: 
     button: {fileID: 0}
-  - label: dismountTable
-    targetStateLabel: standingBesideTable
+  - label: dismountTable(Knee)
+    targetStateLabel: standingBesideTable(Knee)
     hintText: Dismount table
     dialogueTemplate: 
     userDialogueText: come down from the table
@@ -60471,8 +60509,28 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     examFilter: 
     button: {fileID: 0}
-  - label: exitRoom
-    targetStateLabel: walkingFromTable
+  - label: dismountTable(Head)
+    targetStateLabel: standingBesideTable(Head)
+    hintText: Dismount table
+    dialogueTemplate: 
+    userDialogueText: come down from the table
+    patientDialogueText: 
+    dialogueDuration: 2.5
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: 
+    button: {fileID: 0}
+  - label: exitRoom(Knee)
+    targetStateLabel: walkingFromTable(Knee)
+    hintText: Exit room
+    dialogueTemplate: 
+    userDialogueText: exit the room and change back into your clothes
+    patientDialogueText: 
+    dialogueDuration: 3
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: 
+    button: {fileID: 0}
+  - label: exitRoom(Head)
+    targetStateLabel: walkingFromTable(Head)
     hintText: Exit room
     dialogueTemplate: 
     userDialogueText: exit the room and change back into your clothes
@@ -60579,7 +60637,8 @@ MonoBehaviour:
       immediateNextState: 
   - label: sittingInChairExamSelected
     menuItems:
-    - standFromChairExamSelected
+    - standFromChairExamSelected(Knee)
+    - standFromChairExamSelected(Head)
     conditionObjects: []
     transition:
       animationName: m35a@Standup-SitOnChair
@@ -60600,9 +60659,9 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
-  - label: standingByChairExamSelected
+  - label: standingByChairExamSelected(Knee)
     menuItems:
-    - walkToTable
+    - walkToTable(Knee)
     conditionObjects: []
     transition:
       animationName: m35a@90-Standup
@@ -60622,15 +60681,38 @@ MonoBehaviour:
       yPosition: 0
       zPosition: 0
       transitionOffsetY: 0
-      immediateNextState: walkingToTable
-  - label: walkingToTable
+      immediateNextState: walkingToTable(Knee)
+  - label: standingByChairExamSelected(Head)
+    menuItems:
+    - walkToTable(Head)
+    conditionObjects: []
+    transition:
+      animationName: m35a@90-Standup
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: walkingToTable(Head)
+  - label: walkingToTable(Knee)
     menuItems: []
     conditionObjects:
     - {fileID: 5268308436593864543}
     transition:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
-      movementLabel: walkToTable
+      movementLabel: walkToTable(Knee)
       additionalEvents:
         m_PersistentCalls:
           m_Calls: []
@@ -60646,9 +60728,32 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
-  - label: standingBesideTableBefore
+  - label: walkingToTable(Head)
+    menuItems: []
+    conditionObjects:
+    - {fileID: 5268308436593864543}
+    transition:
+      animationName: m35a@WalkCycle
+      parent: {fileID: 0}
+      movementLabel: walkToTable(Head)
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: standingBesideTableBefore(Knee)
     menuItems:
-    - sitOnTable
+    - sitOnTable(Knee)
     conditionObjects: []
     transition:
       animationName: m35a@walk-R_turn_90
@@ -60668,10 +60773,56 @@ MonoBehaviour:
       yPosition: 2.62
       zPosition: -7
       transitionOffsetY: 0
-      immediateNextState: sittingOnTableEdge
-  - label: sittingOnTableEdge
+      immediateNextState: sittingOnTableEdge(Knee)
+  - label: standingBesideTableBefore(Head)
+    menuItems:
+    - sitOnTable(Head)
+    conditionObjects: []
+    transition:
+      animationName: m35a@walk-R_turn_90
+      parent: {fileID: 486751749397188668}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 0
+      xPosition: -5.83
+      yPosition: 2.62
+      zPosition: -7
+      transitionOffsetY: 0
+      immediateNextState: sittingOnTableEdge(Head)
+  - label: sittingOnTableEdge(Knee)
     menuItems:
     - lieFeetToScanner
+    conditionObjects:
+    - {fileID: 6290459220451491345}
+    transition:
+      animationName: m35a@Stand-SitOnTable
+      parent: {fileID: 486751749397188668}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 1
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 1
+      xPosition: -5.83
+      yPosition: 2.62
+      zPosition: -7
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: sittingOnTableEdge(Head)
+    menuItems:
     - lieHeadToScanner
     conditionObjects:
     - {fileID: 6290459220451491345}
@@ -60822,9 +60973,8 @@ MonoBehaviour:
       immediateNextState: 
   - label: sittingOnTableFromLying
     menuItems:
-    - lieFeetToScanner
     - lieHeadToScanner
-    - dismountTable
+    - dismountTable(Head)
     conditionObjects: []
     transition:
       animationName: m35a@0-90_Transition
@@ -60860,8 +61010,7 @@ MonoBehaviour:
   - label: sittingOnTableFromLyingFlipped
     menuItems:
     - lieFeetToScanner
-    - lieHeadToScanner
-    - dismountTable
+    - dismountTable(Knee)
     conditionObjects: []
     transition:
       animationName: m35a@0-90_Transition
@@ -60894,9 +61043,9 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: -14.3
       immediateNextState: 
-  - label: standingBesideTable
+  - label: standingBesideTable(Knee)
     menuItems:
-    - exitRoom
+    - exitRoom(Knee)
     conditionObjects:
     - {fileID: 6290459220451491345}
     transition:
@@ -60918,14 +61067,73 @@ MonoBehaviour:
       zPosition: 1.82
       transitionOffsetY: 0
       immediateNextState: 
-  - label: walkingFromTable
+  - label: standingBesideTable(Head)
+    menuItems:
+    - exitRoom(Head)
+    conditionObjects:
+    - {fileID: 6290459220451491345}
+    transition:
+      animationName: m35a@SitOnTable-Stand
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 1
+      updateRotation: 1
+      pivotDegrees: 90
+      updatePosition: 1
+      xPosition: 0.82
+      yPosition: 0
+      zPosition: 1.82
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: walkingFromTable(Knee)
     menuItems: []
     conditionObjects:
     - {fileID: 5268308436593864543}
     transition:
       animationName: m35a@WalkCycle
       parent: {fileID: 0}
-      movementLabel: walkFromTable
+      movementLabel: walkFromTable(Knee)
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6544086415586095423}
+            m_TargetAssemblyTypeName: Tissue, Assembly-CSharp
+            m_MethodName: ApplySmudgeAll
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 90
+      updatePosition: 0
+      xPosition: 0.975
+      yPosition: 0
+      zPosition: 1.876
+      transitionOffsetY: 0
+      immediateNextState: 
+  - label: walkingFromTable(Head)
+    menuItems: []
+    conditionObjects:
+    - {fileID: 5268308436593864543}
+    transition:
+      animationName: m35a@WalkCycle
+      parent: {fileID: 0}
+      movementLabel: walkFromTable(Head)
       additionalEvents:
         m_PersistentCalls:
           m_Calls:
@@ -64367,7 +64575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.13}
+  m_AnchoredPosition: {x: 0, y: 0.18}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214328961
