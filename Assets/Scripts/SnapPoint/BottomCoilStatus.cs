@@ -6,7 +6,7 @@ public class BottomCoilStatus : MonoBehaviour, CheckerInterface
 {
     public bool isCorrect()
     {
-        return transform.childCount > 0;
+        return gameObject.CompareTag("Coil");
     }
 
     public string getLabel()
