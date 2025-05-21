@@ -218,6 +218,8 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
         patientAnimator.Play(animationName, 0, 0f);
         patientAnimator.speed = 1;
 
+        yield return null;
+
         AnimatorStateInfo currentState = patientAnimator.GetCurrentAnimatorStateInfo(0);
 
         // Ensure animation has started

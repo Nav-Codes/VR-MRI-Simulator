@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PatientMover : MonoBehaviour
 {
+    public string walkAnimation = "m35a@WalkCycle";
+    public Animator patientAnimator;
     public List<PatientMovement> allPatientMovements;
     private PatientMovement currentMovement;
     private float speed = 1;
@@ -109,7 +111,23 @@ public class PatientMover : MonoBehaviour
 
     public void StartMoving()
     {
+        if (currentSpline == null)
+        {
+            isMoving = false;
+            throw new System.Exception("Could not move patient: no patient movement has been set.");
+        }
+
         isMoving = true;
+
+        // Play walk animation if defined
+        if (!string.IsNullOrEmpty(walkAnimation))
+        {
+            patientAnimator.enabled = true;
+            patientAnimator.Play(walkAnimation, 0, 0f);
+            patientAnimator.speed = 1;
+        }
+
+        t = 0f;
     }
 
     public void StopMoving()
