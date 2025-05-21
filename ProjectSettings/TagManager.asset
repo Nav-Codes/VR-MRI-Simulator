@@ -10,6 +10,8 @@ TagManager:
   - Tissue
   - Coil
   - Ghost
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Curtain
   - SnapPoints
   - MRIAccessories
-  - 
+  - Ceiling
   - 
   - 
   - 
