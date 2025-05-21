@@ -66,7 +66,7 @@ public class ShowSpeechButtonZone: MonoBehaviour
         float verticalAngleDifference = Vector3.SignedAngle(rayDirection, cameraForward, cameraTransform.right);
 
 
-        if (isShowing) return verticalAngleDifference > (rayAngleThreshold - 30);
+        if (isShowing) return verticalAngleDifference > (rayAngleThreshold - 45);
         else return verticalAngleDifference > rayAngleThreshold;
     }
 
