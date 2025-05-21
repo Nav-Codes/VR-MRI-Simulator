@@ -11,6 +11,9 @@ public class DialogueController : MonoBehaviour
     public GameObject patientSpeechPanel;
     public ShowSpeechButtonZone showSpeechButtonZone;
     public string startingText = "Which patient am I scanning next?";
+    public string selectionUserText = "Are you last name Doe?";
+    public string selectionPatientText = "Yes, that's me";
+    public string speechMenuInstruction = "(I can point the controller off the top of the screen to speak to the patient)";
 
     private Image userPanelImg;
     private Image patientPanelImg;
@@ -18,13 +21,14 @@ public class DialogueController : MonoBehaviour
     private TMPro.TextMeshProUGUI patientText;
     private string userSpeechTemplate = "{0}";
     private string defaultText = "...";
-    private float patientDialogueDuration = 1f;
+    private float patientDialogueDuration = 2f;
     private float fadeDuration = 0.6f;
     private bool userTextActive = false;
     private bool patientTextActive = false;
     private float userDialogueTime = 0;
     private float patientDialogueTime = 0;
     private float speechOpacity = 0.9f;
+    private bool speechInstructionGiven = false;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +94,18 @@ public class DialogueController : MonoBehaviour
                     SetPanelOpacity(patientPanelImg, patientText, patientDialogueTime / fadeDuration);
 
             }
-            else patientTextActive = false;
+            else
+            {
+                patientTextActive = false;
+                if (!speechInstructionGiven)
+                {
+                    speechInstructionGiven = true;
+                    SetUserText(speechMenuInstruction);
+                    SetUserSpeechVisibility(true);
+                }
+                
+            } 
+                
         }
     }
 
@@ -184,5 +199,10 @@ public class DialogueController : MonoBehaviour
                 patientDialogueTime = duration;
             }
         }
+    }
+
+    public void InitiateSelectionDialogue()
+    {
+        InitiateDialogue("", selectionUserText, selectionPatientText, 2.5f);
     }
 }

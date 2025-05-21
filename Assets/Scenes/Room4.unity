@@ -44925,7 +44925,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 220, y: 0}
+  m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655411897
 MonoBehaviour:
@@ -45689,6 +45689,10 @@ MonoBehaviour:
   patientSpeechPanel: {fileID: 828846149}
   showSpeechButtonZone: {fileID: 696253996}
   startingText: Which patient am I scanning next?
+  selectionUserText: Are you last name Doe?
+  selectionPatientText: Yes, that's me
+  speechMenuInstruction: (I can point the controller off the top of the screen to
+    speak to the patient)
 --- !u!1 &697543445
 GameObject:
   m_ObjectHideFlags: 0
@@ -61211,7 +61215,7 @@ MonoBehaviour:
   dialogueController: {fileID: 696253997}
   cancelSprite: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   allMenuItems:
-  - label: standFromChair
+  - label: selectExam
     targetStateLabel: examSelect
     hintText: Stand up
     dialogueTemplate: 
@@ -61361,13 +61365,36 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     examFilter: 
     button: {fileID: 0}
-  - label: nod
-    targetStateLabel: inChairReadyForExamSelection
+  - label: nodGreeting
+    targetStateLabel: greeted
     hintText: Greet
     dialogueTemplate: 
-    userDialogueText: Hello, my name is ... and I'll be your MRI technologist today.
+    userDialogueText: Hello, my name is ... . I'm an MRI technologist, and I'll be
+      doing your MRI scan today.
     patientDialogueText: Hello
     dialogueDuration: 3
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: 
+    button: {fileID: 0}
+  - label: nodDetails
+    targetStateLabel: patientDetailsConfirmed
+    hintText: Confirm details
+    dialogueTemplate: 
+    userDialogueText: Can you please confirm your first and last name and date of
+      birth?
+    patientDialogueText: My first name is John, last name is Doe, and my birth day
+      is July 18, 1989
+    dialogueDuration: 3.5
+    icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+    examFilter: 
+    button: {fileID: 0}
+  - label: sitForRoomPrep
+    targetStateLabel: sittingInChairExamSelected
+    hintText: Sit down
+    dialogueTemplate: '{0}'
+    userDialogueText: Thank you. Please have a seat while I prepare the room.
+    patientDialogueText: Okay
+    dialogueDuration: 3.5
     icon: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
     examFilter: 
     button: {fileID: 0}
@@ -61390,8 +61417,7 @@ MonoBehaviour:
   dialogueController: {fileID: 696253997}
   patientStates:
   - label: initialStateInChair
-    menuItems:
-    - nod
+    menuItems: []
     conditionObjects: []
     transition:
       animationName: m35a@Standup-SitOnChair
@@ -61412,31 +61438,10 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
-  - label: inChairReadyForExamSelection
+      nextStateDelay: 0
+  - label: standingPatientSelected
     menuItems:
-    - standFromChair
-    conditionObjects: []
-    transition:
-      animationName: 
-      parent: {fileID: 0}
-      movementLabel: 
-      additionalEvents:
-        m_PersistentCalls:
-          m_Calls: []
-    options:
-      flipModel: 0
-      flipTransition: 0
-      updateParent: 0
-      updateRotation: 0
-      pivotDegrees: 0
-      updatePosition: 0
-      xPosition: 0
-      yPosition: 0
-      zPosition: 0
-      transitionOffsetY: 0
-      immediateNextState: 
-  - label: examSelect
-    menuItems: []
+    - nodGreeting
     conditionObjects: []
     transition:
       animationName: m35a@90-Standup
@@ -61457,6 +61462,101 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
+  - label: greeted
+    menuItems:
+    - nodDetails
+    conditionObjects: []
+    transition:
+      animationName: 
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: 
+      nextStateDelay: 0
+  - label: patientDetailsConfirmed
+    menuItems: []
+    conditionObjects: []
+    transition:
+      animationName: 
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: examSelect
+      nextStateDelay: 4
+  - label: examSelect
+    menuItems: []
+    conditionObjects: []
+    transition:
+      animationName: 
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: 
+      nextStateDelay: 0
+  - label: standingExamSelected
+    menuItems:
+    - sitForRoomPrep
+    conditionObjects: []
+    transition:
+      animationName: 
+      parent: {fileID: 0}
+      movementLabel: 
+      additionalEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    options:
+      flipModel: 0
+      flipTransition: 0
+      updateParent: 0
+      updateRotation: 0
+      pivotDegrees: 0
+      updatePosition: 0
+      xPosition: 0
+      yPosition: 0
+      zPosition: 0
+      transitionOffsetY: 0
+      immediateNextState: 
+      nextStateDelay: 0
   - label: sittingInChairExamSelected
     menuItems:
     - standFromChairExamSelected(Knee)
@@ -61481,6 +61581,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: standingByChairExamSelected(Knee)
     menuItems:
     - walkToTable(Knee)
@@ -61504,6 +61605,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: walkingToTable(Knee)
+      nextStateDelay: 0
   - label: standingByChairExamSelected(Head)
     menuItems:
     - walkToTable(Head)
@@ -61527,6 +61629,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: walkingToTable(Head)
+      nextStateDelay: 0
   - label: walkingToTable(Knee)
     menuItems: []
     conditionObjects:
@@ -61550,6 +61653,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: walkingToTable(Head)
     menuItems: []
     conditionObjects:
@@ -61573,6 +61677,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: standingBesideTableBefore(Knee)
     menuItems:
     - sitOnTable(Knee)
@@ -61596,6 +61701,7 @@ MonoBehaviour:
       zPosition: -7
       transitionOffsetY: 0
       immediateNextState: sittingOnTableEdge(Knee)
+      nextStateDelay: 0
   - label: standingBesideTableBefore(Head)
     menuItems:
     - sitOnTable(Head)
@@ -61619,6 +61725,7 @@ MonoBehaviour:
       zPosition: -7
       transitionOffsetY: 0
       immediateNextState: sittingOnTableEdge(Head)
+      nextStateDelay: 0
   - label: sittingOnTableEdge(Knee)
     menuItems:
     - lieFeetToScanner
@@ -61643,6 +61750,7 @@ MonoBehaviour:
       zPosition: -7
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: sittingOnTableEdge(Head)
     menuItems:
     - lieHeadToScanner
@@ -61667,6 +61775,7 @@ MonoBehaviour:
       zPosition: -7
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: turningFeetToScanner
     menuItems: []
     conditionObjects: []
@@ -61701,6 +61810,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: lyingFeetToScanner
+      nextStateDelay: 0
   - label: lyingFeetToScanner
     menuItems:
     - sitUpFlipped
@@ -61724,6 +61834,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: turningHeadToScanner
     menuItems: []
     conditionObjects: []
@@ -61758,6 +61869,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: lyingHeadToScanner
+      nextStateDelay: 0
   - label: lyingHeadToScanner
     menuItems:
     - sitUp
@@ -61793,6 +61905,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: sittingOnTableFromLying
     menuItems:
     - lieHeadToScanner
@@ -61829,6 +61942,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: sittingOnTableFromLyingFlipped
     menuItems:
     - lieFeetToScanner
@@ -61865,6 +61979,7 @@ MonoBehaviour:
       zPosition: -9.39
       transitionOffsetY: -14.3
       immediateNextState: 
+      nextStateDelay: 0
   - label: standingBesideTable(Knee)
     menuItems:
     - exitRoom(Knee)
@@ -61889,6 +62004,7 @@ MonoBehaviour:
       zPosition: 1.82
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: standingBesideTable(Head)
     menuItems:
     - exitRoom(Head)
@@ -61913,6 +62029,7 @@ MonoBehaviour:
       zPosition: 1.82
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: walkingFromTable(Knee)
     menuItems: []
     conditionObjects:
@@ -61960,6 +62077,7 @@ MonoBehaviour:
       zPosition: 1.876
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: walkingFromTable(Head)
     menuItems: []
     conditionObjects:
@@ -61995,6 +62113,7 @@ MonoBehaviour:
       zPosition: 1.876
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: kneeRaised
     menuItems: []
     conditionObjects: []
@@ -62017,6 +62136,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   - label: kneeLowered
     menuItems:
     - sitUpFlipped
@@ -62040,6 +62160,7 @@ MonoBehaviour:
       zPosition: 0
       transitionOffsetY: 0
       immediateNextState: 
+      nextStateDelay: 0
   initialState: 0
 --- !u!1 &1017098193
 GameObject:
@@ -65576,7 +65697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.18}
+  m_AnchoredPosition: {x: 0, y: 0.21}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214328961
@@ -73620,7 +73741,7 @@ Transform:
   - {fileID: 4191618696808288328}
   - {fileID: 1815831541037285361}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1343359140
 MonoBehaviour:
@@ -74247,7 +74368,7 @@ Transform:
   - {fileID: 385505068}
   - {fileID: 827790111}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1371660596
 BoxCollider:
@@ -108616,52 +108737,27 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 696253997}
         m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
-        m_MethodName: SetPatientText
-        m_Mode: 5
+        m_MethodName: InitiateSelectionDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Hm?
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 696253997}
-        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
-        m_MethodName: SetPatientSpeechVisibility
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 696253997}
-        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
-        m_MethodName: SetUserText
+      - m_Target: {fileID: 1015465989}
+        m_TargetAssemblyTypeName: PatientStateManager, Assembly-CSharp
+        m_MethodName: ChangePatientState
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: I can aim the controller off the top of the screen to
-            speak to the patient
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 696253997}
-        m_TargetAssemblyTypeName: DialogueController, Assembly-CSharp
-        m_MethodName: SetUserSpeechVisibility
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_StringArgument: standingPatientSelected
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2032529191
 GameObject:
@@ -110795,7 +110891,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &249254274573359277
 MeshFilter:
@@ -111930,7 +112026,7 @@ Transform:
   - {fileID: 8635310440806605140}
   - {fileID: 6557360301331583862}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &952652324039525527
 MonoBehaviour:
@@ -112255,7 +112351,7 @@ Transform:
   - {fileID: 5007204177459255671}
   - {fileID: 1089771856}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1418250857838252876
 Transform:
@@ -112971,7 +113067,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2099103081524853263
 MeshFilter:
@@ -112996,7 +113092,7 @@ Transform:
   - {fileID: 3569224674270107271}
   - {fileID: 5240193676811555241}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2132324287623706871
 MeshFilter:
@@ -114306,24 +114402,24 @@ Transform:
   - {fileID: 1731381401834505320}
   - {fileID: 1255401596896773679}
   - {fileID: 219523682751739832}
-  - {fileID: 554955092}
   - {fileID: 5054285164405344360}
   - {fileID: 8013698513622464810}
   - {fileID: 5702653218008397196}
   - {fileID: 2123027094676521357}
   - {fileID: 1410182736892972233}
+  - {fileID: 554955092}
   - {fileID: 856153611393432663}
   - {fileID: 12547523709579838}
   - {fileID: 8476916988608598313}
   - {fileID: 1398622297}
   - {fileID: 161409209495058399}
   - {fileID: 4369058810481544747}
-  - {fileID: 1303191612}
   - {fileID: 952652324039525526}
   - {fileID: 1343359139}
   - {fileID: 239983128849467802}
   - {fileID: 1371660595}
   - {fileID: 2092191315358623565}
+  - {fileID: 1303191612}
   - {fileID: 2970429946809115571}
   - {fileID: 7820648784726430890}
   - {fileID: 2545013870764960877}
@@ -116064,7 +116160,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5108204734110678481 stripped
 GameObject:
@@ -116698,7 +116794,7 @@ Transform:
   - {fileID: 9099481309118889659}
   - {fileID: 276995480888032675}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5729179751867085718
 GameObject:
@@ -120292,7 +120388,7 @@ Transform:
   - {fileID: 5157813928727271729}
   - {fileID: 111625170941373113}
   m_Father: {fileID: 3377795654388870660}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8019169765199890243
 GameObject:

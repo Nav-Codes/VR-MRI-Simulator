@@ -43,7 +43,7 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
             if (patientState == null || patientState.label != examSelectionPatientStateLabel) return;
 
             hoverParticles.Emit(1);
-            dialogueController.InitiateDialogue("We'll be scanning your {0} today, right?", "", "", 0);
+            dialogueController.InitiateDialogue("Thank you for confirming. Could you confirm that we will be scanning your {0} today?", "", "", 0);
             hasStarted = true;
         }
     }
@@ -68,10 +68,10 @@ public class PatientHoverParticleFeedback : XRBaseInteractable
         {
             databanker.SetExamType(examType);
             if (databanker.GetExamType().ToLower().Contains("knee")) PillowSnapPoint.GetComponent<PillowStatus>().Flip();
-            patient.ChangePatientState("sittingInChairExamSelected");
+            patient.ChangePatientState("standingExamSelected");
             if (selectionParticles != null)
                 selectionParticles.Play();
-            dialogueController.InitiateDialogue("We'll be scanning your {0} today, right?", bodyPartName, "Yes", 1);
+            dialogueController.InitiateDialogue("Thank you for confirming. Could you confirm that we will be scanning your {0} today?", bodyPartName, "Yes, that's right", 1);
             var allInstances = FindObjectsOfType<PatientHoverParticleFeedback>();
             foreach (var instance in allInstances)
             {

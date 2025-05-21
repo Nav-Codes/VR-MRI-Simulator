@@ -46,11 +46,11 @@ Preset:
     objectReference: {fileID: 21300000, guid: bdce69e966e7f27449521366d9afdc03, type: 3}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.size
-    value: 16
+    value: 18
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].label
-    value: standFromChair
+    value: selectExam
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[0].targetStateLabel
@@ -650,11 +650,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].label
-    value: nod
+    value: nodGreeting
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].targetStateLabel
-    value: inChairReadyForExamSelection
+    value: greeted
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].hintText
@@ -666,7 +666,8 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].userDialogueText
-    value: Hello, my name is ... and I'll be your MRI technologist today.
+    value: Hello, my name is ... . I'm an MRI technologist, and I'll be doing your
+      MRI scan today.
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].patientDialogueText
@@ -686,6 +687,87 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: allMenuItems.Array.data[15].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].label
+    value: nodDetails
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].targetStateLabel
+    value: patientDetailsConfirmed
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].hintText
+    value: Confirm details
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].dialogueTemplate
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].userDialogueText
+    value: Can you please confirm your first and last name and date of birth?
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].patientDialogueText
+    value: My first name is John, last name is Doe, and my birth day is July 18,
+      1989
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].dialogueDuration
+    value: 3.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].examFilter
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[16].button
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].label
+    value: sitForRoomPrep
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].targetStateLabel
+    value: sittingInChairExamSelected
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].hintText
+    value: Sit down
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].dialogueTemplate
+    value: '{0}'
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].userDialogueText
+    value: Thank you. Please have a seat while I prepare the room.
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].patientDialogueText
+    value: Okay
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].dialogueDuration
+    value: 3.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].icon
+    value: 
+    objectReference: {fileID: 21300000, guid: e45f8f823c093d941855bb23b53b9414, type: 3}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].examFilter
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allMenuItems.Array.data[17].button
     value: 
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

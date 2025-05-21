@@ -46,7 +46,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.size
-    value: 24
+    value: 27
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[0].label
@@ -54,11 +54,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[0].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[0].menuItems.Array.data[0]
-    value: nod
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[0].conditionObjects.Array.size
@@ -125,8 +121,12 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[0].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].label
-    value: inChairReadyForExamSelection
+    value: standingPatientSelected
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].menuItems.Array.size
@@ -134,7 +134,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].menuItems.Array.data[0]
-    value: standFromChair
+    value: nodGreeting
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].conditionObjects.Array.size
@@ -142,7 +142,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].transition.animationName
-    value: 
+    value: m35a@90-Standup
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[1].transition.parent
@@ -201,12 +201,20 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[1].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[2].label
-    value: examSelect
+    value: greeted
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[2].menuItems.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[2].menuItems.Array.data[0]
+    value: nodDetails
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[2].conditionObjects.Array.size
@@ -214,7 +222,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[2].transition.animationName
-    value: m35a@90-Standup
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[2].transition.parent
@@ -273,20 +281,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[2].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].label
-    value: sittingInChairExamSelected
+    value: patientDetailsConfirmed
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].menuItems.Array.size
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].menuItems.Array.data[0]
-    value: standFromChairExamSelected(Knee)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[3].menuItems.Array.data[1]
-    value: standFromChairExamSelected(Head)
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].conditionObjects.Array.size
@@ -294,7 +298,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].transition.animationName
-    value: m35a@Standup-SitOnChair
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].transition.parent
@@ -350,19 +354,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[3].options.immediateNextState
-    value: 
+    value: examSelect
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[3].options.nextStateDelay
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].label
-    value: standingByChairExamSelected(Knee)
+    value: examSelect
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[4].menuItems.Array.data[0]
-    value: walkToTable(Knee)
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].conditionObjects.Array.size
@@ -370,7 +374,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].transition.animationName
-    value: m35a@90-Standup
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].transition.parent
@@ -426,11 +430,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[4].options.immediateNextState
-    value: walkingToTable(Knee)
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[4].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].label
-    value: standingByChairExamSelected(Head)
+    value: standingExamSelected
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].menuItems.Array.size
@@ -438,7 +446,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].menuItems.Array.data[0]
-    value: walkToTable(Head)
+    value: sitForRoomPrep
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].conditionObjects.Array.size
@@ -446,7 +454,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].transition.animationName
-    value: m35a@90-Standup
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].transition.parent
@@ -502,27 +510,35 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[5].options.immediateNextState
-    value: walkingToTable(Head)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[6].label
-    value: walkingToTable(Knee)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[6].menuItems.Array.size
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[6].conditionObjects.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[6].conditionObjects.Array.data[0]
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[5].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].label
+    value: sittingInChairExamSelected
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].menuItems.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].menuItems.Array.data[0]
+    value: standFromChairExamSelected(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].menuItems.Array.data[1]
+    value: standFromChairExamSelected(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[6].conditionObjects.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].transition.animationName
-    value: m35a@WalkCycle
+    value: m35a@Standup-SitOnChair
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].transition.parent
@@ -530,7 +546,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].transition.movementLabel
-    value: walkToTable(Knee)
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[6].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
@@ -581,24 +597,28 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[7].label
-    value: walkingToTable(Head)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[7].menuItems.Array.size
+    propertyPath: patientStates.Array.data[6].options.nextStateDelay
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[7].conditionObjects.Array.size
+    propertyPath: patientStates.Array.data[7].label
+    value: standingByChairExamSelected(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].menuItems.Array.size
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[7].conditionObjects.Array.data[0]
-    value: 
+    propertyPath: patientStates.Array.data[7].menuItems.Array.data[0]
+    value: walkToTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].conditionObjects.Array.size
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].transition.animationName
-    value: m35a@WalkCycle
+    value: m35a@90-Standup
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].transition.parent
@@ -606,7 +626,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].transition.movementLabel
-    value: walkToTable(Head)
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
@@ -654,11 +674,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[7].options.immediateNextState
-    value: 
+    value: walkingToTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[7].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].label
-    value: standingBesideTableBefore(Knee)
+    value: standingByChairExamSelected(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].menuItems.Array.size
@@ -666,7 +690,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].menuItems.Array.data[0]
-    value: sitOnTable(Knee)
+    value: walkToTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].conditionObjects.Array.size
@@ -674,7 +698,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].transition.animationName
-    value: m35a@walk-R_turn_90
+    value: m35a@90-Standup
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].transition.parent
@@ -702,11 +726,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.updateRotation
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.pivotDegrees
-    value: 90
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.updatePosition
@@ -714,15 +738,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.xPosition
-    value: -5.83
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.yPosition
-    value: 2.62
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.zPosition
-    value: -7
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.transitionOffsetY
@@ -730,27 +754,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[8].options.immediateNextState
-    value: sittingOnTableEdge(Knee)
+    value: walkingToTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[9].label
-    value: standingBesideTableBefore(Head)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[9].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[9].menuItems.Array.data[0]
-    value: sitOnTable(Head)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[9].conditionObjects.Array.size
+    propertyPath: patientStates.Array.data[8].options.nextStateDelay
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[9].label
+    value: walkingToTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[9].menuItems.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[9].conditionObjects.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[9].conditionObjects.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].transition.animationName
-    value: m35a@walk-R_turn_90
+    value: m35a@WalkCycle
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].transition.parent
@@ -758,7 +786,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].transition.movementLabel
-    value: 
+    value: walkToTable(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
@@ -778,11 +806,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.updateRotation
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.pivotDegrees
-    value: 90
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.updatePosition
@@ -790,15 +818,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.xPosition
-    value: -5.83
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.yPosition
-    value: 2.62
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.zPosition
-    value: -7
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.transitionOffsetY
@@ -806,19 +834,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[9].options.immediateNextState
-    value: sittingOnTableEdge(Head)
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[9].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].label
-    value: sittingOnTableEdge(Knee)
+    value: walkingToTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[10].menuItems.Array.data[0]
-    value: lieFeetToScanner
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].conditionObjects.Array.size
@@ -830,7 +858,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].transition.animationName
-    value: m35a@Stand-SitOnTable
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].transition.parent
@@ -838,7 +866,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].transition.movementLabel
-    value: 
+    value: walkToTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
@@ -854,31 +882,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.updateParent
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.updateRotation
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.pivotDegrees
-    value: 90
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.updatePosition
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.xPosition
-    value: -5.83
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.yPosition
-    value: 2.62
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.zPosition
-    value: -7
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[10].options.transitionOffsetY
@@ -889,8 +917,12 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[10].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].label
-    value: sittingOnTableEdge(Head)
+    value: standingBesideTableBefore(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].menuItems.Array.size
@@ -898,19 +930,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].menuItems.Array.data[0]
-    value: lieHeadToScanner
+    value: sitOnTable(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].conditionObjects.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[11].conditionObjects.Array.data[0]
-    value: 
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].transition.animationName
-    value: m35a@Stand-SitOnTable
+    value: m35a@walk-R_turn_90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].transition.parent
@@ -934,7 +962,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.updateParent
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.updateRotation
@@ -946,7 +974,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.updatePosition
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.xPosition
@@ -966,15 +994,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[11].options.immediateNextState
-    value: 
+    value: sittingOnTableEdge(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[11].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].label
-    value: turningFeetToScanner
+    value: standingBesideTableBefore(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].menuItems.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[12].menuItems.Array.data[0]
+    value: sitOnTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].conditionObjects.Array.size
@@ -982,7 +1018,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].transition.animationName
-    value: m35a@Bedside-90
+    value: m35a@walk-R_turn_90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].transition.parent
@@ -994,55 +1030,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: CoilContainerFlipper, Assembly-CSharp
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: Flip
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-    value: UnityEngine.Object, UnityEngine
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[12].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.flipModel
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.flipTransition
@@ -1058,23 +1050,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.pivotDegrees
-    value: 0
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.updatePosition
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.xPosition
-    value: 1.2
+    value: -5.83
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.yPosition
-    value: -5.5
+    value: 2.62
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.zPosition
-    value: -9.39
+    value: -7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.transitionOffsetY
@@ -1082,11 +1074,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[12].options.immediateNextState
-    value: lyingFeetToScanner
+    value: sittingOnTableEdge(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[12].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].label
-    value: lyingFeetToScanner
+    value: sittingOnTableEdge(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].menuItems.Array.size
@@ -1094,15 +1090,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].menuItems.Array.data[0]
-    value: sitUpFlipped
+    value: lieFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].conditionObjects.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[13].conditionObjects.Array.data[0]
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].transition.animationName
-    value: m35a@90-0_Transition
+    value: m35a@Stand-SitOnTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].transition.parent
@@ -1126,7 +1126,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.updateParent
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.updateRotation
@@ -1134,7 +1134,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.pivotDegrees
-    value: 180
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.updatePosition
@@ -1142,15 +1142,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.xPosition
-    value: -1.3
+    value: -5.83
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.yPosition
-    value: -5.5
+    value: 2.62
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.zPosition
-    value: -9.39
+    value: -7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[13].options.transitionOffsetY
@@ -1161,20 +1161,32 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[13].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].label
-    value: turningHeadToScanner
+    value: sittingOnTableEdge(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].menuItems.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[14].menuItems.Array.data[0]
+    value: lieHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].conditionObjects.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[14].conditionObjects.Array.data[0]
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].transition.animationName
-    value: m35a@Bedside-90
+    value: m35a@Stand-SitOnTable
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].transition.parent
@@ -1186,51 +1198,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: CoilContainerFlipper, Assembly-CSharp
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: Unflip
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-    value: UnityEngine.Object, UnityEngine
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[14].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.flipModel
@@ -1242,7 +1210,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.updateParent
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.updateRotation
@@ -1250,7 +1218,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.pivotDegrees
-    value: 0
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.updatePosition
@@ -1258,15 +1226,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.xPosition
-    value: 1.16
+    value: -5.83
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.yPosition
-    value: 8.88
+    value: 4.3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.zPosition
-    value: -9.39
+    value: -7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.transitionOffsetY
@@ -1274,19 +1242,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[14].options.immediateNextState
-    value: lyingHeadToScanner
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[14].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].label
-    value: lyingHeadToScanner
+    value: turningFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[15].menuItems.Array.data[0]
-    value: sitUp
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].conditionObjects.Array.size
@@ -1294,7 +1262,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].transition.animationName
-    value: m35a@90-0_Transition
+    value: m35a@Bedside-90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].transition.parent
@@ -1318,7 +1286,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: Unflip
+    value: Flip
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1354,7 +1322,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.flipModel
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.flipTransition
@@ -1366,7 +1334,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.updateRotation
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.pivotDegrees
@@ -1374,15 +1342,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.updatePosition
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.xPosition
-    value: 1.16
+    value: 1.2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.yPosition
-    value: 8.88
+    value: -5.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.zPosition
@@ -1394,23 +1362,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[15].options.immediateNextState
-    value: 
+    value: lyingFeetToScanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[15].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].label
-    value: sittingOnTableFromLying
+    value: lyingFeetToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].menuItems.Array.size
-    value: 2
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].menuItems.Array.data[0]
-    value: lieHeadToScanner
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].menuItems.Array.data[1]
-    value: dismountTable(Head)
+    value: sitUpFlipped
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].conditionObjects.Array.size
@@ -1418,7 +1386,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].transition.animationName
-    value: m35a@0-90_Transition
+    value: m35a@90-0_Transition
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].transition.parent
@@ -1430,51 +1398,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: CoilContainerFlipper, Assembly-CSharp
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: Unflip
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-    value: UnityEngine.Object, UnityEngine
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[16].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.flipModel
@@ -1494,7 +1418,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.pivotDegrees
-    value: 0
+    value: 180
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.updatePosition
@@ -1502,11 +1426,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.xPosition
-    value: 1.16
+    value: -1.3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.yPosition
-    value: 8.89
+    value: -5.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[16].options.zPosition
@@ -1521,20 +1445,16 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[16].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].label
-    value: sittingOnTableFromLyingFlipped
+    value: turningHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].menuItems.Array.size
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[17].menuItems.Array.data[0]
-    value: lieFeetToScanner
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[17].menuItems.Array.data[1]
-    value: dismountTable(Knee)
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].conditionObjects.Array.size
@@ -1542,7 +1462,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].transition.animationName
-    value: m35a@0-90_Transition
+    value: m35a@Bedside-90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].transition.parent
@@ -1606,7 +1526,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.flipTransition
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.updateParent
@@ -1630,7 +1550,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.yPosition
-    value: 8.67
+    value: 10.65
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.zPosition
@@ -1638,15 +1558,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.transitionOffsetY
-    value: -14.3
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[17].options.immediateNextState
-    value: 
+    value: lyingHeadToScanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[17].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].label
-    value: standingBesideTable(Knee)
+    value: lyingHeadToScanner
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].menuItems.Array.size
@@ -1654,19 +1578,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].menuItems.Array.data[0]
-    value: exitRoom(Knee)
+    value: sitUp
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].conditionObjects.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].conditionObjects.Array.data[0]
-    value: 
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].transition.animationName
-    value: m35a@SitOnTable-Stand
+    value: m35a@90-0_Transition
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].transition.parent
@@ -1678,7 +1598,51 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: CoilContainerFlipper, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: Unflip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].options.flipModel
@@ -1690,31 +1654,31 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].options.updateParent
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].options.updateRotation
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].options.pivotDegrees
-    value: 90
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].options.updatePosition
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].options.xPosition
-    value: 0.82
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[18].options.yPosition
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.updateRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.pivotDegrees
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.updatePosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.xPosition
+    value: 1.16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.yPosition
+    value: 8.88
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].options.zPosition
-    value: 1.82
+    value: -9.39
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[18].options.transitionOffsetY
@@ -1725,28 +1689,32 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[18].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].label
-    value: standingBesideTable(Head)
+    value: sittingOnTableFromLying
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].menuItems.Array.size
-    value: 1
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].menuItems.Array.data[0]
-    value: exitRoom(Head)
+    value: lieHeadToScanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].menuItems.Array.data[1]
+    value: dismountTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].conditionObjects.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[19].conditionObjects.Array.data[0]
-    value: 
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].transition.animationName
-    value: m35a@SitOnTable-Stand
+    value: m35a@0-90_Transition
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].transition.parent
@@ -1758,7 +1726,51 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: CoilContainerFlipper, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: Unflip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[19].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.flipModel
@@ -1770,7 +1782,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.updateParent
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.updateRotation
@@ -1778,7 +1790,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.pivotDegrees
-    value: 90
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.updatePosition
@@ -1786,15 +1798,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.xPosition
-    value: 0.82
+    value: 1.16
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.yPosition
-    value: 0
+    value: 10.65
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.zPosition
-    value: 1.82
+    value: -9.39
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[19].options.transitionOffsetY
@@ -1805,24 +1817,32 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[20].label
-    value: walkingFromTable(Knee)
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[20].menuItems.Array.size
+    propertyPath: patientStates.Array.data[19].options.nextStateDelay
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[20].conditionObjects.Array.size
-    value: 1
+    propertyPath: patientStates.Array.data[20].label
+    value: sittingOnTableFromLyingFlipped
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[20].conditionObjects.Array.data[0]
-    value: 
+    propertyPath: patientStates.Array.data[20].menuItems.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[20].menuItems.Array.data[0]
+    value: lieFeetToScanner
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[20].menuItems.Array.data[1]
+    value: dismountTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[20].conditionObjects.Array.size
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.animationName
-    value: m35a@WalkCycle
+    value: m35a@0-90_Transition
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.parent
@@ -1830,7 +1850,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.movementLabel
-    value: walkFromTable(Knee)
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
@@ -1842,11 +1862,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: Tissue, Assembly-CSharp
+    value: CoilContainerFlipper, Assembly-CSharp
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: ApplySmudgeAll
+    value: Unflip
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1886,7 +1906,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.flipTransition
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.updateParent
@@ -1894,43 +1914,51 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.updateRotation
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.pivotDegrees
-    value: 90
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.updatePosition
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.xPosition
-    value: 0.975
+    value: 1.16
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.yPosition
-    value: 0
+    value: 8.67
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.zPosition
-    value: 1.876
+    value: -9.39
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.transitionOffsetY
-    value: 0
+    value: -14.3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[20].options.immediateNextState
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[20].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].label
-    value: walkingFromTable(Head)
+    value: standingBesideTable(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].menuItems.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[21].menuItems.Array.data[0]
+    value: exitRoom(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].conditionObjects.Array.size
@@ -1942,7 +1970,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].transition.animationName
-    value: m35a@WalkCycle
+    value: m35a@SitOnTable-Stand
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].transition.parent
@@ -1950,55 +1978,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].transition.movementLabel
-    value: walkFromTable(Head)
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: Tissue, Assembly-CSharp
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: ApplySmudgeAll
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-    value: UnityEngine.Object, UnityEngine
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[21].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.flipModel
@@ -2010,11 +1994,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.updateParent
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.updateRotation
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.pivotDegrees
@@ -2022,11 +2006,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.updatePosition
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.xPosition
-    value: 0.975
+    value: 0.82
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.yPosition
@@ -2034,7 +2018,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.zPosition
-    value: 1.876
+    value: 1.82
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[21].options.transitionOffsetY
@@ -2045,20 +2029,32 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[21].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].label
-    value: kneeRaised
+    value: standingBesideTable(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].menuItems.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[22].menuItems.Array.data[0]
+    value: exitRoom(Head)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].conditionObjects.Array.size
-    value: 0
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[22].conditionObjects.Array.data[0]
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].transition.animationName
-    value: m35a@0-KneeRaise
+    value: m35a@SitOnTable-Stand
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].transition.parent
@@ -2082,23 +2078,23 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.updateParent
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.updateRotation
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.pivotDegrees
-    value: 0
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.updatePosition
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.xPosition
-    value: 0
+    value: 0.635
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.yPosition
@@ -2106,7 +2102,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.zPosition
-    value: 0
+    value: 1.82
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[22].options.transitionOffsetY
@@ -2117,24 +2113,28 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[23].label
-    value: kneeLowered
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[23].menuItems.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[23].menuItems.Array.data[0]
-    value: sitUpFlipped
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: patientStates.Array.data[23].conditionObjects.Array.size
+    propertyPath: patientStates.Array.data[22].options.nextStateDelay
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].label
+    value: walkingFromTable(Knee)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].menuItems.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].conditionObjects.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].conditionObjects.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].transition.animationName
-    value: m35a@KneeRaise-0
+    value: m35a@WalkCycle
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].transition.parent
@@ -2142,11 +2142,99 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].transition.movementLabel
-    value: 
+    value: walkFromTable(Knee)
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: Tissue, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: ApplySmudgeAll
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+    value: UnityEngine.GameObject, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+    value: SetActive
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.flipModel
@@ -2166,7 +2254,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.pivotDegrees
-    value: 0
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.updatePosition
@@ -2174,7 +2262,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.xPosition
-    value: 0
+    value: 0.975
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.yPosition
@@ -2182,7 +2270,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.zPosition
-    value: 0
+    value: 1.876
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.transitionOffsetY
@@ -2191,6 +2279,290 @@ Preset:
   - target: {fileID: 0}
     propertyPath: patientStates.Array.data[23].options.immediateNextState
     value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[23].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].label
+    value: walkingFromTable(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].menuItems.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].conditionObjects.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].conditionObjects.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.animationName
+    value: m35a@WalkCycle
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.parent
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.movementLabel
+    value: walkFromTable(Head)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: Tissue, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: ApplySmudgeAll
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.flipModel
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.flipTransition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.updateParent
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.updateRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.pivotDegrees
+    value: 90
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.updatePosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.xPosition
+    value: 0.975
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.zPosition
+    value: 1.876
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.transitionOffsetY
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.immediateNextState
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[24].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].label
+    value: kneeRaised
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].menuItems.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].conditionObjects.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].transition.animationName
+    value: m35a@0-KneeRaise
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].transition.parent
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].transition.movementLabel
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.flipModel
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.flipTransition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.updateParent
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.updateRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.pivotDegrees
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.updatePosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.xPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.zPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.transitionOffsetY
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.immediateNextState
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[25].options.nextStateDelay
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].label
+    value: kneeLowered
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].menuItems.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].menuItems.Array.data[0]
+    value: sitUpFlipped
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].conditionObjects.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].transition.animationName
+    value: m35a@KneeRaise-0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].transition.parent
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].transition.movementLabel
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].transition.additionalEvents.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.flipModel
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.flipTransition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.updateParent
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.updateRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.pivotDegrees
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.updatePosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.xPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.yPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.zPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.transitionOffsetY
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.immediateNextState
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientStates.Array.data[26].options.nextStateDelay
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: initialState

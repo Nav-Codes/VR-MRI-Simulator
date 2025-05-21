@@ -25,6 +25,14 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: walkAnimation
+    value: m35a@WalkCycle
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: patientAnimator
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: allPatientMovements.Array.size
     value: 4
     objectReference: {fileID: 0}

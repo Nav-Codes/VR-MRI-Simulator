@@ -157,6 +157,7 @@ public class PatientStateManager : MonoBehaviour, CheckerInterface
 
         if (newState.options.immediateNextState != null && newState.options.immediateNextState != "")
         {
+            yield return new WaitForSeconds(newState.options.nextStateDelay);
             try
             {
                 ChangePatientState(newState.options.immediateNextState);
@@ -301,4 +302,5 @@ public class StateOptions
     public float zPosition;
     public float transitionOffsetY;
     public string immediateNextState;
+    public float nextStateDelay = 0;
 }
