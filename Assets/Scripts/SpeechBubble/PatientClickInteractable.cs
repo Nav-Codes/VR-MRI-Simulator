@@ -10,7 +10,7 @@ public class PatientClickInteractable : XRBaseInteractable
     public InputActionReference rightActivateAction;
     public InputActionReference leftActivateAction;
     public UnityEvent TriggerEvent;
-    private bool isHovered = false;
+    private int hoverCount = 0;
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class PatientClickInteractable : XRBaseInteractable
 
     private void OnActivatePressed(InputAction.CallbackContext context)
     {
-        if (isHovered)
+        if (hoverCount > 0)
         {
             TriggerEvent.Invoke();
         }
@@ -49,12 +49,12 @@ public class PatientClickInteractable : XRBaseInteractable
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
-        isHovered = true;
+        hoverCount++;
     }
 
     protected override void OnHoverExited(HoverExitEventArgs args)
     {
         base.OnHoverExited(args);
-        isHovered = false;
+        hoverCount = Mathf.Max(hoverCount - 1, 0);
     }
 }

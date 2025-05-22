@@ -8,7 +8,6 @@ public class TriggerOrGrab : XRBaseInteractable
     public InputActionReference rightActivateAction;
     public InputActionReference leftActivateAction;
     public UnityEvent TriggerOrGrabEvent;
-
     private XRBaseControllerInteractor hoveringInteractor = null;
 
     void Start()
