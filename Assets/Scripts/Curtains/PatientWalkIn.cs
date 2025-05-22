@@ -11,7 +11,9 @@ public class PatientWalkIn : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.ToLower().Contains("headtarget") && !hasBeenTriggered)
+        {
             hasBeenTriggered = true;
             RightCurtainController.GetComponent<SmoothCurtainAnimator>().TriggerAnimation();
+        }
     }
 }
