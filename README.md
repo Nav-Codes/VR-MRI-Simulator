@@ -10,6 +10,9 @@ Welcome to the **MRI VR Simulation** project! This project aims to create an int
 - **Simulated Patient Handling** – Learn how to properly position patients for an MRI scan.
 - **VR Compatibility** – Supports HTC Vive Focus 3 for an immersive experience.
 
+## Blog  
+Read up on our journey of developing this application [here](https://www.bcit.ca/news/stories/computing-vr-mri-training-project/)!
+
 ## Getting Started
 To get started with development or running the project, check out the following guides:
 
@@ -24,9 +27,6 @@ Character Setup in Unity
 
 ## Contact & Support
 For questions or support, reach out via the Bitbucket issues page.
-
-## Blog  
-Read up on our journey of developing this application [here](https://www.bcit.ca/news/stories/computing-vr-mri-training-project/)!
 
 ---
 
