@@ -25,6 +25,9 @@ Character Setup in Unity
 ## Contact & Support
 For questions or support, reach out via the Bitbucket issues page.
 
+## Blog  
+Read up on our journey of developing this application [here](https://www.bcit.ca/news/stories/computing-vr-mri-training-project/)!
+
 ---
 
 Happy coding!
